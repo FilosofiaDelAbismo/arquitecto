@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel · Arquitecto Digital · Automatización IA para PYMEs</title>
 <meta name="description" content="Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, autoblog SEO, audio→libro, pipelines custom. Resultados, no plantillas.">
-<style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/styles.css">
+<!--ORIGINAL_INLINE_CSS_EXTERNALIZADO_A_ASSETS_STYLES_CSS_2026_05_21
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:wght@400;500;600;700;900&display=swap');
 
 :root {
@@ -678,7 +682,8 @@ footer {
   .stats-inner { gap: 25px; }
   .stat-num { font-size: 2.2em; }
 }
-</style>
+FIN_ORIGINAL_INLINE_CSS-->
+<script defer src="assets/cookies.js"></script>
 </head>
 <body>
 
@@ -689,7 +694,8 @@ footer {
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#stack">Filosofía</a></li>
-      <li><a href="#blog">Blog</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a href="#contacto" class="nav-cta">Hablemos →</a>
@@ -771,7 +777,7 @@ footer {
           POC 149€ <small>· Setup desde 499€</small><br>
           <small>Recurring desde 79€/mes</small>
         </div>
-        <a href="#contacto" class="service-cta">Quiero el POC →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Chatbots Personalizados">Quiero el POC →</a>
       </div>
 
       <!-- AUTOBLOG -->
@@ -790,7 +796,7 @@ footer {
         <div class="service-price">
           39€/mes <small>· hasta 279€/mes Premium</small>
         </div>
-        <a href="#contacto" class="service-cta">Empezar prueba →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Autoblog SEO">Empezar prueba →</a>
       </div>
 
       <!-- NEWSLETTER -->
@@ -798,18 +804,18 @@ footer {
         <span class="service-icon">📧</span>
         <h3 class="service-title">Newsletter IA</h3>
         <p class="service-desc">
-          Email marketing automatizado con IA. Templates responsive, segmentación, A/B testing. Empieza gratis hasta 20 subscriptores y escala cuando crezca tu lista.
+          Email marketing automatizado con IA para tu negocio. Templates responsive, segmentación, A/B testing y entregabilidad cuidada. Gestionada de principio a fin: tú aportas la lista, el sistema hace el resto.
         </p>
         <ul class="service-features">
-          <li>Tier FREE 20 subscriptores</li>
-          <li>Hasta 5.000 subs en plan Pro</li>
-          <li>Anti-spam best practices</li>
+          <li>Hasta 5.000 subscriptores en plan Pro</li>
+          <li>Segmentación + A/B testing</li>
+          <li>Anti-spam best practices (SPF/DKIM)</li>
           <li>GDPR compliance</li>
         </ul>
         <div class="service-price">
-          Gratis <small>· o desde 89€/mes</small>
+          Desde 89€/mes <small>· hasta 249€/mes Pro</small>
         </div>
-        <a href="#contacto" class="service-cta">Empezar gratis →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Newsletter IA">Pedir información →</a>
       </div>
 
       <!-- AUDIO→LIBRO -->
@@ -828,7 +834,7 @@ footer {
         <div class="service-price">
           149€ <small>· hasta 399€ Premium</small>
         </div>
-        <a href="#contacto" class="service-cta">Quiero mi libro →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Audio → Libro">Quiero mi libro →</a>
       </div>
 
       <!-- PIPELINES CUSTOM -->
@@ -848,7 +854,7 @@ footer {
           Desde 2.500€ <small>· hasta 25.000€</small><br>
           <small>Consultor: 80-120€/h</small>
         </div>
-        <a href="#contacto" class="service-cta">Pedir presupuesto →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Pipeline Custom">Pedir presupuesto →</a>
       </div>
 
       <!-- AUDITORÍAS -->
@@ -867,7 +873,7 @@ footer {
         <div class="service-price">
           699€ <small>· hasta 3.499€</small>
         </div>
-        <a href="#contacto" class="service-cta">Reservar auditoría →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Auditoría">Reservar auditoría →</a>
       </div>
 
       <!-- WEBS CUSTOM (NUEVO) -->
@@ -887,7 +893,7 @@ footer {
           Desde 899€ <small>· hasta 5.999€</small><br>
           <small>Mantenimiento mensual opcional</small>
         </div>
-        <a href="#contacto" class="service-cta">Pedir presupuesto →</a>
+        <a href="#contacto" class="service-cta" data-servicio="Webs Custom">Pedir presupuesto →</a>
       </div>
 
     </div>
@@ -1046,8 +1052,9 @@ footer {
       </article>
     </div>
 
-    <div style="text-align: center; margin-top: 60px;">
-      <a href="#contacto" class="btn-secondary">Suscríbete al blog →</a>
+    <div style="text-align: center; margin-top: 60px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="blog.html" class="btn-primary">Ver todos los artículos →</a>
+      <a href="newsletter.html" class="btn-secondary">Suscríbete a la newsletter →</a>
     </div>
   </div>
 </section>
@@ -1074,11 +1081,11 @@ footer {
             <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a>
           </li>
           <li>
-            <span class="contact-icon">💼</span>
+            <span class="contact-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:middle;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></span>
             <a href="#">LinkedIn / Daniel Arquitecto Digital</a>
           </li>
           <li>
-            <span class="contact-icon">🐦</span>
+            <span class="contact-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
             <a href="#">@arquitectodigital</a>
           </li>
           <li>
@@ -1129,6 +1136,9 @@ footer {
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs que no se conforman con plantillas. Sin lock-in vendor.
         </p>
+        <p style="margin-top:16px; font-size:0.85rem; color:var(--text-faint);">
+          Lo que construyo, lo uso yo mismo. Mira mis proyectos en marcha:
+        </p>
       </div>
       <div class="footer-col">
         <h5>Servicios</h5>
@@ -1143,29 +1153,82 @@ footer {
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Empresa</h5>
+        <h5>Mis proyectos</h5>
         <ul>
+          <li><a href="https://digiprompts.io" target="_blank" rel="noopener">DigiPrompts.io</a></li>
+          <li><a href="https://iaprofesor.com" target="_blank" rel="noopener">IAprofesor.com</a></li>
+          <li><a href="https://shopiatools.com" target="_blank" rel="noopener">ShopiaTools.com</a></li>
+          <li><a href="https://tuabogabot.io" target="_blank" rel="noopener">TuAbogaBot.io</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Canales faceless</h5>
+        <ul>
+          <li><a href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener">Estoico Loco</a></li>
+          <li><a href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener">Leyendas Aterradoras</a></li>
+          <li><a href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener">Historias Minuteras</a></li>
+          <li><a href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener">PokerConDatos</a></li>
+          <li><a href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener">NeuralSpot</a></li>
+          <li><a href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener">NEV · Noticias</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
           <li><a href="#proceso">Proceso</a></li>
           <li><a href="#stack">Filosofía</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#">Blog</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Legal</h5>
         <ul>
-          <li><a href="#">Aviso legal</a></li>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Cookies</a></li>
-          <li><a href="#">Condiciones</a></li>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="condiciones.html">Condiciones</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España · Trabajo remoto UE + LATAM
     </div>
   </div>
 </footer>
 
+<script>
+(function () {
+  // Pre-seleccionar el servicio en el formulario al pinchar un CTA de servicio
+  var selectServicio = document.querySelector('.contact-form select');
+  var ctas = document.querySelectorAll('.service-cta[data-servicio]');
+  ctas.forEach(function (cta) {
+    cta.addEventListener('click', function () {
+      var servicio = cta.getAttribute('data-servicio');
+      if (selectServicio && servicio) {
+        for (var i = 0; i < selectServicio.options.length; i++) {
+          if (selectServicio.options[i].text === servicio) {
+            selectServicio.selectedIndex = i;
+            break;
+          }
+        }
+        // Resaltar brevemente el campo para que el usuario vea el cambio
+        selectServicio.style.transition = 'box-shadow .3s';
+        selectServicio.style.boxShadow = '0 0 0 2px var(--orange)';
+        setTimeout(function () { selectServicio.style.boxShadow = 'none'; }, 1200);
+      }
+    });
+  });
+
+  // Header con sombra al hacer scroll
+  var header = document.querySelector('header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      header.style.boxShadow = window.scrollY > 20 ? '0 1px 0 var(--border)' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 </html>
