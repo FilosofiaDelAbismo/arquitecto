@@ -20,9 +20,34 @@
   "name": "Arquitecto Digital · Blog",
   "url": "https://arquitectodigital.io/blog.html",
   "inLanguage": "es",
-  "author": {"@type": "Person", "name": "Daniel"},
-  "publisher": {"@type": "Organization", "name": "Arquitecto Digital"},
-  "blogPost": []
+  "author": {
+    "@type": "Person",
+    "name": "Daniel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Arquitecto Digital"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots IA: por qué la mayoría son un timo y cómo detectarlo",
+      "description": "La mayoría de los chatbots IA que se venden hoy son glorificados árboles de decisión con una capa de GPT encima. Te explico cómo distinguirlos de los que realmente funcionan.",
+      "url": "https://arquitectodigital.io/blog.html#art-chatbots-ia-por-que-la-mayoria-son-un-20260521",
+      "datePublished": "2026-05-21",
+      "dateModified": "2026-05-21",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    }
+  ]
 }
 </script>
 </head>
@@ -59,6 +84,119 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-chatbots-ia-por-que-la-mayoria-son-un-20260521">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-05-21">
+      <meta itemprop="dateModified" content="2026-05-21">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-default"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-default">Chatbots IA</span>
+          <time class="af-date" datetime="2026-05-21" itemprop="datePublished">21 May 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Chatbots IA: por qué la mayoría son un timo y cómo detectarlo</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">La mayoría de los chatbots IA que se venden hoy son glorificados árboles de decisión con una capa de GPT encima. Te explico cómo distinguirlos de los que realmente funcionan.</p>
+        <div class="af-content" id="art-chatbots-ia-por-que-la-mayoria-son-un-20260521-content">
+          <h3>El problema no es la IA. Es lo que te venden como IA.</h3>
+<p>Cada semana aparece una nueva agencia ofreciendo "chatbots con inteligencia artificial" para tu negocio. El pitch es siempre el mismo: atención 24/7, reducción de costes, clientes más satisfechos. Y el precio varía entre la plantilla barata con un wrapper de ChatGPT y el proyecto "enterprise" de varios miles de euros que, si rascas, hace exactamente lo mismo.</p>
+<p>El problema no es la tecnología. La IA de base —los modelos de lenguaje— ha avanzado de forma real y medible. El problema es lo que se construye encima, o más exactamente, lo que <strong>no</strong> se construye.</p>
+<p>Este artículo es para que puedas distinguir un chatbot que resuelve problemas reales de uno que solo parece que los resuelve hasta que tu cliente hace la segunda pregunta.</p>
+
+<h3>Qué es un chatbot de FAQ disfrazado de IA</h3>
+<p>La mayoría de chatbots que se venden hoy funcionan así: alguien coge un modelo de lenguaje (GPT-4o, Claude, da igual), le pega un prompt del estilo "eres el asistente de la empresa X, responde solo sobre nuestros productos", y lo conecta a un widget de chat.</p>
+<p>Eso no es un chatbot con IA. Es un chatbot de FAQ con capacidad de parafrasear.</p>
+<p>Las señales que lo delatan son claras:</p>
+<ul>
+  <li>Responde bien a preguntas genéricas pero se inventa datos cuando le preguntas algo específico de tu negocio.</li>
+  <li>No sabe nada de lo que pasó después de la fecha de corte del modelo base.</li>
+  <li>Si le preguntas algo fuera del guión, alucina con seguridad y sin aviso.</li>
+  <li>No puede consultar tu base de conocimiento real: contratos, manuales técnicos, historial de pedidos, normativa vigente.</li>
+  <li>Cada respuesta sale del modelo base, no de tus datos.</li>
+</ul>
+<p>Este tipo de chatbot puede ser útil para casos muy acotados: redirigir tráfico, responder horarios, capturar leads con un formulario conversacional. Pero si lo contratas para algo más complejo —soporte técnico, asesoría legal, atención a vendedores de marketplace— va a generar más problemas de los que resuelve.</p>
+
+<h3>Qué es RAG y por qué cambia todo</h3>
+<p>RAG son las siglas de <strong>Retrieval-Augmented Generation</strong>. En castellano: el chatbot, antes de responder, busca en tu base de conocimiento real y usa esa información para construir la respuesta. No improvisa. Consulta.</p>
+<p>La diferencia práctica es enorme. Un chatbot sin RAG opera solo con lo que el modelo aprendió durante su entrenamiento. Un chatbot con RAG opera con lo que tú le das: tus documentos, tu normativa, tu catálogo actualizado, tus procedimientos internos.</p>
+<p>Implementar RAG bien no es trivial. Requiere:</p>
+<ol>
+  <li>Un corpus de documentos limpio, estructurado y actualizable.</li>
+  <li>Un sistema de embeddings que convierta ese corpus en vectores consultables.</li>
+  <li>Un mecanismo de retrieval que encuentre los fragmentos relevantes para cada pregunta.</li>
+  <li>Un prompt de síntesis que instruya al modelo a responder solo con lo recuperado, no con lo que "cree saber".</li>
+  <li>Lógica anti-alucinación: si el sistema no encuentra respuesta en el corpus, debe decirlo, no inventar.</li>
+</ol>
+<p>Cuando alguien te vende un chatbot sin mencionar nada de esto, pregúntale directamente: <em>¿Cómo garantizas que el chatbot no va a inventarse información?</em> La respuesta te dirá todo lo que necesitas saber.</p>
+
+<div class="prompt-box">
+<strong>Prompt de auditoría rápida para evaluar un chatbot que te están vendiendo:</strong><br><br>
+"Hazme una pregunta técnica muy específica sobre [tu sector] que solo alguien con acceso a [tu documentación interna] podría responder correctamente. Luego dime de dónde sacó la respuesta: ¿del modelo base o de un documento concreto que yo le haya proporcionado?"<br><br>
+Si el proveedor no puede responder esta pregunta antes de la venta, el chatbot no tiene RAG real. Tiene prompt engineering básico.
+</div>
+
+<h3>Las tres preguntas que debes hacer antes de contratar</h3>
+<p>No hace falta ser técnico para filtrar a los vendedores de humo. Estas tres preguntas son suficientes:</p>
+<ul>
+  <li><strong>¿Tienes este chatbot funcionando en producción en algún proyecto propio o de cliente real?</strong> Si la respuesta es "estamos en fase de pruebas" o "lo hemos hecho para un cliente que prefiere no aparecer", desconfía. Pide una demo en vivo con preguntas que tú elijas, no con el guión que ellos preparan.</li>
+  <li><strong>¿Qué pasa cuando el chatbot no sabe la respuesta?</strong> Un sistema bien construido tiene un comportamiento definido para el caso de ignorancia: escala a humano, dice explícitamente que no tiene información suficiente, o redirige. Un sistema mal construido inventa con confianza.</li>
+  <li><strong>¿El código y los datos quedan en mis servidores o en los vuestros?</strong> Si la respuesta es "en los nuestros", tienes vendor lock-in. El día que dejes de pagar, el chatbot desaparece y no tienes nada. Esto no es un detalle menor: es el modelo de negocio de muchos proveedores.</li>
+</ul>
+
+<h3>Un ejemplo concreto de cómo se construye bien</h3>
+<p>TuAbogaBot es un chatbot legal con RAG construido sobre un corpus de legislación de doce países de habla hispana. No es un chatbot que "sabe de leyes" porque GPT-4 fue entrenado con texto legal. Es un chatbot que consulta documentos jurídicos reales, fragmenta la respuesta en fuentes verificables y está instruido para no responder cuando la información no está en el corpus.</p>
+<p>La diferencia técnica importa porque el dominio legal no tolera alucinaciones. Una respuesta inventada sobre normativa tributaria o derecho laboral puede causar daño real. Por eso el sistema tiene lógica explícita de "no sé" y referencia siempre la fuente del fragmento recuperado.</p>
+<p>Este es el estándar mínimo para cualquier chatbot que opere en dominios donde la precisión importa: legal, médico, técnico, financiero, soporte especializado.</p>
+
+<div class="highlight">💡 Regla práctica: si el proveedor no puede explicarte en dos minutos cómo funciona el retrieval de su sistema, no tiene RAG. Tiene un chatbot de FAQ con buena presentación de ventas.</div>
+
+<h3>Lo que sí tiene sentido contratar (y lo que no)</h3>
+<p>Un chatbot sin RAG puede tener sentido para: captura de leads con conversación, onboarding básico de usuarios, respuestas a preguntas de catálogo estático, filtrado inicial de consultas antes de escalar a humano.</p>
+<p>Un chatbot con RAG tiene sentido para: soporte técnico sobre documentación propia, atención a clientes con historial de pedidos o contratos, asesoría en dominios regulados, formación interna sobre procedimientos de empresa.</p>
+<p>La pregunta no es "¿necesito un chatbot IA?" sino "¿qué problema concreto quiero resolver y qué nivel de precisión necesita?" Si la respuesta a lo segundo es "alta", necesitas RAG. Si el proveedor no lo ofrece, estás comprando la versión de feria.</p>
+
+<h3>El criterio final</h3>
+<p>La IA no es mágica. Es una capa de probabilidad sobre texto. Lo que la hace útil o inútil es la ingeniería que la rodea: qué datos consume, cómo los recupera, qué instrucciones recibe, qué hace cuando no sabe. Un chatbot bien construido es un sistema de información con interfaz conversacional. Uno mal construido es un modelo de lenguaje suelto con un widget encima.</p>
+<p>Antes de firmar cualquier contrato, pide una demo con tus preguntas, no las suyas. Pregunta por el comportamiento en caso de ignorancia. Pregunta quién tiene el código al final. Las respuestas a esas tres cosas te dirán si estás ante un arquitecto o ante un vendedor de humo.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia hay entre un chatbot normal y uno con RAG?</div>
+              <div class="faq-a"><span>Un chatbot normal responde usando solo lo que el modelo aprendió en su entrenamiento, lo que significa que puede inventarse información sobre tu negocio. Un chatbot con RAG consulta tus documentos reales antes de responder, lo que reduce drásticamente las alucinaciones y permite mantener el conocimiento actualizado.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si el chatbot que me están vendiendo tiene RAG de verdad?</div>
+              <div class="faq-a"><span>Pide que te expliquen el proceso de retrieval: cómo se indexan tus documentos, qué modelo de embeddings usan y qué pasa cuando el sistema no encuentra respuesta en el corpus. Si no pueden responder esas tres preguntas con detalle técnico, no tienen RAG real.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Es siempre necesario RAG o hay casos donde no hace falta?</div>
+              <div class="faq-a"><span>No siempre. Para captura de leads, onboarding básico o respuestas a preguntas muy genéricas, un chatbot sin RAG puede ser suficiente y más barato. RAG es imprescindible cuando el chatbot necesita operar con información específica de tu empresa, dominio regulado o datos que cambian con frecuencia.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué es el vendor lock-in en chatbots y por qué importa?</div>
+              <div class="faq-a"><span>Vendor lock-in ocurre cuando el código, los datos y la configuración de tu chatbot quedan en los servidores del proveedor. Si dejas de pagar o quieres cambiar de proveedor, pierdes todo. Un chatbot bien contratado deja el código y los datos en manos del cliente desde el primer día.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto debería costar un chatbot con RAG bien implementado para una PYME?</div>
+              <div class="faq-a"><span>Depende del volumen de documentación, la complejidad del dominio y la infraestructura elegida. Lo que sí es cierto es que el precio no es el indicador de calidad: hay implementaciones caras que no tienen RAG y soluciones más económicas que sí lo tienen. El criterio debe ser técnico, no el número en la factura.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">chatbot ia rag</span><span class="atag">automatización ia pymes</span><span class="atag">arquitecto digital</span><span class="atag">vendor lock-in</span><span class="atag">chatbot empresas</span></div>
+        <button class="af-link" onclick="toggleArticle('art-chatbots-ia-por-que-la-mayoria-son-un-20260521-content',this)">Leer artículo completo →</button>
+      </div>
+    
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
       <article class="blog-card placeholder">
         <div class="blog-meta">Próximamente · Junio 2026</div>
