@@ -157,21 +157,18 @@
 </footer>
 
 <script>
-// Form newsletter — wire al backend en CHK-B.
-// Hoy: validación cliente + feedback visual. El POST real se activa
-// cuando esté lista la ruta /webhook/site/newsletter-subscribe.
+// Form newsletter — wire al backend (D-TR-108, double opt-in).
 (function () {
   var form = document.getElementById('newsletter-form');
   if (!form) return;
   var feedback = document.getElementById('nl-feedback');
-
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     feedback.className = 'form-feedback';
     feedback.textContent = '';
-
     var email = form.elements['email'].value.trim();
     var honey = form.elements['website'].value.trim();
+    var name = form.elements['name'] ? form.elements['name'].value.trim() : '';
 
     if (honey) {
       // Bot detectado. Fingimos OK para no darle pista.
@@ -186,9 +183,32 @@
       return;
     }
 
-    // TODO CHK-B: fetch('/webhook/site/newsletter-subscribe', {...}).
-    feedback.className = 'form-feedback ok';
-    feedback.textContent = 'Suscripción pendiente de activación del backend. Vuelve pronto.';
+    feedback.textContent = 'Enviando…';
+    fetch('https://api.arquitectodigital.io/webhook/site/newsletter-subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        client_id: 'ncli_43abf681d355476e9fe5f18aa7673b10',
+        website: honey
+      })
+    }).then(function (resp) {
+      if (resp.status === 202) {
+        feedback.className = 'form-feedback ok';
+        feedback.textContent = 'Listo. Revisa tu bandeja para confirmar la suscripción.';
+        form.reset();
+      } else if (resp.status === 429) {
+        feedback.className = 'form-feedback err';
+        feedback.textContent = 'Demasiados intentos. Espera un minuto e inténtalo otra vez.';
+      } else {
+        feedback.className = 'form-feedback err';
+        feedback.textContent = 'No se ha podido procesar. Inténtalo en un minuto.';
+      }
+    }).catch(function () {
+      feedback.className = 'form-feedback err';
+      feedback.textContent = 'Sin conexión. Inténtalo otra vez.';
+    });
   });
 })();
 </script>
