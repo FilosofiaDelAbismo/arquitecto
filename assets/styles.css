@@ -1320,3 +1320,155 @@ footer {
   .af-title { font-size: 1.55em; }
   .af-excerpt { font-size: 1em; padding-left: 10px; }
 }
+
+/* ──────────────────────────────────────────────────────────────────────
+   D-TR-182: NAV DROPDOWN "SERVICIOS▾" + HAMBURGER MOBILE
+   Coherente con la paleta y tipografía actuales. Cero colores nuevos.
+   ────────────────────────────────────────────────────────────────────── */
+
+/* Dropdown desktop ──────────────────────────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown > a::after {
+  content: " ▾";
+  font-size: 0.8em;
+  color: var(--text-faint);
+  transition: color 0.2s;
+}
+.nav-dropdown:hover > a::after { color: var(--orange); }
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: -16px;
+  background: var(--bg-elevated, var(--bg-card));
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-width: 240px;
+  padding: 8px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  list-style: none;
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  display: block;
+}
+.nav-dropdown-menu li { display: block; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.92em;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s, padding 0.15s;
+}
+.nav-dropdown-menu a:hover {
+  background: rgba(255, 107, 53, 0.06);
+  color: var(--orange);
+  padding-left: 22px;
+}
+
+/* Hamburger mobile ──────────────────────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-hamburger:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+@media (max-width: 768px) {
+  .nav-hamburger { display: inline-block; }
+
+  /* Menú off-canvas mobile: convertimos .nav-links en panel desplegable
+     cuando el body tiene .nav-mobile-open. */
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    z-index: 150;
+  }
+  body.nav-mobile-open .nav-links { display: flex; }
+
+  .nav-links > li { display: block; }
+  .nav-links > li > a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  /* En mobile el dropdown se despliega en cascada, sin posición
+     absoluta (queda en flujo dentro de la lista vertical). */
+  .nav-dropdown-menu {
+    position: static;
+    display: none;
+    background: rgba(0, 0, 0, 0.18);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-dropdown.is-open .nav-dropdown-menu { display: block; }
+  .nav-dropdown:hover .nav-dropdown-menu { display: none; } /* hover no aplica mobile */
+  .nav-dropdown.is-open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a {
+    padding-left: 40px;
+    font-size: 0.92em;
+  }
+}
+
+/* D-TR-182 fase 2: cards de servicio clicables sin romper el CTA interno.
+   Overlay <a> absoluto cubre toda la card; los elementos interactivos
+   internos (service-cta) llevan z-index para quedar por encima. */
+.service-card { position: relative; }
+.service-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  text-decoration: none;
+  border-radius: inherit;
+}
+.service-card > .service-icon,
+.service-card > .service-title,
+.service-card > .service-desc,
+.service-card > .service-subtitle,
+.service-card > .service-features,
+.service-card > .service-price,
+.service-card > .service-cta {
+  position: relative;
+  z-index: 2;
+}
+.service-subtitle {
+  color: var(--orange);
+  font-size: 0.95em;
+  font-style: italic;
+  margin: -6px 0 14px;
+  line-height: 1.5;
+}
