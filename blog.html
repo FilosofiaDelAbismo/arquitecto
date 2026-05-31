@@ -171,8 +171,8 @@
 <p>La alternativa no es construir todo desde cero. Es elegir una arquitectura donde <strong>el código y los datos queden en el cliente</strong>, los modelos sean intercambiables y las integraciones usen APIs estándar.</p>
 <p>Esto es técnicamente posible hoy con stacks open-source o semi-open (LangChain, LlamaIndex, Chroma, Qdrant, entre otros) combinados con modelos vía API. No es más caro en el medio plazo. Es más caro al inicio solo si se cuenta mal el coste total de propiedad.</p>
 
-<h3>Lo que sí funciona: un pipeline con criterio</h3>
-<p>Un chatbot que funciona en producción no es el que tiene el modelo más potente. Es el que tiene un pipeline bien definido, con etapas claras:</p>
+<h3>Lo que sí funciona: un sistema con criterio</h3>
+<p>Un chatbot que funciona en producción no es el que tiene el modelo más potente. Es el que tiene un sistema bien definido, con etapas claras:</p>
 <ol>
 <li>Ingesta y limpieza de datos con criterio de calidad explícito.</li>
 <li>Chunking semántico adaptado al tipo de documento.</li>
@@ -183,7 +183,7 @@
 </ol>
 <p>Cada etapa es auditable. Cada fallo tiene una causa localizable. Eso es lo que diferencia un sistema de producción de un prototipo que funciona en demo.</p>
 
-<div class="highlight">💡 Si tu proveedor de chatbot no puede explicarte exactamente en qué paso del pipeline falla una respuesta incorrecta, no tienes un sistema de producción. Tienes una caja negra cara.</div>
+<div class="highlight">💡 Si tu proveedor de chatbot no puede explicarte exactamente en qué paso del sistema falla una respuesta incorrecta, no tienes un sistema de producción. Tienes una caja negra cara.</div>
 
 <h3>La pregunta correcta antes de contratar cualquier chatbot</h3>
 <p>No es "¿qué modelos usa?". Tampoco es "¿cuántos documentos soporta?".</p>
