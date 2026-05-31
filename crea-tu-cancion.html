@@ -1,146 +1,237 @@
 <!DOCTYPE html>
-<!-- =====================================================================
-     PÁGINA PÚBLICA "Crea tu canción" (Music v2 · Bloque C / Fase C4).
-     Estática (arquitectodigital.io). SEO + venta + botón de pago +
-     receptor de código. Tras pagar en Stripe, el cliente vuelve aquí con
-     su cs_ (o lo pega) + su email → POST a api.arquitectodigital.io/
-     webhook/music/redeem → redirige a la página PROTEGIDA de creación.
-
-     PENDIENTE DE DANIEL (C0/C5):
-       · STRIPE_PAYMENT_LINK: pega aquí el Payment Link real del producto
-         "Canción personalizada" (success_url → esta página con
-         ?session_id={CHECKOUT_SESSION_ID} para prerrellenar el código).
-       · PRECIO: ajusta el texto del precio.
-       · Estilo: alinéalo con la CSS del sitio si quieres (ahora es
-         autónomo). El deploy lo haces tú.
-     ===================================================================== -->
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crea tu canción personalizada con IA | Arquitecto Digital</title>
-  <meta name="description" content="Regala una canción personalizada: tú eliges el estilo y la ocasión (cumpleaños, aniversario, homenaje…), nosotros creamos la letra y la música con IA. Recibe 2 versiones en MP3 por email. Pago único.">
-  <link rel="canonical" href="https://arquitectodigital.io/crea-tu-cancion.html">
-  <meta property="og:title" content="Crea tu canción personalizada con IA">
-  <meta property="og:description" content="Una canción única con letra a medida para tu ocasión especial. 2 versiones en MP3 por email.">
-  <meta property="og:type" content="product">
-  <style>
-    :root { --azul:#1a73e8; --tinta:#1a1a2e; }
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, sans-serif; color: var(--tinta);
-           margin: 0; line-height: 1.55; }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
-    h1 { font-size: 2rem; margin: .2rem 0; }
-    .lead { font-size: 1.15rem; color: #444; }
-    .cta-pago { display: inline-block; background: var(--azul); color: #fff;
-                text-decoration: none; padding: .9rem 1.6rem; border-radius: 8px;
-                font-weight: 600; font-size: 1.1rem; margin: .5rem 0; }
-    .sec { border: 1px solid #e6e6ef; border-radius: 12px; padding: 1.3rem;
-           margin: 1.4rem 0; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1.2rem; }
-    .grid div { background: #f6f7fb; border-radius: 6px; padding: .5rem .7rem; }
-    label { display: block; font-weight: 600; margin-top: .6rem; }
-    input { width: 100%; padding: .6rem; font-size: 1rem; border: 1px solid #ccc;
-            border-radius: 6px; margin-top: .25rem; }
-    button { background: var(--azul); color: #fff; border: 0; border-radius: 8px;
-             padding: .8rem 1.4rem; font-size: 1rem; cursor: pointer; margin-top: .8rem; }
-    .aviso { background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
-             padding: .7rem 1rem; font-size: .95rem; }
-    .muted { color: #666; }
-    footer { text-align: center; color: #888; font-size: .85rem; padding: 2rem 0; }
-  </style>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crea tu canción · Una canción personalizada con IA · Arquitecto Digital</title>
+<meta name="description" content="Regala una canción personalizada: eliges el estilo y la ocasión (cumpleaños, aniversario, homenaje…), creamos la letra y la música con IA. Recibe 2 versiones en MP3 por email. 25€, pago único (IVA incl.).">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/crea-tu-cancion.html">
+
+<meta property="og:title" content="Crea tu canción · Una canción personalizada con IA">
+<meta property="og:description" content="Una canción única con letra a medida para tu ocasión especial. 2 versiones en MP3 por email. 25€ (IVA incl.).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/crea-tu-cancion.html">
+<meta property="og:image" content="https://arquitectodigital.io/apple-touch-icon.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="assets/cookies.js"></script>
+<style>
+  /* Controles del formulario, alineados con la paleta del sitio. */
+  .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin-top: 18px; }
+  .music-grid div { background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px; color: var(--text-dim); }
+  .music-aviso { background: var(--bg-card); border: 1px solid var(--orange-dim);
+    border-left: 3px solid var(--orange); border-radius: 8px; padding: 14px 16px;
+    color: var(--text-dim); margin: 18px 0; }
+  .music-form label { display: block; color: var(--text); font-weight: 600;
+    margin-top: 14px; margin-bottom: 6px; }
+  .music-form input { width: 100%; box-sizing: border-box; padding: 12px 14px;
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text); font-size: 1em; }
+  .music-form input:focus { outline: none; border-color: var(--accent); }
+  #music-estado { color: var(--text-dim); margin-top: 14px; min-height: 1.2em; }
+  .music-pago-nota { color: var(--text-dim); margin-top: 14px; }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <p class="muted"><a href="index.html">← Arquitecto Digital</a></p>
-    <h1>🎵 Crea tu canción personalizada</h1>
-    <p class="lead">Una canción única, con su <strong>letra a medida</strong> y
-      su <strong>voz</strong>, para tu ocasión especial. Tú eliges el estilo y
-      el tema; nosotros la creamos. Recibes <strong>2 versiones en MP3</strong>
-      por email.</p>
 
-    <h2>¿Cómo funciona?</h2>
-    <ol>
-      <li>Pagas la canción (pago único).</li>
-      <li>Vuelves aquí con tu código de compra y eliges <strong>estilo</strong>
-        (pop, balada, reggaetón, ranchera…) y <strong>tema</strong>
-        (cumpleaños, aniversario, homenaje, pedir perdón…).</li>
-      <li>Nuestra IA escribe la letra; tú la <strong>validas</strong> (o pides
-        otra versión).</li>
-      <li>Generamos la canción y te enviamos <strong>2 versiones</strong> a tu
-        email.</li>
-    </ol>
+<header>
+  <nav>
+    <div class="logo">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></div>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="autoblog.html">Autoblog SEO</a></li>
+          <li><a href="newsletter.html">Newsletter IA</a></li>
+          <li><a href="audio-libro.html">Audio → Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="webs.html">Webs Personalizadas</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="index.html#stack">Filosofía</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="newsletter-signup.html">Newsletter</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
 
-    <h2>Para qué momentos</h2>
-    <div class="grid">
-      <div>🎂 Cumpleaños</div><div>💍 Aniversarios y bodas</div>
-      <div>❤️ Declaraciones de amor</div><div>🤝 Amistad</div>
-      <div>🐾 Homenaje a una mascota</div><div>🕊️ Homenaje a un ser querido</div>
-      <div>🙏 Pedir perdón</div><div>🎓 Graduación o jubilación</div>
-    </div>
-
-    <div class="sec">
-      <h2>1 · Compra tu canción</h2>
-      <p class="aviso">⏳ <strong>Importante:</strong> tras pagar tienes
-        <strong>48 horas</strong> para crear tu canción con tu código. Pasado
-        ese plazo, el código caduca.</p>
-      <!-- ░░░ PEGAR AQUÍ EL PAYMENT LINK DE STRIPE ░░░
-           Sustituye href="" por el Payment Link real del producto
-           "Canción personalizada". El success_url del Payment Link debe
-           apuntar a:
-           https://arquitectodigital.io/crea-tu-cancion.html?session_id={CHECKOUT_SESSION_ID}
-      -->
-      <a class="cta-pago" href="" id="btn-pago" rel="nofollow">Comprar mi canción →</a>
-      <p class="muted">Precio: <strong>25 €</strong> · pago único · IVA incluido ·
-        pago seguro con Stripe.</p>
-    </div>
-
-    <div class="sec">
-      <h2>2 · Ya he pagado: crear mi canción</h2>
-      <p>Pega el <strong>código</strong> que aparece tras el pago (o que te llegó
-        por email) y el <strong>email</strong> con el que compraste:</p>
-      <form id="form-codigo">
-        <label for="codigo">Código de compra</label>
-        <input id="codigo" name="codigo" placeholder="cs_..." autocomplete="off" required>
-        <label for="email">Email de compra</label>
-        <input id="email" name="email" type="email" placeholder="tu@email.com" required>
-        <button type="submit">Acceder a la creación →</button>
-      </form>
-      <p id="estado" class="muted"></p>
-    </div>
-
-    <footer>Arquitecto Digital · arquitectodigital.io</footer>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">[Servicio] Crea tu canción</span>
+    <h1>Tu historia,<br><span class="accent">tu canción</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 640px; line-height: 1.7; margin-top: 20px;">
+      Una canción única, con su letra a medida y su voz, para tu ocasión
+      especial. Tú eliges el estilo y el tema; nosotros la creamos con IA.
+      Recibes 2 versiones en MP3 por email.
+    </p>
   </div>
+</section>
+
+<section class="section-content" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[01] Cómo funciona</span>
+  <h2 class="section-title">De tu idea a tu canción en <span class="accent">4 pasos</span>.</h2>
+  <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.75; margin-top: 20px;">
+    1. Pagas la canción (pago único). &nbsp;2. Eliges <strong>estilo</strong>
+    (pop, balada, reggaetón, ranchera…) y <strong>tema</strong> (cumpleaños,
+    aniversario, homenaje, pedir perdón…). &nbsp;3. Nuestra IA escribe la
+    letra y tú la <strong>validas</strong> (o pides otra). &nbsp;4. Generamos
+    la canción y te enviamos <strong>2 versiones</strong> por email.
+  </p>
+  <div class="music-grid">
+    <div>🎂 Cumpleaños</div><div>💍 Aniversarios y bodas</div>
+    <div>❤️ Declaraciones de amor</div><div>🤝 Amistad</div>
+    <div>🐾 Homenaje a una mascota</div><div>🕊️ Homenaje a un ser querido</div>
+    <div>🙏 Pedir perdón</div><div>🎓 Graduación o jubilación</div>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[02] Compra tu canción</span>
+  <h2 class="section-title">25 € · <span class="accent">pago único</span>.</h2>
+  <div class="music-aviso">⏳ <strong>Importante:</strong> tras pagar tienes
+    <strong>48 horas</strong> para crear tu canción con tu código. Pasado ese
+    plazo, el código caduca.</div>
+  <!-- ░░░ PEGAR AQUÍ EL PAYMENT LINK DE STRIPE (C0) ░░░
+       Sustituye href="" por el Payment Link real. success_url →
+       https://arquitectodigital.io/crea-tu-cancion.html?session_id={CHECKOUT_SESSION_ID}
+  -->
+  <a class="service-cta" href="" id="btn-pago" rel="nofollow">Comprar mi canción →</a>
+  <p class="music-pago-nota">25 € · pago único · IVA incluido · pago seguro con Stripe.</p>
+</section>
+
+<section class="section-content" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[03] Ya he pagado</span>
+  <h2 class="section-title">Crea tu canción <span class="accent">ahora</span>.</h2>
+  <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.7; margin-top: 16px;">
+    Pega el <strong>código</strong> que aparece tras el pago (o que te llegó
+    por email) y el <strong>email</strong> con el que compraste:
+  </p>
+  <form id="music-form" class="music-form">
+    <label for="music-codigo">Código de compra</label>
+    <input id="music-codigo" name="codigo" placeholder="cs_... o tu código" autocomplete="off" required>
+    <label for="music-email">Email de compra</label>
+    <input id="music-email" name="email" type="email" placeholder="tu@email.com" required>
+    <br><br>
+    <button type="submit" class="service-cta">Acceder a la creación →</button>
+  </form>
+  <p id="music-estado"></p>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs que no se conforman con plantillas. Sin lock-in vendor.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="chatbot.html">Chatbots</a></li>
+          <li><a href="autoblog.html">Autoblog</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="audio-libro.html">Audio→Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="sistemas.html">Sistemas</a></li>
+          <li><a href="webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="index.html#proceso">Proceso</a></li>
+          <li><a href="index.html#stack">Filosofía</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España · Trabajo remoto UE + LATAM</div>
+  </div>
+</footer>
 
 <script>
-// Base del backend (nginx → webhook_server). Mismo dominio api.
-const API = "https://api.arquitectodigital.io";
-
-// Si Stripe devuelve a esta página con ?session_id=..., prerrellena el código.
-const sid = new URLSearchParams(location.search).get("session_id");
-if (sid) document.getElementById("codigo").value = sid;
-
-document.getElementById("form-codigo").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const estado = document.getElementById("estado");
-  estado.textContent = "Validando tu código…";
-  const code = document.getElementById("codigo").value.trim();
-  const email = document.getElementById("email").value.trim();
-  try {
-    const r = await fetch(API + "/webhook/music/redeem", {
-      method: "POST", headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({code, email})});
-    const data = await r.json();
-    if (data.ok && data.token) {
-      // → página PROTEGIDA de creación (servida por el backend con gating).
-      location.href = API + "/music/create?token=" + encodeURIComponent(data.token);
-    } else {
-      estado.textContent = data.reason || "No hemos podido validar tu código.";
-    }
-  } catch (err) {
-    estado.textContent = "Error de conexión. Inténtalo de nuevo en un momento.";
+// ── Navegación (mismo comportamiento que el resto del sitio) ─────────
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
   }
-});
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+
+// ── Canjeo del código → página protegida de creación ─────────────────
+(function () {
+  var API = "https://api.arquitectodigital.io";
+  var sid = new URLSearchParams(location.search).get("session_id");
+  if (sid) document.getElementById("music-codigo").value = sid;
+
+  document.getElementById("music-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var estado = document.getElementById("music-estado");
+    estado.textContent = "Validando tu código…";
+    var code = document.getElementById("music-codigo").value.trim();
+    var email = document.getElementById("music-email").value.trim();
+    try {
+      var r = await fetch(API + "/webhook/music/redeem", {
+        method: "POST", headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({code: code, email: email})});
+      var data = await r.json();
+      if (data.ok && data.token) {
+        location.href = API + "/music/create?token=" + encodeURIComponent(data.token);
+      } else {
+        estado.textContent = data.reason || "No hemos podido validar tu código.";
+      }
+    } catch (err) {
+      estado.textContent = "Error de conexión. Inténtalo de nuevo en un momento.";
+    }
+  });
+})();
 </script>
+
 </body>
 </html>
