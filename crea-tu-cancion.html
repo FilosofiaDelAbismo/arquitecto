@@ -37,6 +37,14 @@
   .music-form input:focus { outline: none; border-color: var(--accent); }
   #music-estado { color: var(--text-dim); margin-top: 14px; min-height: 1.2em; }
   .music-pago-nota { color: var(--text-dim); margin-top: 14px; }
+  /* Botones rellenos (el <button> nativo salía con fondo blanco; .service-cta
+     del sitio es un enlace de texto). Botón de pago y submit como CTA naranja. */
+  button.service-cta, a#btn-pago.service-cta {
+    background: var(--orange); color: var(--bg); border: 0;
+    padding: 12px 22px; border-radius: 8px; cursor: pointer; font-size: 1em;
+    display: inline-block; }
+  button.service-cta:hover, a#btn-pago.service-cta:hover {
+    background: var(--orange-bright); color: var(--bg); }
 </style>
 </head>
 <body>
