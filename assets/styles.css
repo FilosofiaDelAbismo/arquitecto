@@ -1472,3 +1472,27 @@ footer {
   margin: -6px 0 14px;
   line-height: 1.5;
 }
+
+/* ===================================================================
+   NEWSLETTER-OCULTO-SES  (Daniel · 2026-06-02)
+   Oferta de newsletter OCULTA en toda la web hasta que AWS apruebe el
+   acceso de PRODUCCIÓN de Amazon SES (ahora en sandbox). Este bloque
+   oculta todos los enlaces a newsletter.html / newsletter-signup.html
+   (menús, footers, CTAs) en TODAS las páginas de una sola vez.
+
+   REACTIVAR LA WEB (cuando AWS confirme), en 3 pasos:
+     1) Borra ESTE bloque CSS entero.
+     2) grep -rl "NEWSLETTER-OCULTO-SES" *.html  -> descomenta los
+        bloques HTML marcados (tarjeta de servicio + opcion de formulario
+        en index.html, footers de paginas legales/blog, y el redirect de
+        newsletter.html y newsletter-signup.html).
+     3) Descomenta las 2 <url> de newsletter en sitemap.xml.
+   =================================================================== */
+li:has(> a[href="newsletter.html"]),
+li:has(> a[href="newsletter-signup.html"]),
+li:has(> a[href$="/newsletter.html"]),
+li:has(> a[href$="/newsletter-signup.html"]) { display: none !important; }
+a[href="newsletter.html"],
+a[href="newsletter-signup.html"],
+a[href$="/newsletter.html"],
+a[href$="/newsletter-signup.html"] { display: none !important; }

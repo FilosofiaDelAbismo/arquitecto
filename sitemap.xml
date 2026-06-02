@@ -18,12 +18,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- NEWSLETTER-OCULTO-SES: URL retirada del sitemap hasta SES produccion. Reactivar = descomentar.
   <url>
     <loc>https://arquitectodigital.io/newsletter.html</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
   <url>
     <loc>https://arquitectodigital.io/audio-libro.html</loc>
     <lastmod>2026-05-29</lastmod>
@@ -42,12 +44,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- NEWSLETTER-OCULTO-SES: URL retirada del sitemap hasta SES produccion. Reactivar = descomentar.
   <url>
     <loc>https://arquitectodigital.io/newsletter-signup.html</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
   <url>
     <loc>https://arquitectodigital.io/blog.html</loc>
     <lastmod>2026-05-27</lastmod>
