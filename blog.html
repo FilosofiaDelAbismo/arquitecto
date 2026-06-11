@@ -32,6 +32,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "RAG explicado con un caso real: por qué tu chatbot no entiende tu negocio",
+      "description": "Los chatbots genéricos fallan porque no saben nada de tu empresa. RAG resuelve eso, pero hay que montarlo bien para no quedar atrapado en un proveedor.",
+      "url": "https://arquitectodigital.io/blog.html#art-rag-explicado-con-un-caso-real-por-que-20260611",
+      "datePublished": "2026-06-11",
+      "dateModified": "2026-06-11",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Chatbots en producción: errores de arquitectura que nadie te cuenta",
       "description": "La mayoría de chatbots empresariales fallan por los mismos errores de arquitectura y datos, no por la IA. Aquí están los problemas reales y cómo evitarlos sin atarte a ningún vendor.",
       "url": "https://arquitectodigital.io/blog.html#art-chatbots-en-produccion-errores-de-arquitectura-que-nadie-20260527",
@@ -105,6 +123,119 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-rag-explicado-con-un-caso-real-por-que-20260611">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-06-11">
+      <meta itemprop="dateModified" content="2026-06-11">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Chatbots IA</span>
+          <time class="af-date" datetime="2026-06-11" itemprop="datePublished">11 Jun 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">RAG explicado con un caso real: por qué tu chatbot no entiende tu negocio</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Los chatbots genéricos fallan porque no saben nada de tu empresa. RAG resuelve eso, pero hay que montarlo bien para no quedar atrapado en un proveedor.</p>
+        <div class="af-content" id="art-rag-explicado-con-un-caso-real-por-que-20260611-content">
+          <h3>El problema que nadie explica bien</h3>
+<p>Instalas un chatbot en tu web. Responde preguntas genéricas, suena inteligente, y a la primera pregunta real sobre tu producto o tu proceso interno, inventa una respuesta o dice que no sabe. Resultado: el cliente desconfía, tú también, y el chatbot acaba desactivado en tres semanas.</p>
+<p>El problema no es la IA. Es que el modelo de lenguaje no tiene ni idea de quién eres. Ha sido entrenado con texto genérico de internet. Tu catálogo, tus condiciones, tu forma de trabajar, tus precios: nada de eso está ahí dentro. Y no puedes meterlo ahí, porque reentrenar un modelo grande no es una opción real para una PYME.</p>
+<p>RAG existe para resolver exactamente eso.</p>
+
+<h3>Qué es RAG, sin rodeos</h3>
+<p><strong>RAG son las siglas de Retrieval-Augmented Generation</strong>, que en español vendría a ser "generación aumentada por recuperación". El concepto es sencillo: en lugar de pedirle al modelo que lo sepa todo de memoria, le das la información relevante en el momento en que la necesita.</p>
+<p>El flujo básico funciona así:</p>
+<ol>
+  <li>El usuario hace una pregunta.</li>
+  <li>El sistema busca en tus documentos los fragmentos más relevantes para esa pregunta.</li>
+  <li>Esos fragmentos se incluyen en el contexto que recibe el modelo.</li>
+  <li>El modelo genera una respuesta usando esa información concreta, no su memoria genérica.</li>
+</ol>
+<p>La clave está en el paso 2: la búsqueda. No es una búsqueda por palabras clave al uso. Se usan <strong>embeddings</strong>, representaciones matemáticas del significado de los textos, que permiten encontrar fragmentos semánticamente relacionados aunque no compartan las mismas palabras exactas.</p>
+
+<h3>Un caso concreto para que no quede abstracto</h3>
+<p>Imagina una empresa de servicios B2B con una base de conocimiento interna: tarifas, condiciones de contrato, preguntas frecuentes de clientes, procedimientos de onboarding. Todo eso vive en PDFs, Notion, o simplemente en la cabeza del equipo.</p>
+<p>Sin RAG, el chatbot no tiene acceso a nada de eso. Con RAG, esos documentos se procesan, se dividen en fragmentos, se convierten en embeddings y se almacenan en una base vectorial. Cuando un cliente pregunta "¿cuánto tarda el proceso de alta?", el sistema recupera el fragmento exacto del procedimiento de onboarding y el modelo responde con precisión, no con una estimación inventada.</p>
+<p>La diferencia entre "suele tardar entre 3 y 10 días hábiles dependiendo del proveedor" (inventado) y "el proceso estándar es de 5 días hábiles según vuestro procedimiento interno, con posibilidad de fast-track en 48h bajo solicitud" (extraído de tu propio documento) no es menor. Una respuesta genera confianza. La otra, dudas.</p>
+
+<div class="highlight">💡 Un chatbot sin RAG es un modelo de lenguaje con disfraz corporativo. Suena a tu empresa pero no sabe nada de ella. La diferencia se nota en la primera pregunta técnica real.</div>
+
+<h3>Por qué los chatbots genéricos no sirven</h3>
+<p>Tidio, ManyChat, Intercom con IA añadida: son herramientas válidas para flujos de FAQ simples y captura de leads. No son chatbots con comprensión real de tu negocio. La diferencia técnica es clara:</p>
+<ul>
+  <li><strong>Sin RAG:</strong> el modelo responde desde su entrenamiento base o desde un árbol de decisión predefinido.</li>
+  <li><strong>Con RAG:</strong> el modelo responde desde tus documentos reales, actualizables sin tocar el modelo.</li>
+</ul>
+<p>Además, los chatbots de plataforma SaaS tienen otro problema estructural: tus datos, tu historial de conversaciones y tu base de conocimiento viven en los servidores de otro. Cuando cambias de herramienta, empiezas de cero. Cuando el proveedor cambia su política de precios, te aguantas.</p>
+
+<h3>El stack mínimo para hacerlo sin quedar atrapado</h3>
+<p>No necesitas infraestructura de empresa grande. Necesitas componentes que puedas controlar y sustituir por separado si algo falla o encarece:</p>
+<ul>
+  <li><strong>Modelo de lenguaje:</strong> Claude Sonnet o Haiku (Anthropic), DeepSeek, o cualquier modelo con API estable. El criterio no es "el mejor", es el que da el mejor resultado para tu caso de uso a un coste razonable.</li>
+  <li><strong>Embeddings:</strong> puedes usar un modelo local como MiniLM para no depender de una API externa para la parte de búsqueda. Esto reduce costes y elimina una dependencia.</li>
+  <li><strong>Base vectorial:</strong> opciones open source como Chroma o Qdrant. Corren en tu infraestructura, no en la nube de un tercero.</li>
+  <li><strong>Infraestructura:</strong> Oracle Cloud Free Tier, un VPS propio, o cualquier servidor que controles. El código y los datos quedan donde tú decides.</li>
+  <li><strong>Canales:</strong> un widget web y Telegram cubren la mayoría de casos en PYMEs sin necesidad de integraciones complejas.</li>
+</ul>
+<p>Lo importante de este stack no es que sea el más barato ni el más potente. Es que cada pieza es sustituible sin tirar el sistema entero. Si mañana aparece un modelo mejor o más económico, lo cambias. Si la base vectorial que usas saca una versión de pago obligatorio, migras. Eso es lo que significa no tener vendor lock-in.</p>
+
+<div class="prompt-box">
+<strong>Prompt de diagnóstico para evaluar tu chatbot actual:</strong><br><br>
+"Actúa como un cliente que acaba de llegar a mi web por primera vez. Haz las 5 preguntas más específicas que harías sobre [tu producto o servicio] antes de tomar una decisión de compra. Incluye al menos una pregunta sobre condiciones, una sobre proceso y una sobre casos límite o excepciones."<br><br>
+Pásale ese output a tu chatbot actual. Si no responde con precisión a más de 3 de las 5, tienes un problema de RAG, no de IA.
+</div>
+
+<h3>Qué hay que vigilar antes de montar un RAG</h3>
+<p>RAG no es magia. Hay puntos donde falla si no se cuida el diseño:</p>
+<ul>
+  <li><strong>Calidad de los documentos fuente:</strong> si tu base de conocimiento está desactualizada o es inconsistente, el chatbot va a reproducir esa inconsistencia con mucha confianza.</li>
+  <li><strong>Chunking mal calibrado:</strong> si los fragmentos son demasiado grandes o demasiado pequeños, la recuperación falla. Un fragmento de 10 palabras pierde contexto; uno de 2.000 mete ruido.</li>
+  <li><strong>Sin guardrails:</strong> un chatbot en producción necesita límites claros sobre qué puede y qué no puede responder, y cuándo debe transferir a un humano. Sin eso, el riesgo reputacional es real.</li>
+  <li><strong>Memoria solo de sesión:</strong> si el chatbot no recuerda nada entre conversaciones, cada interacción empieza desde cero. Para soporte o ventas con ciclos largos, eso es un problema.</li>
+</ul>
+
+<h3>La pregunta que vale la pena hacerse</h3>
+<p>Antes de contratar cualquier solución de chatbot, pregunta esto: <strong>¿dónde viven mis documentos, mi historial y mis configuraciones si dejo de pagar?</strong> Si la respuesta es "en nuestros servidores", sabes exactamente en qué posición estás.</p>
+<p>Un chatbot con RAG bien construido no es un producto de plataforma. Es infraestructura propia que usa IA como capa de inteligencia, no al revés. Esa distinción marca la diferencia entre una herramienta que escala contigo y una suscripción de la que dependes sin alternativa.</p>
+<p>Si quieres ver cómo funciona antes de comprometerte con nada, el POC de 7 días existe exactamente para eso: probar con tus documentos reales, en tu canal, antes de tomar ninguna decisión.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia hay entre un chatbot normal y uno con RAG?</div>
+              <div class="faq-a"><span>Un chatbot normal responde desde el entrenamiento base del modelo o desde un árbol de decisión fijo. Uno con RAG consulta tus propios documentos en tiempo real antes de responder, lo que le permite dar información precisa y actualizada sobre tu negocio específico.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Necesito un equipo técnico interno para mantener un chatbot con RAG?</div>
+              <div class="faq-a"><span>No necesariamente. Si el sistema está bien diseñado, actualizar la base de conocimiento es tan simple como añadir o editar documentos. El mantenimiento técnico del pipeline puede quedar en manos del proveedor o consultor que lo construyó.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa con mis datos si el proveedor cierra o cambia sus condiciones?</div>
+              <div class="faq-a"><span>Depende de cómo esté construido. Con un stack propio —base vectorial en tu infraestructura, código en tu repositorio— tus datos y configuraciones son tuyas. Con una plataforma SaaS, los datos suelen estar en sus servidores y la portabilidad es limitada o nula.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿RAG funciona en cualquier idioma?</div>
+              <div class="faq-a"><span>Sí, siempre que el modelo de embeddings y el modelo de lenguaje soporten el idioma. Para español, la mayoría de modelos actuales tienen soporte sólido, aunque conviene verificarlo con una prueba real sobre tus documentos antes de ponerlo en producción.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo lleva tener un chatbot con RAG funcionando?</div>
+              <div class="faq-a"><span>Un POC básico con documentos reales puede estar operativo en pocos días. Un sistema en producción con guardrails, memoria episódica y handoff humano requiere más configuración, pero no estamos hablando de meses. El cuello de botella suele ser la calidad y organización de los documentos fuente, no la tecnología.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">chatbot ia rag</span><span class="atag">automatización ia pymes</span><span class="atag">sin vendor lock-in</span><span class="atag">arquitecto digital</span><span class="atag">embeddings</span></div>
+        <button class="af-link" onclick="toggleArticle('art-rag-explicado-con-un-caso-real-por-que-20260611-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-chatbots-en-produccion-errores-de-arquitectura-que-nadie-20260527">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
