@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Página INVISIBLE: solo se llega por el redirect de Stripe tras pagar.
+     No enlazada en menús ni sitemap. noindex para que no la indexe nadie. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Cénit Pro · Tu código de activación</title>
+<style>
+  :root { --azul:#1F6FEB; --azul-hondo:#0B3A8C; --bg:#F4F7FC; --tinta:#0E1626; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--tinta); min-height:100vh;
+         display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { background:#fff; max-width:520px; width:100%; border-radius:18px;
+          box-shadow:0 10px 40px rgba(11,58,140,.12); padding:32px 28px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .dot { width:34px; height:34px; border-radius:50%; background:var(--azul);
+         display:flex; align-items:center; justify-content:center; color:#fff;
+         font-weight:700; font-size:18px; }
+  h1 { font-size:1.35rem; margin:.2rem 0 0; }
+  p { line-height:1.55; }
+  .muted { color:#5a6b85; }
+  .code-box { display:flex; gap:8px; align-items:center; margin:18px 0 6px; }
+  code { flex:1; background:#0E1626; color:#fff; padding:14px 16px; border-radius:12px;
+         font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+         font-size:1rem; word-break:break-all; }
+  button { border:0; background:var(--azul); color:#fff; font-weight:600;
+           padding:14px 16px; border-radius:12px; font-size:.95rem; cursor:pointer; }
+  button:active { background:var(--azul-hondo); }
+  .steps { background:var(--bg); border-radius:12px; padding:14px 18px; margin-top:18px; }
+  .steps ol { margin:8px 0 0; padding-left:20px; }
+  .ok { color:#1a7f37; font-weight:600; }
+  .warn { background:#fff4e5; border-radius:12px; padding:16px; color:#7a4b00; }
+  .small { font-size:.85rem; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">
+      <span class="dot">C</span>
+      <strong>Cénit</strong>
+    </div>
+
+    <div id="ok-view" style="display:none">
+      <h1>¡Pago recibido! 🎉</h1>
+      <p class="muted">Este es tu <strong>código de activación</strong> de Cénit Pro:</p>
+      <div class="code-box">
+        <code id="code">—</code>
+        <button id="copy" type="button">Copiar</button>
+      </div>
+      <p id="copied" class="ok small" style="visibility:hidden">Código copiado ✓</p>
+
+      <div class="steps">
+        <strong>Para activar Pro:</strong>
+        <ol>
+          <li>Abre la app de <strong>Cénit</strong>.</li>
+          <li>Entra en <strong>“Activar Pro”</strong>.</li>
+          <li>Pega este <strong>código</strong> y escribe el <strong>email con el que has pagado</strong>.</li>
+          <li>Pulsa <strong>Activar</strong>. ¡Listo!</li>
+        </ol>
+      </div>
+      <p class="muted small">Guarda este código por si acaso. Si cambias de móvil,
+        la app te dará un código de recuperación al activar.</p>
+    </div>
+
+    <div id="no-view" style="display:none">
+      <h1>Vuelve a la app de Cénit</h1>
+      <div class="warn">
+        <p>No hemos encontrado tu código en este enlace. Si acabas de pagar,
+        abre la app de Cénit y usa <strong>“Activar Pro”</strong>; si el problema
+        sigue, escríbenos y lo resolvemos.</p>
+      </div>
+    </div>
+  </main>
+
+<script>
+  // El "código" ES el id de la sesión de Stripe (cs_...), que Stripe añade
+  // a esta URL como ?session_id=cs_... al redirigir tras el pago.
+  (function () {
+    var sid = new URLSearchParams(location.search).get("session_id") || "";
+    sid = sid.trim();
+    var ok = sid.indexOf("cs_") === 0;
+    document.getElementById(ok ? "ok-view" : "no-view").style.display = "block";
+    if (!ok) return;
+    document.getElementById("code").textContent = sid;
+    var btn = document.getElementById("copy");
+    btn.addEventListener("click", function () {
+      var done = function () {
+        var c = document.getElementById("copied");
+        c.style.visibility = "visible";
+        setTimeout(function () { c.style.visibility = "hidden"; }, 2500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(sid).then(done, fallback);
+      } else { fallback(); }
+      function fallback() {
+        var r = document.createRange(); r.selectNode(document.getElementById("code"));
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        s.removeAllRanges();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
