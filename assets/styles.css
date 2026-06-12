@@ -12,6 +12,8 @@
   --text-faint: #555555;
   --border: #2A2A2A;
   --green: #4ADE80;
+  --cenit: #1F6FEB;
+  --cenit-hondo: #0B3A8C;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -137,6 +139,36 @@ nav {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+/* Anuncio de Cénit en el hero — punto en azul de marca (--cenit), no toca --green */
+.hero-tag--cenit {
+  background: rgba(31, 111, 235, 0.1);
+  border-color: rgba(31, 111, 235, 0.35);
+  color: var(--cenit);
+}
+.hero-tag--cenit::before { color: var(--cenit); }
+.cenit-banner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  padding: 18px 22px;
+  margin-bottom: 34px;
+  background: linear-gradient(135deg, rgba(31,111,235,0.10), rgba(11,58,140,0.06));
+  border: 1px solid rgba(31,111,235,0.30);
+  border-radius: 16px;
+}
+.cenit-banner .cb-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 220px; }
+.cenit-banner .cb-text strong { font-size: 1.05rem; color: var(--text); }
+.cenit-banner .cb-text span { color: var(--text-dim); font-size: 0.92rem; }
+.cenit-banner .cb-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--cenit), var(--cenit-hondo));
+  color: #fff; font-weight: 600; text-decoration: none;
+  padding: 12px 22px; border-radius: 10px; font-size: 0.95rem; white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(31,111,235,0.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cenit-banner .cb-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31,111,235,0.45); }
 .hero h1 {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.5em, 6.5vw, 5.5em);
