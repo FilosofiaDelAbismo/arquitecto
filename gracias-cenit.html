@@ -79,8 +79,17 @@
   // El "código" ES el id de la sesión de Stripe (cs_...), que Stripe añade
   // a esta URL como ?session_id=cs_... al redirigir tras el pago.
   (function () {
-    var sid = new URLSearchParams(location.search).get("session_id") || "";
-    sid = sid.trim();
+    // Stripe añade ?session_id=cs_... a esta URL al REDIRIGIR tras el pago.
+    // Leemos de la query y, por robustez, también del hash (#).
+    function getParam(name) {
+      var v = new URLSearchParams(location.search).get(name);
+      if (!v && location.hash) {
+        v = new URLSearchParams(location.hash.replace(/^#/, "")).get(name);
+      }
+      return (v || "").trim();
+    }
+    var sid = getParam("session_id");
+    // Válido solo si es un cs_ real (ignora vacío y el literal {CHECKOUT_SESSION_ID}).
     var ok = sid.indexOf("cs_") === 0;
     document.getElementById(ok ? "ok-view" : "no-view").style.display = "block";
     if (!ok) return;
