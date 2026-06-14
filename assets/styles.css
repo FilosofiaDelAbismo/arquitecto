@@ -1509,6 +1509,22 @@ footer {
   position: relative;
   z-index: 2;
 }
+/* fix/cajas-clic: el TEXTO de la card (no es enlace) NO debe capturar el clic.
+   Con pointer-events:none los clics atraviesan el texto y caen sobre el overlay
+   (que cubre toda la card) → navega al destino de la card. Solo el CTA y el
+   overlay conservan su clic propio (cada uno con su href). */
+.service-card > .service-icon,
+.service-card > .service-title,
+.service-card > .service-desc,
+.service-card > .service-subtitle,
+.service-card > .service-features,
+.service-card > .service-price {
+  pointer-events: none;
+}
+.service-card-overlay,
+.service-card > .service-cta {
+  pointer-events: auto;
+}
 .service-subtitle {
   color: var(--orange);
   font-size: 0.95em;
