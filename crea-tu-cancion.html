@@ -211,8 +211,12 @@
 // ── Canjeo del código → página protegida de creación ─────────────────
 (function () {
   var API = "https://api.arquitectodigital.io";
-  var sid = new URLSearchParams(location.search).get("session_id");
-  if (sid) document.getElementById("music-codigo").value = sid;
+  var qs = new URLSearchParams(location.search);
+  // Prerrellenado desde la URL: ?codigo= (QR de regalo) o ?session_id= (vuelta de Stripe).
+  var presetCode = qs.get("codigo") || qs.get("session_id");
+  if (presetCode) document.getElementById("music-codigo").value = presetCode;
+  var presetEmail = qs.get("email");
+  if (presetEmail) document.getElementById("music-email").value = presetEmail;
 
   document.getElementById("music-form").addEventListener("submit", async function (e) {
     e.preventDefault();

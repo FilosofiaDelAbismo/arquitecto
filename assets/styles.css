@@ -1384,6 +1384,18 @@ footer {
   list-style: none;
   z-index: 200;
 }
+/* Puente transparente que cubre el hueco de 14px entre el enlace "Servicios" y
+   el menú: sin él, al bajar el ratón hacia los items se pierde el :hover y el
+   submenú se cierra antes de poder pulsar. El puente es descendiente del menú,
+   así que mantiene .nav-dropdown:hover mientras se cruza el hueco. */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu,
 .nav-dropdown.is-open .nav-dropdown-menu {
