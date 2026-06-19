@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio de Webs · Ejemplos por sector · Arquitecto Digital</title>
+<meta name="description" content="Ejemplos de webs por sector: restaurante, clínica, gestoría, peluquería, abogado y comercio. Niveles Essential y Pro. Webs de demostración navegables.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/portfolio.html">
+
+<meta property="og:title" content="Portfolio de Webs · Ejemplos por sector">
+<meta property="og:description" content="Ejemplos navegables por sector, en niveles Essential y Pro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/portfolio.html">
+<meta property="og:image" content="https://arquitectodigital.io/apple-touch-icon.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="assets/cookies.js"></script>
+<style>
+  .pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:30px;margin-top:50px}
+  .pf-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+  .pf-card:hover{transform:translateY(-4px);border-color:var(--orange)}
+  .pf-thumb{display:block;aspect-ratio:16/10;background-size:cover;background-position:center;border-bottom:1px solid var(--border)}
+  .pf-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .pf-sector{font-family:'Fraunces',serif;font-size:1.25em;color:var(--text);margin:0}
+  .pf-desc{color:var(--text-dim);line-height:1.55;font-size:.96em;flex:1}
+  .pf-badge{display:inline-block;font-size:.72em;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;width:fit-content}
+  .pf-badge.pro{background:var(--orange);color:#1a0d05}
+  .pf-badge.essential{background:transparent;color:var(--green);border:1px solid var(--green)}
+  .pf-skin{color:var(--text-faint);font-size:.82em}
+  .pf-cta{margin-top:6px;align-self:flex-start;font-weight:600;color:var(--orange);text-decoration:none;border:1px solid var(--orange);padding:9px 16px;border-radius:8px;transition:background .2s,color .2s}
+  .pf-cta:hover{background:var(--orange);color:#1a0d05}
+  .pf-legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--text-dim);font-size:.95em}
+  .pf-legend b{color:var(--text)}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="autoblog.html">Autoblog SEO</a></li>
+          <li><a href="newsletter.html">Newsletter IA</a></li>
+          <li><a href="audio-libro.html">Audio → Libro</a></li>
+          <li><a href="sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="webs.html">Webs Personalizadas</a></li>
+        </ul>
+      </li>
+      <li><a href="webs.html">Webs</a></li>
+      <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">[Portfolio] Ejemplos de webs</span>
+    <h1>Webs por sector,<br><span class="accent">en dos niveles</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 660px; line-height: 1.7; margin-top: 20px;">
+      Seis ejemplos navegables generados con nuestro propio sistema, uno por
+      sector. Cada uno con su identidad visual (tipografía, color y estructura
+      propias) y su nivel de acabado. Son webs de demostración con datos
+      ficticios: lo que cambia en tu caso es el contenido, no la calidad.
+    </p>
+    <div class="pf-legend">
+      <span><b>Essential</b> · web completa de una página (hero, servicios, sobre, contacto + legales).</span>
+      <span><b>Pro</b> · añade blog con artículos y asistente/chatbot embebido de demostración.</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1180px; margin: 0 auto; padding-bottom: 70px;">
+  <span class="section-label">[01] 6 sectores</span>
+  <h2 class="section-title">Elige un sector y <span class="accent">ábrelo</span>.</h2>
+
+  <div class="pf-grid">
+
+    <article class="pf-card">
+      <a class="pf-thumb" style="background-image:url('muestra-restaurante/assets/hero.jpg')" href="muestra-restaurante/index.html" target="_blank" rel="noopener" aria-label="Ver ejemplo de restaurante"></a>
+      <div class="pf-body">
+        <span class="pf-badge pro">Pro</span>
+        <h3 class="pf-sector">Restaurante / Hostelería</h3>
+        <span class="pf-skin">Estilo cálido editorial (serif) · con blog y chatbot</span>
+        <p class="pf-desc">Cocina de brasa con carta, reservas y artículos. Comedor acogedor en tonos terracota y crema.</p>
+        <a class="pf-cta" href="muestra-restaurante/index.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+      </div>
+    </article>
+
+    <article class="pf-card">
+      <a class="pf-thumb" style="background-image:url('muestra-clinica/assets/hero.jpg')" href="muestra-clinica/index.html" target="_blank" rel="noopener" aria-label="Ver ejemplo de clínica"></a>
+      <div class="pf-body">
+        <span class="pf-badge pro">Pro</span>
+        <h3 class="pf-sector">Clínica / Salud</h3>
+        <span class="pf-skin">Estilo azul clean (confianza) · con blog y chatbot</span>
+        <p class="pf-desc">Clínica dental con servicios, blog de consejos y asistente de citas embebido. Tonos azules limpios.</p>
+        <a class="pf-cta" href="muestra-clinica/index.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+      </div>
+    </article>
+
+    <article class="pf-card">
+      <a class="pf-thumb" style="background-image:url('muestra-gestoria/assets/hero.jpg')" href="muestra-gestoria/index.html" target="_blank" rel="noopener" aria-label="Ver ejemplo de gestoría"></a>
+      <div class="pf-body">
+        <span class="pf-badge essential">Essential</span>
+        <h3 class="pf-sector">Gestoría / Asesoría</h3>
+        <span class="pf-skin">Estilo azul clean (confianza) · web de una página</span>
+        <p class="pf-desc">Asesoría fiscal, laboral y contable para autónomos y pymes. Sobria y de confianza, en azul corporativo.</p>
+        <a class="pf-cta" href="muestra-gestoria/index.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+      </div>
+    </article>
+
+    <article class="pf-card">
+      <a class="pf-thumb" style="background-image:url('muestra-peluqueria/assets/hero.jpg')" href="muestra-peluqueria/index.html" target="_blank" rel="noopener" aria-label="Ver ejemplo de peluquería"></a>
+      <div class="pf-body">
+        <span class="pf-badge pro">Pro</span>
+        <h3 class="pf-sector">Peluquería / Estética</h3>
+        <span class="pf-skin">Estilo fresco luminoso (redondeado) · con blog y chatbot</span>
+        <p class="pf-desc">Salón de peluquería y estética con reserva, blog y asistente. Espacio luminoso en verde fresco.</p>
+        <a class="pf-cta" href="muestra-peluqueria/index.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+      </div>
+    </article>
+
+    <article class="pf-card">
+      <a class="pf-thumb" style="background-image:url('muestra-abogado/assets/hero.jpg')" href="muestra-abogado/index.html" target="_blank" rel="noopener" aria-label="Ver ejemplo de despacho de abogados"></a>
+      <div class="pf-body">
+        <span class="pf-badge essential">Essential</span>
+        <h3 class="pf-sector">Abogado / Despacho</h3>
+        <span class="pf-skin">Estilo oscuro premium (oro) · web de una página</span>
+        <p class="pf-desc">Despacho jurídico para empresas y particulares. Imagen seria y premium, oscuro con detalles en oro.</p>
+        <a class="pf-cta" href="muestra-abogado/index.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+      </div>
+    </article>
+
+    <article class="pf-card">
+      <a class="pf-thumb" style="background-image:url('muestra-tienda/assets/hero.jpg')" href="muestra-tienda/index.html" target="_blank" rel="noopener" aria-label="Ver ejemplo de tienda local"></a>
+      <div class="pf-body">
+        <span class="pf-badge essential">Essential</span>
+        <h3 class="pf-sector">Comercio / Tienda local</h3>
+        <span class="pf-skin">Estilo fresco luminoso (redondeado) · web de una página</span>
+        <p class="pf-desc">Tienda de alimentación ecológica y producto local de barrio. Cercana y fresca, en verde natural.</p>
+        <a class="pf-cta" href="muestra-tienda/index.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <p style="color: var(--text-faint); font-size: .9em; margin-top: 34px; max-width: 760px; line-height: 1.6;">
+    Webs de demostración con nombres, datos y teléfonos ficticios, sin relación
+    con negocios reales. Generadas con el sistema de Arquitecto Digital como
+    muestra de estilo y estructura.
+  </p>
+</section>
+
+<section class="section-content" style="text-align: center; max-width: 720px; margin: 0 auto; padding-top: 20px; padding-bottom: 80px;">
+  <h2 class="section-title">¿Cuál encaja con tu negocio?</h2>
+  <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.7; margin: 20px 0 30px;">
+    Llamada de 15 minutos: vemos tu sector, qué nivel encaja (Essential o Pro)
+    y cómo quedaría con tu contenido. Sin compromiso.
+  </p>
+  <a href="index.html#contacto" class="btn-primary">Agendar llamada gratuita →</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs que no se conforman con plantillas. Sin lock-in vendor.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="chatbot.html">Chatbots</a></li>
+          <li><a href="autoblog.html">Autoblog</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="audio-libro.html">Audio→Libro</a></li>
+          <li><a href="sistemas.html">Sistemas</a></li>
+          <li><a href="webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="index.html#proceso">Proceso</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España · Trabajo remoto UE + LATAM</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
