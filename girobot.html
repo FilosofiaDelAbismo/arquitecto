@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GiroBot · Bot de IA para Twitch: chatbot, autoclipper 9:16 y alertas con voz · Arquitecto Digital</title>
+<meta name="description" content="GiroBot: toolkit 3-en-1 para streamers de Twitch. Chatbot de IA en tu chat, autoclipper que convierte tus vídeos en clips verticales 9:16 con subtítulos, y alertas con voz IA para OBS. Desde 19,99€/mes. Lo configuras tú, sin código.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/girobot.html">
+
+<meta property="og:title" content="GiroBot · IA para tu canal de Twitch (chatbot + autoclipper 9:16 + alertas con voz)">
+<meta property="og:description" content="Toolkit 3-en-1 para streamers: chatbot IA, autoclipper vertical 9:16 con subtítulos y alertas con voz IA. Desde 19,99€/mes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/girobot.html">
+<meta property="og:image" content="https://arquitectodigital.io/apple-touch-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GiroBot · IA para tu canal de Twitch">
+<meta name="twitter:description" content="Chatbot IA + autoclipper 9:16 + alertas con voz IA para Twitch. Desde 19,99€/mes.">
+<meta name="twitter:image" content="https://arquitectodigital.io/apple-touch-icon.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="assets/cookies.js"></script>
+<style>
+  /* CTA relleno (el .service-cta del sitio es enlace de texto; aquí lo
+     queremos como botón naranja, igual que en crea-tu-cancion). */
+  a.cta-fill { background: var(--orange); color: var(--bg); border: 0;
+    padding: 13px 24px; border-radius: 8px; cursor: pointer; font-size: 1.05em;
+    font-weight: 600; display: inline-block; text-decoration: none; }
+  a.cta-fill:hover { background: var(--orange-bright); color: var(--bg); }
+  .gb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px; margin-top: 24px; }
+  .gb-card { background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 20px; }
+  .gb-card h3 { margin: 0 0 10px; color: var(--text); font-size: 1.15em; }
+  .gb-card p { color: var(--text-dim); line-height: 1.65; margin: 0; }
+  .gb-tier { background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 20px; text-align: center; }
+  .gb-tier.pro { border-color: var(--orange); }
+  .gb-tier h3 { margin: 0; color: var(--text); letter-spacing: .5px; }
+  .gb-price { font-size: 2em; font-weight: 800; color: var(--text); margin: 8px 0; }
+  .gb-price small { font-size: .5em; font-weight: 400; color: var(--text-dim); }
+  .gb-tier p { color: var(--text-dim); min-height: 40px; margin: 0 0 4px; }
+  .gb-alta { color: var(--text-dim); text-align: center; margin-top: 14px; font-size: .95em; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="autoblog.html">Autoblog SEO</a></li>
+          <li><a href="newsletter.html">Newsletter IA</a></li>
+          <li><a href="audio-libro.html">Audio → Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="girobot.html">GiroBot para Twitch</a></li>
+          <li><a href="sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="webs.html">Webs Personalizadas</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="index.html#stack">Filosofía</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="newsletter-signup.html">Newsletter</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">[Servicio] GiroBot para Twitch</span>
+    <h1>IA para tu canal<br><span class="accent">de Twitch</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 660px; line-height: 1.7; margin-top: 20px;">
+      GiroBot es un toolkit 3-en-1 para streamers: un <strong>chatbot de IA</strong>
+      que responde en tu chat, un <strong>autoclipper</strong> que convierte tus
+      vídeos en clips verticales 9:16 con subtítulos, y <strong>alertas con voz IA</strong>
+      con overlay para OBS. Lo configuras tú mismo, sin tocar código.
+    </p>
+    <p style="margin-top: 26px;">
+      <a class="cta-fill" href="https://api.arquitectodigital.io/twitch/landing">Contratar GiroBot →</a>
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 960px; margin: 0 auto;">
+  <span class="section-label">[01] Qué es GiroBot</span>
+  <h2 class="section-title">Tres herramientas, <span class="accent">un solo bot</span>.</h2>
+  <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.75; margin-top: 20px;">
+    En vez de pagar tres servicios distintos y pelearte con su configuración,
+    GiroBot reúne en un único panel lo que un canal de Twitch necesita para
+    crecer: conversación en el chat, cortos para redes y alertas vistosas en
+    directo. Conectas tu canal con un clic (OAuth de Twitch) y activas los
+    módulos que quieras. Sin servidores, sin código, sin mantenimiento.
+  </p>
+</section>
+
+<section class="section-content" style="max-width: 960px; margin: 0 auto;">
+  <span class="section-label">[02] Los 3 módulos</span>
+  <h2 class="section-title">Qué <span class="accent">incluye</span>.</h2>
+  <div class="gb-grid">
+    <div class="gb-card">
+      <h3>🤖 Chatbot de IA</h3>
+      <p>Un chatbot que responde a tu comunidad en el chat con la personalidad
+        de tu canal. Editas su tono y sus respuestas frecuentes (FAQs) desde tu
+        panel; contesta dudas, modera y mantiene vivo el chat aunque tú estés
+        concentrado en el directo.</p>
+    </div>
+    <div class="gb-card">
+      <h3>🎬 Autoclipper vertical 9:16</h3>
+      <p>Subes un vídeo horizontal y GiroBot te devuelve un corto vertical
+        1080×1920 con subtítulos quemados, listo para TikTok, Shorts y Reels.
+        Reencuadre automático y transcripción con IA: conviertes tus mejores
+        momentos en contenido para redes en minutos.</p>
+    </div>
+    <div class="gb-card">
+      <h3>🔔 Alertas con voz IA</h3>
+      <p>Overlay para OBS con animación y voz IA que anuncia subs, resubs, bits,
+        raids y follows en directo. Activas o desactivas cada tipo de alerta y
+        eliges la voz. Tu directo gana producción sin que toques una sola línea
+        de configuración técnica.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 960px; margin: 0 auto;">
+  <span class="section-label">[03] Precios</span>
+  <h2 class="section-title">Planes <span class="accent">mensuales</span>.</h2>
+  <div class="gb-grid">
+    <div class="gb-tier">
+      <h3>STARTER</h3>
+      <div class="gb-price">19,99€<small>/mes</small></div>
+      <p>Los 3 módulos · 1 canal.</p>
+    </div>
+    <div class="gb-tier pro">
+      <h3>PRO</h3>
+      <div class="gb-price">39,99€<small>/mes</small></div>
+      <p>Los 3 módulos · más capacidad y clips/día.</p>
+    </div>
+    <div class="gb-tier">
+      <h3>UNLIMITED</h3>
+      <div class="gb-price">89,99€<small>/mes</small></div>
+      <p>Los 3 módulos · uso intensivo.</p>
+    </div>
+  </div>
+  <p class="gb-alta">+ cuota de alta única: <strong>199€</strong> el pack 3-en-1
+    (o <strong>99€</strong> si solo quieres el chatbot). Se incluye en el primer
+    pago. Precios con IVA incluido.</p>
+  <p style="text-align:center; margin-top: 22px;">
+    <a class="cta-fill" href="https://api.arquitectodigital.io/twitch/landing">Contratar GiroBot →</a>
+  </p>
+</section>
+
+<section class="section-content" style="max-width: 960px; margin: 0 auto;">
+  <span class="section-label">[04] Para quién es</span>
+  <h2 class="section-title">Empieza <span class="accent">hoy</span>.</h2>
+  <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.75; margin-top: 20px;">
+    Para streamers de Twitch que quieren un chat más vivo, contenido para redes
+    sin editar a mano y un directo con más producción — sin contratar un equipo
+    ni montar nada técnico. Contratas, conectas tu canal con Twitch y, tras el
+    pago, recibes por email tu código de acceso al portal: dentro configuras el
+    chatbot, subes vídeos al autoclipper y activas las alertas.
+  </p>
+  <p style="margin-top: 24px;">
+    <a class="cta-fill" href="https://api.arquitectodigital.io/twitch/landing">Contratar y acceder al portal →</a>
+  </p>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs que no se conforman con plantillas. Sin lock-in vendor.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="chatbot.html">Chatbots</a></li>
+          <li><a href="autoblog.html">Autoblog</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="audio-libro.html">Audio→Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="girobot.html">GiroBot Twitch</a></li>
+          <li><a href="sistemas.html">Sistemas</a></li>
+          <li><a href="webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="index.html#proceso">Proceso</a></li>
+          <li><a href="index.html#stack">Filosofía</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España · Trabajo remoto UE + LATAM</div>
+  </div>
+</footer>
+
+<script>
+// ── Navegación (mismo comportamiento que el resto del sitio) ─────────
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
