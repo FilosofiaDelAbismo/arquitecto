@@ -34,6 +34,28 @@
   .service-card .red-emoji { font-size: 2.2em; margin-bottom: 18px; display: block; }
   .red-meta { font-family: 'JetBrains Mono', monospace; color: var(--text-faint);
     font-size: 0.82em; word-break: break-all; margin-top: 2px; }
+  /* v2 — tarjeta de canal con avatar grande + descripción SEO */
+  .red-channel { text-align: center; }
+  .red-avatar { display: flex; align-items: center; justify-content: center;
+    width: 96px; height: 96px; margin: 0 auto 16px; border-radius: 50%;
+    overflow: hidden; border: 2px solid var(--border); background: var(--bg-elevated); }
+  .red-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .red-avatar--ph { font-family: 'Fraunces', serif; font-size: 2.6em; font-weight: 700;
+    color: var(--orange); }
+  .red-channel .service-title { font-size: 1.25em; margin-bottom: 10px; }
+  .red-channel .service-desc { font-size: 0.9em; line-height: 1.55; }
+  .red-xlink { position: relative; z-index: 5; display: inline-block; margin-top: 12px;
+    color: var(--orange); text-decoration: none; font-weight: 600; font-size: 0.9em; }
+  .red-xlink:hover { color: var(--orange-bright); }
+  /* v2 — bloque técnico "cómo está construido" */
+  .red-build-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px; margin-top: 36px; }
+  .red-build-step { background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px; }
+  .red-build-step .red-step-tag { font-family: 'JetBrains Mono', monospace; color: var(--orange);
+    font-size: 0.72em; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+  .red-build-step h3 { font-family: 'Fraunces', serif; font-size: 1.15em; margin-bottom: 8px; color: var(--text); }
+  .red-build-step p { color: var(--text-dim); font-size: 0.92em; line-height: 1.6; margin: 0; }
 </style>
 </head>
 <body>
@@ -125,14 +147,6 @@
     <div class="services-grid">
 
       <div class="service-card">
-        <a href="cenit/" class="service-card-overlay" aria-label="Cénit · Diario Personal con IA"></a>
-        <span class="red-emoji">📔</span>
-        <h3 class="service-title">Cénit · Diario Personal con IA</h3>
-        <p class="service-desc">Diario privado para Android con Mario, una IA que reflexiona contigo.</p>
-        <span class="red-meta">arquitectodigital.io/cenit/</span>
-      </div>
-
-      <div class="service-card">
         <a href="https://digiprompts.io" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="DigiPrompts.io"></a>
         <span class="red-emoji">💡</span>
         <h3 class="service-title">DigiPrompts.io</h3>
@@ -172,51 +186,115 @@
 <section>
   <div class="section-content" style="padding-top:0;">
     <span class="section-label">[03] Canales</span>
-    <h2 class="section-title">Mis canales <span class="accent">de YouTube</span>.</h2>
+    <h2 class="section-title">Mis canales <span class="accent">automatizados</span> en YouTube</h2>
     <div class="services-grid">
 
-      <div class="service-card">
+      <div class="service-card red-channel">
         <a href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube Estoico Loco"></a>
-        <span class="red-emoji">▶️</span>
+        <span class="red-avatar red-avatar--ph" aria-hidden="true">E</span>
         <h3 class="service-title">Estoico Loco</h3>
-        <p class="service-desc">Canal de YouTube.</p>
+        <p class="service-desc">Filosofía estoica aplicada al día a día: Séneca, Marco Aurelio y Epicteto en píldoras. Reflexiones para la calma, la disciplina y el dominio mental.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card red-channel">
         <a href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube Leyendas Aterradoras"></a>
-        <span class="red-emoji">▶️</span>
+        <span class="red-avatar red-avatar--ph" aria-hidden="true">L</span>
         <h3 class="service-title">Leyendas Aterradoras</h3>
-        <p class="service-desc">Canal de YouTube.</p>
+        <p class="service-desc">Historias de terror y casos paranormales narrados con atmósfera oscura. Leyendas urbanas, sucesos inexplicables y relatos de miedo en formato corto y largo.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card red-channel">
         <a href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube Historias Minuteras"></a>
-        <span class="red-emoji">▶️</span>
+        <span class="red-avatar"><img src="assets/img/avatar-historias-minuteras.jpg" alt="Avatar del canal Historias Minuteras" width="96" height="96" loading="lazy"></span>
         <h3 class="service-title">Historias Minuteras</h3>
-        <p class="service-desc">Canal de YouTube.</p>
+        <p class="service-desc">Historias breves de un minuto: relatos, curiosidades y micro-narrativas que enganchan en segundos. Contenido corto diseñado para retención máxima.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card red-channel">
         <a href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube PokerConDatos"></a>
-        <span class="red-emoji">▶️</span>
+        <span class="red-avatar"><img src="assets/img/avatar-pokercondatos.jpg" alt="Avatar del canal PokerConDatos" width="96" height="96" loading="lazy"></span>
         <h3 class="service-title">PokerConDatos</h3>
-        <p class="service-desc">Canal de YouTube.</p>
+        <p class="service-desc">Estrategia de póker basada en datos y matemáticas. Análisis de manos, rangos, EV y decisiones óptimas para mejorar tu juego.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card red-channel">
         <a href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube NeuralSpot"></a>
-        <span class="red-emoji">▶️</span>
+        <span class="red-avatar"><img src="assets/img/avatar-neuralspot.jpg" alt="Avatar del canal NeuralSpot" width="96" height="96" loading="lazy"></span>
         <h3 class="service-title">NeuralSpot</h3>
-        <p class="service-desc">Canal de YouTube.</p>
+        <p class="service-desc">Acertijos, razonamiento y pensamiento lógico. Retos mentales y curiosidades que ponen a prueba tu forma de pensar.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card red-channel">
         <a href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube NEV · Noticias"></a>
-        <span class="red-emoji">▶️</span>
+        <span class="red-avatar"><img src="assets/img/avatar-nev-noticias.jpg" alt="Avatar del canal NEV · Noticias" width="96" height="96" loading="lazy"></span>
         <h3 class="service-title">NEV · Noticias</h3>
-        <p class="service-desc">Canal de YouTube.</p>
+        <p class="service-desc">Actualidad explicada clara y directa. Resúmenes informativos para entender lo que pasa sin ruido ni relleno.</p>
       </div>
 
+      <div class="service-card red-channel">
+        <a href="https://www.youtube.com/@logicasalvaje" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube Lógica Salvaje"></a>
+        <span class="red-avatar"><img src="assets/img/avatar-logica-salvaje.jpg" alt="Avatar del canal Lógica Salvaje" width="96" height="96" loading="lazy"></span>
+        <h3 class="service-title">Lógica Salvaje</h3>
+        <p class="service-desc">El reino animal y sus rarezas: comportamientos sorprendentes, adaptaciones extremas y datos curiosos de la fauna. Animales asombrosos explicados en formato corto.</p>
+      </div>
+
+      <div class="service-card red-channel">
+        <a href="https://www.youtube.com/@EBLIAMUSIC" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube EBLIA"></a>
+        <span class="red-avatar"><img src="assets/img/avatar-eblia.jpg" alt="Avatar del canal EBLIA" width="96" height="96" loading="lazy"></span>
+        <h3 class="service-title">EBLIA</h3>
+        <p class="service-desc">Música IA original: canciones generadas con inteligencia artificial mediante Crea Tu Canción. Temas y bandas sonoras creadas de forma automática.</p>
+        <a href="crea-tu-cancion.html" class="red-xlink">Hecho con Crea Tu Canción →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- [04] CÓMO ESTÁ CONSTRUIDO -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[04] Cómo está construido</span>
+    <h2 class="section-title">El pipeline <span class="accent">de producción</span>.</h2>
+    <p class="section-intro">
+      Estos canales no se editan a mano vídeo a vídeo: son la salida de un
+      pipeline de producción automatizada de extremo a extremo. Cada pieza
+      —guion, voz, imagen, subtítulos y montaje— se genera y compone de forma
+      programática, y la publicación se orquesta en varios canales sin
+      intervención manual. Es la misma clase de arquitectura que implemento
+      para clientes: reproducible, monitorizada y sin lock-in.
+    </p>
+
+    <div class="red-build-grid">
+      <div class="red-build-step">
+        <span class="red-step-tag">01 · Guion</span>
+        <h3>Generación con LLM</h3>
+        <p>El guion de cada pieza se redacta con modelos de lenguaje (LLM) a partir de prompts y guías de estilo por canal, con control de tono, longitud y estructura narrativa.</p>
+      </div>
+      <div class="red-build-step">
+        <span class="red-step-tag">02 · Voz</span>
+        <h3>Síntesis de voz (TTS)</h3>
+        <p>La narración se produce con síntesis de voz (text-to-speech), generando la pista de voz en off con prosodia y ritmo coherentes con el formato del canal.</p>
+      </div>
+      <div class="red-build-step">
+        <span class="red-step-tag">03 · Imagen</span>
+        <h3>Modelos de difusión</h3>
+        <p>El apartado visual se crea con modelos de difusión text-to-image, generando planos e ilustraciones a partir de descripciones derivadas del propio guion.</p>
+      </div>
+      <div class="red-build-step">
+        <span class="red-step-tag">04 · Subtítulos</span>
+        <h3>Alineación forzada</h3>
+        <p>Los subtítulos se sincronizan por alineación forzada (forced alignment) sobre el audio mediante reconocimiento de voz (speech-to-text), encajando texto y tiempos al milisegundo.</p>
+      </div>
+      <div class="red-build-step">
+        <span class="red-step-tag">05 · Render</span>
+        <h3>Composición con ffmpeg</h3>
+        <p>El montaje final —imagen, voz, música y subtítulos— se compone y renderiza con ffmpeg, exportando en 16:9 para vídeo largo y 9:16 para formato vertical.</p>
+      </div>
+      <div class="red-build-step">
+        <span class="red-step-tag">06 · Publicación</span>
+        <h3>Multi-canal automatizada</h3>
+        <p>La publicación se automatiza y se distribuye en varios canales de forma programada, con metadatos, títulos y descripciones optimizados generados en el mismo flujo.</p>
+      </div>
     </div>
   </div>
 </section>
