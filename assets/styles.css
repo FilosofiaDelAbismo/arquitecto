@@ -170,32 +170,6 @@ nav {
 }
 .cenit-banner .cb-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31,111,235,0.45); }
 
-/* Anuncio de ShopIATools en el hero — MISMO patrón que .cenit-banner, en VERDE
-   de marca ShopIA (#22c55e), sin tocar el azul de Cénit (--cenit). */
-.hero-tag--shopia {
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgba(34, 197, 94, 0.35);
-  color: #22c55e;
-}
-.hero-tag--shopia::before { color: #22c55e; }
-.shopia-banner {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px;
-  padding: 18px 22px; margin-bottom: 34px;
-  background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(21,128,61,0.06));
-  border: 1px solid rgba(34,197,94,0.30); border-radius: 16px;
-}
-.shopia-banner .cb-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 220px; }
-.shopia-banner .cb-text strong { font-size: 1.05rem; color: var(--text); }
-.shopia-banner .cb-text span { color: var(--text-dim); font-size: 0.92rem; }
-.shopia-banner .cb-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: #06160d; font-weight: 600; text-decoration: none;
-  padding: 12px 22px; border-radius: 10px; font-size: 0.95rem; white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(34,197,94,0.35);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.shopia-banner .cb-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(34,197,94,0.45); }
 .hero h1 {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.5em, 6.5vw, 5.5em);
