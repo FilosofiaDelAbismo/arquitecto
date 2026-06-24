@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.digiprompts.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muestras · Arquitecto Digital · Prueba de trabajo real (vídeo, libros IA, chatbot, web)</title>
+<meta name="description" content="Mi historia (de cero a una plataforma propia) y las piezas reales por rama: vídeo automatizado, libros IA, música, informe e-commerce, chatbot, GiroBot y webs a medida. Prueba de trabajo, no promesas.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/muestras.html">
+
+<meta property="og:title" content="Muestras · Arquitecto Digital">
+<meta property="og:description" content="De cero a una plataforma propia. Aquí están las pruebas: vídeo IA, libros, chatbot, informes, webs a medida.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/muestras.html">
+<meta property="og:image" content="https://arquitectodigital.io/apple-touch-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Muestras · Arquitecto Digital">
+<meta name="twitter:description" content="Mi historia + piezas reales por rama. Prueba de trabajo.">
+<meta name="twitter:image" content="https://arquitectodigital.io/apple-touch-icon.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="assets/cookies.js"></script>
+<style>
+  /* muestras.html — estilos scoped (no tocan styles.css global) */
+  .ms-hero { padding-top: 140px; }
+  /* Historia */
+  .ms-story { max-width: 780px; }
+  .ms-story p { color: var(--text-dim); font-size: 1.08em; line-height: 1.75; margin-bottom: 22px; }
+  .ms-key { color: var(--orange); font-style: normal; font-weight: 600; }
+  .ms-closing { font-family: 'Fraunces', serif; font-size: clamp(1.4em, 3vw, 2em);
+    color: var(--text); line-height: 1.4; margin-top: 36px; padding-left: 22px;
+    border-left: 3px solid var(--orange); }
+  /* Vídeo embeds */
+  .ms-vid-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 22px; margin-top: 30px; align-items: start; }
+  .ms-vid-16x9 iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 10px; display: block; }
+  .ms-vid-9x16 { max-width: 300px; margin: 0 auto; }
+  .ms-vid-9x16 iframe { width: 100%; aspect-ratio: 9/16; border: 0; border-radius: 10px; display: block; }
+  .ms-cap { font-family: 'JetBrains Mono', monospace; color: var(--text-faint); font-size: 0.78em; margin-top: 8px; text-align: center; }
+  @media (max-width: 768px){ .ms-vid-grid { grid-template-columns: 1fr; } }
+  /* Tarjetas de pieza (PDF / enlace) reutilizan .service-card */
+  .ms-emoji { font-size: 2.2em; margin-bottom: 16px; display: block; }
+  .ms-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.72em; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--orange); display: block; margin-bottom: 8px; }
+  .ms-note { color: var(--text-faint); font-size: 0.85em; margin-top: 10px; }
+  /* Bloque técnico (reutilizado de redes.html) */
+  .red-build-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 36px; }
+  .red-build-step { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+  .red-build-step .red-step-tag { font-family: 'JetBrains Mono', monospace; color: var(--orange);
+    font-size: 0.72em; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+  .red-build-step h3 { font-family: 'Fraunces', serif; font-size: 1.15em; margin-bottom: 8px; color: var(--text); }
+  .red-build-step p { color: var(--text-dim); font-size: 0.92em; line-height: 1.6; margin: 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="autoblog.html">Autoblog SEO</a></li>
+          <li><a href="newsletter.html">Newsletter IA</a></li>
+          <li><a href="audio-libro.html">Audio → Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="girobot.html">GiroBot para Twitch</a></li>
+          <li><a href="sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="webs.html">Webs Personalizadas</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="index.html#stack">Filosofía</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="redes.html">Redes</a></li>
+      <li><a href="muestras.html" style="color:var(--orange);" aria-current="page">Muestras</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="ms-hero">
+  <div class="section-content">
+    <span class="section-label">Muestras</span>
+    <h1 class="section-title">
+      De cero a una plataforma propia.<br>
+      <span class="accent">Aquí están las pruebas</span>.
+    </h1>
+    <p class="section-intro">
+      No vendo promesas: enseño trabajo real. Mi historia y las piezas que produce
+      el sistema, rama por rama.
+    </p>
+  </div>
+</section>
+
+<!-- [01] MI HISTORIA -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[01] Mi historia</span>
+    <h2 class="section-title">Cómo empezó <span class="accent">todo</span>.</h2>
+    <div class="ms-story">
+      <p>Nadie me enseñó. Nadie me abrió la puerta. Aprendí solo, con hambre. Y esta es mi historia.</p>
+      <p>El 9 de febrero de 2026, a las ocho de la tarde, escribí mi primer mensaje a Claude AI pidiendo ayuda con un guión: un vídeo de un minuto sobre el Big Bang.</p>
+      <p>Quería ganar dinero en YouTube, subir vídeos. Pero me estrellé contra un muro: la edición. Cada vídeo era una tarde entera, guion a guion, a mano. Tenía cinco seguidores. Con un vídeo me gané tres más. Empezar desde abajo del todo. Sin manual, sin red, sin profesor. Solo una pantalla y un cursor parpadeando en la oscuridad.</p>
+      <p>Rompí lo que no sabía arreglar. Pero cada error me dijo algo nuevo, y aprendí que equivocarse también es avanzar.</p>
+      <p>Una noche, mientras los demás dormían, di con una palabra que no conocía: <em class="ms-key">pipeline</em>. El orden del caos. Una cadena que produce sola, sin manos. No tenía ni idea de programar, pero me puse a codear con Claude al lado, a base de bugs y prueba y error. Y conseguí que la producción y la publicación de vídeos para YouTube caminaran solas.</p>
+      <p>En marzo monté mi primer servidor y encadené guion, voz, imagen y vídeo. Cuando agoté el límite de mi plan, descubrí que podía delegar hasta la propia construcción.</p>
+      <p>En mayo empecé a construir una plataforma entera, ladrillo a ladrillo. La llamé TaskRunner. Empezó con archivos vacíos y un puñado de pruebas. Hoy son miles de pruebas en verde y una decena de productos vivos.</p>
+      <p>No vine de ningún lugar especial. No tenía carrera, ni red, ni capital. Vine con hambre y con una pantalla. Tres meses y medio, sin equipo y sin inversores. Esto no ha sido suerte: fueron muchas noches con hambre por romper mis propios límites, levantarse cuando todo se detiene, y construir igual con o sin razón. <strong class="ms-key">Mientras los demás duermen, las máquinas trabajan.</strong></p>
+      <p class="ms-closing">Esto no lo compra nadie. Esto se construye. Y aquí están las pruebas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- [02] VÍDEO AUTOMATIZADO -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[02] Vídeo automatizado</span>
+    <h2 class="section-title">Vídeo que se produce <span class="accent">solo</span>.</h2>
+    <p class="section-intro">Producción 100% automatizada: guion → voz → imagen → render → publicación. Sin tocar el teclado.</p>
+    <div class="ms-vid-grid">
+      <div class="ms-vid-16x9">
+        <iframe src="https://www.youtube.com/embed/Iw7n1ChweRc" title="Vídeo largo automatizado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="ms-cap">Formato largo (16:9) · YouTube</p>
+      </div>
+      <div class="ms-vid-9x16">
+        <iframe src="https://www.youtube.com/embed/jrKLhUao42o" title="Short automatizado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="ms-cap">Short (9:16) · YouTube</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [03] LIBROS IA -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[03] Libros IA · Audio a Libro</span>
+    <h2 class="section-title">De un audio, un <span class="accent">libro</span>.</h2>
+    <p class="section-intro">Transcripción, prosa refinada, capítulos, portada y maquetado editorial. Abre las muestras reales (PDF):</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <a href="assets/muestras/muestra-ebook.pdf" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Abrir muestra EBOOK en PDF"></a>
+        <span class="ms-tag">Tier Ebook · 149€</span>
+        <span class="ms-emoji">📖</span>
+        <h3 class="service-title">Muestra Ebook (PDF)</h3>
+        <p class="service-desc">Ebook real generado por el sistema. Ábrelo en una pestaña nueva.</p>
+        <span class="red-xlink">Abrir PDF →</span>
+      </div>
+      <div class="service-card">
+        <a href="assets/muestras/muestra-premium-reflexiones-estoicas.pdf" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Abrir muestra PREMIUM Reflexiones estoicas en PDF"></a>
+        <span class="ms-tag">Tier Premium · 499€</span>
+        <span class="ms-emoji">📚</span>
+        <h3 class="service-title">«Reflexiones estoicas» (PDF)</h3>
+        <p class="service-desc">Libro Premium de 199 páginas, generado de extremo a extremo. Ábrelo en una pestaña nueva.</p>
+        <span class="red-xlink">Abrir PDF →</span>
+      </div>
+      <div class="service-card">
+        <span class="ms-tag">Tier Libro · 299€</span>
+        <span class="ms-emoji">📘</span>
+        <h3 class="service-title">Tier Libro</h3>
+        <p class="service-desc">Formato intermedio (hasta 6h de audio, todos los formatos). Muestra disponible bajo pedido.</p>
+        <a href="audio-libro.html" class="red-xlink">Ver Audio → Libro →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [04] MÚSICA IA -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[04] Música IA</span>
+    <h2 class="section-title">Canciones <span class="accent">originales</span> con IA.</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <a href="crea-tu-cancion.html" class="service-card-overlay" aria-label="Ver Crea tu canción"></a>
+        <span class="ms-emoji">🎵</span>
+        <h3 class="service-title">Crea tu canción</h3>
+        <p class="service-desc">Música original generada con IA: letra a medida y voz, para la ocasión que quieras. Este es el producto.</p>
+        <span class="red-xlink">Ir a Crea tu canción →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [05] INFORME E-COMMERCE -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[05] Informe e-commerce</span>
+    <h2 class="section-title">Análisis de mercado <span class="accent">con datos reales</span>.</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <a href="https://shopiatools.com/informe-ejemplo.html" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Ver informe de ejemplo de ShopIATools"></a>
+        <span class="ms-emoji">🛍️</span>
+        <h3 class="service-title">Informe de ejemplo · ShopIATools</h3>
+        <p class="service-desc">Informe-muestra con datos reales de una semana: categorías calientes, patrones de precio y oportunidades de nicho.</p>
+        <span class="red-xlink">Ver informe →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [06] CHATBOT IA -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[06] Chatbot IA</span>
+    <h2 class="section-title">Un chatbot que <span class="accent">de verdad responde</span>.</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <a href="https://tuabogabot.io" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Probar la demo del chatbot en TuAbogaBot"></a>
+        <span class="ms-emoji">🤖</span>
+        <h3 class="service-title">Demo en vivo · TuAbogaBot</h3>
+        <p class="service-desc">Chatbot con RAG sobre documentos reales, funcionando en producción. Pruébalo tú mismo.</p>
+        <span class="red-xlink">Abrir demo →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [07] GIROBOT (TWITCH) -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[07] GiroBot · Twitch</span>
+    <h2 class="section-title">Toolkit IA para <span class="accent">streamers</span>.</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <a href="girobot.html" class="service-card-overlay" aria-label="Ver GiroBot para Twitch"></a>
+        <span class="ms-emoji">🎮</span>
+        <h3 class="service-title">GiroBot para Twitch</h3>
+        <p class="service-desc">Chatbot de IA, autoclipper vertical 9:16 con subtítulos y alertas con voz. Mira los detalles y ejemplos.</p>
+        <span class="red-xlink">Ver GiroBot →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [08] WEB-BUILDER -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[08] Webs a medida</span>
+    <h2 class="section-title">Seis webs de muestra <span class="accent">navegables</span>.</h2>
+    <p class="section-intro">Webs reales generadas para distintos sectores. Ábrelas y navégalas:</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <a href="muestra-abogado/" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Muestra web abogado"></a>
+        <span class="ms-emoji">⚖️</span>
+        <h3 class="service-title">Despacho de abogados</h3>
+        <p class="service-desc">Muestra navegable.</p><span class="red-xlink">Abrir →</span>
+      </div>
+      <div class="service-card">
+        <a href="muestra-clinica/" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Muestra web clínica"></a>
+        <span class="ms-emoji">🩺</span>
+        <h3 class="service-title">Clínica</h3>
+        <p class="service-desc">Muestra navegable.</p><span class="red-xlink">Abrir →</span>
+      </div>
+      <div class="service-card">
+        <a href="muestra-gestoria/" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Muestra web gestoría"></a>
+        <span class="ms-emoji">📊</span>
+        <h3 class="service-title">Gestoría</h3>
+        <p class="service-desc">Muestra navegable.</p><span class="red-xlink">Abrir →</span>
+      </div>
+      <div class="service-card">
+        <a href="muestra-peluqueria/" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Muestra web peluquería"></a>
+        <span class="ms-emoji">💈</span>
+        <h3 class="service-title">Peluquería</h3>
+        <p class="service-desc">Muestra navegable.</p><span class="red-xlink">Abrir →</span>
+      </div>
+      <div class="service-card">
+        <a href="muestra-restaurante/" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Muestra web restaurante"></a>
+        <span class="ms-emoji">🍽️</span>
+        <h3 class="service-title">Restaurante</h3>
+        <p class="service-desc">Muestra navegable.</p><span class="red-xlink">Abrir →</span>
+      </div>
+      <div class="service-card">
+        <a href="muestra-tienda/" class="service-card-overlay" target="_blank" rel="noopener noreferrer" aria-label="Muestra web tienda"></a>
+        <span class="ms-emoji">🛒</span>
+        <h3 class="service-title">Tienda</h3>
+        <p class="service-desc">Muestra navegable.</p><span class="red-xlink">Abrir →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- [09] CÓMO ESTÁ CONSTRUIDO -->
+<section>
+  <div class="section-content" style="padding-top:0;">
+    <span class="section-label">[09] Cómo está construido</span>
+    <h2 class="section-title">El pipeline <span class="accent">de producción</span>.</h2>
+    <p class="section-intro">
+      El contenido no se edita pieza a pieza: es la salida de un pipeline automatizado
+      de extremo a extremo. Cada fase —guion, voz, imagen, subtítulos y montaje— se
+      genera y compone de forma programática, y la publicación se orquesta en varios
+      canales sin intervención manual.
+    </p>
+    <div class="red-build-grid">
+      <div class="red-build-step"><span class="red-step-tag">01 · Guion</span><h3>Generación con LLM</h3><p>El guion se redacta con modelos de lenguaje (LLM) a partir de prompts y guías de estilo, con control de tono, longitud y estructura.</p></div>
+      <div class="red-build-step"><span class="red-step-tag">02 · Voz</span><h3>Síntesis de voz (TTS)</h3><p>La narración se produce con síntesis de voz (text-to-speech), con prosodia y ritmo coherentes con el formato.</p></div>
+      <div class="red-build-step"><span class="red-step-tag">03 · Imagen</span><h3>Modelos de difusión</h3><p>El apartado visual se crea con modelos de difusión text-to-image a partir de descripciones derivadas del guion.</p></div>
+      <div class="red-build-step"><span class="red-step-tag">04 · Subtítulos</span><h3>Alineación forzada</h3><p>Los subtítulos se sincronizan por alineación forzada sobre el audio mediante reconocimiento de voz (speech-to-text).</p></div>
+      <div class="red-build-step"><span class="red-step-tag">05 · Render</span><h3>Composición con ffmpeg</h3><p>El montaje final —imagen, voz, música y subtítulos— se compone y renderiza con ffmpeg en 16:9 y 9:16.</p></div>
+      <div class="red-build-step"><span class="red-step-tag">06 · Publicación</span><h3>Multi-canal automatizada</h3><p>La publicación se automatiza y distribuye en varios canales de forma programada, con títulos y descripciones optimizados.</p></div>
+    </div>
+    <div style="text-align:center; margin-top:50px;">
+      <a href="index.html#contacto" class="btn-primary">¿Hablamos de tu proyecto? →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs que no se conforman con plantillas. Sin lock-in vendor.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="chatbot.html">Chatbots</a></li>
+          <li><a href="autoblog.html">Autoblog</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="audio-libro.html">Audio→Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="girobot.html">GiroBot Twitch</a></li>
+          <li><a href="sistemas.html">Sistemas</a></li>
+          <li><a href="webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="redes.html">Redes</a></li>
+          <li><a href="muestras.html">Muestras</a></li>
+          <li><a href="index.html#proceso">Proceso</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España · Trabajo remoto UE + LATAM</div>
+  </div>
+</footer>
+
+<script>
+// ── Navegación (mismo comportamiento que el resto del sitio) ─────────
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
