@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ─────────────────────────────────────────────────────────────
+     PÁGINA "PUERTA SECRETA" — Run & Win.
+     · NO enlazada en nav/footer de ninguna página (solo por enlace directo,
+       que Daniel reparte en directo). Mismo patrón que gracias-cenit.html.
+     · noindex/nofollow: no queremos que Google la liste.
+     · REUSA el flujo de newsletter existente → MISMA lista (una sola), mismo
+       doble opt-in: POST /webhook/site/newsletter-subscribe con el client_id
+       de la newsletter de Arquitecto Digital.
+     · Dos estados según GET /runandwin/status. Si el evento NO está activo (o
+       el endpoint no responde) → estado INACTIVO (no capta).
+     · Es un REGALO por orden de llegada a los más rápidos (sin azar). Lenguaje
+       prohibido: nunca usar términos de azar en el texto visible.
+     ───────────────────────────────────────────────────────────── -->
+<meta name="robots" content="noindex, nofollow">
+<title>Run &amp; Win · Arquitecto Digital</title>
+<style>
+  :root { --azul:#1F6FEB; --azul-hondo:#0B3A8C; --bg:#F4F7FC; --tinta:#0E1626;
+          --ok:#1b8a3a; --err:#b71c1c; --muted:#5a6b85; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--tinta); min-height:100vh;
+         display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { background:#fff; max-width:560px; width:100%; border-radius:18px;
+          box-shadow:0 10px 40px rgba(11,58,140,.12); padding:32px 28px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .dot { width:34px; height:34px; border-radius:50%; background:var(--azul);
+         display:flex; align-items:center; justify-content:center; color:#fff;
+         font-weight:700; font-size:18px; }
+  .brand b { font-size:1rem; }
+  h1 { font-size:1.5rem; margin:.4rem 0 .2rem; line-height:1.25; }
+  p { line-height:1.6; }
+  .muted { color:var(--muted); }
+  .pill { display:inline-block; background:#eaf1ff; color:var(--azul-hondo);
+          font-weight:700; font-size:.8rem; padding:6px 12px; border-radius:999px;
+          letter-spacing:.04em; text-transform:uppercase; }
+  .counter { font-size:1.05rem; font-weight:700; color:var(--azul-hondo);
+             background:#eaf1ff; border-radius:12px; padding:12px 14px; margin:16px 0; text-align:center; }
+  form { margin-top:18px; }
+  label { display:block; font-weight:600; font-size:.9rem; margin:12px 0 6px; }
+  input[type=email], input[type=text] { width:100%; padding:13px 14px; border:1px solid #cdd7e6;
+         border-radius:12px; font-size:1rem; }
+  .hp { position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; }
+  button { border:0; background:var(--azul); color:#fff; font-weight:700; width:100%;
+           padding:15px 16px; border-radius:12px; font-size:1rem; cursor:pointer; margin-top:16px; }
+  button:hover { background:var(--azul-hondo); }
+  .feedback { margin-top:12px; font-weight:600; min-height:1.2em; }
+  .feedback.ok { color:var(--ok); }
+  .feedback.err { color:var(--err); }
+  .conds { margin-top:18px; font-size:.85rem; color:var(--muted); }
+  .conds ul { padding-left:18px; margin:.4rem 0; }
+  .socials { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+  .socials a { text-decoration:none; font-weight:600; color:var(--azul-hondo);
+               background:#eaf1ff; padding:10px 14px; border-radius:12px; }
+  a { color:var(--azul-hondo); }
+  .hide { display:none !important; }
+  footer { margin-top:22px; font-size:.8rem; color:var(--muted); text-align:center; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand"><span class="dot">A</span><b>Arquitecto Digital</b></div>
+
+    <!-- Cargando -->
+    <div id="state-loading">
+      <p class="muted">Cargando…</p>
+    </div>
+
+    <!-- ESTADO ACTIVO -->
+    <section id="state-active" class="hide">
+      <span class="pill">🎁 Run &amp; Win</span>
+      <h1>Los primeros en suscribirse y <u>confirmar</u> se llevan una canción
+          con IA personalizada</h1>
+      <p class="muted">Es un regalo por orden de llegada: ganan los más rápidos,
+         hasta agotar plazas. Gana quien antes confirma, por rapidez y no por azar.</p>
+
+      <div id="counter" class="counter hide"></div>
+
+      <form id="rw-form" novalidate>
+        <label for="rw-email">Tu email</label>
+        <input type="email" id="rw-email" name="email" placeholder="tu@email.com"
+               required autocomplete="email">
+        <label for="rw-name">Tu nombre (para el saludo, opcional)</label>
+        <input type="text" id="rw-name" name="name" placeholder="Cómo te llamo"
+               autocomplete="given-name">
+        <!-- honeypot anti-bot: si se rellena, el backend lo ignora -->
+        <input class="hp" type="text" id="rw-website" name="website"
+               tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">Entrar en el Run &amp; Win</button>
+        <div id="rw-feedback" class="feedback"></div>
+      </form>
+
+      <div class="conds">
+        <strong>Cómo funciona:</strong>
+        <ul>
+          <li>Ganan los <b>N primeros</b> que se suscriban <b>y confirmen</b>, por
+              orden de confirmación.</li>
+          <li>Te llega un email para <b>confirmar</b> (doble opt-in): solo cuentas
+              cuando confirmas.</li>
+          <li>Plazas limitadas: hasta agotar.</li>
+          <li>Te unes a mi newsletter (la misma de siempre). Baja en 1 clic cuando
+              quieras. <a href="privacidad.html">Privacidad</a> ·
+              <a href="condiciones.html">Condiciones</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ESTADO INACTIVO -->
+    <section id="state-inactive" class="hide">
+      <span class="pill">Run &amp; Win</span>
+      <h1>Ahora mismo no hay ningún Run &amp; Win activo</h1>
+      <p>El próximo se anuncia <b>en directo</b>. Sígueme para no perdértelo:</p>
+      <div class="socials">
+        <a href="https://x.com/arqdigital_io" target="_blank" rel="noopener">X</a>
+        <a href="https://www.tiktok.com/@daniel_arquitectodigital" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@logicasalvaje" target="_blank" rel="noopener">YouTube</a>
+        <a href="redes.html">Todas mis redes</a>
+      </div>
+      <p class="muted" style="margin-top:18px">¿Te interesa lo que construyo?
+         También puedes <a href="newsletter-signup.html">suscribirte a la
+         newsletter</a> directamente.</p>
+    </section>
+
+    <footer>Arquitecto Digital · regalo por orden de llegada — gana quien antes confirma</footer>
+  </main>
+
+<script>
+(function () {
+  "use strict";
+  // Misma lista que la newsletter de Arquitecto Digital (una sola lista).
+  var CLIENT_ID = "ncli_43abf681d355476e9fe5f18aa7673b10";
+  var SUBSCRIBE_URL = "https://api.arquitectodigital.io/webhook/site/newsletter-subscribe";
+  var STATUS_URL = "https://api.arquitectodigital.io/runandwin/status";
+
+  var elLoading  = document.getElementById("state-loading");
+  var elActive   = document.getElementById("state-active");
+  var elInactive = document.getElementById("state-inactive");
+
+  function show(which) {
+    elLoading.classList.add("hide");
+    elActive.classList.toggle("hide", which !== "active");
+    elInactive.classList.toggle("hide", which !== "inactive");
+  }
+
+  function renderCounter(st) {
+    var c = document.getElementById("counter");
+    if (st && st.plazas_totales != null && st.plazas_ocupadas != null) {
+      var quedan = Math.max(0, st.plazas_totales - st.plazas_ocupadas);
+      c.textContent = "Quedan " + quedan + " de " + st.plazas_totales + " plazas";
+      c.classList.remove("hide");
+    }
+  }
+
+  function applyState(st) {
+    if (st && st.activo === true) { renderCounter(st); show("active"); }
+    else { show("inactive"); }
+  }
+
+  // Override de previsualización para verificación (NO afecta a producción):
+  //   ?rw_preview=active  → fuerza estado ACTIVO (con plazas de ejemplo)
+  //   ?rw_preview=inactive→ fuerza estado INACTIVO
+  var qs = new URLSearchParams(location.search);
+  var pv = qs.get("rw_preview");
+  if (pv === "active") { applyState({activo:true, plazas_totales:20, plazas_ocupadas:7}); return; }
+  if (pv === "inactive") { applyState({activo:false}); return; }
+
+  // Estado real: si el endpoint no existe / falla → INACTIVO (seguro).
+  fetch(STATUS_URL, { method:"GET", cache:"no-store" })
+    .then(function (r) { return r.ok ? r.json() : {activo:false}; })
+    .then(applyState)
+    .catch(function () { show("inactive"); });
+
+  // Captación: REUSA el endpoint de newsletter (mismo doble opt-in, misma lista).
+  var form = document.getElementById("rw-form");
+  if (form) form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var fb = document.getElementById("rw-feedback");
+    var email = (document.getElementById("rw-email").value || "").trim();
+    var name = (document.getElementById("rw-name").value || "").trim();
+    var honey = (document.getElementById("rw-website").value || "").trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      fb.className = "feedback err"; fb.textContent = "Email no válido."; return;
+    }
+    fb.className = "feedback"; fb.textContent = "Enviando…";
+    fetch(SUBSCRIBE_URL, {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ email:email, name:name, client_id:CLIENT_ID, website:honey })
+    }).then(function (resp) {
+      if (resp.status === 202) {
+        fb.className = "feedback ok";
+        fb.textContent = "¡Listo! Revisa tu email y CONFIRMA para entrar en el Run & Win.";
+        form.reset();
+      } else if (resp.status === 429) {
+        fb.className = "feedback err";
+        fb.textContent = "Demasiados intentos. Espera un minuto e inténtalo otra vez.";
+      } else {
+        fb.className = "feedback err";
+        fb.textContent = "No se ha podido procesar. Inténtalo en un minuto.";
+      }
+    }).catch(function () {
+      fb.className = "feedback err";
+      fb.textContent = "Sin conexión. Inténtalo otra vez.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
