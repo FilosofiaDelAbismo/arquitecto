@@ -361,19 +361,13 @@
     <span class="section-label">[09] Cómo está construido</span>
     <h2 class="section-title">El pipeline <span class="accent">de producción</span>.</h2>
     <p class="section-intro">
-      El contenido no se edita pieza a pieza: es la salida de un pipeline automatizado
-      de extremo a extremo. Cada fase —guion, voz, imagen, subtítulos y montaje— se
-      genera y compone de forma programática, y la publicación se orquesta en varios
-      canales sin intervención manual.
+      Detrás de cada pieza hay un pipeline propio, automatizado de extremo a extremo:
+      la producción y la publicación caminan solas, sin editar pieza a pieza ni tocar
+      el teclado. No es un montaje manual ni una plantilla de terceros: es un sistema
+      que produce a escala, de forma constante y sin intervención. El cómo —las
+      herramientas y el detalle de cada fase— es mi caja de herramientas; lo que te
+      llevas es el resultado.
     </p>
-    <div class="red-build-grid">
-      <div class="red-build-step"><span class="red-step-tag">01 · Guion</span><h3>Generación con LLM</h3><p>El guion se redacta con modelos de lenguaje (LLM) a partir de prompts y guías de estilo, con control de tono, longitud y estructura.</p></div>
-      <div class="red-build-step"><span class="red-step-tag">02 · Voz</span><h3>Síntesis de voz (TTS)</h3><p>La narración se produce con síntesis de voz (text-to-speech), con prosodia y ritmo coherentes con el formato.</p></div>
-      <div class="red-build-step"><span class="red-step-tag">03 · Imagen</span><h3>Modelos de difusión</h3><p>El apartado visual se crea con modelos de difusión text-to-image a partir de descripciones derivadas del guion.</p></div>
-      <div class="red-build-step"><span class="red-step-tag">04 · Subtítulos</span><h3>Alineación forzada</h3><p>Los subtítulos se sincronizan por alineación forzada sobre el audio mediante reconocimiento de voz (speech-to-text).</p></div>
-      <div class="red-build-step"><span class="red-step-tag">05 · Render</span><h3>Composición con ffmpeg</h3><p>El montaje final —imagen, voz, música y subtítulos— se compone y renderiza con ffmpeg en 16:9 y 9:16.</p></div>
-      <div class="red-build-step"><span class="red-step-tag">06 · Publicación</span><h3>Multi-canal automatizada</h3><p>La publicación se automatiza y distribuye en varios canales de forma programada, con títulos y descripciones optimizados.</p></div>
-    </div>
     <div style="text-align:center; margin-top:50px;">
       <a href="index.html#contacto" class="btn-primary">¿Hablamos de tu proyecto? →</a>
     </div>
