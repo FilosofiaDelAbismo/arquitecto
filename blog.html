@@ -32,6 +32,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Vigilar precios de Amazon sin hacerlo a mano: guía práctica",
+      "description": "Monitorizar precios de competidores en Amazon a mano es inviable a escala. Aquí explicamos qué funciona, qué falla y cómo automatizarlo sin perder el control.",
+      "url": "https://arquitectodigital.io/blog.html#art-vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624",
+      "datePublished": "2026-06-24",
+      "dateModified": "2026-06-24",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Automatización para autónomos: qué delegar a un sistema",
       "description": "No toda tarea repetitiva merece tu atención. Este post identifica qué procesos conviene automatizar primero y qué señales avisan de que estás perdiendo tiempo donde no deberías.",
       "url": "https://arquitectodigital.io/blog.html#art-automatizacion-para-autonomos-que-delegar-a-un-sistema-20260622",
@@ -251,6 +269,101 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-06-24">
+      <meta itemprop="dateModified" content="2026-06-24">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Automatización e-commerce</span>
+          <time class="af-date" datetime="2026-06-24" itemprop="datePublished">24 Jun 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Vigilar precios de Amazon sin hacerlo a mano: guía práctica</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Monitorizar precios de competidores en Amazon a mano es inviable a escala. Aquí explicamos qué funciona, qué falla y cómo automatizarlo sin perder el control.</p>
+        <div class="af-content" id="art-vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624-content">
+          <h3>El problema real: el precio de ayer ya no sirve hoy</h3>
+<p>En e-commerce, el precio no es un dato estático. Amazon ajusta precios de forma continua según demanda, inventario, competencia y algoritmos internos. Si vendes en marketplaces o compites con productos que también están en Amazon, revisar precios manualmente —aunque sea una vez al día— es una tarea que escala fatal: consume tiempo de personas cualificadas para hacer trabajo de robot.</p>
+<p>Lo habitual en PYMEs sin automatización es alguna variación de esto: alguien abre Amazon cada mañana, busca los productos clave, anota los precios en una hoja de cálculo y avisa al responsable si algo ha cambiado. Funciona cuando tienes cinco referencias. Con cincuenta, ya empieza a fallar. Con doscientas, directamente no se hace.</p>
+
+<h3>Qué necesitas monitorizar exactamente</h3>
+<p>Antes de hablar de herramientas o automatizaciones, conviene precisar qué información tiene valor real para la toma de decisiones:</p>
+<ul>
+  <li><strong>Precio de Buy Box:</strong> el precio que ve el comprador por defecto. No siempre es el más barato; Amazon pondera velocidad de envío, valoraciones y otros factores.</li>
+  <li><strong>Precio mínimo del marketplace:</strong> el precio más bajo entre todos los vendedores de ese ASIN, incluyendo vendedores de terceros.</li>
+  <li><strong>Disponibilidad:</strong> si el competidor está sin stock, tienes margen para subir precio sin perder conversión.</li>
+  <li><strong>Cambios en el tiempo:</strong> un precio puntualmente bajo puede ser una oferta flash; una bajada sostenida es una señal estratégica diferente.</li>
+  <li><strong>Diferencial respecto a tu precio:</strong> no el precio absoluto del competidor, sino cuánto te separa de él en cada momento.</li>
+</ul>
+<p>Sin esta distinción, acabas reaccionando a ruido en lugar de a señales.</p>
+
+<h3>Opciones técnicas: qué existe y qué limitaciones tiene cada una</h3>
+<p>Hay varias aproximaciones al problema, con perfiles de coste y fiabilidad distintos:</p>
+<ul>
+  <li><strong>Herramientas SaaS especializadas</strong> (Keepa, Jungle Scout, Helium 10): cubren bien el histórico de precios y la analítica de producto, pero están orientadas a vendedores dentro de Amazon. Si tu negocio no es vender en Amazon sino competir con él desde tu propia tienda, su utilidad es parcial.</li>
+  <li><strong>Scraping directo:</strong> técnicamente viable, pero Amazon detecta y bloquea patrones de scraping agresivo. Requiere rotación de proxies, cabeceras realistas y lógica de reintentos. No es un proyecto de tarde; es infraestructura que hay que mantener.</li>
+  <li><strong>APIs de afiliados (Product Advertising API):</strong> la vía oficial de Amazon para obtener precios. Tiene limitaciones de frecuencia y requiere estar activo como afiliado. Es la opción más estable a largo plazo si encaja con tu modelo.</li>
+  <li><strong>Automatizaciones sobre herramientas existentes:</strong> combinar herramientas como Keepa (que ya tiene API) con un workflow de notificación y registro es, en muchos casos, la solución más pragmática para una PYME sin equipo técnico dedicado.</li>
+</ul>
+
+<div class="highlight">💡 El error más habitual no es elegir la herramienta equivocada, sino no definir antes qué umbral de cambio de precio justifica una acción. Sin ese criterio, cualquier sistema de alertas genera ruido constante y acaba ignorándose.</div>
+
+<h3>Qué he visto que funciona en PYMEs reales</h3>
+<p>El patrón que mejor funciona no es el más sofisticado. Es el que tiene tres características: captura datos con frecuencia suficiente (no necesariamente en tiempo real), los almacena de forma estructurada para ver tendencias, y genera alertas solo cuando el diferencial supera un umbral relevante para el negocio.</p>
+<p>Lo que no funciona es construir un sistema que alerta de cada variación de céntimo. Eso colapsa la atención del equipo y desacredita el sistema en dos semanas. El criterio de "cuándo actuar" tiene que estar definido antes de automatizar, no después.</p>
+<p>También es habitual subestimar el paso de almacenamiento. Saber que hoy Amazon tiene un precio es útil. Saber que lleva tres semanas bajando de forma sostenida es información estratégica. Sin histórico, solo tienes instantáneas; con histórico, tienes contexto.</p>
+
+<div class="prompt-box">
+<strong>Prompt de ejemplo — análisis de variación de precios con IA:</strong><br><br>
+"Tengo los siguientes registros de precio de un competidor en Amazon durante los últimos 30 días: [pega aquí la tabla con fecha y precio]. Identifica: (1) si hay una tendencia bajista o alcista sostenida, (2) si hay patrones de precio por día de la semana o por fechas concretas, (3) qué umbral de precio debería activar una revisión de mi estrategia de pricing si mi margen mínimo es X. Dame las conclusiones en formato de bullet points ejecutivos, sin tecnicismos."
+</div>
+
+<h3>El coste real de no automatizarlo</h3>
+<p>No automatizar tiene un coste que rara vez se contabiliza: el tiempo de la persona que lo hace a mano, los errores de transcripción, las decisiones tomadas con datos de hace 48 horas y, sobre todo, las oportunidades perdidas cuando el competidor baja precio un viernes por la tarde y nadie lo detecta hasta el lunes.</p>
+<p>Para una PYME con catálogo medio o amplio, automatizar la vigilancia de precios no es un proyecto de transformación digital. Es higiene operativa. El retorno no viene de una decisión brillante; viene de eliminar el coste silencioso de la información desactualizada.</p>
+
+<h3>Cómo encaja esto con una estrategia de contenido y analítica más amplia</h3>
+<p>La vigilancia de precios es un caso de uso de automatización acotado y medible. Pero no existe en el vacío. Las PYMEs que más partido sacan de este tipo de automatizaciones son las que ya tienen infraestructura mínima: un lugar donde centralizar datos, un proceso para actuar sobre las alertas y, en muchos casos, un sistema de contenido que les permite comunicar cambios de precio o ventajas competitivas de forma ágil.</p>
+<p>Si tu negocio necesita automatizar operaciones repetitivas —monitorización, generación de contenido, comunicación con clientes— y quieres hacerlo sin depender de plataformas que te hacen rehén de sus condiciones, tiene sentido revisar qué partes de tu operación están consumiendo tiempo humano en tareas que un sistema puede hacer mejor y más barato. Una llamada de 15 minutos suele ser suficiente para identificar dónde está el mayor desperdicio.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Es legal monitorizar precios de Amazon de forma automatizada?</div>
+              <div class="faq-a"><span>Consultar precios públicos de Amazon es legal. Lo que puede entrar en conflicto con los términos de servicio de Amazon es el scraping masivo sin usar sus APIs oficiales. La vía más segura es usar la Product Advertising API o herramientas de terceros que ya gestionan ese acceso.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia hay que capturar precios para que los datos sean útiles?</div>
+              <div class="faq-a"><span>Depende de la categoría. En electrónica o productos de alta rotación, una captura cada pocas horas puede ser relevante. En categorías más estables, una vez al día es suficiente. Lo importante es que la frecuencia sea consistente para poder detectar tendencias.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué hago si no tengo equipo técnico para montar esto?</div>
+              <div class="faq-a"><span>La opción más pragmática para una PYME sin perfil técnico es combinar una herramienta con API ya existente (como Keepa) con un sistema de alertas sencillo. Si el volumen de referencias lo justifica, externalizar la automatización suele ser más barato que el tiempo que consume hacerlo a mano.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Tiene sentido monitorizar precios si no vendo en Amazon?</div>
+              <div class="faq-a"><span>Sí, especialmente si Amazon es un competidor indirecto. Si tu cliente puede comprar el mismo producto en Amazon, el precio de Amazon es tu referencia de mercado, aunque no vendas ahí. Ignorarlo es tomar decisiones de pricing con información incompleta.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo evito que el sistema de alertas genere demasiado ruido?</div>
+              <div class="faq-a"><span>Definiendo umbrales de alerta antes de activar el sistema. No alertes por cada variación; alertes cuando el diferencial entre tu precio y el de Amazon supere un porcentaje que tú consideras relevante para la decisión de negocio. Sin ese filtro, cualquier sistema de monitorización acaba ignorándose.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">automatización e-commerce</span><span class="atag">vigilancia de precios</span><span class="atag">pricing competitivo</span><span class="atag">automatización PYMEs</span><span class="atag">analítica Amazon</span></div>
+        <button class="af-link" onclick="toggleArticle('art-vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-automatizacion-para-autonomos-que-delegar-a-un-sistema-20260622">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
