@@ -18,15 +18,28 @@
   <nav>
     <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
     <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
-      <li><a href="index.html#proceso">Proceso</a></li>
-      <li><a href="index.html#stack">Filosofía</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="newsletter.html">Newsletter</a></li>
-      <li><a href="redes.html">Redes</a></li>
+      <li class="nav-dropdown">
+        <a href="index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="autoblog.html">Autoblog SEO</a></li>
+          <li><a href="newsletter.html">Newsletter IA</a></li>
+          <li><a href="audio-libro.html">Audio → Libro</a></li>
+          <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="webs.html">Webs Personalizadas</a></li>
+          <li><a href="sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
       <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="newsletter-signup.html">Newsletter</a></li>
+      <li><a href="redes.html">Redes</a></li>
       <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <a href="index.html#contacto" class="nav-cta">Hablemos →</a>
   </nav>
 </header>
@@ -156,5 +169,36 @@
   </div>
 </footer>
 
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
 </body>
 </html>
