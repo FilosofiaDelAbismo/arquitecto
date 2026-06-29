@@ -1550,10 +1550,6 @@ footer {
      3) Descomenta las 2 <url> de newsletter en sitemap.xml.
    =================================================================== */
 li:has(> a[href="newsletter.html"]),
-li:has(> a[href="newsletter-signup.html"]),
-li:has(> a[href$="/newsletter.html"]),
-li:has(> a[href$="/newsletter-signup.html"]) { display: none !important; }
+li:has(> a[href$="/newsletter.html"]) { display: none !important; }
 a[href="newsletter.html"],
-a[href="newsletter-signup.html"],
-a[href$="/newsletter.html"],
-a[href$="/newsletter-signup.html"] { display: none !important; }
+a[href$="/newsletter.html"] { display: none !important; }
