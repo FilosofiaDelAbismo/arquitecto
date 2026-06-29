@@ -508,7 +508,6 @@ section {
 /* PRICING CTA */
 .pricing-section {
   background: linear-gradient(135deg, var(--bg-card), var(--bg));
-  text-align: center;
 }
 .pricing-cta {
   background: var(--bg-elevated);
@@ -517,6 +516,7 @@ section {
   border-radius: 12px;
   max-width: 900px;
   margin: 60px auto 0;
+  text-align: center;
 }
 .pricing-cta h3 {
   font-family: 'Fraunces', serif;
