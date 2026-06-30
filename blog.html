@@ -1208,7 +1208,7 @@ Ejecuta este test con alguien de fuera del equipo. El resultado te dirá más so
 <p>El mayor obstáculo que mencionan los decision-makers no es el precio, es el riesgo de invertir en algo que no funciona para su caso concreto. Es una preocupación legítima.</p>
 <p>Por eso el modelo de prueba de concepto tiene sentido en este contexto: antes de pagar el setup completo, puedes validar si el sistema funciona sobre tus documentos reales, con tus casos de uso reales. En nuestro caso, el POC cuesta 158€ (pago único), es deducible del setup si decides continuar, y dura 7 días con el bot funcionando sobre tu knowledge base.</p>
 <p>El setup completo parte desde 529€, y la cuota mensual recurrente va de 84€ a 423€ según volumen y canales activos. Sin permanencia forzada, sin vendor lock-in.</p>
-<p>Si quieres ver cómo funciona RAG sobre un corpus real antes de tomar ninguna decisión, <strong>TuAbogaBot.io</strong> es un ejemplo operativo: chatbot legal con RAG sobre legislación de 12 países, accesible por Telegram, con mecanismos anti-alucinación activos. No es un demo de laboratorio, es un producto en producción.</p>
+<p>Si quieres ver cómo funciona RAG sobre un corpus real antes de tomar ninguna decisión, <strong>Legalito</strong> es un ejemplo operativo: chatbot legal con RAG sobre legislación de 12 países, accesible por Telegram, con mecanismos anti-alucinación activos. No es un demo de laboratorio, es un producto en producción.</p>
           <div class="faq-block">
             <div>
               <div class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia hay entre un chatbot RAG y uno genérico como Tidio o ManyChat?</div>
@@ -1496,7 +1496,7 @@ Pásale ese output a tu chatbot actual. Si no responde con precisión a más de 
 <p>El resultado es predecible: el modelo recupera fragmentos contradictorios, mezcla información desactualizada con información vigente y genera respuestas que suenan coherentes pero son incorrectas.</p>
 <p><strong>El problema no es la cantidad de datos. Es la calidad y la estructura.</strong></p>
 <p>Un knowledge base útil tiene jerarquía de fuentes, control de versiones y un proceso claro para marcar qué documentos están vigentes. Sin eso, estás entrenando al chatbot para alucinar con autoridad.</p>
-<p>En proyectos como <strong>TuAbogaBot.io</strong> —un chatbot legal con RAG sobre corpus de 12 países— la arquitectura de datos fue la parte más costosa en tiempo. No la integración con el modelo. Cada fuente legal tiene fecha de vigencia, jurisdicción y jerarquía normativa. Sin esa estructura, el bot respondería con legislación derogada con la misma confianza que con la vigente. Eso, en contexto legal, no es un bug menor.</p>
+<p>En proyectos como <strong>Legalito</strong> —un chatbot legal con RAG sobre corpus de 12 países— la arquitectura de datos fue la parte más costosa en tiempo. No la integración con el modelo. Cada fuente legal tiene fecha de vigencia, jurisdicción y jerarquía normativa. Sin esa estructura, el bot respondería con legislación derogada con la misma confianza que con la vigente. Eso, en contexto legal, no es un bug menor.</p>
 
 <h3>Error 2: sin chunking inteligente, el RAG no funciona</h3>
 <p>RAG (Retrieval-Augmented Generation) es la técnica que permite al chatbot buscar en tus documentos antes de responder. Pero el rendimiento del RAG depende casi por completo de cómo se fragmentan esos documentos, lo que se llama <em>chunking</em>.</p>
@@ -1651,7 +1651,7 @@ Si el proveedor no puede responder esta pregunta antes de la venta, el chatbot n
 </ul>
 
 <h3>Un ejemplo concreto de cómo se construye bien</h3>
-<p>TuAbogaBot es un chatbot legal con RAG construido sobre un corpus de legislación de doce países de habla hispana. No es un chatbot que "sabe de leyes" porque GPT-4 fue entrenado con texto legal. Es un chatbot que consulta documentos jurídicos reales, fragmenta la respuesta en fuentes verificables y está instruido para no responder cuando la información no está en el corpus.</p>
+<p>Legalito es un chatbot legal con RAG construido sobre un corpus de legislación de doce países de habla hispana. No es un chatbot que "sabe de leyes" porque GPT-4 fue entrenado con texto legal. Es un chatbot que consulta documentos jurídicos reales, fragmenta la respuesta en fuentes verificables y está instruido para no responder cuando la información no está en el corpus.</p>
 <p>La diferencia técnica importa porque el dominio legal no tolera alucinaciones. Una respuesta inventada sobre normativa tributaria o derecho laboral puede causar daño real. Por eso el sistema tiene lógica explícita de "no sé" y referencia siempre la fuente del fragmento recuperado.</p>
 <p>Este es el estándar mínimo para cualquier chatbot que opere en dominios donde la precisión importa: legal, médico, técnico, financiero, soporte especializado.</p>
 

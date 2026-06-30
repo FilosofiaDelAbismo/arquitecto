@@ -30,12 +30,12 @@ pintrk('page');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel · Arquitecto Digital · Automatización IA para PYMEs</title>
-<meta name="description" content="Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, autoblog SEO, audio→libro, sistemas a medida. Resultados, no plantillas.">
+<meta name="description" content="Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, audio→libro, sistemas a medida. Resultados, no plantillas.">
 <!-- Open Graph / Twitter (añadido 2026-06-26 · SEO/OG) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arquitectodigital.io/">
 <meta property="og:title" content="Daniel · Arquitecto Digital · Automatización IA para PYMEs">
-<meta property="og:description" content="Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, autoblog SEO, audio→libro, sistemas a medida. Resultados, no plantillas.">
+<meta property="og:description" content="Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, audio→libro, sistemas a medida. Resultados, no plantillas.">
 <meta property="og:site_name" content="Arquitecto Digital">
 <meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -732,7 +732,8 @@ FIN_ORIGINAL_INLINE_CSS-->
         <a href="index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
         <ul class="nav-dropdown-menu" role="menu">
           <li><a href="chatbot.html">Chatbots Personalizados</a></li>
-          <li><a href="autoblog.html">Autoblog SEO</a></li>
+          <!-- AUTOBLOG-OCULTO (2026-06-30): sin price_id en Stripe. Reactivar = descomentar. -->
+          <!-- <li><a href="autoblog.html">Autoblog SEO</a></li> -->
           <li><a href="audio-libro.html">Audio → Libro</a></li>
           <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
           <li><a href="webs.html">Webs Personalizadas</a></li>
@@ -773,7 +774,7 @@ FIN_ORIGINAL_INLINE_CSS-->
     </h1>
     <p class="hero-sub">
       Construyo sistemas IA de agencia a precio asequible. Sin lock-in vendor.
-      Chatbots, autoblogs, audio→libro, sistemas a medida — lo que automatiza tu negocio sin sustituir tu criterio.
+      Chatbots, audio→libro, sistemas a medida — lo que automatiza tu negocio sin sustituir tu criterio.
     </p>
     <div class="hero-cta-group">
       <a href="#servicios" class="btn-primary">Ver servicios →</a>
@@ -910,6 +911,8 @@ FIN_ORIGINAL_INLINE_CSS-->
       <!-- /NEWSLETTER-OCULTO-SES -->
 
       <!-- 5) AUTOBLOG -->
+      <!-- AUTOBLOG-OCULTO (2026-06-30): servicio sin price_id funcional en Stripe. Oculto hasta configurar cobro. Reactivar = descomentar el bloque. -->
+      <!--
       <div class="service-card">
         <a href="autoblog.html" class="service-card-overlay" aria-label="Ver detalles de Autoblog SEO"></a>
         <span class="service-icon">📝</span>
@@ -929,6 +932,8 @@ FIN_ORIGINAL_INLINE_CSS-->
         </div>
         <a href="#contacto" class="service-cta" data-servicio="Autoblog SEO">Empezar prueba →</a>
       </div>
+      -->
+      <!-- /AUTOBLOG-OCULTO -->
 
       <!-- 6) WEBS CUSTOM -->
       <div class="service-card">
@@ -940,8 +945,8 @@ FIN_ORIGINAL_INLINE_CSS-->
         </p>
         <ul class="service-features">
           <li>Landing 5 secciones + responsive + SEO básico</li>
-          <li>Web + blog integrado + newsletter capture</li>
-          <li>Integración con chatbot, autoblog, newsletter</li>
+          <li>Web + blog integrado + captura de leads</li>
+          <li>Integración con chatbot y sistemas a medida</li>
         </ul>
         <div class="service-price">
           Desde 954€ <small>· hasta 2.650€ · IVA incl.</small><br>
@@ -1153,6 +1158,8 @@ FIN_ORIGINAL_INLINE_CSS-->
         </div>
       </article>
 
+      <!-- AUTOBLOG-OCULTO (2026-06-30): caso práctico de autoblog oculto junto al servicio. Reactivar = descomentar. -->
+      <!--
       <article class="service-card">
         <span class="service-icon">📊</span>
         <h3 class="service-title">Autoblog SEO: 30 días después</h3>
@@ -1163,6 +1170,7 @@ FIN_ORIGINAL_INLINE_CSS-->
           <small style="color: var(--text-faint);">Próximamente · Julio 2026</small>
         </div>
       </article>
+      -->
     </div>
 
     <div style="text-align: center; margin-top: 60px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
@@ -1251,7 +1259,7 @@ FIN_ORIGINAL_INLINE_CSS-->
           <select>
             <option>Chatbots Personalizados</option>
             <option>Webs Personalizadas</option>
-            <option>Autoblog SEO</option>
+            <!-- AUTOBLOG-OCULTO (2026-06-30): <option>Autoblog SEO</option> -->
             <!-- NEWSLETTER-OCULTO-SES: <option>Newsletter IA</option> -->
             <option>Audio → Libro</option>
             <option>Sistemas Personalizados</option>
@@ -1286,7 +1294,7 @@ FIN_ORIGINAL_INLINE_CSS-->
           <li><a href="audio-libro.html">Audio→Libro</a></li>
           <li><a href="crea-tu-cancion.html">Crea tu canción</a></li>
           <li><a href="chatbot.html">Chatbots</a></li>
-          <li><a href="autoblog.html">Autoblog</a></li>
+          <!-- AUTOBLOG-OCULTO (2026-06-30): <li><a href="autoblog.html">Autoblog</a></li> -->
           <li><a href="webs.html">Webs</a></li>
           <li><a href="sistemas.html">Sistemas</a></li>
           <li><a href="girobot.html">GiroBot Twitch</a></li>
@@ -1299,7 +1307,7 @@ FIN_ORIGINAL_INLINE_CSS-->
           <li><a href="https://digiprompts.io" target="_blank" rel="noopener">DigiPrompts.io</a></li>
           <li><a href="https://iaprofesor.com" target="_blank" rel="noopener">IAprofesor.com</a></li>
           <li><a href="https://shopiatools.com" target="_blank" rel="noopener">ShopiaTools.com</a></li>
-          <li><a href="https://tuabogabot.io" target="_blank" rel="noopener">TuAbogaBot.io</a></li>
+          <li><a href="https://tuabogabot.io" target="_blank" rel="noopener">Legalito</a></li>
         </ul>
       </div>
       <div class="footer-col">
