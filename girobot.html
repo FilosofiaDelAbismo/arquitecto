@@ -44,6 +44,11 @@
   .gb-price { font-size: 2em; font-weight: 800; color: var(--text); margin: 8px 0; }
   .gb-price small { font-size: .5em; font-weight: 400; color: var(--text-dim); }
   .gb-tier p { color: var(--text-dim); min-height: 40px; margin: 0 0 4px; }
+  .gb-feats { list-style: none; padding: 0; margin: 14px 0 0; text-align: left; }
+  .gb-feats li { color: var(--text-dim); line-height: 1.6; font-size: .95em;
+    padding: 5px 0 5px 24px; position: relative; }
+  .gb-feats li::before { content: "✓"; color: var(--orange); font-weight: 700;
+    position: absolute; left: 0; top: 5px; }
   .gb-alta { color: var(--text-dim); text-align: center; margin-top: 14px; font-size: .95em; }
 </style>
 </head>
@@ -142,17 +147,35 @@
     <div class="gb-tier">
       <h3>STARTER</h3>
       <div class="gb-price">19,99€<small>/mes</small></div>
-      <p>Los 3 módulos · 1 canal.</p>
+      <ul class="gb-feats">
+        <li>Chatbot con IA (preguntas + personalidad)</li>
+        <li>Alertas en directo (subs, bits, raids, follows)</li>
+        <li>Autoclipper vertical 9:16 → 5 clips/día</li>
+        <li>Chatbot hasta 1.000 mensajes/mes</li>
+        <li>Lector de voz del chat incluido (activable)</li>
+      </ul>
     </div>
     <div class="gb-tier pro">
       <h3>PRO</h3>
       <div class="gb-price">39,99€<small>/mes</small></div>
-      <p>Los 3 módulos · más capacidad y clips/día.</p>
+      <ul class="gb-feats">
+        <li>Chatbot con IA (preguntas + personalidad)</li>
+        <li>Alertas en directo (subs, bits, raids, follows)</li>
+        <li>Autoclipper vertical 9:16 → 20 clips/día</li>
+        <li>Chatbot hasta 4.000 mensajes/mes</li>
+        <li>Lector de voz del chat incluido (activable)</li>
+      </ul>
     </div>
     <div class="gb-tier">
       <h3>UNLIMITED</h3>
       <div class="gb-price">89,99€<small>/mes</small></div>
-      <p>Los 3 módulos · uso intensivo.</p>
+      <ul class="gb-feats">
+        <li>Chatbot con IA (preguntas + personalidad)</li>
+        <li>Alertas en directo (subs, bits, raids, follows)</li>
+        <li>Autoclipper vertical 9:16 → hasta 200 clips/día</li>
+        <li>Chatbot sin límite de mensajes</li>
+        <li>Lector de voz del chat incluido (activable)</li>
+      </ul>
     </div>
   </div>
   <p class="gb-alta">+ cuota de alta única: <strong>199€</strong> el pack 3-en-1
