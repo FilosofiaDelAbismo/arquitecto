@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidad · Cénit</title>
+<meta name="description" content="Política de privacidad de la app Cénit (diario con IA). Qué datos trata, base legal y derechos. RGPD/LOPDGDD.">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <a href="/cenit/" class="nav-cta">← Cénit</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">[Cénit · Legal] Privacidad</span>
+    <h1>Política de <span class="accent">privacidad</span> · Cénit.</h1>
+    <p>Cómo trata Cénit tus datos. Cumplimiento del RGPD (UE 2016/679) y la LOPDGDD.</p>
+  </div>
+</section>
+
+<div class="legal-content">
+  <p style="color:#b45309"><strong>BORRADOR — pendiente de validación y revisión de abogado.</strong></p>
+
+  <h2>1. Responsable del tratamiento</h2>
+  <ul>
+    <li><strong>Titular:</strong> Daniel González Barquero</li>
+    <li><strong>NIF:</strong> 45326983D</li>
+    <li><strong>Domicilio:</strong> Calle Chile 10, 11500 El Puerto de Santa María (Cádiz)</li>
+    <li><strong>Email:</strong> <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a></li>
+  </ul>
+
+  <h2>2. Datos que se tratan y finalidades</h2>
+  <p><strong>En el dispositivo (local):</strong> el diario es 100% local en el móvil; sus
+  entradas no se envían al servidor. Se usa un <em>user_token</em> (UUID anónimo) y un
+  identificador de dispositivo (android_id/SSAID) para identificar la instalación y el
+  blindaje del periodo de prueba (anti-abuso).</p>
+  <p><strong>En el servidor (solo licencia/IA):</strong> el <strong>email</strong> se trata
+  únicamente en el flujo Pro/pago (Stripe), para facturación y recuperación de licencia;
+  no se pide email para el uso normal. Se guardan contadores de uso de IA asociados al
+  user_token, y códigos de regalo/recuperación de licencia.</p>
+  <p><strong>Función de IA ("Mario"):</strong> el texto que el usuario envía a la función de
+  IA se procesa vía Anthropic (Claude) para generar la respuesta.</p>
+
+  <h2>3. Bases legales</h2>
+  <ul>
+    <li>Uso normal y cuota: ejecución del servicio solicitado.</li>
+    <li>Email en Pro: ejecución de contrato (Stripe) y obligación de facturación.</li>
+    <li>IA: prestación de la funcionalidad solicitada por el usuario.</li>
+  </ul>
+
+  <h2>4. Menores y clasificación por edad</h2>
+  <p>La app no implementa verificación de edad. La clasificación por edades (IARC) se
+  responde en Google Play Console; valor recomendado: «Para todos los públicos» (diario
+  privado, sin contenido violento/sexual ni componente social), a confirmar por la función
+  de IA de texto libre.</p>
+
+  <h2>5. Data Safety (Google Play)</h2>
+  <p>Se recolecta <strong>email</strong> (solo Pro, para pago) e <strong>identificadores de
+  dispositivo</strong> (user_token/android_id) para funcionamiento y anti-fraude; datos
+  <strong>no compartidos</strong> con terceros con fines publicitarios; cifrado en tránsito
+  (HTTPS); el usuario puede solicitar el borrado escribiendo a
+  <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a>.</p>
+
+  <h2>6. Destinatarios / encargados</h2>
+  <ul>
+    <li>Pagos: Stripe Payments Europe, Ltd. (Irlanda).</li>
+    <li>IA: Anthropic (Claude), EE. UU. (EU-US Data Privacy Framework / cláusulas contractuales tipo).</li>
+    <li>Hosting backend: Oracle Cloud y Hetzner. Distribución: Google Play / Play Billing.</li>
+  </ul>
+
+  <h2>7. Conservación y derechos</h2>
+  <p>Email/licencia: mientras dure la licencia + plazos de facturación. Puedes ejercer
+  acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a
+  <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a>. Reclamación
+  ante la AEPD (<a href="https://www.aepd.es" rel="noopener">www.aepd.es</a>).</p>
+
+  <h2>8. Seguridad</h2>
+  <p>HTTPS, almacenamiento seguro del user_token en el dispositivo, cifrado de credenciales
+  en servidor y copias de seguridad cifradas.</p>
+
+  <div class="legal-meta">Última actualización: 30 de junio de 2026 · v0.1 (borrador)</div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">© 2026 Daniel González Barquero · Cénit · arquitectodigital.io</div>
+  </div>
+</footer>
+</body>
+</html>
