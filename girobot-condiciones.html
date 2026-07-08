@@ -54,48 +54,63 @@
 
 <div class="legal-content">
 <p style="color:#b45309"><strong>BORRADOR — pendiente de validación y revisión de abogado.</strong></p>
+
   <h2>1. Partes</h2>
   <p><strong>Prestador:</strong> Daniel González Barquero, NIF 45326983D, Calle Chile 10, 11500 El Puerto de Santa María (Cádiz), <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a>. <strong>Cliente/Usuario:</strong> streamer que contrata GiroBot.</p>
 
   <h2>2. Objeto</h2>
-  <p>GiroBot es un bot para canales de Twitch con módulos de <strong>chatbot IA</strong>, <strong>autoclipper 9:16</strong> y <strong>alertas</strong>, gestionado desde un portal de cliente (acceso por código + email). Planes: STARTER / PRO / UNLIMITED, con límites por plan.</p>
+  <p>GiroBot es un servicio para canales de Twitch gestionado desde un portal de cliente (acceso por código + email), con los siguientes módulos operativos:</p>
+  <ul>
+    <li><strong>Chatbot IA:</strong> responde en el chat cuando se le invoca (palabra clave o mención).</li>
+    <li><strong>Autoclipper 9:16:</strong> el Cliente sube un vídeo de su directo; GiroBot analiza su <strong>audio y vídeo</strong> (nunca el chat), propone los mejores momentos y genera cortos verticales 1080×1920 con subtítulos quemados, listos para descargar.</li>
+    <li><strong>Best-of 16:9 (planes PRO y UNLIMITED):</strong> montaje largo (10–15 min) con los mejores momentos del mismo vídeo, en 1080p horizontal. <strong>Solo descarga; sin publicación automática.</strong></li>
+  </ul>
+  <p>Planes: STARTER / PRO / UNLIMITED, con límites por plan.</p>
 
   <h2>3. Alta, planes y pago</h2>
   <ul>
-    <li>Setup único: <strong>199,00 €</strong>.</li>
+    <li>Alta única (pack): <strong>199,00 €</strong>.</li>
     <li>Planes mensuales: <strong>STARTER 19,99 €</strong> · <strong>PRO 39,99 €</strong> · <strong>UNLIMITED 89,99 €</strong>. Precios con IVA incluido (B2C).</li>
     <li>Pago vía <strong>Stripe</strong> (Payment Links). Renovación mensual hasta baja.</li>
   </ul>
 
   <h2>4. Límites por plan</h2>
-  <p>Cada plan tiene límites (mensajes/mes del chatbot, clips/día). El detalle vigente es el publicado en la web de GiroBot y en el portal de cliente.</p>
+  <p>Cada plan tiene límites (mensajes/mes del chatbot, clips/día y, en PRO/UNLIMITED, best-of al mes). El detalle vigente es el publicado en la web de GiroBot y en el portal de cliente.</p>
 
-  <h2>5. Uso aceptable</h2>
+  <h2>5. Publicación a TikTok (opcional, con cookies del propio cliente)</h2>
   <ul>
-    <li>El Cliente conecta su propio canal mediante OAuth y es responsable de su uso.</li>
-    <li>Prohibido usar el bot para acoso, spam, contenido ilícito o que infrinja los Términos de Twitch.</li>
-    <li><strong>Moderación:</strong> las acciones de moderación las decide y activa el Cliente; el Prestador no garantiza la detección de todo el contenido inapropiado.</li>
+    <li>La publicación a TikTok es <strong>opcional</strong> y requiere que el Cliente suba <strong>sus propias cookies de sesión</strong> de TikTok. Sin ellas, GiroBot <strong>no publica nada</strong>: solo genera cortos para descargar.</li>
+    <li><strong>Método no oficial:</strong> la publicación se realiza mediante un método automatizado que <strong>NO es la API pública oficial de TikTok</strong>. El Cliente entiende y <strong>asume el riesgo</strong> de que TikTok pueda aplicar medidas sobre cuentas que usen automatización o herramientas no oficiales (limitaciones, suspensión, etc.). La cuenta de TikTok y su contenido son responsabilidad exclusiva del Cliente.</li>
+    <li>GiroBot almacena las cookies con permisos restringidos, fuera del código, y <strong>nunca las expone ni las registra</strong>. El Cliente puede sustituirlas o eliminarlas; si caducan o son inválidas, el envío queda pendiente y el portal avisa para resubirlas.</li>
+    <li>El Cliente es responsable de cumplir los Términos de Servicio de TikTok y de tener los derechos sobre el contenido que publica.</li>
   </ul>
 
-  <h2>6. Dependencia de Twitch</h2>
-  <p>El servicio depende de la plataforma y la API de Twitch; cambios o caídas de Twitch pueden afectar al servicio sin responsabilidad del Prestador.</p>
+  <h2>6. Uso aceptable</h2>
+  <ul>
+    <li>El Cliente conecta su propio canal mediante OAuth y es responsable de su uso.</li>
+    <li>Prohibido usar el servicio para acoso, spam, contenido ilícito o que infrinja los Términos de Twitch o de TikTok.</li>
+    <li>GiroBot <strong>no</strong> ofrece funciones de moderación automática ni de detección de contenido inapropiado; la moderación del canal es responsabilidad del Cliente con las herramientas de Twitch.</li>
+  </ul>
 
-  <h2>7. Disponibilidad y soporte</h2>
-  <p>Servicio prestado «según disponibilidad». Soporte por email en <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a> (sin SLA garantizado salvo pacto expreso).</p>
+  <h2>7. Dependencia de plataformas de terceros</h2>
+  <p>El servicio depende de Twitch y, si se activa la publicación, de TikTok; cambios o caídas de estas plataformas pueden afectar al servicio sin responsabilidad del Prestador.</p>
 
-  <h2>8. Limitación de responsabilidad</h2>
-  <p>Limitada al importe abonado en los 12 meses previos. Exclusión de lucro cesante; no se responde de fallos de Twitch o de terceros, salvo dolo o negligencia grave.</p>
+  <h2>8. Disponibilidad y soporte</h2>
+  <p>Servicio prestado «según disponibilidad». Soporte por email en <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a> (sin SLA garantizado salvo pacto expreso). El render se procesa en cola (uno a uno); los tiempos pueden variar según la carga y la duración del vídeo.</p>
 
-  <h2>9. Baja y derecho de desistimiento</h2>
+  <h2>9. Limitación de responsabilidad</h2>
+  <p>Limitada al importe abonado en los 12 meses previos. Exclusión de lucro cesante; no se responde de fallos de Twitch, TikTok o terceros, ni de medidas que dichas plataformas tomen sobre las cuentas del Cliente, salvo dolo o negligencia grave.</p>
+
+  <h2>10. Baja y derecho de desistimiento</h2>
   <p>Baja del plan mensual con efecto al final del periodo de facturación en curso. <strong>Desistimiento (consumidores, RDL 1/2007):</strong> por tratarse de un servicio digital de ejecución inmediata, el Usuario consumidor, al contratar y solicitar el inicio del servicio, <strong>consiente expresamente su ejecución inmediata y reconoce que pierde el derecho de desistimiento</strong> una vez el servicio ha sido completamente ejecutado (art. 103.m RDL 1/2007). En contrataciones entre empresas (B2B) no aplica el desistimiento.</p>
 
-  <h2>10. Protección de datos</h2>
-  <p>Tratamiento conforme a la <a href="privacidad.html">Política de privacidad</a> de arquitectodigital.io. El pago lo gestiona Stripe; el Prestador no almacena datos de tarjeta.</p>
+  <h2>11. Retención y protección de datos</h2>
+  <p>El vídeo de entrada y los renders intermedios se borran tras procesar; solo se conserva el entregable hasta su descarga o publicación. Los mensajes del chat se procesan en vivo y no se almacenan. Tratamiento conforme a la <a href="privacidad.html">Política de privacidad</a> de arquitectodigital.io. El pago lo gestiona Stripe; el Prestador no almacena datos de tarjeta.</p>
 
-  <h2>11. Legislación y jurisdicción</h2>
+  <h2>12. Legislación y jurisdicción</h2>
   <p>Legislación española. Fuero de El Puerto de Santa María (Cádiz), o del domicilio del consumidor si la contratación es B2C.</p>
 
-  <div class="legal-meta">Última actualización: 30 de junio de 2026 · v0.1 (borrador)</div>
+  <div class="legal-meta">Última actualización: 7 de julio de 2026 · v0.2 (borrador)</div>
 
 </div>
 
