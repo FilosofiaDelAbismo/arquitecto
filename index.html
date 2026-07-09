@@ -653,6 +653,24 @@ section {
 .form-submit:hover {
   background: var(--orange-bright);
 }
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+/* honeypot: fuera de pantalla, no ocupa espacio, no accesible por tab */
+.cf-hp {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.form-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
 
 /* FOOTER */
 footer {
@@ -1212,33 +1230,41 @@ FIN_ORIGINAL_INLINE_CSS-->
         </ul>
       </div>
 
-      <div class="contact-form">
+      <form class="contact-form" id="contactForm" novalidate>
         <h4>Formulario rápido</h4>
         <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre">
+          <label for="cf-nombre">Nombre</label>
+          <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre" required maxlength="100" autocomplete="name">
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="tu@empresa.com">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="tu@empresa.com" required maxlength="254" autocomplete="email">
         </div>
         <div class="form-group">
-          <label>Servicio que te interesa</label>
-          <select>
-            <option>Chatbots Personalizados</option>
-            <option>Webs Personalizadas</option>
-            <option>Autoblog SEO</option>
-            <option>Audio → Libro</option>
-            <option>Sistemas Personalizados</option>
-            <option>Aún no sé</option>
+          <label for="cf-servicio">Servicio que te interesa</label>
+          <select id="cf-servicio" name="servicio">
+            <option value="chatbot">Chatbots Personalizados</option>
+            <option value="webs">Webs Personalizadas</option>
+            <option value="autoblog">Autoblog SEO</option>
+            <option value="audiolibros">Audio → Libro</option>
+            <option value="canciones">Crea tu canción</option>
+            <option value="girobot">GiroBot para Twitch</option>
+            <option value="sistemas">Sistemas Personalizados</option>
+            <option value="cenit">Cénit</option>
+            <option value="otro" selected>Aún no sé / Otro</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Cuéntame tu caso</label>
-          <textarea placeholder="¿Qué quieres automatizar? ¿Qué problema te quita tiempo?"></textarea>
+          <label for="cf-mensaje">Cuéntame tu caso</label>
+          <textarea id="cf-mensaje" name="mensaje" placeholder="¿Qué quieres automatizar? ¿Qué problema te quita tiempo?" required minlength="5" maxlength="3000"></textarea>
         </div>
-        <button class="form-submit">Enviar →</button>
-      </div>
+        <!-- honeypot antispam: invisible para humanos; si un bot lo rellena, el servidor descarta el envío -->
+        <div class="cf-hp" aria-hidden="true">
+          <label>No rellenes este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <button type="submit" class="form-submit">Enviar →</button>
+        <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -1344,6 +1370,59 @@ FIN_ORIGINAL_INLINE_CSS-->
       }
     });
   });
+
+  // Envío del formulario de contacto al endpoint /webhook/site/contact
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    var statusEl = document.getElementById('cf-status');
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = contactForm.querySelector('.form-submit');
+      var payload = {
+        nombre: (contactForm.nombre.value || '').trim(),
+        email: (contactForm.email.value || '').trim(),
+        servicio: contactForm.servicio.value,
+        mensaje: (contactForm.mensaje.value || '').trim(),
+        website: contactForm.website.value  // honeypot (debe ir vacío)
+      };
+      if (payload.nombre.length < 2 || !payload.email || payload.mensaje.length < 5) {
+        statusEl.style.color = '#c0392b';
+        statusEl.textContent = 'Rellena nombre, email y un mensaje (mínimo 5 caracteres).';
+        return;
+      }
+      var prev = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      statusEl.style.color = 'var(--text-faint)';
+      statusEl.textContent = '';
+      fetch('https://api.arquitectodigital.io/webhook/site/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        return r.json().then(function (data) { return { ok: r.ok, data: data }; },
+                            function () { return { ok: r.ok, data: null }; });
+      }).then(function (res) {
+        if (res.ok && res.data && res.data.ok) {
+          contactForm.reset();
+          statusEl.style.color = '#1e8449';
+          statusEl.textContent = '✅ Mensaje enviado. Te responderé lo antes posible.';
+        } else {
+          var err = (res.data && res.data.error) || 'error';
+          statusEl.style.color = '#c0392b';
+          statusEl.textContent = err === 'rate_limited'
+            ? '⚠️ Has enviado varios mensajes seguidos. Espera un minuto e inténtalo de nuevo.'
+            : '⚠️ No se pudo enviar. Escríbeme a daniel@arquitectodigital.io o por WhatsApp.';
+        }
+      }).catch(function () {
+        statusEl.style.color = '#c0392b';
+        statusEl.textContent = '⚠️ No se pudo conectar. Escríbeme a daniel@arquitectodigital.io o por WhatsApp.';
+      }).then(function () {
+        btn.disabled = false;
+        btn.textContent = prev;
+      });
+    });
+  }
 
   // Header con sombra al hacer scroll
   var header = document.querySelector('header');
