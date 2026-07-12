@@ -717,10 +717,12 @@ footer {
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--orange); }
-.footer-bolas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2px; max-width: 250px; }
-.footer-bola { display: block; width: 46px; height: 46px; border-radius: 50%; overflow: hidden; border: 1.5px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
-.footer-bola:hover { transform: translateY(-2px); border-color: var(--orange); }
-.footer-bola img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.footer-bolas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; max-width: 264px; }
+.footer-bola { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px; text-decoration: none; }
+.footer-bola img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; display: block; aspect-ratio: 1 / 1; border: 1.5px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
+.footer-bola:hover img { transform: translateY(-2px); border-color: var(--orange); }
+.footer-bola span { font-size: 12px; line-height: 1.25; text-align: center; color: var(--text-dim); transition: color 0.2s; overflow-wrap: break-word; }
+.footer-bola:hover span { color: var(--orange); }
 .footer-bottom {
   border-top: 1px solid var(--border);
   padding-top: 30px;
@@ -1306,15 +1308,15 @@ FIN_ORIGINAL_INLINE_CSS-->
       <div class="footer-col">
         <h5>Canales faceless</h5>
         <div class="footer-bolas">
-          <a class="footer-bola" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" title="Estoico Loco" aria-label="Canal de YouTube Estoico Loco"><img src="assets/img/avatar-estoico-loco.jpg" alt="Estoico Loco" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" title="Leyendas Aterradoras" aria-label="Canal de YouTube Leyendas Aterradoras"><img src="assets/img/avatar-leyendas-aterradoras.jpg" alt="Leyendas Aterradoras" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" title="Historias Minuteras" aria-label="Canal de YouTube Historias Minuteras"><img src="assets/img/avatar-historias-minuteras.jpg" alt="Historias Minuteras" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" title="PokerConDatos" aria-label="Canal de YouTube PokerConDatos"><img src="assets/img/avatar-pokercondatos.jpg" alt="PokerConDatos" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" title="NeuralSpot" aria-label="Canal de YouTube NeuralSpot"><img src="assets/img/avatar-neuralspot.jpg" alt="NeuralSpot" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" title="Noticias En Vena" aria-label="Canal de YouTube Noticias En Vena"><img src="assets/img/avatar-nev-noticias.jpg" alt="Noticias En Vena" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/@EBLIAMUSIC" target="_blank" rel="noopener" title="EBLIA Music" aria-label="Canal de YouTube EBLIA Music"><img src="assets/img/avatar-eblia.jpg" alt="EBLIA Music" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/@logicasalvaje" target="_blank" rel="noopener" title="Lógica Salvaje" aria-label="Canal de YouTube Lógica Salvaje"><img src="assets/img/avatar-logica-salvaje.jpg" alt="Lógica Salvaje" width="46" height="46" loading="lazy"></a>
-          <a class="footer-bola" href="https://www.youtube.com/channel/UCN3YyFIIyG_sVcCrdoWZCSg" target="_blank" rel="noopener" title="Sique Oscura" aria-label="Canal de YouTube Sique Oscura"><img src="assets/img/avatar-sique-oscura.jpg" alt="Sique Oscura" width="46" height="46" loading="lazy"></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UCZLFWvCMCTD0njjEbcFuU-Q" target="_blank" rel="noopener" aria-label="Canal de YouTube Estoico Loco"><img src="assets/img/avatar-estoico-loco.jpg" alt="Estoico Loco" width="56" height="56" loading="lazy"><span>Estoico Loco</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UC3Pe1OU_xSTVEs9Pj9lk6wQ" target="_blank" rel="noopener" aria-label="Canal de YouTube Leyendas Aterradoras"><img src="assets/img/avatar-leyendas-aterradoras.jpg" alt="Leyendas Aterradoras" width="56" height="56" loading="lazy"><span>Leyendas Aterradoras</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UCbF2H-ZniaRFsH3SUfTRn9A" target="_blank" rel="noopener" aria-label="Canal de YouTube Historias Minuteras"><img src="assets/img/avatar-historias-minuteras.jpg" alt="Historias Minuteras" width="56" height="56" loading="lazy"><span>Historias Minuteras</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UCjnrBdXkoEwF8M6OazajRPg" target="_blank" rel="noopener" aria-label="Canal de YouTube PokerConDatos"><img src="assets/img/avatar-pokercondatos.jpg" alt="PokerConDatos" width="56" height="56" loading="lazy"><span>PokerConDatos</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UCx9QYCXw__r2p33WTUKLCTg" target="_blank" rel="noopener" aria-label="Canal de YouTube NeuralSpot"><img src="assets/img/avatar-neuralspot.jpg" alt="NeuralSpot" width="56" height="56" loading="lazy"><span>NeuralSpot</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UCC2VzfYMK1NC8nBwRSY0Qfg" target="_blank" rel="noopener" aria-label="Canal de YouTube Noticias En Vena"><img src="assets/img/avatar-nev-noticias.jpg" alt="Noticias En Vena" width="56" height="56" loading="lazy"><span>Noticias En Vena</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/@EBLIAMUSIC" target="_blank" rel="noopener" aria-label="Canal de YouTube EBLIA Music"><img src="assets/img/avatar-eblia.jpg" alt="EBLIA Music" width="56" height="56" loading="lazy"><span>EBLIA Music</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/@logicasalvaje" target="_blank" rel="noopener" aria-label="Canal de YouTube Lógica Salvaje"><img src="assets/img/avatar-logica-salvaje.jpg" alt="Lógica Salvaje" width="56" height="56" loading="lazy"><span>Lógica Salvaje</span></a>
+          <a class="footer-bola" href="https://www.youtube.com/channel/UCN3YyFIIyG_sVcCrdoWZCSg" target="_blank" rel="noopener" aria-label="Canal de YouTube Sique Oscura"><img src="assets/img/avatar-sique-oscura.jpg" alt="Sique Oscura" width="56" height="56" loading="lazy"><span>Sique Oscura</span></a>
         </div>
       </div>
       <div class="footer-col">
