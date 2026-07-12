@@ -683,6 +683,33 @@ footer {
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--orange); }
+/* Bolas de canales (footer) — grid con ancho fijo por item; círculo + object-fit en la IMG. */
+.footer-bolas{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));
+  gap:18px 10px;
+  padding:0; margin:12px 0 0; list-style:none;
+}
+.footer-bolas a.footer-bola{
+  display:flex; flex-direction:column; align-items:center;
+  text-decoration:none; color:inherit;
+}
+.footer-bolas a.footer-bola img{
+  width:56px; height:56px;
+  min-width:56px; min-height:56px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  border:2px solid transparent;
+  transition:border-color .2s;
+}
+.footer-bolas a.footer-bola:hover img{ border-color:#ff7a1a; }
+.footer-bolas a.footer-bola span{
+  display:block; margin-top:7px;
+  font-size:11px; line-height:1.25;
+  text-align:center; word-break:break-word;
+}
 .footer-bottom {
   border-top: 1px solid var(--border);
   padding-top: 30px;
