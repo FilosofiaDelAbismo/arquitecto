@@ -378,7 +378,7 @@ Si el chatbot responde sin citar fuentes o mezcla información de documentos con
 
 <h3>Qué distingue una implementación que aguanta de una que no</h3>
 
-<p>No es el modelo. Los modelos disponibles hoy —Claude, DeepSeek, otros— son suficientemente capaces para la mayoría de casos de uso en PYMEs. La diferencia está en las decisiones de diseño previas al despliegue:</p>
+<p>No es el modelo. Los modelos disponibles hoy —Claude, Llama, Mistral, otros— son suficientemente capaces para la mayoría de casos de uso en PYMEs. La diferencia está en las decisiones de diseño previas al despliegue:</p>
 
 <ul>
   <li>Cómo se fragmenta y estructura el conocimiento antes de indexarlo.</li>
@@ -498,7 +498,7 @@ Si responde con detalle y confianza sin indicar que no tiene esa información, e
 <p>Lo que he visto que funciona mejor para PYMEs que quieren evitar esa trampa:</p>
 <ul>
   <li><strong>El código y los datos son del cliente, siempre.</strong> Cualquier sistema serio debería poder entregarse con acceso completo a la configuración y exportación de datos.</li>
-  <li><strong>Infraestructura abierta.</strong> Modelos como Claude de Anthropic o DeepSeek, combinados con embeddings locales o de bajo coste, permiten construir RAG funcional sin depender de una plataforma propietaria.</li>
+  <li><strong>Infraestructura abierta.</strong> Modelos como Claude de Anthropic o alternativas open source (Llama, Mistral), combinados con embeddings locales o de bajo coste, permiten construir RAG funcional sin depender de una plataforma propietaria.</li>
   <li><strong>Prueba antes de comprometerte.</strong> Una prueba de concepto real —con tus documentos, en tu entorno— vale más que cualquier demo preparada. Si el proveedor no ofrece esto, es una señal de alerta.</li>
 </ul>
 <p>En la práctica, un chatbot RAG bien configurado para una PYME no requiere infraestructura de gran empresa. Lo que sí requiere es criterio en el diseño: qué documentos indexar, cómo estructurarlos, qué tipo de preguntas va a recibir y dónde está el límite de lo que el sistema debe responder solo versus escalar a una persona.</p>
@@ -1529,7 +1529,7 @@ Lánzalo en ChatGPT (con y sin búsqueda web), Perplexity y Gemini. Registra: ¿
 <h3>El stack mínimo para hacerlo sin quedar atrapado</h3>
 <p>No necesitas infraestructura de empresa grande. Necesitas componentes que puedas controlar y sustituir por separado si algo falla o encarece:</p>
 <ul>
-  <li><strong>Modelo de lenguaje:</strong> Claude Sonnet o Haiku (Anthropic), DeepSeek, o cualquier modelo con API estable. El criterio no es "el mejor", es el que da el mejor resultado para tu caso de uso a un coste razonable.</li>
+  <li><strong>Modelo de lenguaje:</strong> Claude Sonnet o Haiku (Anthropic), Mistral, o cualquier modelo con API estable. El criterio no es "el mejor", es el que da el mejor resultado para tu caso de uso a un coste razonable.</li>
   <li><strong>Embeddings:</strong> puedes usar un modelo local como MiniLM para no depender de una API externa para la parte de búsqueda. Esto reduce costes y elimina una dependencia.</li>
   <li><strong>Base vectorial:</strong> opciones open source como Chroma o Qdrant. Corren en tu infraestructura, no en la nube de un tercero.</li>
   <li><strong>Infraestructura:</strong> Oracle Cloud Free Tier, un VPS propio, o cualquier servidor que controles. El código y los datos quedan donde tú decides.</li>
