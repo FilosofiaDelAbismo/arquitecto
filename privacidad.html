@@ -88,8 +88,8 @@
   </ul>
   <p><strong>Finalidad:</strong> enviarte los envíos de la newsletter (frecuencia variable, no fija).</p>
   <p><strong>Base legal:</strong> consentimiento expreso mediante doble opt-in (te llega un email de confirmación que debes pulsar; sin ese paso no entras en la lista) (art. 6.1.a RGPD).</p>
-  <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07. El borrado automático a 30 días de la baja aún NO está implementado en el servidor; se retira ese plazo hasta que el job de purga esté vivo (ver D-TR pendiente). Mientras tanto se declara solo lo que hoy se cumple: baja inmediata de los envíos + supresión bajo demanda. -->
-  <p><strong>Conservación:</strong> mientras no te des de baja. Cada envío incluye un enlace de baja en 1 clic; al ejercerla dejas de recibir envíos de forma inmediata. Puedes solicitar en cualquier momento la <strong>supresión de tus datos («derecho al olvido»)</strong> escribiendo a la dirección de contacto, y se eliminan sin dilación indebida.</p>
+  <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07. Actualizado 14-jul: el borrado automático SÍ está implementado desde el 11-jul (D-TR-246): baja + 30 días, y altas no confirmadas a los 7 días. -->
+  <p><strong>Conservación:</strong> mientras no te des de baja. Cada envío incluye un enlace de baja en 1 clic; al ejercerla dejas de recibir envíos de forma inmediata y tus datos se <strong>eliminan automáticamente a los 30 días</strong> de la baja. Las altas que no se confirman (doble opt-in) se eliminan automáticamente a los <strong>7 días</strong>. Puedes solicitar además en cualquier momento la <strong>supresión inmediata de tus datos («derecho al olvido»)</strong> escribiendo a la dirección de contacto.</p>
 
   <h3>2.3 Cookies y métricas web</h3>
   <p>Ver <a href="cookies.html">política de cookies</a> para el detalle de qué se usa y por qué.</p>
@@ -98,11 +98,17 @@
   <h3>2.4 Plazos de conservación en los servicios con IA</h3>
   <p>Además de los plazos indicados arriba para el formulario de contacto y la newsletter, en los servicios de pago que tratan datos con inteligencia artificial se aplican estos plazos de conservación (<strong>art. 13.2.a RGPD</strong>):</p>
   <ul>
-    <li><strong>Chatbot a medida:</strong> las conversaciones (mensajes de los usuarios finales) se <strong>eliminan automáticamente a las 24 horas</strong>. Se atiende además el <strong>derecho de supresión («derecho al olvido»)</strong> bajo demanda, con borrado inmediato a solicitud. No se elimina el corpus de conocimiento ni la configuración del cliente, que constituyen el propio servicio.</li>
-    <li><strong>Audio → Libro:</strong> el <strong>audio de voz aportado y su transcripción se eliminan a los 7 días de la entrega</strong> del libro. Se conserva el libro entregado (PDF/EPUB) para el usuario y los datos de facturación durante los plazos legales aplicables.</li>
+    <li><strong>Chatbot a medida:</strong> las conversaciones (mensajes de los usuarios finales) se <strong>eliminan automáticamente a las 24 horas</strong>. Se atiende además el <strong>derecho de supresión («derecho al olvido»)</strong> bajo demanda, con borrado inmediato a solicitud. El corpus de conocimiento y la configuración del cliente no se eliminan mientras el servicio está activo (constituyen el propio servicio); <strong>al causar baja, el corpus y todos los datos del cliente se eliminan automáticamente a los 30 días</strong>.</li>
+    <li><strong>Audio → Libro:</strong> la conversión de la voz a texto se realiza <strong>en nuestros propios servidores (Unión Europea)</strong>: las grabaciones de voz <strong>no se envían a ningún tercero</strong>. El <strong>audio aportado y su transcripción se eliminan a los 7 días de la entrega</strong> del libro. Se conserva el libro entregado (PDF/EPUB) para el usuario y los datos de facturación durante los plazos legales aplicables.</li>
     <li><strong>Crea tu canción:</strong> los <strong>datos y ficheros de la canción se eliminan a los 7 días de la entrega</strong> (Mureka los borra a los 30 días). Se conservan los datos de facturación durante los plazos legales aplicables.</li>
     <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
     <li><strong>Autoblog:</strong> los datos del cliente (contacto, descripción del negocio, temas y artículos generados) se <strong>eliminan automáticamente a los 30 días de la baja</strong> del servicio. Se conservan los datos de facturación durante los plazos legales aplicables.</li>
+    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
+    <li><strong>Webs personalizadas:</strong> el material de trabajo del encargo (formulario, descripción del negocio y borradores) se <strong>elimina automáticamente a los 30 días de la entrega</strong>. La web entregada es del cliente y no se ve afectada. Se conservan los datos de facturación durante los plazos legales aplicables.</li>
+    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
+    <li><strong>GiroBot (Twitch):</strong> los mensajes del chat se procesan en vivo y <strong>no se almacenan</strong> (solo un contador de uso, sin texto ni identidad). Al causar baja, los datos de acceso del portal del cliente se <strong>eliminan a los 30 días</strong>.</li>
+    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
+    <li><strong>Cénit (app de diario):</strong> el diario, las fotos y los audios viven <strong>solo en el dispositivo del usuario</strong>; nuestros servidores no almacenan contenido. El audio del dictado se transcribe <strong>en nuestros propios servidores (UE)</strong> y se <strong>elimina inmediatamente</strong> tras la transcripción; a la IA solo se envía el texto, y únicamente cuando el usuario pide una reflexión.</li>
   </ul>
 
   <h2>3. Destinatarios de los datos</h2>
@@ -115,6 +121,10 @@
     <li><strong>Fuentes tipográficas:</strong> Google Fonts (Google Ireland Ltd. / Google LLC) — las tipografías se cargan desde los servidores de Google, que puede registrar tu dirección IP a efectos técnicos de entrega, sin instalar cookies (véase la <a href="cookies.html">política de cookies</a>).</li>
     <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
     <li><strong>Google (Google Sheets)</strong> — cuando el cliente activa la captura de reservas del chatbot, se registra el nombre y teléfono facilitados por el usuario final, Estados Unidos, bajo el Marco de Privacidad de Datos UE-EE. UU. y cláusulas contractuales tipo.</li>
+    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
+    <li><strong>Gumroad, Inc.</strong> (Estados Unidos) — plataforma de pago y entrega utilizada en determinadas ventas de productos digitales; recibe y trata el email y nombre del comprador como parte del proceso de compra, bajo cláusulas contractuales tipo.</li>
+    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
+    <li><strong>Amazon Web Services (SES)</strong> (envío de correo electrónico, región según configuración) — puede utilizarse como proveedor alternativo de envío de emails transaccionales; recibe la dirección del destinatario.</li>
   </ul>
   <p>Adicionalmente, en los <strong>servicios de pago que utilizan inteligencia artificial</strong> (chatbots a medida, generación de letra y de canciones) y únicamente respecto de los datos que el cliente aporta para esos servicios, intervienen:</p>
   <ul>
