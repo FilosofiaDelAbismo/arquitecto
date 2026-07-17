@@ -1239,11 +1239,11 @@ FIN_ORIGINAL_INLINE_CSS-->
       <form class="contact-form" id="contactForm" novalidate>
         <h4>Formulario rápido</h4>
         <div class="form-group">
-          <label for="cf-nombre">Nombre</label>
+          <label for="cf-nombre">Nombre <span class="req-mark" aria-hidden="true">*</span></label>
           <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre" required maxlength="100" autocomplete="name">
         </div>
         <div class="form-group">
-          <label for="cf-email">Email</label>
+          <label for="cf-email">Email <span class="req-mark" aria-hidden="true">*</span></label>
           <input type="email" id="cf-email" name="email" placeholder="tu@empresa.com" required maxlength="254" autocomplete="email">
         </div>
         <div class="form-group">
@@ -1261,13 +1261,28 @@ FIN_ORIGINAL_INLINE_CSS-->
           </select>
         </div>
         <div class="form-group">
-          <label for="cf-mensaje">Cuéntame tu caso</label>
+          <label for="cf-mensaje">Cuéntame tu caso <span class="req-mark" aria-hidden="true">*</span></label>
           <textarea id="cf-mensaje" name="mensaje" placeholder="¿Qué quieres automatizar? ¿Qué problema te quita tiempo?" required minlength="5" maxlength="3000"></textarea>
         </div>
         <!-- honeypot antispam: invisible para humanos; si un bot lo rellena, el servidor descarta el envío -->
         <div class="cf-hp" aria-hidden="true">
           <label>No rellenes este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         </div>
+        <div class="consent-group">
+          <label class="consent-item">
+            <input type="checkbox" name="consent_legal" id="cf-consent-legal">
+            <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a> y <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a><span class="req-mark" aria-hidden="true">*</span></span>
+          </label>
+          <label class="consent-item">
+            <input type="checkbox" name="consent_comercial" id="cf-consent-comercial">
+            <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
+          </label>
+          <label class="consent-item">
+            <input type="checkbox" name="consent_personalizacion" id="cf-consent-personalizacion">
+            <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
+          </label>
+        </div>
+        <p class="consent-note">* Campos obligatorios.</p>
         <button type="submit" class="form-submit">Enviar →</button>
         <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
       </form>
@@ -1391,8 +1406,16 @@ FIN_ORIGINAL_INLINE_CSS-->
         email: (contactForm.email.value || '').trim(),
         servicio: contactForm.servicio.value,
         mensaje: (contactForm.mensaje.value || '').trim(),
-        website: contactForm.website.value  // honeypot (debe ir vacío)
+        website: contactForm.website.value,  // honeypot (debe ir vacío)
+        consent_legal: !!contactForm.consent_legal.checked,
+        consent_comercial: !!contactForm.consent_comercial.checked,
+        consent_personalizacion: !!contactForm.consent_personalizacion.checked
       };
+      if (!payload.consent_legal) {
+        statusEl.style.color = '#c0392b';
+        statusEl.textContent = 'Debes aceptar el Aviso Legal y la Política de Privacidad para enviar.';
+        return;
+      }
       if (payload.nombre.length < 2 || !payload.email || payload.mensaje.length < 5) {
         statusEl.style.color = '#c0392b';
         statusEl.textContent = 'Rellena nombre, email y un mensaje (mínimo 5 caracteres).';

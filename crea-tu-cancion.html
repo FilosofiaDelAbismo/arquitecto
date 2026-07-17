@@ -114,9 +114,45 @@
   <div class="music-aviso">⏳ <strong>Importante:</strong> tras pagar tienes
     <strong>48 horas</strong> para crear tu canción con tu código. Pasado ese
     plazo, el código caduca.</div>
-  <a class="service-cta" href="https://buy.stripe.com/8x26oH6L7aLNdp80AEbEA04" id="btn-pago" rel="nofollow">Comprar mi canción →</a>
+  <div class="consent-group" style="max-width:820px;margin:8px auto 16px;">
+    <label class="consent-item">
+      <input type="checkbox" name="consent_legal" id="cc-legal">
+      <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones Generales de Contratación</a> y las <a href="/crea-tu-cancion-condiciones.html" target="_blank" rel="noopener">Condiciones Específicas</a><span class="req-mark" aria-hidden="true">*</span></span>
+    </label>
+    <label class="consent-item">
+      <input type="checkbox" name="consent_comercial" id="cc-com">
+      <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
+    </label>
+    <label class="consent-item">
+      <input type="checkbox" name="consent_personalizacion" id="cc-pers">
+      <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
+    </label>
+  </div>
+  <a class="service-cta cta-disabled" href="https://buy.stripe.com/8x26oH6L7aLNdp80AEbEA04" id="btn-pago" rel="nofollow" aria-disabled="true">Comprar mi canción →</a>
   <p class="music-pago-nota">25 € · pago único · IVA incluido · pago seguro con Stripe.</p>
+  <p class="consent-note" id="cc-msg" role="status" aria-live="polite" style="text-align:center;">* Marca la primera casilla para poder comprar.</p>
 </section>
+<script>
+(function () {
+  var legal = document.getElementById('cc-legal');
+  var pago = document.getElementById('btn-pago');
+  var msg = document.getElementById('cc-msg');
+  if (!legal || !pago) return;
+  function sync() {
+    if (legal.checked) { pago.classList.remove('cta-disabled'); pago.removeAttribute('aria-disabled');
+      if (msg) { msg.style.color = ''; msg.textContent = '* Condiciones aceptadas.'; } }
+    else { pago.classList.add('cta-disabled'); pago.setAttribute('aria-disabled', 'true'); }
+  }
+  legal.addEventListener('change', sync); sync();
+  pago.addEventListener('click', function (e) {
+    if (!legal.checked) {
+      e.preventDefault();
+      if (msg) { msg.style.color = '#c0392b'; msg.textContent = 'Debes aceptar las condiciones para continuar con la compra.'; }
+      legal.focus();
+    }
+  });
+})();
+</script>
 
 <section class="section-content" style="max-width: 900px; margin: 0 auto;">
   <span class="section-label">[03] Ya he pagado</span>

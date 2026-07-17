@@ -1580,3 +1580,23 @@ li:has(> a[href="newsletter.html"]),
 li:has(> a[href$="/newsletter.html"]) { display: none !important; }
 a[href="newsletter.html"],
 a[href$="/newsletter.html"] { display: none !important; }
+
+/* ===================================================================
+   Casillas de consentimiento (contacto + contratación) y honeypot
+   Añadido 2026-07-17 · Bloques 2/6. No toca estilos previos.
+   =================================================================== */
+/* honeypot antispam: oculto de verdad para humanos, presente en el DOM */
+.cf-hp { position: absolute !important; left: -9999px !important; top: auto;
+  width: 1px; height: 1px; overflow: hidden; }
+/* asterisco de campo obligatorio */
+.req-mark { color: var(--orange); margin-left: 2px; }
+/* grupo de casillas */
+.consent-group { margin: 18px 0 4px; display: flex; flex-direction: column; gap: 12px; }
+.consent-item { display: flex; gap: 10px; align-items: flex-start;
+  font-size: 0.9rem; line-height: 1.5; color: var(--text-dim); text-align: left; }
+.consent-item input[type="checkbox"] { margin-top: 3px; flex: 0 0 auto;
+  width: 18px; height: 18px; accent-color: var(--orange); cursor: pointer; }
+.consent-item a { color: var(--orange); }
+.consent-note { font-size: 0.82rem; color: var(--text-faint); margin: 6px 0 0; }
+/* CTA de compra deshabilitada hasta aceptar (mantiene click para avisar) */
+.cta-disabled { opacity: 0.5; filter: grayscale(0.35); cursor: not-allowed; }
