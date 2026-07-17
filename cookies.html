@@ -11,6 +11,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<style>
+/* legal-datcon: estilos para main.legal (vars scoped; no afectan al chrome del sitio) */
+main.legal{--mut:#9aa0a6;--acc:#ff6a2b;--bd:#23262b;max-width:820px;margin:0 auto;padding:48px 24px 80px}
+main.legal h1{font-size:2rem;line-height:1.2;margin:0 0 8px}
+main.legal .updated{color:var(--mut);font-size:.9rem;margin:0 0 32px}
+main.legal h2{font-size:1.25rem;margin:36px 0 10px;color:#fff;border-bottom:1px solid var(--bd);padding-bottom:6px}
+main.legal h3{font-size:1.05rem;margin:24px 0 8px;color:var(--acc)}
+main.legal p{margin:0 0 14px}
+main.legal ul{margin:0 0 16px;padding-left:22px}
+main.legal li{margin:0 0 6px}
+main.legal a{color:var(--acc)}
+</style>
 </head>
 <body>
 
@@ -43,63 +55,29 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">[Legal] Cookies</span>
-    <h1>Política de <span class="accent">cookies</span>.</h1>
-    <p>Qué cookies usa este sitio, por qué, y cómo cambiar tu elección.</p>
-  </div>
-</section>
-
-<div class="legal-content">
-
-  <h2>1. ¿Qué es una cookie?</h2>
-  <p>Una cookie es un pequeño archivo de texto que un sitio web guarda en tu navegador para recordar información entre visitas (preferencias, sesión, métricas de uso). El uso de cookies está regulado por el artículo 22.2 de la LSSI-CE y por las directrices de la Agencia Española de Protección de Datos (AEPD).</p>
-
-  <h2>2. ¿Qué cookies usa este sitio?</h2>
-
-  <h3>2.1 Cookies estrictamente necesarias</h3>
-  <p>Son las que permiten el funcionamiento básico del sitio y la prestación del servicio. No requieren consentimiento previo.</p>
-  <ul>
-    <li><strong>Preferencia de cookies (<code>ad_cookie_consent</code>):</strong> guarda tu elección sobre el banner ("aceptar" o "solo necesarias") para no volver a mostrártelo. <em>Tipo: técnica · Duración: 12 meses · Origen: propio.</em></li>
-  </ul>
-
-  <h3>2.2 Cookies analíticas (opcionales)</h3>
-  <p>Recogen información agregada y anónima sobre cómo se usa el sitio (páginas más visitadas, navegador, país a nivel general). Sirven para mejorar la web.</p>
-  <ul>
-    <li>
-      <strong>Plausible Analytics:</strong>
-      analítica web sin cookies de tracking individual, sin perfilado. <em>Tipo: analítica · Origen: propio (Plausible autoalojado en analytics.arquitectodigital.io).</em>
-    </li>
-  </ul>
-  <p><em>Nota:</em> la analítica de este sitio es <strong>Plausible Analytics autoalojado</strong> (analytics.arquitectodigital.io), activa en la web: mide visitas de forma agregada y anónima y <strong>no instala cookies ni identificadores</strong> en tu dispositivo; por eso el sitio no muestra banner de cookies.</p>
-
-  <h3>2.3 Cookies de terceros</h3>
-  <p>Este sitio no incrusta vídeos, fuentes ni widgets que carguen cookies de terceros con fines publicitarios. Las fuentes tipográficas se cargan desde Google Fonts; según su configuración actual, Google puede registrar tu IP a efectos técnicos. Si esto cambia, se actualizará esta política.</p>
-
-  <h2>3. Cómo cambiar tu elección</h2>
-  <p>Puedes modificar tu consentimiento en cualquier momento:</p>
-  <ul>
-    <li><strong>Desde este sitio:</strong> pulsa <a href="#" onclick="if(window.ADCookies){window.ADCookies.reset();}return false;">aquí para reiniciar tu elección</a>. Volverá a aparecer el banner.</li>
-    <li><strong>Desde tu navegador:</strong> todos los navegadores permiten ver, bloquear y eliminar cookies. Instrucciones oficiales:</li>
-  </ul>
-  <ul>
-    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
-    <li><a href="https://support.mozilla.org/es/kb/proteccion-antirrastreo-mejorada-firefox-escrito" target="_blank" rel="noopener">Mozilla Firefox</a></li>
-    <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari (macOS)</a></li>
-    <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
-  </ul>
-
-  <h2>4. Consecuencias de rechazar las cookies</h2>
-  <p>Si rechazas las cookies opcionales, el sitio seguirá funcionando con normalidad. Solo se pierden las funciones que dependen de ellas (analítica agregada). Las cookies necesarias no se pueden desactivar porque sin ellas no se puede recordar tu propia elección sobre el banner.</p>
-
-  <h2>5. Actualizaciones</h2>
-  <p>Esta política se revisa cuando se añade, quita o cambia alguna cookie. Versión y fecha al pie del documento.</p>
-
-  <div class="legal-meta">
-    Última actualización: 21 de mayo de 2026 · v1.0
-  </div>
-</div>
+<main class="legal">
+<h1>Política de Cookies</h1>
+<p>1. Definición y funciones de las cookies.</p>
+<p>Una cookie es un fichero que se descarga en el equipo del Usuario al acceder a determinados sitios web. Las cookies permiten al sitio web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación del Usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al Usuario.</p>
+<p>2. Tipos de cookies que puede utilizar este Sitio Web.</p>
+<p>• Cookies propias: Son aquéllas que se envían al equipo terminal del Usuario desde un equipo o dominio gestionado por el Titular y desde el que se presta el servicio solicitado por el Usuario.</p>
+<p>•  Cookies funcionales: Son aquéllas necesarias para el correcto funcionamiento del Sitio Web.</p>
+<p>• Cookies de sesión: Son un tipo de cookies diseñadas para recabar y almacenar datos mientras el Usuario accede a un sitio web. </p>
+<p>3. Revocación y eliminación de cookies.</p>
+<p>El Usuario en cualquier momento podrá seleccionar, rechazar o configurar el uso de Cookies, a través de la herramienta de gestión de consentimiento para el tratamiento de Cookies disponible en cada Sitio Web.</p>
+<p>El Usuario también puede permitir, bloquear o eliminar las cookies instaladas en el equipo mediante la configuración de las opciones del navegador instalado, en caso de que no permita la instalación de cookies en su navegador es posible que no pueda acceder a alguna de las secciones del Sitio Web. Se puede encontrar información sobre cómo configurar las cookies según el navegador utilizado en los siguientes enlaces (enlaces válidos a la fecha de edición del presente texto)</p>
+<p>Para más información sobre cómo bloquear el uso de cookies en Chrome</p>
+<p><a href="http://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647" target="_blank" rel="noopener">http://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647</a></p>
+<p>Para más información sobre cómo bloquear el uso de cookies en Firefox</p>
+<p><a href="http://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we" target="_blank" rel="noopener">http://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we</a></p>
+<p>Para más información sobre cómo bloquear el uso de cookies en Edge</p>
+<p><a href="https://support.microsoft.com/es-es/windows/administrar-cookies-en-microsoft-edge-ver-permitir-bloquear-eliminar-y-usar-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">https://support.microsoft.com/es-es/windows/administrar-cookies-en-microsoft-edge-ver-permitir-bloquear-eliminar-y-usar-168dab11-0753-043d-7c16-ede5947fc64d</a> </p>
+<p>Para más información sobre cómo bloquear el uso de cookies en Safari</p>
+<p><a href="http://support.apple.com/kb/ph5042" target="_blank" rel="noopener">http://support.apple.com/kb/ph5042</a></p>
+<p>El Titular no se hace responsable del contenido y veracidad de las políticas de privacidad de los terceros incluidos en los enlaces de esta Política de Cookies.</p>
+<p>Para más información sobre el uso de cookies en este Sitio Web el Usuario puede solicitarla a través del formulario de contacto o <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>  </p>
+<p>La presente política fue modificada el 17 de julio de 2026.</p>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -136,6 +114,8 @@
           <li><a href="privacidad.html">Privacidad</a></li>
           <li><a href="cookies.html" style="color:var(--orange);">Cookies</a></li>
           <li><a href="condiciones.html">Condiciones</a></li>
+          <li><a href="sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="cenit-condiciones.html">Condiciones · Cénit</a></li>
         </ul>
       </div>
     </div>

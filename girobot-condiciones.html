@@ -11,6 +11,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<style>
+/* legal-datcon: estilos para main.legal (vars scoped; no afectan al chrome del sitio) */
+main.legal{--mut:#9aa0a6;--acc:#ff6a2b;--bd:#23262b;max-width:820px;margin:0 auto;padding:48px 24px 80px}
+main.legal h1{font-size:2rem;line-height:1.2;margin:0 0 8px}
+main.legal .updated{color:var(--mut);font-size:.9rem;margin:0 0 32px}
+main.legal h2{font-size:1.25rem;margin:36px 0 10px;color:#fff;border-bottom:1px solid var(--bd);padding-bottom:6px}
+main.legal h3{font-size:1.05rem;margin:24px 0 8px;color:var(--acc)}
+main.legal p{margin:0 0 14px}
+main.legal ul{margin:0 0 16px;padding-left:22px}
+main.legal li{margin:0 0 6px}
+main.legal a{color:var(--acc)}
+</style>
 </head>
 <body>
 
@@ -43,79 +55,94 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">[Legal] GiroBot · Twitch</span>
-    <h1>Condiciones de <span class="accent">GiroBot</span>.</h1>
-    <p>Condiciones específicas del servicio GiroBot para canales de Twitch. Complementan las condiciones generales de arquitectodigital.io.</p>
-  </div>
-</section>
-
-<div class="legal-content">
-<p style="color:#b45309"><strong>BORRADOR — pendiente de validación y revisión de abogado.</strong></p>
-
-  <h2>1. Partes</h2>
-  <p><strong>Prestador:</strong> Daniel González Barquero, NIF 45326983D, Calle Chile 10, 11500 El Puerto de Santa María (Cádiz), <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a>. <strong>Cliente/Usuario:</strong> streamer que contrata GiroBot.</p>
-
-  <h2>2. Objeto</h2>
-  <p>GiroBot es un servicio para canales de Twitch gestionado desde un portal de cliente (acceso por código + email), con los siguientes módulos operativos:</p>
-  <ul>
-    <li><strong>Chatbot IA:</strong> responde en el chat cuando se le invoca (palabra clave o mención).</li>
-    <li><strong>Autoclipper 9:16:</strong> el Cliente sube un vídeo de su directo; GiroBot analiza su <strong>audio y vídeo</strong> (nunca el chat), propone los mejores momentos y genera cortos verticales 1080×1920 con subtítulos quemados, listos para descargar.</li>
-    <li><strong>Best-of 16:9 (planes PRO y UNLIMITED):</strong> montaje largo (10–15 min) con los mejores momentos del mismo vídeo, en 1080p horizontal. <strong>Solo descarga; sin publicación automática.</strong></li>
-  </ul>
-  <p>Planes: STARTER / PRO / UNLIMITED, con límites por plan.</p>
-
-  <h2>3. Alta, planes y pago</h2>
-  <ul>
-    <li>Alta única (pack): <strong>199,00 €</strong>.</li>
-    <li>Planes mensuales: <strong>STARTER 19,99 €</strong> · <strong>PRO 39,99 €</strong> · <strong>UNLIMITED 89,99 €</strong>. Precios con IVA incluido (B2C).</li>
-    <li>Pago vía <strong>Stripe</strong> (Payment Links). Renovación mensual hasta baja.</li>
-  </ul>
-
-  <h2>4. Límites por plan</h2>
-  <p>Cada plan tiene límites (mensajes/mes del chatbot, clips/día y, en PRO/UNLIMITED, best-of al mes). En el plan UNLIMITED, los mensajes del chatbot no tienen un tope fijo mensual, sino que se rigen por una política de <strong>uso razonable</strong>: uso normal para un canal, sin automatizaciones abusivas ni reventa del servicio. El detalle vigente es el publicado en la web de GiroBot y en el portal de cliente.</p>
-
-  <h2>5. Publicación a TikTok (opcional, con cookies del propio cliente)</h2>
-  <ul>
-    <li>La publicación a TikTok es <strong>opcional</strong> y requiere que el Cliente suba <strong>sus propias cookies de sesión</strong> de TikTok. Sin ellas, GiroBot <strong>no publica nada</strong>: solo genera cortos para descargar.</li>
-    <li><strong>Método no oficial:</strong> la publicación se realiza mediante un método automatizado que <strong>NO es la API pública oficial de TikTok</strong>. El Cliente entiende y <strong>asume el riesgo</strong> de que TikTok pueda aplicar medidas sobre cuentas que usen automatización o herramientas no oficiales (limitaciones, suspensión, etc.). La cuenta de TikTok y su contenido son responsabilidad exclusiva del Cliente.</li>
-    <li>GiroBot almacena las cookies con permisos restringidos, fuera del código, y <strong>nunca las expone ni las registra</strong>. El Cliente puede sustituirlas o eliminarlas; si caducan o son inválidas, el envío queda pendiente y el portal avisa para resubirlas.</li>
-    <li>El Cliente es responsable de cumplir los Términos de Servicio de TikTok y de tener los derechos sobre el contenido que publica.</li>
-  </ul>
-
-  <h2>6. Uso aceptable</h2>
-  <ul>
-    <li>El Cliente conecta su propio canal mediante OAuth y es responsable de su uso.</li>
-    <li>Prohibido usar el servicio para acoso, spam, contenido ilícito o que infrinja los Términos de Twitch o de TikTok.</li>
-    <li><strong>Moderación por reglas (opcional):</strong> GiroBot Normal incluye una moderación <strong>configurable por el Cliente</strong> mediante <strong>listas de palabras o patrones</strong> que el propio Cliente define y activa o desactiva. La comparación se realiza <strong>localmente y de forma determinista (sin inteligencia artificial)</strong>, <strong>sin enviar el texto de los mensajes a terceros</strong> y <strong>sin almacenar dicho texto</strong> (solo se registra el veredicto y qué regla se activó, nunca el contenido del mensaje). La <strong>ejecución de acciones sancionadoras</strong> sobre el chat (por ejemplo, expulsión temporal) la gestiona <strong>actualmente el Prestador (Arquitecto Digital)</strong> y <strong>no está disponible en el panel del Cliente</strong>; la moderación del canal sigue siendo responsabilidad del Cliente con las herramientas de Twitch. Esta moderación por reglas locales <strong>no usa inteligencia artificial ni envía texto a terceros</strong> (a diferencia de las respuestas del chatbot, descritas en la sección 11).</li>
-  </ul>
-
-  <h2>7. Dependencia de plataformas de terceros</h2>
-  <p>El servicio depende de Twitch y, si se activa la publicación, de TikTok; cambios o caídas de estas plataformas pueden afectar al servicio sin responsabilidad del Prestador.</p>
-
-  <h2>8. Disponibilidad y soporte</h2>
-  <p>Servicio prestado «según disponibilidad». Soporte por email en <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a> (sin SLA garantizado salvo pacto expreso). El render se procesa en cola (uno a uno); los tiempos pueden variar según la carga y la duración del vídeo.</p>
-
-  <h2>9. Limitación de responsabilidad</h2>
-  <p>Limitada al importe abonado en los 12 meses previos. Exclusión de lucro cesante; no se responde de fallos de Twitch, TikTok o terceros, ni de medidas que dichas plataformas tomen sobre las cuentas del Cliente, salvo dolo o negligencia grave.</p>
-
-  <h2>10. Baja y derecho de desistimiento</h2>
-  <p>Baja del plan mensual con efecto al final del periodo de facturación en curso. <strong>Desistimiento (consumidores, RDL 1/2007):</strong> por tratarse de un servicio digital de ejecución inmediata, el Usuario consumidor, al contratar y solicitar el inicio del servicio, <strong>consiente expresamente su ejecución inmediata y reconoce que pierde el derecho de desistimiento</strong> una vez el servicio ha sido completamente ejecutado (art. 103.m RDL 1/2007). En contrataciones entre empresas (B2B) no aplica el desistimiento.</p>
-
-  <h2>11. Retención y protección de datos</h2>
-  <p>El vídeo de entrada y los renders intermedios se borran tras procesar; solo se conserva el entregable hasta su descarga o publicación. Los mensajes del chat se procesan en vivo y no se almacenan. Tratamiento conforme a la <a href="privacidad.html">Política de privacidad</a> de arquitectodigital.io. El pago lo gestiona Stripe; el Prestador no almacena datos de tarjeta.</p>
-  <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-  <p><strong>Baja:</strong> al causar baja del servicio, los datos de acceso del portal del Cliente (código de acceso, email de compra y sesiones) se <strong>eliminan automáticamente a los 30 días</strong>. Se conservan los datos de facturación durante los plazos legales aplicables.</p>
-  <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-  <p><strong>Respuestas con inteligencia artificial:</strong> cuando GiroBot responde a los mensajes del chat mediante inteligencia artificial (función disponible en los planes de pago, incluido el plan Normal), el <strong>texto del mensaje</strong> se procesa mediante <strong>Anthropic (Claude)</strong>, con servidores en <strong>Estados Unidos</strong>, bajo cláusulas contractuales tipo, con la única finalidad de generar la respuesta. <strong>No se envía el nombre de usuario</strong> del espectador. Los comandos con respuesta fija (estáticos) se resuelven localmente y no envían texto a terceros.</p>
-
-  <h2>12. Legislación y jurisdicción</h2>
-  <p>Legislación española. Fuero de El Puerto de Santa María (Cádiz), o del domicilio del consumidor si la contratación es B2C.</p>
-
-  <div class="legal-meta">Última actualización: 14 de julio de 2026 · v0.3 (borrador)</div>
-
-</div>
+<main class="legal"><h1>Condiciones Específicas del Servicio GiroBot</h1>
+<h2>1. Partes</h2>
+<p>Prestador: Daniel González Barquero, con NIF 45326983D, domicilio en Calle Chile 10, 11500 El Puerto de Santa María (Cádiz) e email de contacto: <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>. </p>
+<p>Cliente: Persona física o jurídica que contrata el servicio GiroBot.</p>
+<h2>2. Objeto</h2>
+<p>Las presentes Condiciones regulan la prestación del servicio GiroBot destinado a creadores de contenido para Twitch y ofrecido por el Prestador y complementan las Condiciones Generales de Contratación publicadas en <a href="https://arquitectodigital.io/" target="_blank" rel="noopener">https://arquitectodigital.io/</a>. </p>
+<p>El servicio podrá comprender, según el plan acordado:</p>
+<ul>
+<li>Chatbot con IA para responder en el chat del canal;</li>
+<li>Generación automática de clips verticales a partir de vídeos facilitados por el Cliente;</li>
+<li>Generación automática de vídeos recopilatorios (“Best-off”);</li>
+<li>Descarga de contenidos generados;</li>
+<li>Publicación opcional en plataformas de terceros cuando dicha funcionalidad esté disponible;</li>
+<li>Otras funcionalidades que puedan incorporarse al servicio.</li>
+</ul>
+<p>El acceso al servicio se habilitará una vez confirmado el pago y completado el proceso de alta. </p>
+<h2>3. Alta, precio y facturación</h2>
+<p>El Servicio podrá incluir una cuota inicial de configuración y una suscripción mensual, según el plan contratado.</p>
+<ul>
+<li>Alta única (pack): 199,00 euros.</li>
+<li>Planes mensuales:</li>
+<li>Starter: 19,99 euros/mes.</li>
+<li>Pro:  39,99 euros/mes.</li>
+<li>Unlimited: 89,99 euros/mes.</li>
+</ul>
+<p>Los importes incluyen el IVA. </p>
+<p>El pago se realizará mediante Stripe utilizando cualquiera de los medios de pago habilitados.</p>
+<h2>4. Límites de uso</h2>
+<p>Cada plan incorpora límites a la utilización relativos, entre otros, al número de mensajes procesados por el chatbot, clips generados o vídeos recopilatorios incluidos.</p>
+<p>En el plan Unlimited, el uso del chatbot estará sujeto a una Política de uso razonable, entendida como la utilización normal del servicio para la gestión de un canal propio, quedando prohibidos los usos abusivos, automatizados, masivos o destinados a la reventa del servicio.</p>
+<p>El Prestador podrá modificar razonablemente dichos límites cuando resulte necesario por motivos técnicos, operativos o económicos, informando previamente al Cliente cuando ello afecte de forma significativa al servicio contratado.</p>
+<h2>5. Publicación en TikTok (funcionalidad opcional)</h2>
+<p>La publicación automática en TikTok constituye una funcionalidad opcional.</p>
+<p>Para utilizarla, el Cliente deberá facilitar las cookies de sesión correspondientes a su propia cuenta de TikTok. Sin ellas, GiroBot no publica nada, solo genera cortos para descarga.</p>
+<p>El Cliente autoriza expresamente al Prestador a utilizar dichas cookies exclusivamente para la finalidad de publicar los contenidos generados en la cuenta indicada por el propio Cliente.</p>
+<p>La publicación se realiza mediante un mecanismo automatizado no proporcionado por TikTok, por lo que el Cliente reconoce y acepta que dicha plataforma podrá modificar su funcionamiento, limitar determinadas funcionalidades o adoptar medidas sobre la cuenta utilizada.</p>
+<p>El Prestador no será responsable de suspensiones, bloqueos, limitaciones o cualquier otra actuación adoptada por TikTok respecto de la cuenta del Cliente.</p>
+<p>Las cookies serán almacenadas de forma segura, con acceso restringido y únicamente durante el tiempo necesario para prestar el servicio.</p>
+<p>El Cliente podrá sustituirlas o eliminarlas en cualquier momento.</p>
+<p>Será responsabilidad del Cliente cumplir con los Términos y Condiciones de TikTok, así como disponer de todos los derechos necesarios sobre los contenidos publicados. </p>
+<h2>6. Uso aceptable</h2>
+<p>El Cliente conectará exclusivamente sus propias cuentas mediante mecanismos de autenticación previstos por la plataforma correspondiente.</p>
+<p>Queda prohibida la utilización del servicio para:</p>
+<ul>
+<li>Actividades ilícitas;</li>
+<li>Acoso o comportamiento abusivo;</li>
+<li>Envío masivo de mensajes no solicitados;</li>
+<li>Vulneración de derechos de terceros;</li>
+<li>Incumplimiento de las condiciones de uso de TikTok, Twitch o cualquier plataforma integrada.</li>
+</ul>
+<p>El Cliente garantiza que dispone de todos los derechos necesarios sobre vídeos, imágenes, audios y demás contenidos que incorpore al servicio, respondiendo frente a cualquier reclamación derivada de su utilización.</p>
+<p>Cuando el Cliente active la moderación por reglas, ésta se realizará mediante reglas configuradas por el propio Cliente y ejecutadas localmente, sin utilizar IA ni transmitir el contenido de los mensajes a terceros.</p>
+<h2>7. Naturaleza de la IA</h2>
+<p>Determinadas funcionalidades de GiroBot utilizan sistemas de IA para generar respuestas automáticas, analizar contenidos audiovisuales o asistir en la creación de materiales.</p>
+<p>Aunque el Prestador implementa mecanismos destinados a mejorar la calidad de los resultados, no garantiza la ausencia absoluta de errores ni un determinado rendimiento de servicio.</p>
+<p>Para la generación de respuestas mediante IA, únicamente se transmitirá el contenido textual estrictamente necesario para generar la respuesta, excluyéndose el nombre de usuario del espectador siempre que técnicamente resulte posible.</p>
+<h2>8. Dependencia de plataformas de terceros</h2>
+<p>El funcionamiento del servicio depende parcialmente de plataformas y proveedores tecnológicos externos, entre ellos, Twitch, TikTok y proveedores de IA.</p>
+<p>El Prestador no garantiza la disponibilidad continuada de dichas plataformas, APIs, servicios o mecanismos de integración, ni responderá de las incidencias derivadas de modificaciones introducidas por terceros. </p>
+<p>GiroBot no constituye una herramienta de apoyo para la gestión de canales y no tiene condición de plataforma en línea ni sustituye las funciones de moderación, supervisión o cumplimiento normativo que correspondan a Twitch, TikTok u otras plataformas utilizadas por el Cliente.</p>
+<p>GiroBot es un servicio independiente y no está afiliado, patrocinado ni aprobado por Twitch, TikTok o cualquiera de sus sociedades vinculadas. Todas las marcas comerciales pertenecen a sus respectivos titulares.</p>
+<h2>9. Disponibilidad y soporte</h2>
+<p>El servicio se prestará según disponibilidad técnica.</p>
+<p>Las tareas de procesamiento de vídeo podrán ejecutarse mediante colas de trabajo, por lo que los tiempos de generación tendrán carácter estimativo y podrán variar en función de la carga del sistema, la duración del contenido y otros factores técnicos. </p>
+<p>El soporte técnico se prestará mediante correo electrónico en <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>. </p>
+<p>Salvo pacto expreso, no existe compromiso de nivel de servicio (SLA).</p>
+<h2>10. Propiedad intelectual</h2>
+<p>El Cliente conservará la titularidad de los vídeos, imágenes y demás contenidos originales que facilite para la prestación del servicio.</p>
+<p>Los clips, montajes y demás contenidos generados podrán ser utilizados libremente por el Cliente en sus canales y redes sociales.</p>
+<p>El Prestador conservará la titularidad del software, código fuente, algoritmos, prompts y demás componentes empleados para la prestación del servicio.</p>
+<p>Salvo pacto expreso por escrito, la contratación del servicio no supone cesión del código fuente ni de los componentes reutilizables desarrollados por el Prestador.</p>
+<h2>11. Limitación de responsabilidad</h2>
+<p>La responsabilidad del Prestador frente al Cliente se limita, en cualquier caso, al importe efectivamente pagado por el Cliente al Prestador en los 12 meses anteriores al hecho generador de la responsabilidad. No se responde de lucro cesante, daño indirecto, o fallos atribuibles a servicios de terceros (APIs IA, hosting, etc.) salvo dolo o negligencia grave.</p>
+<p>Tampoco responderá de las incidencias imputables a Twitch, TikTok u otras plataformas de terceros, modificaciones en las condiciones de uso o funcionamiento de dichas plataformas, bloqueos, suspensiones o limitaciones aplicadas por terceros sobre las cuentas del Cliente, resultados esperados en términos de visualizaciones, alcance, monetización o crecimiento del canal y/o incidencias derivadas de información o contenidos facilitados por el propio Cliente.</p>
+<p>Lo anterior no será de aplicación en caso de dolo o negligencia grave del Prestador.</p>
+<h2>12. Baja y derecho al desistimiento</h2>
+<p>El Cliente podrá solicitar la cancelación de la suscripción en cualquier momento, produciendo efectos al finalizar el periodo de facturación ya abonado.</p>
+<p>Cuando el Cliente tenga la condición de consumidor y de conformidad con la normativa vigente de aplicación a consumidores y usuarios, la contratación del servicio podrá implicar el inicio inmediato de su ejecución. En tal caso, el consumidor consiente expresamente el inicio de la prestación y reconoce que perderá su derecho de desistimiento una vez el servicio haya sido completamente ejecutado, en los términos previstos en la normativa aplicable. </p>
+<h2>13. Protección de datos personales</h2>
+<p>Los datos personales tratados durante la prestación del servicio serán tratados por el Prestador en calidad de Responsable del Tratamiento respecto de aquellos tratamientos necesarios para la ejecución del contrato, de conformidad con la Política de Privacidad del presente Sitio Web.</p>
+<p>En caso de que alguna funcionalidad futura implique el tratamiento de datos personales por cuenta del Cliente, en cumplimiento de lo establecido en la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales, de 5 de diciembre de 2018 (LOPDGDD) y Reglamento UE 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos y por el que se deroga la Directiva 95/46/CE (RGPD), se celebrará contrato específico en materia de Protección de Datos donde se formalizará la relación entre el Cliente, como Responsable del Tratamiento, y Daniel González Barquero como Encargado del Tratamiento.</p>
+<p>Los vídeos originales y los archivos temporales necesarios para el procesamiento serán eliminados una vez finalizado el proceso de generación, conservándose únicamente los entregables durante el tiempo necesario para su descarga o publicación.</p>
+<p>Los mensajes del chat utilizados para generar respuestas mediante IA se procesarán en tiempo real y no serán almacenados por el Prestador.</p>
+<p>Cuando el Cliente cause baja en el servicio, los datos de acceso al portal (correo electrónico, código de acceso y sesiones) serán eliminados en un plazo máximo de 30 días, sin perjuicio de la conservación de la información de facturación durante los plazos legalmente exigibles. </p>
+<h2>14. Legislación aplicable y jurisdicción</h2>
+<p>Las presentes Condiciones se regirán por la legislación española.</p>
+<p>Cualquier controversia derivada de su interpretación o ejecución se someterá a los Juzgados y Tribunales de El Puerto de Santa María (Cádiz), salvo que el Cliente tenga la condición de consumidor, en cuyo caso, serán competentes los órganos jurisdiccionales que correspondan conforme a la normativa vigente. </p>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -152,6 +179,8 @@
           <li><a href="privacidad.html">Privacidad</a></li>
           <li><a href="cookies.html">Cookies</a></li>
           <li><a href="condiciones.html" style="color:var(--orange);">Condiciones</a></li>
+          <li><a href="sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="cenit-condiciones.html">Condiciones · Cénit</a></li>
         </ul>
       </div>
     </div>

@@ -11,6 +11,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<style>
+/* legal-datcon: estilos para main.legal (vars scoped; no afectan al chrome del sitio) */
+main.legal{--mut:#9aa0a6;--acc:#ff6a2b;--bd:#23262b;max-width:820px;margin:0 auto;padding:48px 24px 80px}
+main.legal h1{font-size:2rem;line-height:1.2;margin:0 0 8px}
+main.legal .updated{color:var(--mut);font-size:.9rem;margin:0 0 32px}
+main.legal h2{font-size:1.25rem;margin:36px 0 10px;color:#fff;border-bottom:1px solid var(--bd);padding-bottom:6px}
+main.legal h3{font-size:1.05rem;margin:24px 0 8px;color:var(--acc)}
+main.legal p{margin:0 0 14px}
+main.legal ul{margin:0 0 16px;padding-left:22px}
+main.legal li{margin:0 0 6px}
+main.legal a{color:var(--acc)}
+</style>
 </head>
 <body>
 
@@ -43,86 +55,156 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">[Legal] Condiciones</span>
-    <h1>Condiciones generales de <span class="accent">contratación</span>.</h1>
-    <p>Marco general aplicable a los servicios de Daniel · Arquitecto Digital. Cada proyecto se concreta además con una propuesta firmada que prevalece sobre estas condiciones en lo específico.</p>
-  </div>
-</section>
-
-<div class="legal-content">
-
-  <h2>1. Partes</h2>
-  <ul>
-    <li><strong>Prestador:</strong> Daniel González Barquero, NIF 45326983D, domicilio profesional Calle Chile 10, 11500 El Puerto de Santa María (Cádiz), email <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a> (en adelante, "el Prestador").</li>
-    <li><strong>Cliente:</strong> persona física o jurídica que contrata los servicios descritos en una propuesta aceptada por escrito.</li>
-  </ul>
-
-  <h2>2. Objeto</h2>
-  <p>Las presentes condiciones regulan la prestación de servicios profesionales por parte del Prestador, entre los que se incluyen, sin carácter exhaustivo: desarrollo de chatbots personalizados, autoblog SEO, conversión de audio a libro, sistemas a medida, auditorías técnicas y webs custom. Cada encargo se documenta en una <strong>propuesta específica</strong> que detalla alcance, entregables, plazo, precio y forma de pago.</p>
-
-  <h2>3. Proceso de contratación</h2>
-  <ol>
-    <li><strong>Contacto inicial</strong> a través del formulario o por email.</li>
-    <li><strong>Llamada de descubrimiento</strong> (15-30 min) para entender necesidad y encaje.</li>
-    <li><strong>Propuesta</strong> escrita con alcance, entregables, plazo, precio y condiciones específicas.</li>
-    <li><strong>Aceptación</strong>: la propuesta se da por aceptada cuando el Cliente la confirma por email o firma el documento, y abona la primera cuota acordada.</li>
-    <li><strong>Inicio del proyecto</strong> y ejecución según el plan acordado.</li>
-  </ol>
-
-  <h2>4. Precios y forma de pago</h2>
-  <p>Los precios se indican en euros y se entienden, salvo indicación expresa, <strong>sin IVA</strong>. El IVA aplicable se añade según la normativa vigente.</p>
-  <p>Salvo pacto distinto en la propuesta:</p>
-  <ul>
-    <li>Proyectos puntuales: <strong>50% al inicio</strong> y <strong>50% a la entrega</strong>.</li>
-    <li>Servicios recurrentes (autoblog): facturación <strong>mensual por adelantado</strong>.</li>
-    <li>Forma de pago: transferencia bancaria, Stripe o pasarela equivalente.</li>
-    <li>Demora: el impago de una factura faculta al Prestador a suspender el servicio previo aviso por escrito (email).</li>
-  </ul>
-
-  <h2>5. Plazos de entrega</h2>
-  <p>Los plazos se acuerdan en cada propuesta. Son orientativos, salvo que la propuesta los marque expresamente como vinculantes. Los retrasos imputables al Cliente (información o accesos pendientes) suspenden el cómputo del plazo.</p>
-
-  <h2>6. Cambios de alcance</h2>
-  <p>Cualquier modificación significativa del alcance acordado se documenta como <strong>adenda</strong> con su correspondiente impacto en precio y plazo, sujeta a aprobación por escrito del Cliente.</p>
-
-  <h2>7. Propiedad intelectual y entregables</h2>
-  <p>Una vez abonado el precio íntegro del proyecto:</p>
-  <ul>
-    <li>El Cliente recibe <strong>todos los entregables</strong> (código, configuraciones, contenidos generados) y los puede usar libremente para su negocio.</li>
-    <li>El Prestador conserva el derecho a reutilizar componentes genéricos, librerías propias y conocimientos adquiridos en otros proyectos.</li>
-    <li>El Prestador puede mencionar el proyecto como referencia profesional (nombre del Cliente, descripción de alto nivel y resultados públicos) salvo solicitud expresa del Cliente en contrario.</li>
-  </ul>
-
-  <h2>8. Confidencialidad</h2>
-  <p>Toda información no pública intercambiada durante el proyecto se trata como confidencial por ambas partes, sin necesidad de NDA adicional, y se mantiene como tal durante <strong>5 años</strong> tras la finalización del proyecto.</p>
-
-  <h2>9. Garantías y soporte</h2>
-  <p>Tras la entrega, el Prestador ofrece <strong>30 días de soporte gratuito</strong> para corregir defectos sobre los entregables. Quedan excluidas modificaciones por cambios externos (APIs de terceros, nuevos requisitos del Cliente, etc.), que se atienden bajo presupuesto adicional o contrato de mantenimiento.</p>
-
-  <h2>10. Limitación de responsabilidad</h2>
-  <p>La responsabilidad del Prestador frente al Cliente se limita, en cualquier caso, al importe efectivamente pagado por el Cliente al Prestador en los <strong>12 meses</strong> anteriores al hecho generador de la responsabilidad. No se responde de lucro cesante, daño indirecto, o fallos atribuibles a servicios de terceros (APIs IA, hosting, etc.) salvo dolo o negligencia grave.</p>
-
-  <h2>11. Causas de fuerza mayor</h2>
-  <p>Ninguna parte responde de incumplimientos derivados de causas de fuerza mayor (caídas masivas de proveedores, ataques DDoS, eventos extraordinarios). En esos casos se acuerda un plazo razonable de recuperación.</p>
-
-  <h2>12. Cancelación</h2>
-  <p>El Cliente puede cancelar un proyecto puntual en cualquier momento; en tal caso, abona el trabajo realizado hasta la fecha de cancelación, así como los costes irrecuperables ya comprometidos. En servicios recurrentes mensuales, la baja se solicita con un mínimo de <strong>15 días naturales</strong> de antelación al inicio del siguiente periodo de facturación.</p>
-
-  <h2>13. Protección de datos</h2>
-  <p>El tratamiento de los datos personales del Cliente se rige por la <a href="privacidad.html">política de privacidad</a>. Cuando el Prestador acceda a datos personales titularidad del Cliente para prestar el servicio (p. ej. base de suscriptores en autoblog), se firma el correspondiente <strong>contrato de encargado del tratamiento</strong> conforme al art. 28 RGPD.</p>
-
-  <h2>14. Comunicaciones</h2>
-  <p>Las comunicaciones formales entre las partes se realizan por email a las direcciones designadas en la propuesta. El correo electrónico tiene plena validez a efectos de notificación.</p>
-
-  <h2>15. Legislación y jurisdicción</h2>
-  <p>Estas condiciones se rigen por la legislación española. Cualquier controversia derivada de su interpretación o ejecución se somete a los Juzgados y Tribunales de El Puerto de Santa María (Cádiz), salvo que el Cliente sea consumidor, en cuyo caso aplica la jurisdicción que le corresponda por ley.</p>
-
-  <div class="legal-meta">
-    Última actualización: 21 de mayo de 2026 · v1.0
-  </div>
-</div>
+<main class="legal">
+<h1>Condiciones Generales de Contratación</h1>
+<p>El Sitio Web ofrece el servicio de contratación on-line, lo que supone un servicio 24h., sencillo, directo y con todas las ventajas de disponer de un amplio catálogo de servicios actualizados y disponibles desde cualquier lugar a través de una conexión a Internet.</p>
+<h2>1. Generalidades </h2>
+<p>Las presentes Condiciones Generales regulan la contratación de los servicios profesionales ofrecidos por el Titular a través del presente Sitio Web. La contratación podrá realizarse tanto por consumidores y usuarios como por empresarios o profesionales, resultando de aplicación las disposiciones específicas previstas para cada caso. </p>
+<p>Todos los precios son en Euros y de conformidad con la normativa vigente, toda contratación efectuada a través del Sitio Web estará sujeta al Impuesto sobre el Valor Añadido (IVA), y este importe se encuentra incluido en el precio, salvo que se indique expresamente lo contrario. </p>
+<p>El Titular se reserva el derecho a rechazar la contratación con cualquier Usuario con el que tenga un litigio o hayan existido problemas en el pago de contrataciones anteriores.</p>
+<h2>2. Obligaciones de los Usuarios</h2>
+<p>Todo Usuario que realiza una contratación a través de este Sitio Web se declara mayor de edad y en su caso con plena capacidad para utilizar medios de pago y que los mismos tienen fondos suficientes para cubrir todos los costes que resultan de la contratación de servicios. El Usuario también declara aceptar plenamente y sin reservas la totalidad de condiciones del presente Aviso Legal.</p>
+<p>El Usuario puede establecer una o varias solicitudes de contratación de servicios ofrecidos a través del Sitio Web. </p>
+<p>El Usuario garantiza que la información facilitada en el proceso de contratación es veraz, completa y está actualizada.</p>
+<p>Cuando el Usuario actúe en representación de una persona jurídica, declara disponer de facultades suficientes para vincular a dicha entidad.</p>
+<p>El Usuario colaborará activamente durante la ejecución del proyecto facilitando en plazo la información, accesos, credenciales y materiales necesarios para la correcta prestación del servicio.</p>
+<h2>3. Plazos de puesta a disposición</h2>
+<p>Los plazos de puesta a disposición se acuerdan en cada propuesta. Son orientativos, salvo que la propuesta marque expresamente como vinculante. Los retrasos imputables al Cliente (información o accesos pendientes) suspenden el cómputo del plazo.</p>
+<h2>4. Modalidades de pago y Seguridad </h2>
+<p>En cumplimiento del Reglamento Delegado (UE) 2018/389 de la Comisión, de 27 de noviembre de 2017, por el que se complementa la Directiva (UE) 2015/2366 del Parlamento Europeo y del Consejo, de 25 de noviembre de 2015, sobre servicios de pago en el mercado interior, el Usuario que realice una transacción de pago online, deberá hacerlo mediante la autenticación reforzada. Dependiendo del medio de pago elegido y del valor económico, con las excepciones contempladas en la Directiva, el Usuario deberá proporcionar un segundo factor de identificación antes de realizar un pedido, como por ejemplo, un código PIN que el Usuario recibirá en su teléfono móvil y que deberá introducir para validar su compra.</p>
+<p>De acuerdo con la directiva PSD2, la autenticación reforzada existe cuando se utilizan al menos dos de los siguientes elementos para la autenticación:</p>
+<ul>
+<li>Conocimiento (algo que sólo el Usuario conoce, por ejemplo, contraseña, código PIN, datos de acceso, etc.)</li>
+<li>Posesión (algo que sólo el Usuario tiene, por ejemplo, un móvil donde llega un SMS para verificar la operación, dirección de correo electrónico, etc.)</li>
+<li>Inherencia (algo que el Usuario es, por ejemplo, la posibilidad de verificación biométrica, ya sea por huella dactilar, reconocimiento facial, etc.)</li>
+</ul>
+<p>Estos elementos son independientes entre sí. Es decir, que la vulneración de uno no comprometa la fiabilidad de los demás, y que siempre se proteja la confidencialidad de los datos de identificación.</p>
+<p>Para la comodidad del Usuario, facilitamos diferentes formas para realizar el pago:</p>
+<p>1) Transferencia Bancaria. </p>
+<p>- Una vez realizado el pedido se proporcionan los datos bancarios para realizar el ingreso o transferencia por el importe de la contratación efectuada, y deberá indicarse los datos personales de nombre apellidos y documento de identidad. Sólo se aceptarán ingresos en Euros. El pedido será procesado una vez se haya recibido el importe en cuenta.</p>
+<p>- Con esta forma de pago no se paga ninguna comisión.</p>
+<p>2) Tarjeta de crédito.</p>
+<p>- Esta forma de pago es inmediata, totalmente segura y verificada por los servidores seguros de Stripe en la pasarela de pago. En ningún caso se revelarán los datos de la tarjeta de crédito.</p>
+<p>- Las tarjetas aceptadas son: Visa, American Express, Master Card, JCB, Discover, Diners Club International, Union Pay. Igualmente, está habilitada la opción Link by Stripe, el cual constituye un servicio de pago rápido ofrecido por Stripe que permite guardar de forma segura los datos de pago y completar futuras contrataciones de manera más ágil.</p>
+<p>- Únicamente serán aceptadas tarjetas de crédito securizadas para evitar cualquier posible riesgo o fraude. Las tarjetas securizadas llevan asociadas unas claves de seguridad y, al finalizar el pago, se transfiere a la pasarela de pago de la entidad bancaria, dónde deberá introducirse dichas claves. Si no se dispone de una tarjeta securizada para pagos online, la entidad bancaria debe facilitar la información y las claves necesarias. </p>
+<p>3) Apple Pay</p>
+<p>- Con Apple Pay se pueden realizar comprar desde dispositivos iPhone, Ipad, Apple Watch o Mac. Al realizar la compra, Apple Pay utiliza un número específico de dispositivo y un código de transacción único. De este modo, el número de la tarjeta bancaria nunca queda almacenado en tu dispositivo ni en los servidores del Titular y Apple jamás lo comparte con los comercios.</p>
+<p>- Apple Pay utiliza la autenticación de doble factor mediante Face ID o Touch ID. Esto significa que no es necesario confirmar las compras con códigos, preguntas secretas ni contraseñas.</p>
+<p>4) Klarna</p>
+<p>- Proporciona pagos directos, opciones de pago después de la entrega y pagos a plazos. </p>
+<p>- Permite a los Usuarios a pagar en el momento y de la forma que sea más cómoda.</p>
+<p>Sobre cualquier consulta de las formas de pago agradecemos al usuario que se ponga en contacto con el servicio de atención al Usuario.</p>
+<p>El impago de cualquier factura facultará al Titular para suspender temporalmente la prestación del servicio hasta la completa regularización de las cantidades pendientes.</p>
+<p>Para contrataciones realizadas por personas jurídicas, el calendario de pagos podrá establecerse mediante uno o varios hitos de ejecución.</p>
+<p>El pago se efectuará conforme al calendario previsto en la propuesta, habitualmente mediante un pago inicial y otro a la entrega del proyecto.</p>
+<h2>5. Garantías (Clientes persona física - consumidores)</h2>
+<h3>5.1 Garantía legal de conformidad</h3>
+<p>Todos los contenidos o servicios digitales comercializados a través del presente Sitio Web son nuevos y cuentan con la garantía legal de conformidad prevista en la normativa vigente en materia de defensa de consumidores y usuarios.</p>
+<p>En el caso contenidos o servicios digitales, el plazo de responsabilidad será de 2 años desde el suministro, sin perjuicio de los dispuesto en el art. 115 ter, apartado 2, letras a) y b) del Real Decreto Legislativo 1/2007.</p>
+<p>No obstante, la garantía legal de conformidad se aplicará durante los plazos previstos en la normativa aplicable, atendiendo a la naturaleza del contenido o servicio digital contratado y en su caso, al periodo durante el cual deba suministrarse ese servicio. </p>
+<p>En el año siguiente al suministro del contenido o servicio digital, se presumirá que la falta de conformidad ya existía en el momento del suministro, salvo prueba en contrario o cuando dicha presunción resulte incompatible con la naturaleza del producto o de la falta de conformidad.</p>
+<h3>5.2 Concepto de falta de conformidad</h3>
+<p>Se entenderá que un contenido o servicio digital es conforme con el contrato cuando:</p>
+<p>a) Se ajusten a la descripción realizada por el Titular.</p>
+<p>b) Sean aptos para los usos a que ordinariamente se destinen los contenidos o servicios digitales del mismo tipo.</p>
+<p>c) Sean aptos para cualquier uso especial requerido por el Usuario cuando lo haya puesto en conocimiento del Titular en el momento de la celebración del contrato, siempre que éste haya admitido que el contenido o servicio digital es apto para este uso.</p>
+<p>d) Presenten la calidad y prestaciones habituales de un contenido o servicio digital del mismo tipo que el Usuario pueda fundadamente esperar, habida cuenta de la naturaleza de éste y, en su caso, de las descripciones sobre las características concretas hechas por el Titular.</p>
+<p>e) El Titular describe los detalles, las características técnicas y las fotografías del contenido o servicio digital facilitados por el fabricante de los mismos, de manera que no queda obligado por estas declaraciones públicas.</p>
+<p>El Titular garantizará, cuando proceda, el suministro de las actualizaciones necesarias para mantener el contenido o servicio digital conforme durante el periodo legalmente exigible.</p>
+<h3>5.3 Derechos del Usuario</h3>
+<p>En caso de falta de conformidad, el Usuario tendrá derecho a la puesta en conformidad, rebaja del precio o resolución del contrato, en los términos legalmente establecidos. Atendiendo a la naturaleza de determinados contenidos o servicios digitales, la medida correctora habitual podrá consistir en la sustitución o, en su caso, el reembolso del importe abonado.</p>
+<p>En aquellos casos en los que se proceda a la reparación o sustitución del contenido o servicio digital, o cualquier otra medida correctora de la falta de conformidad, quedarán suspendidos los plazos de la garantía legal, desde que el Usuario ponga a disposición del Titular el contenido o servicio digital y hasta que el mismo se entregue de nuevo al Usuario, ya conforme.</p>
+<p>Independientemente de la interrupción del plazo de prescripción, el Titular responde por todo el año que siguiera a la puesta a disposición del contenido o servicio digital, puesto ya en conformidad, de las nuevas faltas de conformidad que estén relacionadas con las que motivaron la reparación o sustitución en primer lugar, ya que se presumirá que se trata de la misma falta.</p>
+<p>Las medidas correctoras serán gratuitas para el Usuario e incluirán los gastos necesarios para restablecer la conformidad.</p>
+<p>No obstante, en caso de que el Usuario comunique una supuesta falta de conformidad y tras su revisión el Titular constatara que éste funciona correctamente o que la incidencia se debe a un uso inadecuado, instalación incorrecta, manipulación indebida o utilización contraria a las instrucciones de uso facilitadas, no se considerará que existe falta de conformidad en los términos previstos por la normativa vigente.</p>
+<p>En tal supuesto, el Titular podrá repercutir al Usuario los costes directos derivados del transporte y, en su caso, los gastos razonables de comprobación o diagnóstico, que serán debidamente comunicados al Usuario. </p>
+<p>Lo anterior, se entiende sin perjuicio de los derechos que le asisten al Usuario cuando efectivamente exista una falta de conformidad. </p>
+<h3>5.4 Alcance de la garantía legal</h3>
+<p>La garantía legal cubre exclusivamente las faltas de conformidad existentes en el momento del suministro.</p>
+<p>No se considerarán faltas de conformidad, entre otros supuestos:</p>
+<p>Los daños derivados de un uso inadecuado, negligente o contrario a las instrucciones facilitadas.</p>
+<p>Los daños derivados de manipulaciones indebidas o utilización distinta de las instrucciones facilitadas o de la finalidad para la que fue contratado el servicio.</p>
+<p>La instalación incorrecta realizada por el Usuario cuando las instrucciones hayan sido claras y completas.</p>
+<p>Lo anterior no supone limitación de los derechos reconocidos legalmente al consumidor, sino una delimitación del alcance de la falta de conformidad conforme a la normativa vigente.</p>
+<h3>5.5 Ejercicio de la garantía</h3>
+<p>Una vez recibido el contenido o servicio digital el Usuario deberá revisarlo inmediatamente, para reclamar cualquier tipo de incidencia. </p>
+<p>El Usuario debe conservar toda la documentación del contenido o servicio digital, además de la factura que recibe.</p>
+<p>En caso de incidencia dentro del periodo de garantía, en primer lugar, deberá informar exclusivamente por email a <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a> del problema indicando el número de pedido. También puede acompañar fotografías o cualquier dato que ayude a la compresión del problema.</p>
+<p>Toda incidencia se debe evaluar para determinar si se trata de un defecto de desarrollo o por uso indebido y posteriormente se informará de los pasos a seguir para la resolución del problema.</p>
+<h3>5.7 Prescripción de acciones</h3>
+<p>Las acciones derivadas de la falta de conformidad prescribirán a los 5 años desde el momento en que la misma se hubiera manifestado, conforme a lo previsto en la normativa vigente. </p>
+<h2>6. Garantías (Clientes empresa)</h2>
+<p>Cuando el Cliente actúe como empresario o profesional, el Titular garantiza que los servicios serán ejecutados con la diligencia profesional exigible conforme a la naturaleza del proyecto.</p>
+<p>Durante los 30 días siguientes a la puesta a disposición, el Titular corregirá sin coste los errores imputables al desarrollo realizado.</p>
+<p>La garantía no comprenderá:</p>
+<p>Nuevas funcionalidades;</p>
+<p>Ampliaciones del alcance inicialmente contratado;</p>
+<p>Modificaciones solicitadas con posterioridad a la entrega;</p>
+<p>Incidencias derivadas de actuaciones del Cliente;</p>
+<p>Modificaciones realizadas por terceros;</p>
+<p>Cambios en APIs, plataformas o proveedores externos;</p>
+<p>Incidencias derivadas del alojamiento web o del proveedor del dominio.</p>
+<h2>7. Propiedad intelectual y entregables</h2>
+<p>Una vez abonado el precio íntegro del proyecto:</p>
+<p>El Cliente recibe todos los entregables (código, configuraciones, contenidos generados) y los puede usar libremente para su negocio.</p>
+<p>El Prestador conserva el derecho a reutilizar componentes genéricos, librerías propias y conocimientos adquiridos en otros proyectos.</p>
+<p>El Prestador puede mencionar el proyecto como referencia profesional (nombre del Cliente, descripción de alto nivel y resultados públicos) salvo solicitud expresa del Cliente en contrario.</p>
+<p>Salvo pacto en contrario, no se ceden herramientas internas, frameworks, plantillas, prompts, automatizaciones reutilizables, metodologías o componentes desarrollados por el Prestador con carácter general, aun cuando hayan sido utilizados durante la ejecución del proyecto. </p>
+<h2>8. Derecho al desistimiento </h2>
+<p>En cumplimiento de la Ley 3/2014, de 27 de marzo, por la que se modifica el texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios y otras leyes complementarias, aprobado por el Real Decreto Legislativo 1/2007, de 16 de noviembre se informa sobre el derecho al desistimiento del Usuario.</p>
+<p>8.1 Cuando el Usuario sea un consumidor y el contrato se celebre sin la presencia física simultánea del Usuario y del Titular (venta a distancia), el Usuario gozará del derecho de desistimiento descrito en esta sección, con las excepciones previstas en el artículo 103.</p>
+<p>8.2 Información al consumidor y usuario sobre el derecho de desistimiento.</p>
+<p>a) El Usuario tiene derecho a desistir del presente contrato en un plazo 14 días naturales sin necesidad de justificación.</p>
+<p>b) El plazo de desistimiento expirará a los 14 días naturales desde el día de la celebración del contrato.</p>
+<p>c) Para ejercer el derecho desistimiento, el Usuario deberá notificarnos su decisión de desistir del contrato a través de una declaración inequívoca (por ejemplo: una carta enviada por correo postal o correo electrónico) Podrá utilizar el modelo de formulario de desistimiento que figura a continuación, aunque su uso no es obligatorio.</p>
+<p>d) Para cumplir el plazo de desistimiento, basta con que la comunicación relativa al ejercicio por su parte de este derecho sea enviada antes de que venza el plazo correspondiente.</p>
+<p>e) En el caso de desistimiento por parte del Usuario, el Titular procederá a la devolución de todos los pagos recibidos sin ninguna demora indebida y, en todo caso, a más tardar 14 días naturales a partir de la fecha en la que se nos informe la decisión de desistir del presente contrato. </p>
+<p>- - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+<p>MODELO DE FORMULARIO:</p>
+<p>- A la atención del Titular: Daniel González Barquero; C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz; <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a> </p>
+<p>- Por la presente le comunico que desisto del contrato de prestación del siguiente servicio: ____ </p>
+<p>- Pedido el / recibido el:</p>
+<p>- Nombre del Usuario:</p>
+<p>- Domicilio del Usuario:</p>
+<p>- Firma (solo si el presente formulario se presenta en papel):</p>
+<p>- Fecha:</p>
+<p>- - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+<h3>8.3 El Usuario podrá dirigir el anterior formulario a las siguientes direcciones:</h3>
+<p>Correo postal: C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz </p>
+<p>Correo electrónico: <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a> </p>
+<p>8.4 Según la Ley 3/2014, de 27 de marzo, por la que se modifica el texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios y otras leyes complementarias, aprobado por el Real Decreto Legislativo 1/2007, de 16 de noviembre, en su art. 103, el derecho de desistimiento no será aplicable a los contratos que se refieran a (entre otros): </p>
+<p>a) La prestación de servicios, una vez que el servicio haya sido completamente ejecutado, cuando la ejecución haya comenzado, con previo consentimiento expreso del consumidor y usuario y con el reconocimiento por su parte de que es consciente de que, una vez que el contrato haya sido completamente ejecutado por el empresario, habrá perdido su derecho de desistimiento.</p>
+<p>c) El suministro de bienes confeccionados conforme a las especificaciones del consumidor y usuario o claramente personalizados.</p>
+<p>En relación a este apartado, con el pedido del Usuario, éste da su previo consentimiento expreso, con el conocimiento y aceptación por su parte de las excepciones aquí recogidas, y en consecuencia en esos casos, pierde su derecho de desistimiento.</p>
+<h2>9. Cancelaciones</h2>
+<p>El Cliente podrá cancelar un proyecto en cualquier momento.</p>
+<p>En dicho supuesto, deberá abonar los trabajos efectivamente realizados hasta la fecha de cancelación, así como aquellos gastos ya comprometidos que no puedan recuperarse.</p>
+<p>En los servicios de carácter recurrente contratados por empresarios o profesionales, la baja deberá comunicarse con al menos 15 días naturales de antelación al inicio del siguiente periodo de facturación. </p>
+<p>Cuando el Cliente tenga la condición de consumidor y el servicio contratado tenga carácter recurrente, serán de aplicación las disposiciones de la normativa de protección de consumidores y usuarios que resulten aplicables. </p>
+<h2>10. Disponibilidad </h2>
+<p>El Titular se compromete a no poner a disposición de los Usuarios un servicio que no esté disponible salvo error informático o cualquier otra situación imponderable. En el caso que se pudiera dar esa desafortunada incidencia el Titular se compromete a informar al Usuario y llegar a un acuerdo satisfactorio con éste.</p>
+<h2>11. Cambios de alcance</h2>
+<p>Cualquier modificación sustancial del alcance inicialmente contratado deberá aprobarse expresamente por ambas partes y podrá implicar la modificación del precio, del plazo de ejecución o de ambos.</p>
+<h2>12. Confidencialidad</h2>
+<p>Toda información no pública intercambiada durante el proyecto se tratará como confidencial por ambas partes, sin necesidad de NDA adicional, y se mantendrá como tal durante 5 años tras la finalización del proyecto.</p>
+<h2>13. Limitación de responsabilidad</h2>
+<p>La responsabilidad del Prestador frente al Cliente se limita, en cualquier caso, al importe efectivamente pagado por el Cliente al Prestador en los 12 meses anteriores al hecho generador de la responsabilidad. No se responde de lucro cesante, daño indirecto, o fallos atribuibles a servicios de terceros (APIs IA, hosting, etc.) salvo dolo o negligencia grave.</p>
+<p>La presente limitación se entiende sin perjuicio de los derechos irrenunciables que correspondan a los consumidores conforme a la legislación vigente.</p>
+<h2>14. Conformidad del contenido o servicio digital</h2>
+<p>Al poner a disposición del Usuario el contenido o servicio digital queremos ofrecerle un servicio de calidad, utilizando la máxima diligencia en la prestación del mismo, así como en los medios tecnológicos utilizados. </p>
+<p>Sin embargo, el Titular no será responsable por el incumplimiento o cumplimiento defectuoso de las obligaciones derivadas de la prestación del servicio, cuando dicho incumplimiento sea consecuencia de causa de fuerza mayor o caso fortuito, incluyendo, sin carácter limitativo, todos aquellos acontecimientos acaecidos fuera del control del Titular, tales como: fallo de terceros, operadores o compañías de servicios, actos de Gobierno, falta de acceso a redes de terceros, actos u omisiones de las Autoridades Públicas, aquellos otros producidos como consecuencia de fenómenos naturales, cortes de suministro, etc. y el ataque de hackers o terceros especializados en la seguridad o integridad del sistema informático, siempre que el Titular, haya adoptado las medidas de seguridad razonables de acuerdo con el estado de la técnica. En cualquier caso, sea cual fuere su causa, el Titular no asumirá responsabilidad alguna ya sea por daños directos o indirectos, daño emergente y/o por lucro cesante.</p>
+<p>Por el contrario, en caso de que la interrupción, cancelación o deficiencia en el servicio digital sea atribuible al Titular, podremos proporcionarle un crédito, reembolso, descuento u otra forma de contraprestación, según lo exija la normativa aplicable.</p>
+<h2>15. Uso de IA</h2>
+<p>Determinados servicios utilizan sistemas de inteligencia artificial para generar textos, código, imágenes, análisis o respuestas automáticas. Aunque el Titular aplica procedimientos de revisión y control de calidad, los resultados generados mediante IA pueden contener errores, imprecisiones o respuestas no adecuadas al caso concreto, por lo que corresponderá al Cliente revisar y validar los entregables antes de su utilización.</p>
+<h2>16. Uso de servicios de terceros</h2>
+<p>La prestación de determinados servicios podrá requerir la utilización de plataformas o proveedores tecnológicos de terceros. El Cliente acepta que determinados datos estrictamente necesarios para la prestación del servicio puedan ser tratados por dichos proveedores en los términos previstos en la Política de Privacidad.</p>
+<h2>17. Atención al Usuario</h2>
+<p>El Usuario dispondrá de un servicio de Atención al Usuario, para ello podrá utilizar el formulario de contacto y se recibirá contestación a la mayor brevedad posible, y en todo caso en el plazo máximo que determine la legislación aplicable. </p>
+<h2>18. Resolución de litigios</h2>
+<p>Si surge alguna disputa entre el consumidor y el vendedor, podrá optar por mecanismos de resolución alternativa de conflictos, conforme a la legislación nacional.</p>
+<p>En España, puede presentar su reclamación al Sistema Arbitral de Consumo, el cual es gratuito y voluntario.</p>
+<p>En la Unión Europea, puede solicitar asesoramiento y asistencia gratuita en materia de reclamaciones transfronterizas a la <a href="https://commission.europa.eu/live-work-travel-eu/consumer-rights-and-complaints/resolve-your-consumer-complaint/european-consumer-centres-network-ecc-net_es" target="_blank" rel="noopener">Red de Centros Europeos del Consumidor (ECC-Net)</a>.</p>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -159,6 +241,8 @@
           <li><a href="privacidad.html">Privacidad</a></li>
           <li><a href="cookies.html">Cookies</a></li>
           <li><a href="condiciones.html" style="color:var(--orange);">Condiciones</a></li>
+          <li><a href="sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="cenit-condiciones.html">Condiciones · Cénit</a></li>
         </ul>
       </div>
     </div>

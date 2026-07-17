@@ -11,6 +11,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<style>
+/* legal-datcon: estilos para main.legal (vars scoped; no afectan al chrome del sitio) */
+main.legal{--mut:#9aa0a6;--acc:#ff6a2b;--bd:#23262b;max-width:820px;margin:0 auto;padding:48px 24px 80px}
+main.legal h1{font-size:2rem;line-height:1.2;margin:0 0 8px}
+main.legal .updated{color:var(--mut);font-size:.9rem;margin:0 0 32px}
+main.legal h2{font-size:1.25rem;margin:36px 0 10px;color:#fff;border-bottom:1px solid var(--bd);padding-bottom:6px}
+main.legal h3{font-size:1.05rem;margin:24px 0 8px;color:var(--acc)}
+main.legal p{margin:0 0 14px}
+main.legal ul{margin:0 0 16px;padding-left:22px}
+main.legal li{margin:0 0 6px}
+main.legal a{color:var(--acc)}
+</style>
 </head>
 <body>
 
@@ -43,60 +55,77 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">[Legal] Audio → Libro</span>
-    <h1>Condiciones de <span class="accent">Audio → Libro</span>.</h1>
-    <p>Condiciones específicas del servicio Audio→Libro (conversión de audio en libro digital). Complementan las condiciones generales de arquitectodigital.io.</p>
-  </div>
-</section>
-
-<div class="legal-content">
-<p style="color:#b45309"><strong>BORRADOR v0.1 — pendiente de revisión de abogado.</strong></p>
-  <h2>1. Partes</h2>
-  <p><strong>Prestador:</strong> Daniel González Barquero, NIF 45326983D, Calle Chile 10, 11500 El Puerto de Santa María (Cádiz), IAE 763, <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a>. <strong>Cliente/Usuario:</strong> persona que contrata el servicio Audio→Libro (consumidor, B2C).</p>
-
-  <h2>2. Objeto</h2>
-  <p>Conversión de un audio aportado por el Usuario en un <strong>libro digital</strong> (PDF y, según plan, EPUB), con transcripción, estructura y maquetación asistidas por IA. Modalidades: Ebook, Libro y Edición Premium.</p>
-
-  <h2>3. Planes y precio</h2>
-  <ul>
-    <li><strong>Ebook — 149 €</strong> (pago único, IVA incluido).</li>
-    <li><strong>Libro — 299 €</strong> (pago único, IVA incluido).</li>
-    <li><strong>Edición Premium — 499 €</strong> (pago único, IVA incluido).</li>
-    <li>Pago mediante <strong>Stripe</strong>; el Prestador no almacena datos de tarjeta.</li>
-  </ul>
-
-  <h2>4. Entrega</h2>
-  <p>Plazo orientativo comunicado al Usuario al realizar el encargo. El resultado se entrega por descarga o email en los formatos del plan contratado.</p>
-
-  <h2>5. Contenido aportado por el Usuario</h2>
-  <ul>
-    <li>El Usuario garantiza que tiene los <strong>derechos</strong> sobre el audio/texto que aporta y que su contenido es lícito.</li>
-    <li>El Prestador puede rechazar encargos con contenido ilícito, difamatorio o que vulnere derechos de terceros o las políticas de los proveedores de IA.</li>
-  </ul>
-
-  <h2>6. Derechos sobre el resultado</h2>
-  <p>Abonado el servicio, el libro resultante es para uso del Usuario. La titularidad de las obras generadas con asistencia de IA está en evolución normativa y es un punto a confirmar; el Prestador conserva el derecho a reutilizar componentes genéricos y plantillas.</p>
-
-  <h2>7. Derecho de desistimiento (consumidores, RDL 1/2007)</h2>
-  <p>Por tratarse de <strong>contenido digital</strong> y de un servicio que se ejecuta de forma inmediata, el Usuario consumidor, al contratar y solicitar el inicio de la prestación, <strong>consiente expresamente su ejecución inmediata y reconoce que pierde el derecho de desistimiento</strong> una vez el servicio ha sido completamente ejecutado (art. 103.m del texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios, RDL 1/2007). Si el contenido se confecciona conforme a especificaciones del consumidor, aplica además el art. 103.c.</p>
-
-  <h2>8. Naturaleza de la IA y límites</h2>
-  <p>El resultado depende de modelos de IA de terceros; el Prestador no garantiza un resultado concreto ni la ausencia de errores de transcripción. Se aplican revisiones razonables según el plan.</p>
-
-  <h2>9. Limitación de responsabilidad</h2>
-  <p>En la medida permitida por la ley, responsabilidad limitada al importe abonado por el Usuario. Exclusión de lucro cesante, salvo dolo o negligencia grave.</p>
-
-  <h2>10. Protección de datos</h2>
-  <p>Tratamiento del email y de los datos de entrega conforme a la <a href="privacidad.html">Política de privacidad</a> de arquitectodigital.io. El audio aportado se trata solo para prestar el servicio.</p>
-
-  <h2>11. Legislación y jurisdicción</h2>
-  <p>Legislación española. Fuero del domicilio del consumidor (B2C).</p>
-
-  <div class="legal-meta">Última actualización: 1 de julio de 2026 · v0.1 (borrador)</div>
-
-</div>
+<main class="legal"><h1>Condiciones Específicas del Servicio Audio a Libro</h1>
+<h2>1. Partes</h2>
+<p>Prestador: Daniel González Barquero, con NIF 45326983D, domicilio en Calle Chile 10, 11500 El Puerto de Santa María (Cádiz) e email de contacto: <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>. </p>
+<p>Cliente: Persona física o jurídica que contrata el servicio Audio a Libro.</p>
+<h2>2. Objeto</h2>
+<p>Las presentes Condiciones regulan la prestación del servicio de Audio a Libro que consiste en la conversión de un audio facilitado por el Usuario en un libro digital mediante herramientas de IA y edición asistida. El servicio es ofrecido por el Prestador y complementan las Condiciones Generales de Contratación publicadas en <a href="https://arquitectodigital.io/" target="_blank" rel="noopener">https://arquitectodigital.io/</a>. </p>
+<p>El servicio podrá comprender, según la modalidad contratada:</p>
+<ul>
+<li>Transcripción del audio;</li>
+<li>Estructuración y organización del contenido;</li>
+<li>Revisión y corrección del texto;</li>
+<li>Maquetación;</li>
+<li>Generación de un libro en formato PDF y, cuando proceda, EPUB;</li>
+<li>Revisión manual adicional según el plan contratado</li>
+</ul>
+<h2>3. Precio y facturación</h2>
+<p>Existen 3 planes disponibles:</p>
+<ul>
+<li>Ebook: 149 euros.</li>
+<li>Libro: 299 euros.</li>
+<li>Edición Premium: 499 euros.</li>
+</ul>
+<p>Los importes incluyen el IVA. </p>
+<p>Sin suscripción, sin renovación.</p>
+<p>El pago se realizará mediante Stripe utilizando cualquiera de los medios de pago habilitados.</p>
+<h2>4. Entrega</h2>
+<p>El libro será entregado mediante descarga o al correo electrónico facilitado por el Usuario.</p>
+<p>El plazo de entrega tendrá carácter orientativo y podrá ampliarse cuando:</p>
+<p>El audio presente una calidad insuficiente; </p>
+<p>Sea necesario solicitar aclaraciones al Usuario; </p>
+<ul>
+<li>Concurran incidencias técnicas ajenas al Prestador.</li>
+</ul>
+<h2>5. Obligaciones del Usuario</h2>
+<p>El Usuario declara y garantiza que:</p>
+<ul>
+<li>Dispone de todos los derechos necesarios sobre el audio, textos y demás materiales facilitados;</li>
+<li>El contenido no infringe derechos de propiedad intelectual, derechos de imagen ni cualquier otro derecho de terceros;</li>
+<li>No incorporará contenidos ilícitos, difamatorios, discriminatorios o contrarios a la legislación vigente;</li>
+<li>Dispone de una base jurídica suficiente cuando el audio incluya datos personales de terceros.</li>
+</ul>
+<p>El Prestador podrá rechazar encargos que incumplan estas condiciones o vulneren la legislación vigente o las políticas de los proveedores tecnológicos utilizados.</p>
+<h2>7. Naturaleza de la IA</h2>
+<p>El servicio utiliza herramientas de IA para asistir en la transcripción, organización y redacción del contenido.</p>
+<p>El Usuario reconoce que dichas herramientas pueden producir errores de transcripción, interpretación o estilo.</p>
+<p>El Prestador realizará una revisión razonable del resultado conforme a la modalidad contratada, sin garantizar la ausencia absoluta de errores.</p>
+<p>El Usuario será responsable de revisar el contenido antes de su publicación o utilización definitiva.</p>
+<h2>9. Disponibilidad y soporte</h2>
+<p>El servicio se prestará según disponibilidad técnica.</p>
+<p>El soporte técnico se prestará mediante correo electrónico en <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>. </p>
+<p>Salvo pacto expreso, no existe compromiso de nivel de servicio (SLA).</p>
+<h2>10. Propiedad intelectual</h2>
+<p>El Cliente conservará la titularidad de los contenidos originales que facilite para la prestación del servicio.</p>
+<p>Una vez abonado íntegramente el precio, el Usuario podrá utilizar libremente el libro generado para fines personales o profesionales.</p>
+<p>El Prestador conservará la titularidad de sus metodologías, plantillas, prompts y demás componentes empleados para la prestación del servicio.</p>
+<p>Salvo pacto expreso por escrito, la contratación del servicio no supone cesión del código fuente ni de los componentes reutilizables desarrollados por el Prestador.</p>
+<h2>11. Limitación de responsabilidad</h2>
+<p>La responsabilidad del Prestador frente al Cliente se limita, en cualquier caso, al importe efectivamente pagado por el Cliente al Prestador en los 12 meses anteriores al hecho generador de la responsabilidad. No se responde de lucro cesante, daño indirecto, o fallos atribuibles a servicios de terceros (APIs IA, hosting, etc.) salvo dolo o negligencia grave.</p>
+<p>Tampoco responderá de errores derivados de una calidad insuficiente del audio original, información incorrecta o incompleta facilitada por el Usuario, diferencias de estilo o de redacción respecto a las expectativas del Usuario, ni de las incidencias imputables a proveedores tecnológicos externos.</p>
+<p>Lo anterior no será de aplicación en caso de dolo o negligencia grave del Prestador.</p>
+<p>La calidad del libro generado dependerá en gran medida de la claridad, duración y calidad técnica del audio facilitado por el Usuario. El Prestador podrá solicitar una nueva grabación o rechazar el encargo cuando el archivo presentado no permita obtener un resultado razonablemente satisfactorio</p>
+<h2>12. Baja y derecho al desistimiento</h2>
+<p>Cuando el Cliente tenga la condición de consumidor y de conformidad con la normativa vigente de aplicación a consumidores y usuarios, la contratación del servicio podrá implicar el inicio inmediato de su ejecución. En tal caso, el consumidor consiente expresamente el inicio de la prestación y reconoce que perderá su derecho de desistimiento una vez el servicio haya sido completamente ejecutado, en los términos previstos en la normativa aplicable. </p>
+<h2>13. Protección de datos personales</h2>
+<p>Los datos personales tratados durante la prestación del servicio serán tratados por el Prestador en calidad de Responsable del Tratamiento respecto de aquellos tratamientos necesarios para la ejecución del contrato, de conformidad con la Política de Privacidad del presente Sitio Web.</p>
+<p>En caso de que alguna funcionalidad futura implique el tratamiento de datos personales por cuenta del Cliente, en cumplimiento de lo establecido en la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales, de 5 de diciembre de 2018 (LOPDGDD) y Reglamento UE 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos y por el que se deroga la Directiva 95/46/CE (RGPD), se celebrará contrato específico en materia de Protección de Datos donde se formalizará la relación entre el Cliente, como Responsable del Tratamiento, y Daniel González Barquero como Encargado del Tratamiento.</p>
+<p>Los archivos de audio serán eliminados una vez finalizada la prestación del servicio, salvo que exista obligación legal de conservarlos. </p>
+<h2>14. Legislación aplicable y jurisdicción</h2>
+<p>Las presentes Condiciones se regirán por la legislación española.</p>
+<p>Cualquier controversia derivada de su interpretación o ejecución se someterá a los Juzgados y Tribunales de El Puerto de Santa María (Cádiz), salvo que el Cliente tenga la condición de consumidor, en cuyo caso, serán competentes los órganos jurisdiccionales que correspondan conforme a la normativa vigente. </p>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -133,6 +162,8 @@
           <li><a href="privacidad.html">Privacidad</a></li>
           <li><a href="cookies.html">Cookies</a></li>
           <li><a href="condiciones.html" style="color:var(--orange);">Condiciones</a></li>
+          <li><a href="sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="cenit-condiciones.html">Condiciones · Cénit</a></li>
         </ul>
       </div>
     </div>

@@ -11,6 +11,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<style>
+/* legal-datcon: estilos para main.legal (vars scoped; no afectan al chrome del sitio) */
+main.legal{--mut:#9aa0a6;--acc:#ff6a2b;--bd:#23262b;max-width:820px;margin:0 auto;padding:48px 24px 80px}
+main.legal h1{font-size:2rem;line-height:1.2;margin:0 0 8px}
+main.legal .updated{color:var(--mut);font-size:.9rem;margin:0 0 32px}
+main.legal h2{font-size:1.25rem;margin:36px 0 10px;color:#fff;border-bottom:1px solid var(--bd);padding-bottom:6px}
+main.legal h3{font-size:1.05rem;margin:24px 0 8px;color:var(--acc)}
+main.legal p{margin:0 0 14px}
+main.legal ul{margin:0 0 16px;padding-left:22px}
+main.legal li{margin:0 0 6px}
+main.legal a{color:var(--acc)}
+</style>
 </head>
 <body>
 
@@ -43,133 +55,56 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">[Legal] Privacidad</span>
-    <h1>Política de <span class="accent">privacidad</span>.</h1>
-    <p>Cómo, por qué y durante cuánto tiempo trato tus datos personales. Cumplimiento del RGPD (UE 2016/679) y la LOPDGDD (LO 3/2018).</p>
-  </div>
-</section>
-
-<div class="legal-content">
-
-  <h2>1. Responsable del tratamiento</h2>
-  <ul>
-    <li><strong>Identidad:</strong> Daniel González Barquero</li>
-    <li><strong>NIF:</strong> 45326983D</li>
-    <li><strong>Dirección postal:</strong> Calle Chile 10, 11500 El Puerto de Santa María (Cádiz)</li>
-    <li><strong>Email:</strong> <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a></li>
-    <li><strong>Delegado de Protección de Datos (DPD):</strong> no procede (no es obligatorio para esta actividad).</li>
-  </ul>
-
-  <h2>2. Datos que se recogen y finalidades</h2>
-
-  <h3>2.1 Formulario de contacto</h3>
-  <p>Cuando rellenas el formulario de contacto en <a href="index.html#contacto">index.html#contacto</a>, se recogen los siguientes datos:</p>
-  <ul>
-    <li><strong>Nombre</strong> (obligatorio): para dirigirme a ti.</li>
-    <li><strong>Email</strong> (obligatorio): para responderte.</li>
-    <li><strong>Servicio que te interesa</strong> (se elige en un desplegable): para preparar mejor la respuesta.</li>
-    <li><strong>Mensaje</strong> (obligatorio): para entender tu caso.</li>
-    <li><strong>Metadatos técnicos</strong> (automático): dirección IP y fecha/hora del envío, únicamente para seguridad y prevención de abuso (control anti-spam del formulario).</li>
-  </ul>
-  <p>El mensaje se transmite a mis propios sistemas (véase el apartado 3, «Destinatarios») y me llega por correo electrónico para poder responderte. No se publica ni se cede a terceros con fines comerciales.</p>
-  <p><strong>Finalidad:</strong> atender tu consulta y, si procede, valorar una colaboración profesional.</p>
-  <p><strong>Base legal:</strong> consentimiento del interesado al enviar el formulario (art. 6.1.a RGPD) y, en su caso, ejecución de medidas precontractuales (art. 6.1.b RGPD).</p>
-  <p><strong>Conservación:</strong> los datos se conservan mientras dure la relación de contacto o, si no hay continuidad, durante un máximo de <strong>2 años</strong> desde el último contacto, salvo obligación legal de conservación mayor (p. ej. facturación).</p>
-
-  <h3>2.2 Suscripción a la newsletter</h3>
-  <p>Cuando te suscribes en <a href="newsletter-signup.html">newsletter-signup.html</a>, se recogen:</p>
-  <ul>
-    <li><strong>Email</strong> (obligatorio): para enviarte los envíos.</li>
-    <li><strong>Nombre</strong> (opcional): para personalizar el saludo.</li>
-    <li><strong>Fecha y hora de alta</strong> (automático): prueba del consentimiento.</li>
-    <li><strong>Estado</strong> (pendiente de confirmación / confirmado / baja).</li>
-  </ul>
-  <p><strong>Finalidad:</strong> enviarte los envíos de la newsletter (frecuencia variable, no fija).</p>
-  <p><strong>Base legal:</strong> consentimiento expreso mediante doble opt-in (te llega un email de confirmación que debes pulsar; sin ese paso no entras en la lista) (art. 6.1.a RGPD).</p>
-  <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07. Actualizado 14-jul: el borrado automático SÍ está implementado desde el 11-jul (D-TR-246): baja + 30 días, y altas no confirmadas a los 7 días. -->
-  <p><strong>Conservación:</strong> mientras no te des de baja. Cada envío incluye un enlace de baja en 1 clic; al ejercerla dejas de recibir envíos de forma inmediata y tus datos se <strong>eliminan automáticamente a los 30 días</strong> de la baja. Las altas que no se confirman (doble opt-in) se eliminan automáticamente a los <strong>7 días</strong>. Puedes solicitar además en cualquier momento la <strong>supresión inmediata de tus datos («derecho al olvido»)</strong> escribiendo a la dirección de contacto.</p>
-
-  <h3>2.3 Cookies y métricas web</h3>
-  <p>Ver <a href="cookies.html">política de cookies</a> para el detalle de qué se usa y por qué.</p>
-
-  <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-  <h3>2.4 Plazos de conservación en los servicios con IA</h3>
-  <p>Además de los plazos indicados arriba para el formulario de contacto y la newsletter, en los servicios de pago que tratan datos con inteligencia artificial se aplican estos plazos de conservación (<strong>art. 13.2.a RGPD</strong>):</p>
-  <ul>
-    <li><strong>Chatbot a medida:</strong> las conversaciones (mensajes de los usuarios finales) se <strong>eliminan automáticamente a las 24 horas</strong>. Se atiende además el <strong>derecho de supresión («derecho al olvido»)</strong> bajo demanda, con borrado inmediato a solicitud. El corpus de conocimiento y la configuración del cliente no se eliminan mientras el servicio está activo (constituyen el propio servicio); <strong>al causar baja, el corpus y todos los datos del cliente se eliminan automáticamente a los 30 días</strong>.</li>
-    <li><strong>Audio → Libro:</strong> la conversión de la voz a texto se realiza <strong>en nuestros propios servidores (Unión Europea)</strong>: las grabaciones de voz <strong>no se envían a ningún tercero</strong>. El <strong>audio aportado y su transcripción se eliminan a los 7 días de la entrega</strong> del libro. Se conserva el libro entregado (PDF/EPUB) para el usuario y los datos de facturación durante los plazos legales aplicables.</li>
-    <li><strong>Crea tu canción:</strong> los <strong>datos y ficheros de la canción se eliminan a los 7 días de la entrega</strong> (Mureka los borra a los 30 días). Se conservan los datos de facturación durante los plazos legales aplicables.</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Autoblog:</strong> los datos del cliente (contacto, descripción del negocio, temas y artículos generados) se <strong>eliminan automáticamente a los 30 días de la baja</strong> del servicio. Se conservan los datos de facturación durante los plazos legales aplicables.</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Webs personalizadas:</strong> el material de trabajo del encargo (formulario, descripción del negocio y borradores) se <strong>elimina automáticamente a los 30 días de la entrega</strong>. La web entregada es del cliente y no se ve afectada. Se conservan los datos de facturación durante los plazos legales aplicables.</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>GiroBot (Twitch):</strong> los mensajes del chat se procesan en vivo y <strong>no se almacenan</strong> (solo un contador de uso, sin texto ni identidad). Al causar baja, los datos de acceso del portal del cliente se <strong>eliminan a los 30 días</strong>.</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Cénit (app de diario):</strong> el diario, las fotos y los audios viven <strong>solo en el dispositivo del usuario</strong>; nuestros servidores no almacenan contenido. El audio del dictado se transcribe <strong>en nuestros propios servidores (UE)</strong> y se <strong>elimina inmediatamente</strong> tras la transcripción; a la IA solo se envía el texto, y únicamente cuando el usuario pide una reflexión.</li>
-  </ul>
-
-  <h2>3. Destinatarios de los datos</h2>
-  <p>Tus datos no se ceden a terceros con fines comerciales. Para prestar los servicios técnicos descritos, intervienen los siguientes <strong>encargados del tratamiento</strong>:</p>
-  <ul>
-    <li><strong>Alojamiento del sitio (estático):</strong> GitHub Pages (GitHub, Inc.) — únicamente sirve los archivos estáticos de la web; no recibe ni almacena los datos que envías por los formularios.</li>
-    <li><strong>Backend propio:</strong> api.arquitectodigital.io, alojado en <strong>Oracle Cloud</strong> y <strong>Hetzner</strong> — recibe y almacena las altas de la newsletter y los mensajes del formulario de contacto.</li>
-    <li><strong>Proveedor de correo electrónico (SMTP):</strong> Namecheap Private Email (privateemail.com) — envío y recepción de emails (formulario de contacto y newsletter).</li>
-    <li><strong>Proveedor de analítica web (si procede):</strong> Plausible Analytics (autoalojado en analytics.arquitectodigital.io, sin cookies) — métricas agregadas sin identificación personal.</li>
-    <li><strong>Fuentes tipográficas:</strong> Google Fonts (Google Ireland Ltd. / Google LLC) — las tipografías se cargan desde los servidores de Google, que puede registrar tu dirección IP a efectos técnicos de entrega, sin instalar cookies (véase la <a href="cookies.html">política de cookies</a>).</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Google (Google Sheets)</strong> — cuando el cliente activa la captura de reservas del chatbot, se registra el nombre y teléfono facilitados por el usuario final, Estados Unidos, bajo el Marco de Privacidad de Datos UE-EE. UU. y cláusulas contractuales tipo.</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Gumroad, Inc.</strong> (Estados Unidos) — plataforma de pago y entrega utilizada en determinadas ventas de productos digitales; recibe y trata el email y nombre del comprador como parte del proceso de compra, bajo cláusulas contractuales tipo.</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Amazon Web Services (SES)</strong> (envío de correo electrónico, región según configuración) — puede utilizarse como proveedor alternativo de envío de emails transaccionales; recibe la dirección del destinatario.</li>
-  </ul>
-  <p>Adicionalmente, en los <strong>servicios de pago que utilizan inteligencia artificial</strong> (chatbots a medida, generación de letra y de canciones) y únicamente respecto de los datos que el cliente aporta para esos servicios, intervienen:</p>
-  <ul>
-    <li><strong>Anthropic, PBC</strong> (EE. UU.) — generación de texto y de letra (Claude).</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Mureka (SKYWORK AI PTE. LTD.)</strong> — proveedor de generación musical, con sede en <strong>Singapur</strong> y servidores en <strong>Estados Unidos</strong>, países que no disponen de una decisión de adecuación de la Comisión Europea. Los datos que el cliente incluye en su canción (nombre, dedicatoria, historia) se transfieren sobre la base de su <strong>consentimiento explícito</strong> recabado antes de la generación (<strong>art. 49.1.a RGPD</strong>).</li>
-    <!-- LEGAL TEMPORAL — pendiente validación abogado 2026-07 -->
-    <li><strong>Replicate</strong> — generación de imágenes de portada/ilustración, Estados Unidos, bajo cláusulas contractuales tipo. No se le transfieren datos personales del cliente, únicamente instrucciones visuales (p. ej. el título de la obra).</li>
-  </ul>
-  <p>Todos los encargados están vinculados por contrato (art. 28 RGPD) y, cuando procede, las transferencias internacionales de datos (p. ej. a EE. UU.) se amparan en las cláusulas contractuales tipo (SCC) aprobadas por la Comisión Europea.</p>
-
-  <h2>4. Tus derechos</h2>
-  <p>En cualquier momento puedes ejercer los siguientes derechos:</p>
-  <ul>
-    <li><strong>Acceso:</strong> saber qué datos tuyos tengo.</li>
-    <li><strong>Rectificación:</strong> corregir datos inexactos.</li>
-    <li><strong>Supresión:</strong> que elimine tus datos (el "derecho al olvido").</li>
-    <li><strong>Oposición:</strong> oponerte al tratamiento.</li>
-    <li><strong>Limitación:</strong> que limite el uso de tus datos a determinados supuestos.</li>
-    <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado.</li>
-    <li><strong>Retirada del consentimiento</strong> en cualquier momento, sin efecto retroactivo.</li>
-  </ul>
-  <p>Para ejercerlos, escribe a <a href="mailto:daniel@arquitectodigital.io">daniel@arquitectodigital.io</a> indicando el derecho que ejerces y, si lo crees necesario, adjuntando copia de un documento que acredite tu identidad. Se atiende en el plazo legal de un mes.</p>
-
-  <h2>5. Reclamación ante la autoridad de control</h2>
-  <p>Si consideras que el tratamiento de tus datos no se ajusta a la normativa, puedes presentar una reclamación ante la Agencia Española de Protección de Datos:</p>
-  <ul>
-    <li>Web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a></li>
-    <li>Sede electrónica: <a href="https://sedeagpd.gob.es" target="_blank" rel="noopener">sedeagpd.gob.es</a></li>
-    <li>Dirección: C/ Jorge Juan, 6 · 28001 Madrid</li>
-  </ul>
-
-  <h2>6. Decisiones automatizadas y perfilado</h2>
-  <p>No se realizan decisiones automatizadas ni elaboración de perfiles con tus datos.</p>
-
-  <h2>7. Seguridad</h2>
-  <p>Se aplican medidas técnicas y organizativas razonables para proteger tus datos: conexiones cifradas (HTTPS), credenciales SMTP almacenadas con cifrado simétrico (Fernet), copias de seguridad cifradas y acceso restringido a los sistemas. Ningún sistema es invulnerable, pero el objetivo es minimizar el riesgo y, si llegara a producirse una brecha de seguridad significativa, notificarla en los plazos legalmente exigidos.</p>
-
-  <h2>8. Cambios en esta política</h2>
-  <p>Esta política puede actualizarse para reflejar cambios legales o técnicos. La versión vigente es siempre la publicada en esta página; los cambios sustanciales se anunciarán en la newsletter o por email cuando proceda.</p>
-
-  <div class="legal-meta">
-    Última actualización: 21 de mayo de 2026 · v1.0
-  </div>
-</div>
+<main class="legal">
+<h1>Política de Privacidad</h1>
+<p>El Titular se compromete a cumplir con la normativa en materia de Protección de Datos de carácter personal y a respetar la privacidad de los Usuarios. El objetivo es ofrecer el mejor servicio al Usuario y para ello es necesario tratar sus datos personales. El Usuario sólo podrá incluir datos personales propios, y en ningún caso de otra persona de la que no tenga un consentimiento expreso, siendo el único responsable en caso de hacerlo.</p>
+<h2>1. Responsable del Tratamiento</h2>
+<p>Daniel González Barquero</p>
+<p>NIF: 45326983D</p>
+<p>Domicilio: C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz.</p>
+<p>Email: <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a></p>
+<h2>2. Finalidades y legitimación</h2>
+<p>Atención de consultas: Atender las consultas del Usuario que se ponga en contacto a través de los Formularios o herramientas de comunicación disponibles en el Sitio Web, incluyendo la interacción con el Asistente Virtual asistido por Inteligencia Artificial. La base legítima del tratamiento es el consentimiento del Usuario, conforme al art. 6.1.a) del RGPD.</p>
+<p>Contratación: Gestión del proceso de contratación de servicios seleccionados por el Usuario. La base legítima del tratamiento es la ejecución de un contrato en el que el Usuario es parte, conforme al art. 6.1.b) del RGPD.</p>
+<p>Inscripción: Procedimiento para comunicar el Usuario su interés por participar en actividades. La base legítima del tratamiento es el consentimiento del Usuario, conforme al art. 6.1.a) del RGPD.</p>
+<p>Datos de navegación: Datos recogidos por las cookies propias o de terceros que puedan ser generadas por este Sitio Web habiendo sido informado el Usuario y aceptándolas. La base legítima del tratamiento es el consentimiento del Usuario, conforme al art. 6.1.a) del RGPD.</p>
+<p>Los datos tratados con esta finalidad son: los recopilados por las cookies generadas en el Sitio Web, según las finalidades de éstas. Para más información puede consultar nuestra Política de Cookies o modificar la elección de sus preferencias en nuestra herramienta de gestión de cookies.</p>
+<p>El Titular no será responsable del tratamiento de la información recogida por las cookies de terceros gestores de publicidad, ni tendrá acceso a los datos recabados por éstos. El Titular informa que estos terceros tratarán los datos con sus propios fines en función de cada tipología de cookies y pueden a su vez ceder la información a otros prestadores de servicios o tratar los datos en combinación con datos recabados en otros sitios web por estos u otros editores para prestar los servicios que cada uno de ellos le encomienda.</p>
+<p>Comunicaciones comerciales: Para el Usuario que voluntariamente acepte esta opción, se les remitirán promociones, publicidad, ofertas, noticias, invitación a eventos y cualquier tipo de información comercial del Titular. La base legítima del tratamiento es el consentimiento del Usuario, conforme al art. 6.1.a) del RGPD.</p>
+<p>En todo caso, el Usuario puede posteriormente en cualquier momento oponerse a la recepción de comunicaciones comerciales enviando email a <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a> desde la misma cuenta en la que se reciban las comunicaciones.</p>
+<h2>3. Plazo de conservación</h2>
+<p>Los datos se conservarán mientras se mantenga la relación y no se solicite su supresión y en cualquier caso en cumplimiento de plazos legales de prescripción que le resulten de aplicación.</p>
+<h2>4. Cesiones</h2>
+<p>No se tienen previstas cesiones de los datos recabados a través de este Sitio Web a terceros, salvo que expresamente se indique, en su caso, en el texto informativo correspondiente. </p>
+<p>En relación a la gestión de los servicios, los datos de los Usuarios podrán ser tratados por empresas que presten al Titular diversos servicios, entre otros, de envío, mensajería, contabilidad, asesoría, mantenimiento informático, o cualquier otro que por su condición de Encargada del Tratamiento sea indispensable o inevitable que accedan o traten estos datos. Este tratamiento no será considerado en ningún caso una cesión de datos.</p>
+<h2>5. Transferencias internacionales</h2>
+<p>Para la prestación de determinados servicios, el Titular podrá utilizar proveedores tecnológicos ubicados fuera del Espacio Económico Europeo. En tales casos, el Titular adoptará las garantías adecuadas previstas en los arts. 44 y siguientes del Reglamento (UE) 2016/679, tales como decisiones de adecuación adoptadas por la Comisión Europea, cláusulas contractuales tipo u otros mecanismos legalmente reconocidos.</p>
+<h2>6. Derechos de los interesados</h2>
+<p>El Usuario podrá ejercitar sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad de datos y a no ser objeto de decisiones individualizadas automatizadas (incluida la elaboración de perfiles), enviando solicitud con asunto “Protección de Datos”, a la dirección: C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz, o por email a <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>, desde la misma cuenta que nos facilitó, indicando en todo caso, los datos de contacto. Si considera que sus derechos han sido vulnerados, puede presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="http://www.aepd.es/" target="_blank" rel="noopener">www.aepd.es</a>). </p>
+<h2>7. Campos de texto libre </h2>
+<p>Los campos de texto libre que, a disposición del Usuario, puedan aparecer en los formularios del Sitio Web tienen como única y exclusiva finalidad el recabar información para mejorar la calidad de los Servicios.</p>
+<p>El Usuario no incluirá, en aquellos espacios que el Sitio Web pueda ofertar como "campos de texto libre", ningún dato de carácter personal que pueda ser calificado dentro de aquellos datos para los que se exige un nivel de protección especial, entendiéndose como tales datos, a título enunciativo y no limitativo, los relativos a situación económico-financiera, perfiles psicológicos, ideología, religión, creencias, afiliación sindical, salud, origen racial y/o vida sexual.</p>
+<h2>8. Uso de tecnologías de Inteligencia Artificial </h2>
+<p>El Sitio Web puede poner a disposición del Usuario sistemas de interacción automatizada que utilizan Inteligencia Artificial, como el chatbot de asistencia virtual. Estos sistemas tienen como única finalidad recabar información para la mejora de los servicios prestados, la experiencia del Usuario o la atención al cliente. </p>
+<p>Las interacciones mantenidas con el Asistente Virtual podrán ser registradas con la finalidad de garantizar la seguridad del servicio, resolver incidencias técnicas y mejorar la calidad de la atención prestada. </p>
+<p>El Asistente Virtual no está pensado para elaborar perfiles individuales, ni para tomar decisiones automatizadas que produzcan efectos jurídicos sobre el Usuario.</p>
+<p>En su caso, si el proveedor tecnológico del sistema emplea la información de forma agregada y anonimizada con fines de mejora o entrenamiento de sus modelos de Inteligencia Artificial, dicho tratamiento se realizará conforme a la normativa vigente en materia de protección de datos personales y conforme al Reglamento de Inteligencia Artificial, asegurando que no sea posible la reidentificación de los Usuarios. </p>
+<p>El Titular del Stio Web no cederá datos personales identificables a terceros y conservará los registros únicamente durante el tiempo necesario para fines de mantenimiento y mejora del servicio.</p>
+<p>El Usuario no incluirá, en aquellos espacios que el Sitio Web pueda ofertar como "campos de texto libre", ni en las conversaciones con el Asistente Virtual, ningún dato de carácter personal que pueda ser calificado dentro de aquellos datos para los que se exige un nivel de protección especial, entendiéndose como tales datos, a título enunciativo y no limitativo, los relativos a situación económico-financiera, perfiles psicológicos, ideología, religión, creencias, afiliación sindical, salud, origen racial y/o vida sexual.</p>
+<p>En el caso de que el Usuario proporcione de forma voluntaria este tipo de información, lo hará bajo su exclusiva responsabilidad, sin que pueda derivarse ninguna responsabilidad legal para el Titular del Sitio Web.</p>
+<p>El Titular del Sitio Web recomienda a los padres, madres y/o tutores legales supervisar el uso que los menores de edad hagan del Sitio Web. En caso de que un menor de edad interactúe y proporcione datos sin autorización de sus representantes o tutores legales, éstos serán eliminados en cuanto se tenga constancia.</p>
+<p>El Usuario deberá hacer un uso del Asistente Virtual responsable, lícito y seguro. En consecuencia, el Usuario se abstendrá de realizar actividades peligrosas, ilegales o que incumplan la normativa vigente que resulte de aplicación.</p>
+<p>El sistema de asistencia virtual mediante Inteligencia Artificial se basa en modelos automáticos que generan respuestas a partir de patrones de lenguaje. Aunque está diseñado para ofrecer información útil y actualizada, sus respuestas pueden ser imprecisas o incompletas. Por tanto, el contenido proporcionado por el Asistente Virtual tiene carácter meramente orientativo y no debe considerarse como asesoramiento profesional o vinculante. </p>
+<p>Si el Usuario necesita una atención más personalizada, podrá contactar con el servicio de Atención al Usuario donde será atendido por una persona, enviando un correo electrónico a la dirección <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a> y se recibirá contestación a la mayor brevedad posible.</p>
+<h2>9. Campos no obligatorios</h2>
+<p>El Titular comunica al Usuario el carácter no obligatorio de la recogida de algunos datos, salvo en los campos que se indique lo contrario mediante un (*). No obstante, la no cumplimentación de dichos datos podrá impedir prestar todos aquellos Servicios vinculados a tales datos, liberándole de toda responsabilidad por la no prestación o prestación incompleta de estos Servicios.</p>
+<h2>10. Acceso y rectificación de los datos personales</h2>
+<p>El Usuario se compromete a proporcionar información cierta en relación con sus datos personales, y mantener los datos facilitados al Titular siempre actualizados. El Usuario responderá, en cualquier caso, de la veracidad de los datos facilitados, reservándose el Titular el derecho de excluir de los servicios a todo Usuario que haya facilitado datos falsos, sin perjuicio de las demás acciones que procedan en Derecho. Los datos facilitados por el Usuario se presumirán correctos, por lo que, en caso de envío erróneo de sus datos por parte del Usuario, el Titular, declina cualquier responsabilidad en caso de la incorrecta ejecución o no ejecución del envío, así como el incorrecto cumplimiento de los trámites administrativos necesarios.</p>
+<h2>11. Confidencialidad</h2>
+<p>Además, también tendrá la condición de confidencial la información de cualquier tipo que las partes intercambien entre sí, aquella que éstas acuerden que tiene tal naturaleza, o la que simplemente verse sobre el contenido de dicha información. La visualización de datos a través de Internet, no supondrá el acceso directo a los mismos, salvo consentimiento expreso de su titular para cada ocasión.</p>
+<h2>12. Fotografías</h2>
+<p>En cumplimiento de lo establecido en la actual normativa de Protección de Datos de Carácter Personal se informa que las fotografías en las que aparezcan personas tienen consideración de dato de carácter personal. Con esta comunicación se informa que en este Sitio Web pueden aparecer fotografías de personas con motivos de promoción y que voluntariamente han accedido a ello. Si en algún caso, cualquier persona que aparezca en ellas desea que no se muestre alguna fotografía, rogamos se pongan en contacto y se procederá a su retirada a la mayor brevedad posible. No será válido para las personas que han prestado un servicio de forma profesional.</p>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -206,6 +141,8 @@
           <li><a href="privacidad.html" style="color:var(--orange);">Privacidad</a></li>
           <li><a href="cookies.html">Cookies</a></li>
           <li><a href="condiciones.html">Condiciones</a></li>
+          <li><a href="sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="cenit-condiciones.html">Condiciones · Cénit</a></li>
         </ul>
       </div>
     </div>
