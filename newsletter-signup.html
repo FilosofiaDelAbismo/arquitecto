@@ -105,9 +105,20 @@
         </div>
 
         <!-- Honeypot anti-bots — no rellenar -->
-        <div class="hp-field" aria-hidden="true">
+        <div class="cf-hp" aria-hidden="true">
           <label for="nl-website">No rellenar</label>
           <input type="text" id="nl-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="consent-group">
+          <label class="consent-item" for="nl-consent-legal">
+            <input type="checkbox" id="nl-consent-legal" name="consent_legal">
+            <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y la recepción de comunicaciones, promociones, ofertas y comunicaciones comerciales<span class="req-mark">*</span></span>
+          </label>
+          <label class="consent-item" for="nl-consent-personalizacion">
+            <input type="checkbox" id="nl-consent-personalizacion" name="consent_personalizacion">
+            <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
+          </label>
         </div>
 
         <button type="submit" class="form-submit">Suscribirme →</button>
@@ -185,6 +196,8 @@
     var email = form.elements['email'].value.trim();
     var honey = form.elements['website'].value.trim();
     var name = form.elements['name'] ? form.elements['name'].value.trim() : '';
+    var consentLegal = form.elements['consent_legal'] && form.elements['consent_legal'].checked;
+    var consentPersonalizacion = form.elements['consent_personalizacion'] && form.elements['consent_personalizacion'].checked;
 
     if (honey) {
       // Bot detectado. Fingimos OK para no darle pista.
@@ -198,6 +211,11 @@
       feedback.textContent = 'Email no válido.';
       return;
     }
+    if (!consentLegal) {
+      feedback.className = 'form-feedback err';
+      feedback.textContent = 'Debes aceptar el Aviso Legal, la Política de Privacidad y la recepción de comunicaciones para suscribirte.';
+      return;
+    }
 
     feedback.textContent = 'Enviando…';
     fetch('https://api.arquitectodigital.io/webhook/site/newsletter-subscribe', {
@@ -207,7 +225,9 @@
         email: email,
         name: name,
         client_id: 'ncli_43abf681d355476e9fe5f18aa7673b10',
-        website: honey
+        website: honey,
+        consent_comercial: true,
+        consent_personalizacion: consentPersonalizacion
       })
     }).then(function (resp) {
       if (resp.status === 202) {
