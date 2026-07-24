@@ -151,3 +151,7 @@ cenit/cenit-latest.apk
 cenit/_pioneros_guardado.html
 # Backups que contienen la sección Pioneros (no deben publicarse nunca).
 *.bak_pioneros*
+
+# Backups locales, no se publican
+*.bak
+*.bak_*
