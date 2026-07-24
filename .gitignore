@@ -141,3 +141,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# APK de Cenit retirado de publicacion (APK_OFF 2026-07-24). El binario sigue
+# en disco en cenit/cenit-latest.apk; fuera del repo para que Pages no lo sirva.
+cenit/cenit-latest.apk
