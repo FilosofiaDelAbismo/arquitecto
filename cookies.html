@@ -22,6 +22,10 @@ main.legal p{margin:0 0 14px}
 main.legal ul{margin:0 0 16px;padding-left:22px}
 main.legal li{margin:0 0 6px}
 main.legal a{color:var(--acc)}
+/* El boton hereda el color de "main.legal a" (naranja) y queda ilegible sobre
+   su propio fondo naranja. Especificidad 0-2-2 para devolverle el color de
+   .btn-primary. */
+main.legal a.btn-primary{color:var(--bg)}
 </style>
 </head>
 <body>
@@ -59,14 +63,25 @@ main.legal a{color:var(--acc)}
 <h1>Política de Cookies</h1>
 <p>1. Definición y funciones de las cookies.</p>
 <p>Una cookie es un fichero que se descarga en el equipo del Usuario al acceder a determinados sitios web. Las cookies permiten al sitio web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación del Usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al Usuario.</p>
-<p>2. Tipos de cookies que puede utilizar este Sitio Web.</p>
-<p>• Cookies propias: Son aquéllas que se envían al equipo terminal del Usuario desde un equipo o dominio gestionado por el Titular y desde el que se presta el servicio solicitado por el Usuario.</p>
-<p>•  Cookies funcionales: Son aquéllas necesarias para el correcto funcionamiento del Sitio Web.</p>
-<p>• Cookies de sesión: Son un tipo de cookies diseñadas para recabar y almacenar datos mientras el Usuario accede a un sitio web. </p>
-<p>3. Revocación y eliminación de cookies.</p>
-<p>El Usuario en cualquier momento podrá seleccionar, rechazar o configurar el uso de Cookies, a través de la herramienta de gestión de consentimiento para el tratamiento de Cookies disponible en cada Sitio Web.</p>
-<p><a href="#" class="btn-primary" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Configurar cookies</a></p>
-<p>El Usuario también puede permitir, bloquear o eliminar las cookies instaladas en el equipo mediante la configuración de las opciones del navegador instalado, en caso de que no permita la instalación de cookies en su navegador es posible que no pueda acceder a alguna de las secciones del Sitio Web. Se puede encontrar información sobre cómo configurar las cookies según el navegador utilizado en los siguientes enlaces (enlaces válidos a la fecha de edición del presente texto)</p>
+<p>2. Cookies que utiliza este Sitio Web.</p>
+<p><strong>Este Sitio Web no instala cookies.</strong> Ni propias ni de terceros. No se utilizan cookies de análisis, de publicidad, de personalización ni de seguimiento, por lo que no se recaba consentimiento para su uso. Este apartado describe, con nombre y apellidos, todo lo que el Sitio Web guarda o carga en el equipo del Usuario.</p>
+<h3>2.1. Almacenamiento local propio (no es una cookie)</h3>
+<p>Al cerrar el aviso de cookies, el Sitio Web guarda en el almacenamiento local (<em>localStorage</em>) del navegador del Usuario una única entrada, <code>ad_cookie_consent</code>, cuyo contenido se limita a registrar que el aviso ya se ha mostrado y la fecha en que se cerró. No contiene datos personales, no identifica al Usuario y no se transmite a ningún servidor: permanece en su navegador y el Usuario puede borrarla en cualquier momento desde las opciones de su navegador.</p>
+<p>No es una cookie, sino almacenamiento local. En todo caso, se trata de almacenamiento estrictamente necesario para prestar el servicio expresamente solicitado por el Usuario —evitar que el aviso se repita en cada visita—, exceptuado del deber de consentimiento previo conforme al artículo 22.2 de la Ley 34/2002, de Servicios de la Sociedad de la Información (LSSI).</p>
+<h3>2.2. Analítica: Plausible Analytics (autoalojada)</h3>
+<p>Para conocer de forma agregada qué contenidos se leen, el Sitio Web utiliza <strong>Plausible Analytics</strong>, un sistema de analítica sin cookies. A diferencia de las herramientas de analítica habituales, en este caso el software está <strong>alojado en el servidor propio del Titular</strong>, bajo el subdominio <code>analytics.arquitectodigital.io</code>, que reside en la misma infraestructura que el resto del servicio. Los datos de navegación <strong>no se ceden ni se transmiten a ningún proveedor de analítica de terceros</strong>.</p>
+<p>Plausible no instala cookies, no utiliza identificadores persistentes, no realiza seguimiento entre sitios web ni entre sesiones, y no elabora perfiles del Usuario. La medición es anónima y agregada (páginas vistas, página de origen, tipo de dispositivo y país aproximado), sin que sea posible identificar a personas concretas ni reconstruir la navegación individual.</p>
+<h3>2.3. Vídeos incrustados: YouTube en modo sin cookies</h3>
+<p>La página <a href="portfolio.html">Portfolio</a> incorpora vídeos alojados en YouTube (Google Ireland Limited) mediante el dominio <code>youtube-nocookie.com</code>, el modo de privacidad mejorada de la plataforma. Con esta configuración, la simple carga de la página <strong>no instala ninguna cookie</strong> de Google.</p>
+<p>Si el Usuario decide <strong>reproducir</strong> un vídeo, YouTube podrá almacenar información en su navegador con fines de medición del propio reproductor, sin utilizar las cookies publicitarias que emplea el dominio ordinario de YouTube. Esa decisión es del Usuario: mientras no pulse reproducir, no se carga contenido adicional de Google. Puede consultar la política de privacidad de Google en <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
+<h3>2.4. Tipografías: Google Fonts</h3>
+<p>El Sitio Web carga sus tipografías desde el servicio Google Fonts (<code>fonts.googleapis.com</code> y <code>fonts.gstatic.com</code>). Este servicio <strong>no instala cookies</strong>. No obstante, y en aras de la transparencia, se informa de que la descarga de las fuentes implica que la dirección IP del Usuario sea transmitida a Google como parte de la propia petición, lo que constituye una comunicación de datos aunque no exista cookie alguna.</p>
+<h3>2.5. Pasarela de pago</h3>
+<p>El Sitio Web no incrusta scripts de pasarelas de pago. Los enlaces de pago dirigen al Usuario al dominio propio del proveedor (Stripe), momento a partir del cual resulta de aplicación la política de cookies y privacidad de dicho proveedor.</p>
+<p>3. Aviso de cookies, revocación y eliminación.</p>
+<p>Dado que el Sitio Web no instala cookies, no se muestra al Usuario una herramienta de consentimiento con opciones de aceptación o rechazo, sino un <strong>aviso meramente informativo</strong>. El Usuario puede volver a consultarlo en cualquier momento mediante el siguiente botón, o a través del enlace disponible en el pie de todas las páginas.</p>
+<p><a href="#" class="btn-primary" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></p>
+<p>Con carácter general, el Usuario puede permitir, bloquear o eliminar las cookies instaladas por cualquier sitio web, así como borrar el almacenamiento local, mediante la configuración de las opciones de su navegador. Bloquear las cookies en el navegador no afecta al funcionamiento de este Sitio Web, dado que no instala ninguna. Se puede encontrar información sobre cómo configurar las cookies según el navegador utilizado en los siguientes enlaces (enlaces válidos a la fecha de edición del presente texto)</p>
 <p>Para más información sobre cómo bloquear el uso de cookies en Chrome</p>
 <p><a href="http://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647" target="_blank" rel="noopener">http://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647</a></p>
 <p>Para más información sobre cómo bloquear el uso de cookies en Firefox</p>
@@ -77,7 +92,7 @@ main.legal a{color:var(--acc)}
 <p><a href="http://support.apple.com/kb/ph5042" target="_blank" rel="noopener">http://support.apple.com/kb/ph5042</a></p>
 <p>El Titular no se hace responsable del contenido y veracidad de las políticas de privacidad de los terceros incluidos en los enlaces de esta Política de Cookies.</p>
 <p>Para más información sobre el uso de cookies en este Sitio Web el Usuario puede solicitarla a través del formulario de contacto o <a href="mailto:daniel@arquitectodigital.io" target="_blank" rel="noopener">daniel@arquitectodigital.io</a>  </p>
-<p>La presente política fue modificada el 17 de julio de 2026.</p>
+<p>La presente política fue modificada el 31 de julio de 2026.</p>
 </main>
 
 <footer>
@@ -114,7 +129,7 @@ main.legal a{color:var(--acc)}
           <li><a href="aviso-legal.html">Aviso legal</a></li>
           <li><a href="privacidad.html">Privacidad</a></li>
           <li><a href="cookies.html" style="color:var(--orange);">Cookies</a></li>
-          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Configurar cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
           <li><a href="condiciones.html">Condiciones</a></li>
           <li><a href="sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
           <li><a href="cenit-condiciones.html">Condiciones · Cénit</a></li>
