@@ -497,7 +497,7 @@ Hazle a tu chatbot actual esta pregunta: "¿Cuál es el plazo de entrega para pe
 <h3>Error 3: Sin guardrails, el modelo hace lo que puede</h3>
 <p>Un LLM sin restricciones explícitas intentará responder cualquier pregunta, aunque no tenga información suficiente para hacerlo bien. El resultado son alucinaciones: respuestas inventadas que suenan plausibles.</p>
 <p>Los guardrails no son censura. Son instrucciones de comportamiento: qué debe responder el sistema, qué debe declinar, cuándo debe pedir aclaración, cuándo debe derivar a un humano. Sin esta capa, el chatbot no tiene criterio de calidad propio.</p>
-<p>En TuAbogaBot.io, por ejemplo, el chatbot trabaja sobre un corpus legal de varios países. Sin guardrails anti-alucinación, un modelo respondería preguntas legales inventando jurisprudencia. Con guardrails bien definidos, el sistema declina cuando no tiene base documental suficiente en lugar de improvisar. Eso no es una limitación. Es un requisito de calidad.</p>
+<p>Piensa en un chatbot legal que trabaja sobre un corpus normativo de varios países. Sin guardrails anti-alucinación, un modelo respondería preguntas legales inventando jurisprudencia. Con guardrails bien definidos, el sistema declina cuando no tiene base documental suficiente en lugar de improvisar. Eso no es una limitación. Es un requisito de calidad.</p>
 
 <h3>Error 4: Sin handoff humano, el chatbot es un callejón sin salida</h3>
 <p>Hay preguntas que ningún chatbot debería intentar resolver solo. Situaciones complejas, clientes frustrados, casos fuera del dominio del sistema. Un chatbot sin mecanismo de escalado a persona humana convierte cada caso difícil en una experiencia negativa para el usuario.</p>
@@ -612,7 +612,7 @@ Hazle a tu chatbot actual esta pregunta: "¿Cuál es el plazo de entrega para pe
   <li>El coste de una respuesta incorrecta es real: un cliente que recibe información errónea sobre un plazo legal, un precio o una condición contractual.</li>
   <li>El volumen de consultas justifica la automatización: si recibes diez preguntas al mes, el ROI de un sistema RAG completo probablemente no cierra.</li>
 </ul>
-<p>Un ejemplo concreto: TuAbogaBot.io es un chatbot legal con RAG construido sobre un corpus de legislación de doce países de LATAM y España, con mecanismos anti-alucinación específicos. Sin RAG, ese chatbot sería peligroso. Con RAG bien implementado, puede responder preguntas legales concretas con precisión y, cuando la pregunta supera el corpus disponible, lo dice explícitamente en lugar de inventar jurisprudencia.</p>
+<p>Un ejemplo concreto: un chatbot legal con RAG construido sobre un corpus de legislación amplio, con mecanismos anti-alucinación específicos. Sin RAG, ese chatbot sería peligroso: el modelo contestaría de memoria sobre normativa que cambia cada año. Con RAG bien implementado, puede responder preguntas legales concretas con precisión y, cuando la pregunta supera el corpus disponible, lo dice explícitamente en lugar de inventar jurisprudencia.</p>
 
 <h3>Cuándo RAG es sobrecarga innecesaria</h3>
 <p>No todo chatbot necesita RAG. Hay casos donde añadir esa capa de recuperación de información complica sin aportar valor:</p>
