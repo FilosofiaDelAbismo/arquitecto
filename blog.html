@@ -32,6 +32,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Chatbots que alucinan: qué falla, qué es RAG y qué preguntar",
+      "description": "Los chatbots genéricos inventan respuestas porque no saben lo que no saben. Aquí tienes el diagnóstico técnico honesto y las preguntas que debes hacer antes de comprar cualquier solución.",
+      "url": "https://arquitectodigital.io/blog.html#art-chatbots-que-alucinan-que-falla-que-es-rag-20260802",
+      "datePublished": "2026-08-02",
+      "dateModified": "2026-08-02",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Chatbots que no funcionan: el problema no es la IA",
       "description": "La mayoría de chatbots empresariales fallan por decisiones de implementación, no por limitaciones de la tecnología. Aquí están los problemas estructurales reales y cómo se corrigen.",
       "url": "https://arquitectodigital.io/blog.html#art-chatbots-que-no-funcionan-el-problema-no-es-20260729",
@@ -351,6 +369,106 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-chatbots-que-alucinan-que-falla-que-es-rag-20260802">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-08-02">
+      <meta itemprop="dateModified" content="2026-08-02">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Chatbots IA</span>
+          <time class="af-date" datetime="2026-08-02" itemprop="datePublished">02 Ago 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Chatbots que alucinan: qué falla, qué es RAG y qué preguntar</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Los chatbots genéricos inventan respuestas porque no saben lo que no saben. Aquí tienes el diagnóstico técnico honesto y las preguntas que debes hacer antes de comprar cualquier solución.</p>
+        <div class="af-content" id="art-chatbots-que-alucinan-que-falla-que-es-rag-20260802-content">
+          <h3>Por qué un chatbot "inteligente" te inventa respuestas</h3>
+<p>Un modelo de lenguaje grande (LLM) no busca información. Predice texto. Cuando le preguntas algo, genera la respuesta estadísticamente más probable dado su entrenamiento. Si la respuesta correcta no estaba en sus datos de entrenamiento, o si esos datos son de hace meses, el modelo no dice "no sé". Rellena el hueco con algo que <em>suena</em> plausible. Eso es una alucinación.</p>
+<p>No es un bug. Es el funcionamiento normal del sistema. El problema aparece cuando ese sistema se presenta como un asistente de atención al cliente que "conoce tu negocio".</p>
+<p>Un chatbot genérico conectado a GPT-4 sin más contexto que el nombre de tu empresa va a inventar precios, plazos de entrega, políticas de devolución y condiciones de servicio. Lo hará con total confianza. Y tu cliente lo va a creer.</p>
+
+<h3>El problema técnico real: falta de contexto verificable</h3>
+<p>Los LLMs tienen dos limitaciones estructurales que ningún prompt bonito soluciona:</p>
+<ul>
+  <li><strong>Fecha de corte del entrenamiento.</strong> El modelo no sabe nada de lo que ocurrió después de su última actualización. Tu catálogo actualizado, tus nuevas tarifas, tus condiciones actuales: invisibles para él.</li>
+  <li><strong>Ausencia de fuente de verdad propia.</strong> El modelo no tiene acceso a tus documentos internos. Genera texto basado en patrones generales del idioma, no en tu información específica.</li>
+</ul>
+<p>El resultado práctico: el chatbot responde con autoridad sobre cosas que no conoce. Y cuanto más confiado suena, más daño hace.</p>
+
+<h3>Qué es RAG y por qué cambia la ecuación</h3>
+<p>RAG significa <em>Retrieval-Augmented Generation</em>: generación aumentada por recuperación. La idea es simple aunque la implementación no lo es: antes de que el LLM genere una respuesta, el sistema recupera fragmentos relevantes de una base de conocimiento real y los inyecta como contexto verificable.</p>
+<p>El flujo conceptual es este: la pregunta del usuario activa una búsqueda semántica sobre tus documentos. Los fragmentos más relevantes se pasan al modelo junto con la pregunta. El modelo responde basándose en esos fragmentos, no en sus suposiciones.</p>
+<p>La diferencia crítica: si la información no está en tus documentos, un sistema RAG bien construido puede decir "no tengo esa información" en lugar de inventarla. Eso es exactamente lo que necesitas en un entorno de negocio real.</p>
+
+<div class="highlight">💡 RAG no elimina las alucinaciones al cien por cien, pero las ancla a una fuente de verdad que tú controlas. Eso convierte un problema de inventiva descontrolada en un problema de calidad documental, que sí puedes gestionar.</div>
+
+<h3>Lo que he visto que falla en implementaciones reales</h3>
+<p>He construido chatbots RAG sobre corpus legales de 12 países (TuAbogaBot.io), sobre herramientas para profesores (IAprofesor.com) y para sellers de Amazon (ShopiaTools.com). En todos esos proyectos, los puntos de fallo más habituales no son los que venden los demos:</p>
+<ul>
+  <li><strong>Documentos mal estructurados.</strong> Si tus PDFs son escaneos sin OCR limpio, o si tus FAQs están en un Excel con celdas combinadas, el retrieval falla antes de que el LLM entre en escena. Basura entra, basura sale.</li>
+  <li><strong>Chunking mal calibrado.</strong> Los documentos se dividen en fragmentos para indexarlos. Si los fragmentos son demasiado grandes o demasiado pequeños, la búsqueda semántica devuelve contexto irrelevante o incompleto. El modelo entonces alucina para rellenar los huecos.</li>
+  <li><strong>Sin guardrails de salida.</strong> Un sistema RAG sin validación de respuesta puede mezclar el contexto recuperado con conocimiento general del modelo de formas inesperadas. El resultado: respuestas parcialmente correctas que son más peligrosas que las completamente incorrectas.</li>
+  <li><strong>Sin handoff humano.</strong> Cuando el chatbot no sabe algo, necesita un mecanismo para escalar a una persona real. Si no existe, el sistema improvisa. Siempre.</li>
+</ul>
+
+<h3>Las preguntas que debes hacer antes de comprar</h3>
+<p>Cualquier proveedor de chatbots va a usar la palabra RAG en su pitch. Aquí tienes las preguntas que separan una implementación real de un wrapper de ChatGPT con una interfaz bonita:</p>
+<ol>
+  <li><strong>¿Cómo se indexan mis documentos?</strong> Pregunta por el proceso de chunking, el tipo de embeddings y cómo se gestiona la actualización del índice cuando cambias un documento. Si no saben responder con detalle, no hay RAG real.</li>
+  <li><strong>¿Qué pasa cuando el chatbot no encuentra la respuesta en mis documentos?</strong> La respuesta correcta es que el sistema lo indica explícitamente o escala. Si dicen "el modelo siempre encuentra algo útil", es una señal de alarma.</li>
+  <li><strong>¿Puedo ver ejemplos de respuestas incorrectas que el sistema ha dado?</strong> Todo sistema falla. Un proveedor honesto tiene logs, puede mostrarte errores reales y explicar qué los causó. Si solo muestran demos perfectos, desconfía.</li>
+  <li><strong>¿Hay algún mecanismo de handoff a un humano?</strong> Y si lo hay, ¿cómo funciona? ¿Es automático por tipo de pregunta, por nivel de confianza de la respuesta, o manual?</li>
+  <li><strong>¿Los datos de mis documentos se usan para entrenar modelos externos?</strong> Pregunta explícita sobre privacidad y dónde se almacenan tus embeddings. En muchos setups cloud, tus documentos pasan por infraestructura de terceros sin que lo sepas.</li>
+</ol>
+
+<div class="prompt-box">
+<strong>Prompt de diagnóstico rápido:</strong> Si tienes acceso a un chatbot que te están vendiendo, prueba esto antes de comprarlo. Hazle una pregunta cuya respuesta correcta sabes que NO está en los documentos que le han dado. Por ejemplo, pregúntale por una política que cambiaste hace dos semanas y que no está aún en el sistema. Si responde con seguridad en lugar de decir que no tiene esa información, el sistema no tiene guardrails de "no sé". Eso es un problema operativo real, no un detalle técnico menor.
+</div>
+
+<h3>Qué distingue una implementación seria</h3>
+<p>Un chatbot RAG bien construido para una PYME tiene que resolver tres cosas al mismo tiempo: recuperar contexto relevante de tus documentos, generar respuestas que no salgan de ese contexto, y saber cuándo no puede responder y qué hacer en ese caso.</p>
+<p>Eso requiere decisiones de diseño en cada capa: cómo se preparan los documentos, cómo se indexan, cómo se validan las respuestas antes de enviarlas al usuario, y qué ocurre cuando el sistema detecta una pregunta fuera de su alcance.</p>
+<p>Si alguien te ofrece un chatbot RAG por un precio simbólico con setup en 24 horas, pregúntate cuál de esas capas está omitiendo. Normalmente es la validación de salida y el handoff humano, que son exactamente las que protegen a tu negocio cuando el sistema falla.</p>
+<p>El POC de 7 días que ofrezco para los chatbots personalizados existe precisamente por esto: para que veas el sistema funcionando sobre tus documentos reales, con tus preguntas reales, antes de comprometerte con nada. Desde 158€ puedes comprobar si lo que te ofrezco aguanta en condiciones reales. Si no aguanta, no hay contrato.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué es una alucinación en un chatbot de IA?</div>
+              <div class="faq-a"><span>Es cuando el modelo genera una respuesta inventada pero formulada con confianza, porque no tiene la información correcta y rellena el hueco con lo que estadísticamente parece plausible. No es un fallo puntual: es el comportamiento por defecto cuando no hay contexto verificable.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿RAG elimina completamente las alucinaciones?</div>
+              <div class="faq-a"><span>No. RAG las reduce significativamente al anclar las respuestas a documentos reales que tú controlas. Pero si los documentos están mal estructurados, el chunking es deficiente o no hay guardrails de salida, el sistema puede seguir fallando de formas más sutiles.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si el chatbot que me ofrecen usa RAG de verdad o es solo un wrapper de ChatGPT?</div>
+              <div class="faq-a"><span>Pide que te expliquen el proceso de indexación de tus documentos, cómo se actualiza cuando cambias información y qué ocurre cuando el sistema no encuentra respuesta. Si no pueden responder con detalle técnico, probablemente no hay RAG real detrás.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué es el handoff humano y por qué importa?</div>
+              <div class="faq-a"><span>Es el mecanismo por el que el chatbot detecta que no puede resolver una consulta y la transfiere a una persona real. Sin este mecanismo, el sistema improvisa respuestas en situaciones que superan su capacidad, que es exactamente cuando más daño puede hacer.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué documentos necesito preparar para implementar un chatbot RAG?</div>
+              <div class="faq-a"><span>Cualquier información que tu equipo de atención al cliente usa hoy para responder preguntas: FAQs, manuales de producto, políticas de servicio, catálogos, condiciones comerciales. La calidad del sistema depende directamente de la calidad y estructura de esos documentos.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">chatbot IA</span><span class="atag">RAG</span><span class="atag">alucinaciones IA</span><span class="atag">automatización PYMEs</span><span class="atag">chatbot personalizado</span></div>
+        <button class="af-link" onclick="toggleArticle('art-chatbots-que-alucinan-que-falla-que-es-rag-20260802-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-chatbots-que-no-funcionan-el-problema-no-es-20260729">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
