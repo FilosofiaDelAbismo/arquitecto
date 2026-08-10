@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ─────────────────────────────────────────────────────────────
+     PÁGINA DEL QR — Pioneros por INVITACIÓN de Cénit.
+     Reescrita el 10-ago-2026 al modelo de "Crea tu canción": el QR lleva el
+     código en la URL (?codigo=PIONERO-XXXX-XXXX), la página lo pre-rellena y
+     la persona solo escribe su email.
+
+     SIN ACTO (10-ago-2026): se canceló el acto presencial (obras en el salón).
+     Las tarjetas se reparten a mano, de una en una, cuando surge la ocasión.
+     Por eso el copy NO da por hecho que quien entra "está en un sitio hoy", y
+     por eso la lista cenit_presenciales se queda ABIERTA de forma continua en
+     vez de abrirse y cerrarse el día del evento.
+
+     · EL CONTROL ES EL CÓDIGO, no la URL. La URL vive en un repo PÚBLICO, así
+       que su rareza no protege nada; la tarjeta impresa sí. Un código es de un
+       solo uso y queda atado al email que lo gasta.
+     · NO indexada (noindex,nofollow) y NO enlazada desde ninguna página ni
+       desde el sitemap.
+     · Alta en la lista cenit_presenciales vía POST /webhook/site/presencial-
+       inscribe, con el mismo doble opt-in de siempre.
+     · AQUÍ SOLO SE INSCRIBE. El Pro NO se concede al entregar la tarjeta: se
+       reclama desde la app el 31-ago-2026, igual que los Pioneros online (el
+       backend tiene un gate de fecha, config.PIONEER_CLAIM_OPENS_AT). El copy
+       lo dice explícito.
+     · Plaza GARANTIZADA: no compite con las 100 plazas online.
+     · Ya NO se consulta /cenit/presencial-status: con código ese gate era
+       redundante, y quitarlo evitó tener que tocar nginx.
+     · NUNCA condicionar a reseña.
+     · PUBLICADA desde el 10-ago-2026: tiene que estar viva antes de repartir
+       la primera tarjeta. Sigue sin indexar y sin enlazar desde ninguna parte.
+     ───────────────────────────────────────────────────────────── -->
+<meta name="robots" content="noindex, nofollow">
+<title>Acceso Pionero presencial · Cénit</title>
+<style>
+  :root { --cenit:#FF6B35; --cenit-hondo:#cc5429; --bg:#0f1115; --card:#171a21;
+          --tinta:#f3f5f8; --muted:#9aa6b8; --border:#262b36;
+          --ok:#1b8a3a; --err:#e0564a; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--tinta); min-height:100vh;
+         display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { background:var(--card); max-width:520px; width:100%; border-radius:18px;
+          border:1px solid var(--border); box-shadow:0 18px 50px rgba(0,0,0,.45); padding:34px 28px; }
+  .brand { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+  .dot { width:38px; height:38px; border-radius:50%;
+         background:linear-gradient(135deg,var(--cenit),var(--cenit-hondo));
+         display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; }
+  .brand b { font-size:1.05rem; letter-spacing:.5px; }
+  h1 { font-size:1.5rem; margin:.5rem 0 .3rem; line-height:1.25; }
+  p { line-height:1.65; color:var(--muted); }
+  .pill { display:inline-block; background:var(--cenit); color:#fff; font-weight:700;
+          font-size:.74rem; letter-spacing:.05em; text-transform:uppercase;
+          padding:6px 13px; border-radius:999px; }
+  form { margin-top:18px; }
+  label { display:block; font-weight:600; font-size:.9rem; margin:12px 0 6px; color:var(--tinta); }
+  /* Marca de campo obligatorio: el (*) se ve; el texto va solo para lectores
+     de pantalla (el asterisco a secas no se anuncia). */
+  .req { color:var(--cenit); }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+             overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  input[type=email], input[type=text] { width:100%; padding:13px 14px; border:1px solid var(--border);
+         border-radius:12px; font-size:1rem; background:var(--bg); color:var(--tinta); }
+  .hp { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+  button { border:0; background:linear-gradient(135deg,var(--cenit),var(--cenit-hondo));
+           color:#fff; font-weight:700; width:100%; padding:15px 16px; border-radius:12px;
+           font-size:1rem; cursor:pointer; margin-top:18px; }
+  .feedback { margin-top:12px; font-weight:600; min-height:1.2em; }
+  .feedback.ok { color:var(--ok); } .feedback.err { color:var(--err); }
+  .note { margin-top:16px; font-size:.84rem; color:var(--muted); }
+  /* Las 2 casillas OPCIONALES de Datcon (comercial y personalización). El
+     separador de arriba es deliberado: deja claro que son otra cosa, aparte
+     de la inscripción a Pioneros, que no depende de marcarlas. */
+  .optin { display:flex; align-items:flex-start; gap:10px; margin-top:16px;
+           padding-top:14px; border-top:1px solid var(--border);
+           font-weight:400; font-size:.82rem; line-height:1.5;
+           color:var(--muted); cursor:pointer; }
+  .optin input { width:auto; flex:0 0 auto; margin-top:3px; accent-color:var(--cenit); }
+  .optin b { color:var(--tinta); }
+  .bases { margin:10px 0 0; font-size:.76rem; color:var(--muted); }
+  .bases a { color:var(--cenit); text-decoration:underline; text-underline-offset:2px; }
+  /* Cláusula RGPD (verbatim Datcon 2026-08-05). Texto legal: NO reformular. */
+  .legal { margin-top:18px; font-size:.72rem; line-height:1.5; color:var(--muted);
+           text-align:left; }
+  .legal p { margin:0 0 8px; }
+  .legal p:last-child { margin-bottom:0; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand"><span class="dot">C</span><b>Cénit</b></div>
+
+    <span class="pill">Acceso Pionero presencial</span>
+    <h1>Tu plaza de Pionero, reservada</h1>
+    <p>Tienes una invitación. Déjanos tu email y <b>tu plaza queda reservada</b>.
+       El <b>31 de agosto de 2026</b> instala Cénit desde Google Play, abre
+       «Acceso Pionero», mete este mismo email y tendrás tu <b>año de Cénit
+       Pro</b> —con dictado por voz y a Mario cada día—. No compites por plazas:
+       tu invitación ya la tiene reservada.</p>
+
+    <form id="pres-form" novalidate>
+      <!-- El código viene en el QR (?codigo=PIONERO-XXXX-XXXX) y se pre-rellena
+           solo. Se deja EDITABLE a propósito: si alguien pierde la tarjeta o
+           escanea mal, puede teclearlo (el alfabeto no tiene 0/O/1/I para que
+           dictarlo sea fiable). -->
+      <label for="pres-codigo">Tu código de invitación <span class="req" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+      <input type="text" id="pres-codigo" name="codigo" placeholder="PIONERO-XXXX-XXXX" required autocomplete="off" spellcheck="false">
+
+      <label for="pres-email">Tu email <span class="req" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+      <input type="email" id="pres-email" name="email" placeholder="tu@email.com" required autocomplete="email">
+
+      <label for="pres-name">Tu nombre (para el saludo, opcional)</label>
+      <input type="text" id="pres-name" name="name" placeholder="Cómo te llamo" autocomplete="given-name">
+
+      <!-- Las DOS casillas de Datcon, opcionales y sin premarcar. Mismos textos
+           que la cajita de Pioneros 100 y que el resto de formularios del sitio. -->
+      <label class="optin" for="pres-consent-comercial">
+        <input type="checkbox" id="pres-consent-comercial" name="consent_comercial">
+        <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
+      </label>
+      <label class="optin" for="pres-consent-personalizacion" style="border-top:0;padding-top:0;margin-top:10px;">
+        <input type="checkbox" id="pres-consent-personalizacion" name="consent_personalizacion">
+        <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
+      </label>
+
+      <input class="hp" type="text" id="pres-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Reservar mi plaza</button>
+
+      <!-- CLÁUSULA RGPD — verbatim Datcon (2026-08-05), con la palabra del
+           botón sustituida por decisión de Daniel («Enviar» → el texto real
+           del botón). NO reformular el resto. -->
+      <div class="legal">
+        <p>En cumplimiento de la actual normativa en materia de Protección de Datos de Carácter Personal, se le informa y al pulsar «Reservar mi plaza» usted presta su consentimiento para que sus datos, sean tratados mientras que no comunique lo contrario y al menos mientras exista obligación legal, por Daniel González Barquero, con la finalidad de gestionar su inscripción en la campaña «Pioneros» de la aplicación Cénit, remitir las comunicaciones necesarias relacionadas con el lanzamiento de la aplicación y, en su caso, gestionar la asignación y disfrute de los beneficios correspondientes.</p>
+        <p>Las bases legítimas del tratamiento son el consentimiento y la aplicación de medidas precontractuales a petición del Usuario. Los datos facilitados son necesarios para gestionar su inscripción.</p>
+        <p>Sus datos podrán ser comunicados a Administraciones Públicas, Juzgados y Tribunales, así como a otros organismos competentes cuando así lo exija la normativa aplicable. No se prevén transferencias internacionales de datos fuera del Espacio Económico Europeo. No obstante, en caso de producirse, se realizarán con las garantías adecuadas.</p>
+        <p>Podrá ejercitar sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad de datos y a no ser objeto de decisiones individualizadas automatizadas (incluida la elaboración de perfiles), enviando solicitud con asunto «Protección de Datos», a la dirección: C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz, o por email a daniel@arquitectodigital.io, desde la misma cuenta que nos facilitó, indicando en todo caso, los datos de contacto. Si considera que sus derechos han sido vulnerados, puede presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+      </div>
+      <!-- Bases de la campaña. La página vive en /cenit/ y las Bases en la RAÍZ,
+           junto al resto de legales de Cénit, de ahí el ../ . target=_blank para
+           no perder lo escrito en el formulario. -->
+      <p class="bases"><a href="../cenit-pioneros-bases.html" target="_blank" rel="noopener">Consulta las Bases de Participación</a></p>
+      <div id="pres-feedback" class="feedback"></div>
+    </form>
+
+    <p class="note">Te apuntas a la lista de Pioneros de Cénit por invitación
+       (con confirmación por email). <b>Ahora solo te inscribes</b>: el Pro se
+       activa el 31 de agosto desde la app. Sin spam: solo te escribimos para el
+       lanzamiento. Te das de baja cuando quieras.</p>
+  </main>
+
+<script>
+(function () {
+  "use strict";
+  // Alta de Pioneros PRESENCIALES con código de invitación (modelo "Crea tu
+  // canción"): el QR trae ?codigo=… , la página lo pre-rellena y la persona
+  // solo escribe su email. El control de acceso es el CÓDIGO, no la URL —que
+  // vive en un repo público—.
+  //
+  // Ya NO se consulta /cenit/presencial-status: con código, ese gate era
+  // redundante. Si la captación está cerrada lo dice el propio endpoint.
+  var SUBSCRIBE_URL = "https://api.arquitectodigital.io/webhook/site/presencial-inscribe";
+
+  // Pre-rellenado desde la URL del QR.
+  var qs = new URLSearchParams(location.search);
+  var preset = qs.get("codigo");
+  if (preset) document.getElementById("pres-codigo").value = preset.trim().toUpperCase();
+
+  // Mensajes por `reason` del backend. Cualquier otro → mensaje genérico.
+  var MENSAJES = {
+    not_found:     "Ese código no es válido. Revísalo o pídenos otra tarjeta.",
+    already_used:  "Ese código ya se ha usado. Si fuiste tú, revisa tu email.",
+    cerrada:       "La captación no está abierta ahora mismo.",
+    baja_previa:   "Ese email se dio de baja en su día. Escríbenos y lo arreglamos.",
+    email_invalido:"Email no válido.",
+    codigo_invalido:"Falta el código de tu tarjeta.",
+    rate_limited:  "Demasiados intentos. Espera un minuto e inténtalo otra vez.",
+    email_failed:  "No hemos podido enviarte el correo. Inténtalo otra vez."
+  };
+
+  var form = document.getElementById("pres-form");
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var fb = document.getElementById("pres-feedback");
+    var codigo = (document.getElementById("pres-codigo").value || "").trim().toUpperCase();
+    var email = (document.getElementById("pres-email").value || "").trim();
+    var name = (document.getElementById("pres-name").value || "").trim();
+    var honey = (document.getElementById("pres-website").value || "").trim();
+
+    if (!codigo) {
+      fb.className = "feedback err"; fb.textContent = MENSAJES.codigo_invalido; return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      fb.className = "feedback err"; fb.textContent = MENSAJES.email_invalido; return;
+    }
+
+    fb.className = "feedback"; fb.textContent = "Enviando…";
+    fetch(SUBSCRIBE_URL, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        codigo: codigo, email: email, name: name, website: honey,
+        consent_comercial: !!document.getElementById("pres-consent-comercial").checked,
+        consent_personalizacion: !!document.getElementById("pres-consent-personalizacion").checked
+      })
+    }).then(function (resp) {
+      return resp.json().then(function (data) { return { status: resp.status, data: data }; });
+    }).then(function (r) {
+      if (r.status === 202 && r.data && r.data.ok) {
+        fb.className = "feedback ok";
+        fb.textContent = "¡Listo! Revisa tu email y confirma para guardar tu plaza.";
+        form.reset();
+        // El código ya está gastado: se vuelve a poner para que se vea cuál usó.
+        if (preset) document.getElementById("pres-codigo").value = preset.trim().toUpperCase();
+        return;
+      }
+      fb.className = "feedback err";
+      fb.textContent = MENSAJES[(r.data && r.data.reason) || ""] ||
+                       "No se ha podido procesar. Inténtalo en un minuto.";
+    }).catch(function () {
+      fb.className = "feedback err";
+      fb.textContent = "Sin conexión. Inténtalo otra vez.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
