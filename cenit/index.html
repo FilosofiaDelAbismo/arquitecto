@@ -171,6 +171,10 @@
       <p class="consent-note">Las dos casillas son opcionales: no hacen falta para reservar tu plaza.</p>
       <input type="text" id="pioneer-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
       <button type="submit" class="btn-cenit" style="width:100%;justify-content:center;margin-top:18px;border:0;cursor:pointer;">Reservar mi plaza de Pionero</button>
+      <!-- El mensaje de estado va PEGADO al botón, no al final del bloque:
+           debajo hay 4 párrafos de cláusula legal, y si el aviso cayera ahí
+           el usuario pulsaría "Reservar" sin ver ninguna reacción. -->
+      <div id="pioneer-feedback" role="status" aria-live="polite" style="margin-top:12px;font-weight:600;min-height:1.2em;"></div>
       <!-- CLÁUSULA RGPD — verbatim Datcon (2026-08-05), con la palabra del
            botón sustituida por decisión de Daniel. NO reformular el resto. -->
       <div style="margin-top:18px;font-size:.72rem;line-height:1.5;color:var(--text-faint);text-align:left;">
@@ -180,7 +184,6 @@
         <p style="margin:0 0 0;">Podrá ejercitar sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad de datos y a no ser objeto de decisiones individualizadas automatizadas (incluida la elaboración de perfiles), enviando solicitud con asunto «Protección de Datos», a la dirección: C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz, o por email a daniel@arquitectodigital.io, desde la misma cuenta que nos facilitó, indicando en todo caso, los datos de contacto. Si considera que sus derechos han sido vulnerados, puede presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
       </div>
       <p style="margin:10px 0 0;font-size:.76rem;color:var(--text-faint);"><a href="../cenit-pioneros-bases.html" target="_blank" rel="noopener" style="color:var(--cenit);text-decoration:underline;text-underline-offset:2px;">Consulta las Bases de Participación</a></p>
-      <div id="pioneer-feedback" style="margin-top:12px;font-weight:600;min-height:1.2em;"></div>
     </form>
     <p class="cenit-note" style="margin-top:16px;">Te apuntas a la lista de Pioneros de Cénit (con confirmación por email). Sin spam: solo te escribimos para el lanzamiento. Te das de baja cuando quieras.</p>
   </div>
@@ -219,6 +222,9 @@
       fb.style.color = "#b71c1c"; fb.textContent = "Email no válido."; return;
     }
     fb.style.color = "var(--text-dim)"; fb.textContent = "Enviando…";
+    // Red para movil: con el teclado abierto el aviso puede quedar justo
+    // bajo el borde visible. block:"nearest" no hace nada si ya se ve.
+    fb.scrollIntoView({ behavior: "smooth", block: "nearest" });
     fetch(SUBSCRIBE_URL, {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

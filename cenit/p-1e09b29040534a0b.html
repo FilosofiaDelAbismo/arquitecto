@@ -128,6 +128,10 @@
 
       <input class="hp" type="text" id="pres-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit">Reservar mi plaza</button>
+      <!-- El mensaje de estado va PEGADO al botón, no al final del bloque:
+           debajo hay 4 párrafos de cláusula legal, y si el aviso cayera ahí
+           el usuario pulsaría "Reservar" sin ver ninguna reacción. -->
+      <div id="pres-feedback" class="feedback" role="status" aria-live="polite"></div>
 
       <!-- CLÁUSULA RGPD — verbatim Datcon (2026-08-05), con la palabra del
            botón sustituida por decisión de Daniel («Enviar» → el texto real
@@ -142,7 +146,6 @@
            junto al resto de legales de Cénit, de ahí el ../ . target=_blank para
            no perder lo escrito en el formulario. -->
       <p class="bases"><a href="../cenit-pioneros-bases.html" target="_blank" rel="noopener">Consulta las Bases de Participación</a></p>
-      <div id="pres-feedback" class="feedback"></div>
     </form>
 
     <p class="note">Te apuntas a la lista de Pioneros de Cénit por invitación
@@ -197,6 +200,9 @@
     }
 
     fb.className = "feedback"; fb.textContent = "Enviando…";
+    // Red para movil: con el teclado abierto el aviso puede quedar justo
+    // bajo el borde visible. block:"nearest" no hace nada si ya se ve.
+    fb.scrollIntoView({ behavior: "smooth", block: "nearest" });
     fetch(SUBSCRIBE_URL, {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
