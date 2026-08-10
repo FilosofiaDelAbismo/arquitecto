@@ -142,9 +142,12 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
-# El APK de Cenit VUELVE al repo (30-jul-2026). Se saco el 24-jul (5d04ec0) y se
-# paso a enlazar los Releases de GitHub, pero el repo `cenit` es PRIVADO: esos
-# enlaces daban 404 a cualquier visitante. Alojado aqui, Pages lo sirve a todos.
+# El APK de Cenit SALE del repo (10-ago-2026): Cenit se publica en Google Play
+# el 31-ago, asi que ya no se distribuye por descarga directa. Historia: estuvo
+# fuera el 24-jul (5d04ec0) enlazando Releases de GitHub, volvio el 30-jul
+# porque el repo `cenit` es PRIVADO y esos enlaces daban 404, y ahora se retira
+# definitivamente. La regla evita que se vuelva a colar por accidente.
+cenit/*.apk
 
 # Pioneros guardado fuera de publicación (extraído de cenit/index.html 2026-07-08,
 # reinsertar en 1-2 meses). NO debe subir al repo publicado.

@@ -82,21 +82,6 @@
   .cenit-final h2 { font-size:clamp(1.6rem,4vw,2.4rem); margin:0 0 14px; }
   .cenit-final p { color:var(--text-dim); max-width:560px; margin:0 auto 28px; line-height:1.7; }
   .cenit-note { color:var(--text-faint); font-size:.85rem; margin-top:14px; }
-
-  .install { background:var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .install-inner { max-width:1080px; margin:0 auto; padding:50px 20px; }
-  .install-reassure { background:rgba(255,107,53,0.08); border:1px solid rgba(255,107,53,0.30);
-    border-radius:14px; padding:18px 20px; margin:18px 0 30px; color:var(--text-dim); line-height:1.65; }
-  .install-reassure strong { color:var(--text); }
-  .install-steps { list-style:none; counter-reset:step; padding:0; margin:0;
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
-  .install-steps li { counter-increment:step; position:relative; background:var(--bg);
-    border:1px solid var(--border); border-radius:14px; padding:22px 22px 22px 64px; line-height:1.55; color:var(--text-dim); }
-  .install-steps li::before { content:counter(step); position:absolute; left:18px; top:18px;
-    width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--cenit),var(--cenit-hondo));
-    color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:1rem; }
-  .install-steps li b { color:var(--text); display:block; margin-bottom:3px; }
-  .install-foot { color:var(--text-faint); font-size:.9rem; margin-top:22px; }
 </style>
 </head>
 <body class="cenit">
@@ -145,37 +130,124 @@
       Tu diario vive en tu dispositivo; a la IA solo llega lo que tú eliges enviar para reflexionar.
     </p>
     <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
-      <a href="cenit-latest.apk?v=build45" class="btn-cenit">⬇ Descargar para Android <small>(APK)</small></a>
+      <a href="#pioneros" class="btn-cenit">Reservar mi plaza de Pionero</a>
       <a href="#precio" class="btn-secondary">Ver Gratis vs Pro</a>
     </div>
-    <p class="cenit-note">APK para Android · instálalo permitiendo «orígenes desconocidos» · APK firmado · Gratis para empezar</p>
+    <p class="cenit-note">Cénit llega a Google Play el 31 de agosto de 2026 · Gratis para empezar</p>
   </div>
 </section>
 
-<!-- CÓMO INSTALAR -->
-<section class="install">
-  <div class="install-inner">
-    <span class="section-label" style="color:var(--cenit);">[Cómo instalar · 1 minuto]</span>
-    <h2 class="section-title" style="margin-top:8px;">Instálala con <span style="color:var(--cenit); font-style:italic;">confianza</span>.</h2>
-    <p class="install-reassure">
-      <strong>Cénit es segura.</strong> Estamos en proceso de publicación en Google Play;
-      mientras tanto, puedes descargar el APK e instalar Cénit ya. Como aún no está en la tienda,
-      Android mostrará un aviso al instalar una app que viene de fuera de la tienda —es lo
-      normal con apps nuevas, no significa que haya nada malo—. El archivo está
-      <strong>firmado con nuestra clave</strong>, así que las futuras actualizaciones se
-      instalan encima sin perder tus datos. No tienes que desactivar nada de forma
-      permanente: solo dar permiso esta vez.
-    </p>
-    <ol class="install-steps">
-      <li><b>Pulsa «Descargar»</b>Se baja el archivo de instalación (APK) a tu móvil.</li>
-      <li><b>Abre el archivo descargado</b>Tócalo desde la barra de descargas o desde la carpeta «Descargas».</li>
-      <li><b>Permite la instalación</b>Si Android avisa de que la app no viene de Play Store, toca «Ajustes» y activa «Permitir de esta fuente» (es solo para tu navegador). Vuelve atrás y continúa.</li>
-      <li><b>Si Play Protect pregunta</b>Elige «Instalar de todos modos». Aparece porque la app es nueva y aún no nos conoce; no porque sea peligrosa.</li>
-      <li><b>Abre Cénit y listo</b>Escribe tu primera entrada. Tus datos se quedan en tu dispositivo.</li>
-    </ol>
-    <p class="install-foot">¿Dudas? La instalación no toca el resto de tu móvil y puedes desinstalar Cénit cuando quieras desde Ajustes.</p>
+<!-- PIONEROS 100 — captación de la prelista (reinsertada 2026-08-10, venía de
+     cenit/_pioneros_guardado.html donde se guardó el 8-jul).
+     client_id = ncli_168d20c4ad9f4e5ca66fe9fa3a565e67 (lista cenit_pioneros).
+     Va TRAS EL HERO, en el hueco de la antigua sección "Cómo instalar": sin
+     descarga directa que ofrecer, esta cajita es la conversión de la página.
+     Casillas: las 2 de Datcon, OPCIONALES y sin premarcar. Sustituyen a la
+     antigua casilla de newsletter (decisión de Daniel, opción A). -->
+<section class="cenit-pioneros" id="pioneros" style="max-width:680px;margin:0 auto;padding:0 20px;">
+  <div style="background:rgba(255,107,53,.06);border:1px solid var(--border);border-radius:18px;padding:34px 28px;text-align:center;">
+    <span style="display:inline-block;background:var(--cenit);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:999px;">Acceso Pionero · plazas limitadas</span>
+    <h2 style="margin:18px 0 10px;">Sé de los primeros 100. Un año de Cénit Pro, gratis.</h2>
+    <p style="color:var(--text-dim);line-height:1.7;max-width:540px;margin:0 auto;">Cénit llega a Google Play el <strong style="color:var(--text);">31 de agosto de 2026</strong>. Apúntate a la prelista y, ese día, las primeras 100 personas que reclamen su plaza desde la app se llevan un año entero de Pro —con dictado por voz y a Mario cada día— sin pagar nada.</p>
+    <p style="font-weight:700;color:var(--cenit);background:rgba(255,107,53,.10);border-radius:12px;padding:12px 16px;margin:20px auto;max-width:300px;">Quedan <span id="pioneer-remaining">100</span> de 100 plazas</p>
+    <form id="pioneer-form" novalidate style="max-width:400px;margin:0 auto;text-align:left;">
+      <label for="pioneer-email" style="display:block;font-weight:600;font-size:.9rem;margin:10px 0 6px;">Tu email <span style="color:var(--cenit);" aria-hidden="true">*</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;"> (obligatorio)</span></label>
+      <input type="email" id="pioneer-email" name="email" placeholder="tu@email.com" required autocomplete="email" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--border);border-radius:12px;font-size:1rem;background:var(--bg-card);color:var(--text);">
+      <label for="pioneer-name" style="display:block;font-weight:600;font-size:.9rem;margin:12px 0 6px;">Tu nombre <span style="font-weight:400;color:var(--text-dim);">(para el saludo, opcional)</span></label>
+      <input type="text" id="pioneer-name" name="name" placeholder="Cómo te llamo" autocomplete="given-name" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--border);border-radius:12px;font-size:1rem;background:var(--bg-card);color:var(--text);">
+      <!-- Las DOS casillas de Datcon. Opcionales y sin premarcar: no condicionan
+           la inscripción y su valor viaja en el POST (consent_comercial /
+           consent_personalizacion) para quedar acreditado con IP y fecha. -->
+      <div class="consent-group">
+        <label class="consent-item" for="pioneer-consent-comercial">
+          <input type="checkbox" id="pioneer-consent-comercial" name="consent_comercial">
+          <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
+        </label>
+        <label class="consent-item" for="pioneer-consent-personalizacion">
+          <input type="checkbox" id="pioneer-consent-personalizacion" name="consent_personalizacion">
+          <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
+        </label>
+      </div>
+      <p class="consent-note">Las dos casillas son opcionales: no hacen falta para reservar tu plaza.</p>
+      <input type="text" id="pioneer-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+      <button type="submit" class="btn-cenit" style="width:100%;justify-content:center;margin-top:18px;border:0;cursor:pointer;">Reservar mi plaza de Pionero</button>
+      <!-- CLÁUSULA RGPD — verbatim Datcon (2026-08-05), con la palabra del
+           botón sustituida por decisión de Daniel. NO reformular el resto. -->
+      <div style="margin-top:18px;font-size:.72rem;line-height:1.5;color:var(--text-faint);text-align:left;">
+        <p style="margin:0 0 8px;">En cumplimiento de la actual normativa en materia de Protección de Datos de Carácter Personal, se le informa y al pulsar «Reservar mi plaza de Pionero» usted presta su consentimiento para que sus datos, sean tratados mientras que no comunique lo contrario y al menos mientras exista obligación legal, por Daniel González Barquero, con la finalidad de gestionar su inscripción en la campaña «Pioneros» de la aplicación Cénit, remitir las comunicaciones necesarias relacionadas con el lanzamiento de la aplicación y, en su caso, gestionar la asignación y disfrute de los beneficios correspondientes.</p>
+        <p style="margin:0 0 8px;">Las bases legítimas del tratamiento son el consentimiento y la aplicación de medidas precontractuales a petición del Usuario. Los datos facilitados son necesarios para gestionar su inscripción.</p>
+        <p style="margin:0 0 8px;">Sus datos podrán ser comunicados a Administraciones Públicas, Juzgados y Tribunales, así como a otros organismos competentes cuando así lo exija la normativa aplicable. No se prevén transferencias internacionales de datos fuera del Espacio Económico Europeo. No obstante, en caso de producirse, se realizarán con las garantías adecuadas.</p>
+        <p style="margin:0 0 0;">Podrá ejercitar sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad de datos y a no ser objeto de decisiones individualizadas automatizadas (incluida la elaboración de perfiles), enviando solicitud con asunto «Protección de Datos», a la dirección: C/ Chile, 10. 11500. El Puerto de Santa María. Cádiz, o por email a daniel@arquitectodigital.io, desde la misma cuenta que nos facilitó, indicando en todo caso, los datos de contacto. Si considera que sus derechos han sido vulnerados, puede presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+      </div>
+      <p style="margin:10px 0 0;font-size:.76rem;color:var(--text-faint);"><a href="../cenit-pioneros-bases.html" target="_blank" rel="noopener" style="color:var(--cenit);text-decoration:underline;text-underline-offset:2px;">Consulta las Bases de Participación</a></p>
+      <div id="pioneer-feedback" style="margin-top:12px;font-weight:600;min-height:1.2em;"></div>
+    </form>
+    <p class="cenit-note" style="margin-top:16px;">Te apuntas a la lista de Pioneros de Cénit (con confirmación por email). Sin spam: solo te escribimos para el lanzamiento. Te das de baja cuando quieras.</p>
   </div>
 </section>
+
+<script>
+(function () {
+  "use strict";
+  // Prelista Pioneros 100 -> lista cenit_pioneros (doble opt-in por email).
+  var CLIENT_ID = "ncli_168d20c4ad9f4e5ca66fe9fa3a565e67";
+  var API = "https://api.arquitectodigital.io";
+  var SUBSCRIBE_URL = API + "/webhook/site/newsletter-subscribe";
+  var form = document.getElementById("pioneer-form");
+  if (!form) return;
+
+  // ── Contador real ───────────────────────────────────────────────
+  // Lee /diario/pioneer-status. Si algo falla (endpoint caído, gate cerrado,
+  // sin red) NO se toca el DOM: se queda el "100 de 100" del HTML, que es
+  // verdad mientras nadie haya canjeado. Nunca enseñar un hueco ni un cero.
+  fetch(API + "/diario/pioneer-status", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || d.ok !== true || typeof d.remaining !== "number") return;
+      var el = document.getElementById("pioneer-remaining");
+      if (el) el.textContent = d.remaining;
+    })
+    .catch(function () {});
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var fb = document.getElementById("pioneer-feedback");
+    var email = (document.getElementById("pioneer-email").value || "").trim();
+    var name = (document.getElementById("pioneer-name").value || "").trim();
+    var honey = (document.getElementById("pioneer-website").value || "").trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      fb.style.color = "#b71c1c"; fb.textContent = "Email no válido."; return;
+    }
+    fb.style.color = "var(--text-dim)"; fb.textContent = "Enviando…";
+    fetch(SUBSCRIBE_URL, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email, name: name, client_id: CLIENT_ID, website: honey,
+        // `flow` hace que el backend anote además la fila probatoria en
+        // consent_log, con la versión del texto legal que se ha mostrado.
+        flow: "pioneros",
+        consent_comercial: !!document.getElementById("pioneer-consent-comercial").checked,
+        consent_personalizacion: !!document.getElementById("pioneer-consent-personalizacion").checked
+      })
+    }).then(function (resp) {
+      if (resp.status === 202) {
+        fb.style.color = "#1b8a3a";
+        fb.textContent = "Casi: revisa tu email y confirma para guardar tu plaza.";
+        form.reset();
+      } else if (resp.status === 429) {
+        fb.style.color = "#b71c1c";
+        fb.textContent = "Demasiados intentos. Espera un minuto e inténtalo otra vez.";
+      } else {
+        fb.style.color = "#b71c1c";
+        fb.textContent = "No se ha podido procesar. Inténtalo en un minuto.";
+      }
+    }).catch(function () {
+      fb.style.color = "#b71c1c";
+      fb.textContent = "Sin conexión. Inténtalo otra vez.";
+    });
+  });
+})();
+</script>
 
 <!-- QUÉ ES -->
 <section style="padding:40px 20px 10px;">
@@ -253,10 +325,9 @@
 
 <!-- CTA FINAL -->
 <section class="cenit-final">
-  <h2>Empieza tu diario hoy.</h2>
-  <p>Descarga Cénit, escribe tu primera entrada y deja que Mario te acompañe a pensar.</p>
-  <a href="cenit-latest.apk?v=build45" class="btn-cenit">⬇ Descargar Cénit para Android <small>(APK)</small></a>
-  <p class="cenit-note">APK para Android · instálalo permitiendo «orígenes desconocidos».</p>
+  <h2>Empieza tu diario el 31 de agosto.</h2>
+  <p>Cénit llega a Google Play el 31 de agosto de 2026. Reserva hoy tu plaza de Pionero y estrena un año de Pro.</p>
+  <a href="#pioneros" class="btn-cenit">Reservar mi plaza de Pionero</a>
   <p class="cenit-note">¿Ya tienes tu código Pro? Actívalo dentro de la app en «Activar Pro».</p>
 </section>
 
