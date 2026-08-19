@@ -18,8 +18,157 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- PERF: fuentes pedidas en paralelo desde el head. El @import de
+     assets/styles.css se mantiene (lo necesitan las paginas legales,
+     que no se tocan); el navegador deduplica por URL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://arquitectodigital.io/autoblog.html#service",
+  "name": "Autoblog IA SEO",
+  "serviceType": "Generación y publicación automática de artículos SEO",
+  "url": "https://arquitectodigital.io/autoblog.html",
+  "description": "Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, con 14 días de trial e IVA incluido. El plan Enterprise (32+ posts/mes, API access) es por cotización.",
+  "inLanguage": "es",
+  "provider": {
+    "@id": "https://arquitectodigital.io/#organization"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "priceCurrency": "EUR",
+      "price": "41",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "41",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "2 posts/mes, QA con Sonnet + fact-guard, schema markup + meta SEO. Trial 14 días. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Essential",
+      "priceCurrency": "EUR",
+      "price": "84",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "84",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "4 posts/mes, QA con Sonnet + fact-guard, schema markup + meta SEO. Trial 14 días. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Profesional",
+      "priceCurrency": "EUR",
+      "price": "158",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "158",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "8 posts/mes, soporte prioritario, QA Sonnet + fact-guard. Trial 14 días. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium",
+      "priceCurrency": "EUR",
+      "price": "296",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "296",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "16 posts/mes, corpus personalizado, soporte prioritario. Trial 14 días. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/autoblog.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un autoblog con IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA incluido y con 14 días de trial. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda en publicarse el primer artículo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Funciona solo con WordPress o también con otros CMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El conector es un snippet que se puede aplicar a WordPress y también a otros CMS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los artículos se publican sin que yo los vea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Se te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por un QA con Sonnet y un fact-guard, e incluye schema markup y meta SEO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hay 14 días de prueba en cualquier plan recurring y no hay permanencia mínima después: cancelas cuando quieras desde la consola. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Escribe sobre mis temas o son artículos genéricos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido sobre tu material documentado (notas, decks, artículos previos). El plan Premium incluye corpus personalizado."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +187,15 @@
           <li><a href="sistemas.html">Sistemas Personalizados</a></li>
           <li><a href="girobot.html">GiroBot · Twitch</a></li>
           <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
         </ul>
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -60,6 +218,7 @@
       Generación con IA premium, RAG personalizado por cliente, schema markup
       y publicación directa en WordPress. De 2 a 16 artículos al mes sobre
       tus temas, con tu tono, sin tu tiempo.
+      <strong>Desde 41€/mes</strong> con 14 días de trial. IVA incluido.
     </p>
   </div>
 </section>
@@ -259,6 +418,47 @@
     cliente como tú y vemos si encaja. Sin presión, sin compromiso.
   </p>
   <a href="index.html#contacto" class="btn-primary">Agendar llamada gratuita →</a>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[05] Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre el autoblog</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta un autoblog con IA?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA incluido y con 14 días de trial. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto tarda en publicarse el primer artículo?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Funciona solo con WordPress o también con otros CMS?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">El conector es un snippet que se puede aplicar a WordPress y también a otros CMS.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Los artículos se publican sin que yo los vea?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">No. Se te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por un QA con Sonnet y un fact-guard, e incluye schema markup y meta SEO.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Hay 14 días de prueba en cualquier plan recurring y no hay permanencia mínima después: cancelas cuando quieras desde la consola. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Escribe sobre mis temas o son artículos genéricos?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido sobre tu material documentado (notas, decks, artículos previos). El plan Premium incluye corpus personalizado.</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>

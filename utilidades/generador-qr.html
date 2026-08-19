@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de códigos QR online gratis y sin marca de agua · Arquitecto Digital</title>
+<meta name="description" content="Crea un código QR a partir de una URL o un texto y descárgalo en PNG o SVG. Sin marca de agua, sin registro y sin caducidad: el QR se genera en tu navegador y no depende de ningún servidor.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/generador-qr.html">
+
+<meta property="og:title" content="Generador de códigos QR online gratis y sin marca de agua · Arquitecto Digital">
+<meta property="og:description" content="Crea un código QR a partir de una URL o un texto y descárgalo en PNG o SVG. Sin marca de agua, sin registro y sin caducidad: el QR se genera en tu navegador y no depende de ningún servidor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/generador-qr.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/vendor/qrcode-generator.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/generador-qr.html#app",
+  "name": "Generador de códigos QR",
+  "url": "https://arquitectodigital.io/utilidades/generador-qr.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Crea un código QR a partir de una URL o un texto y descárgalo en PNG o SVG. Sin marca de agua, sin registro y sin caducidad: el QR se genera en tu navegador y no depende de ningún servidor.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Genera el QR en el navegador, sin servidor",
+    "El contenido va dentro del código: no caduca",
+    "Sin marca de agua",
+    "Descarga en PNG y en SVG vectorial",
+    "Cuatro niveles de corrección de errores",
+    "Tamaño de PNG configurable hasta 1024 px",
+    "Margen configurable"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/generador-qr.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿El QR caduca o deja de funcionar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El contenido va dentro del código, no en un redirector. Mientras la URL a la que apunta siga existiendo, el QR funcionará indefinidamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Lleva marca de agua?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El código sale limpio, sin logo ni marca de ningún tipo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo contar cuántas veces lo escanean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Contar escaneos exige pasar por un servidor intermedio, y esta herramienta no tiene servidor. Ese es justamente el motivo de que tu QR no pueda caducar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué formato uso para imprimir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG. Es vectorial, así que se ve nítido a cualquier tamaño. El PNG va mejor para pantalla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué me dice que el texto es demasiado largo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un código QR tiene un límite de capacidad que baja cuanto mayor es el nivel de corrección de errores. Si te pasas, baja el nivel de corrección o acorta el contenido."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Generador de códigos QR",
+      "item": "https://arquitectodigital.io/utilidades/generador-qr.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › Generador de códigos QR</p>
+    <span class="section-label">[Utilidad] General</span>
+    <h1>Generador de<br><span class="accent">códigos QR</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Escribe una URL o un texto y descarga el QR en PNG o SVG. Sin marca de agua, sin registro y <strong>sin caducidad</strong>: el código se genera en tu navegador y apunta directo a tu enlace, no a un redirector que pueda dejar de funcionar mañana.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Contenido</h2>
+      <label class="tool-field">
+        <span>URL o texto</span>
+        <textarea id="data" class="tool-textarea" style="min-height:110px" placeholder="https://arquitectodigital.io">https://arquitectodigital.io</textarea>
+      </label>
+      <label class="tool-field">
+        <span>Corrección de errores</span>
+        <select id="ecl" class="tool-select">
+          <option value="L">L · 7 % (QR más pequeño)</option>
+          <option value="M" selected>M · 15 % (recomendado)</option>
+          <option value="Q">Q · 25 %</option>
+          <option value="H">H · 30 % (aguanta más daño)</option>
+        </select>
+      </label>
+      <label class="tool-field">
+        <span>Tamaño del PNG: <b id="px-val" style="color:var(--orange)">512</b> px</span>
+        <input type="range" id="px" min="128" max="1024" step="64" value="512" style="width:100%">
+      </label>
+      <label class="tool-field">
+        <span>Margen (módulos)</span>
+        <input type="number" id="quiet" class="tool-input" min="0" max="8" value="4">
+      </label>
+      <p id="warn" style="color:#ef4444;font-size:.88em;margin-top:4px"></p>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Tu código QR</h2>
+      <div id="qr-box" style="background:#fff;border-radius:10px;padding:16px;display:flex;
+        align-items:center;justify-content:center;min-height:240px"></div>
+      <p id="qr-meta" style="color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:.78em;margin-top:10px">—</p>
+      <div class="tool-actions" style="margin-top:12px">
+        <button type="button" class="tool-btn tool-btn--primary" id="dl-png">Descargar PNG</button>
+        <button type="button" class="tool-btn" id="dl-svg">Descargar SVG</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Un QR que no caduca</h2>
+    <p>
+      Muchos generadores online no meten tu enlace dentro del código: meten una URL suya que
+      redirige al tuyo. Eso les permite contar escaneos, pero significa que si ese servicio cierra
+      o empieza a cobrar, tu QR deja de funcionar — y si ya lo imprimiste en mil folletos, tienes
+      un problema.
+    </p>
+    <p>
+      Aquí el contenido que escribes va <strong>dentro</strong> del código. No hay redirector, no
+      hay cuenta y no hay nada que pueda caducar. A cambio, no puedo darte estadísticas de escaneo:
+      no hay forma de contarlos sin pasar por un servidor intermedio.
+    </p>
+
+    <h2>Qué nivel de corrección de errores elegir</h2>
+    <p>
+      El QR guarda información redundante para poder leerse aunque esté parcialmente dañado o
+      tapado. Cuanta más redundancia, más grande y más denso el código.
+    </p>
+    <ul>
+      <li><strong>L (7 %):</strong> para pantalla o soportes limpios y protegidos.</li>
+      <li><strong>M (15 %):</strong> el equilibrio habitual. Es el que viene marcado.</li>
+      <li><strong>Q (25 %):</strong> para impresión pequeña o superficies que se manchan.</li>
+      <li><strong>H (30 %):</strong> si vas a poner un logo encima o el soporte va a sufrir.</li>
+    </ul>
+
+    <h2>PNG o SVG</h2>
+    <p>
+      Para imprimir, usa <strong>SVG</strong>: es vectorial y se ve nítido a cualquier tamaño, desde
+      una tarjeta hasta una valla. El <strong>PNG</strong> va mejor para pegarlo en una web, un
+      documento o una presentación.
+    </p>
+
+    <h2>Cómo asegurarte de que funciona</h2>
+    <p>
+      Escanéalo tú mismo con el móvil antes de mandarlo a imprenta, y hazlo desde el tamaño real al
+      que se va a ver. Deja siempre el margen blanco alrededor: el lector lo necesita para
+      localizar el código. Por eso el margen viene puesto en 4 módulos, que es lo que recomienda
+      la especificación.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿El QR caduca o deja de funcionar?</h3>
+    <p>No. El contenido va dentro del código, no en un redirector. Mientras la URL a la que apunta siga existiendo, el QR funcionará indefinidamente.</p>
+    <h3>¿Lleva marca de agua?</h3>
+    <p>No. El código sale limpio, sin logo ni marca de ningún tipo.</p>
+    <h3>¿Puedo contar cuántas veces lo escanean?</h3>
+    <p>No. Contar escaneos exige pasar por un servidor intermedio, y esta herramienta no tiene servidor. Ese es justamente el motivo de que tu QR no pueda caducar.</p>
+    <h3>¿Qué formato uso para imprimir?</h3>
+    <p>SVG. Es vectorial, así que se ve nítido a cualquier tamaño. El PNG va mejor para pantalla.</p>
+    <h3>¿Por qué me dice que el texto es demasiado largo?</h3>
+    <p>Un código QR tiene un límite de capacidad que baja cuanto mayor es el nivel de corrección de errores. Si te pasas, baja el nivel de corrección o acorta el contenido.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+// La libreria del QR va con defer, asi que se ejecuta ANTES de
+// DOMContentLoaded pero DESPUES de este script inline. Por eso arrancamos ahi.
+document.addEventListener('DOMContentLoaded', function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var box = $('qr-box');
+  var current = null;
+
+  function build() {
+    var text = $('data').value || '';
+    $('px-val').textContent = $('px').value;
+    if (!text.trim()) {
+      box.innerHTML = ''; current = null;
+      $('qr-meta').textContent = '—'; $('warn').textContent = '';
+      return;
+    }
+    var ecl = $('ecl').value;
+    var qr = null, typeNumber = 0;
+    try {
+      // typeNumber 0 = la libreria elige la version minima que quepa
+      qr = qrcode(0, ecl);
+      qr.addData(text);
+      qr.make();
+    } catch (e) {
+      box.innerHTML = ''; current = null;
+      $('qr-meta').textContent = '—';
+      $('warn').textContent = 'El texto es demasiado largo para un código QR con este nivel de corrección. Prueba con un nivel menor o acorta el contenido.';
+      return;
+    }
+    $('warn').textContent = '';
+    current = qr;
+
+    var count = qr.getModuleCount();
+    var quiet = Math.max(0, Math.min(8, parseInt($('quiet').value, 10) || 0));
+    var total = count + quiet * 2;
+
+    // SVG nitido a cualquier tamano
+    var rects = '';
+    for (var r = 0; r < count; r++) {
+      for (var c = 0; c < count; c++) {
+        if (qr.isDark(r, c)) rects += '<rect x="' + (c + quiet) + '" y="' + (r + quiet) + '" width="1" height="1"/>';
+      }
+    }
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + total + ' ' + total + '" ' +
+              'width="240" height="240" shape-rendering="crispEdges">' +
+              '<rect width="' + total + '" height="' + total + '" fill="#ffffff"/>' +
+              '<g fill="#000000">' + rects + '</g></svg>';
+    box.innerHTML = svg;
+    $('qr-meta').textContent = count + '×' + count + ' módulos · nivel ' + ecl + ' · ' + text.length + ' caracteres';
+  }
+
+  function svgString() {
+    var el = box.querySelector('svg');
+    if (!el) return null;
+    var clone = el.cloneNode(true);
+    clone.setAttribute('width', $('px').value);
+    clone.setAttribute('height', $('px').value);
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' + clone.outerHTML;
+  }
+
+  function download(href, name) {
+    var a = document.createElement('a');
+    a.href = href; a.download = name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
+
+  $('dl-svg').addEventListener('click', function () {
+    var s = svgString(); if (!s) return;
+    download('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s), 'codigo-qr.svg');
+  });
+
+  $('dl-png').addEventListener('click', function () {
+    var s = svgString(); if (!s) return;
+    var px = parseInt($('px').value, 10) || 512;
+    var img = new Image();
+    img.onload = function () {
+      var cv = document.createElement('canvas');
+      cv.width = px; cv.height = px;
+      var ctx = cv.getContext('2d');
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, px, px);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(img, 0, 0, px, px);
+      download(cv.toDataURL('image/png'), 'codigo-qr.png');
+    };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s);
+  });
+
+  ['data','ecl','px','quiet'].forEach(function (id) {
+    $(id).addEventListener('input', build); $(id).addEventListener('change', build);
+  });
+
+  if (typeof qrcode !== 'function') {
+    $('warn').textContent = 'No se ha podido cargar el generador de códigos QR. Recarga la página.';
+    return;
+  }
+  build();
+});
+</script>
+</body>
+</html>

@@ -18,8 +18,109 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- PERF: fuentes pedidas en paralelo desde el head. El @import de
+     assets/styles.css se mantiene (lo necesitan las paginas legales,
+     que no se tocan); el navegador deduplica por URL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://arquitectodigital.io/sistemas.html#service",
+  "name": "Sistemas Personalizados",
+  "serviceType": "Diseño e implementación de sistemas IA a medida",
+  "url": "https://arquitectodigital.io/sistemas.html",
+  "description": "Sistemas IA a medida para casos que no encajan en los servicios estándar. Sprint cerrado con presupuesto fijo previo desde 2.650€ en pago único, o consultoría por hora a 100€/h con mínimo de 2h por sesión. IVA incluido. Los sprints medio y complejo y el mantenimiento mensual son a presupuesto según alcance.",
+  "inLanguage": "es",
+  "provider": {
+    "@id": "https://arquitectodigital.io/#organization"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Sprint simple",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "minPrice": "2650",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "3-5 días de trabajo dedicado, alcance cerrado por escrito, documentación incluida. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Consultoría por hora",
+      "priceCurrency": "EUR",
+      "price": "100",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "100",
+        "valueAddedTaxIncluded": true,
+        "unitCode": "HUR"
+      },
+      "description": "Para auditorías, dudas técnicas o sprints sueltos. Mínimo 2h por sesión, facturación quincenal, tope acordado por bolsa. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/sistemas.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un sistema a medida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El sprint cerrado parte de 2.650€ en pago único, con presupuesto fijo acordado antes de empezar. Los sprints medio y complejo van a presupuesto a medida según el alcance. Y hay consultoría por hora a 100€/h con un mínimo de 2h por sesión. Todo con IVA incluido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé lo que voy a pagar antes de empezar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Antes de cualquier presupuesto hay una sesión de 30 a 60 minutos para entender el caso, y de ahí sale un documento de alcance cerrado por escrito. Si después surge una ampliación, se cotiza aparte como sprint nuevo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se paga?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del sprint. El simple es 100% al inicio. El medio es 50% al inicio y 50% al cierre. El complejo es 30% al inicio, 35% a mitad y 35% al cierre. Sin cláusulas de continuidad obligatoria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Me quedo atado a ti para mantenerlo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Cada sprint termina con documentación de arquitectura, ejecución y mantenimiento, de forma que tu equipo puede operar el sistema sin depender de mí. Si prefieres, puedes contratar mantenimiento mensual, que va por cotización según el sistema."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿De quién es el código?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si se despliega en la mía, se te transfiere acceso completo y/o se migra al cierre. Sin lock-in vendor."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +139,15 @@
           <li><a href="sistemas.html">Sistemas Personalizados</a></li>
           <li><a href="girobot.html">GiroBot · Twitch</a></li>
           <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
         </ul>
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -60,6 +170,8 @@
       ¿Necesitas algo que no encaja en los servicios estándar? Diseño e
       implemento sistemas IA específicos para tu caso. Sprint corto, medio
       o complejo según alcance.
+      <strong>Sprint cerrado desde 2.650€</strong> en pago único, o consultoría
+      a 100€/h con mínimo de 2h por sesión. IVA incluido.
     </p>
   </div>
 </section>
@@ -271,6 +383,42 @@
     sprint, como consultoría o si conviene un servicio estándar.
   </p>
   <a href="index.html#contacto" class="btn-primary">Agendar llamada gratuita →</a>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[05] Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre sistemas a medida</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta un sistema a medida?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">El sprint cerrado parte de 2.650€ en pago único, con presupuesto fijo acordado antes de empezar. Los sprints medio y complejo van a presupuesto a medida según el alcance. Y hay consultoría por hora a 100€/h con un mínimo de 2h por sesión. Todo con IVA incluido.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cómo sé lo que voy a pagar antes de empezar?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Antes de cualquier presupuesto hay una sesión de 30 a 60 minutos para entender el caso, y de ahí sale un documento de alcance cerrado por escrito. Si después surge una ampliación, se cotiza aparte como sprint nuevo.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cómo se paga?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Depende del sprint. El simple es 100% al inicio. El medio es 50% al inicio y 50% al cierre. El complejo es 30% al inicio, 35% a mitad y 35% al cierre. Sin cláusulas de continuidad obligatoria.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Me quedo atado a ti para mantenerlo?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">No. Cada sprint termina con documentación de arquitectura, ejecución y mantenimiento, de forma que tu equipo puede operar el sistema sin depender de mí. Si prefieres, puedes contratar mantenimiento mensual, que va por cotización según el sistema.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿De quién es el código?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si se despliega en la mía, se te transfiere acceso completo y/o se migra al cierre. Sin lock-in vendor.</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>

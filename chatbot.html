@@ -18,8 +18,189 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- PERF: fuentes pedidas en paralelo desde el head. El @import de
+     assets/styles.css se mantiene (lo necesitan las paginas legales,
+     que no se tocan); el navegador deduplica por URL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://arquitectodigital.io/chatbot.html#service",
+  "name": "Chatbots Personalizados con RAG",
+  "serviceType": "Desarrollo de chatbot con IA para empresas",
+  "url": "https://arquitectodigital.io/chatbot.html",
+  "description": "Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), sin alucinaciones y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup desde 529€; planes mensuales desde 84€/mes. Todos los precios con IVA incluido.",
+  "inLanguage": "es",
+  "provider": {
+    "@id": "https://arquitectodigital.io/#organization"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "POC · 7 días",
+      "priceCurrency": "EUR",
+      "price": "158",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "158",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. Deducible del Setup si contratas. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Setup Widget Web",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "minPrice": "529",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Setup Telegram",
+      "priceCurrency": "EUR",
+      "price": "849",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "849",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Canales web widget + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Recurring Light",
+      "priceCurrency": "EUR",
+      "price": "84",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "84",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Recurring Medium",
+      "priceCurrency": "EUR",
+      "price": "190",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "190",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Recurring Pro",
+      "priceCurrency": "EUR",
+      "price": "423",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "423",
+        "valueAddedTaxIncluded": true,
+        "billingIncrement": 1,
+        "unitCode": "MON",
+        "billingDuration": 1
+      },
+      "description": "Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/chatbot.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un chatbot con IA para mi empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hay tres formatos. Una POC de 7 días por 158€ en pago único, que es deducible del Setup si después contratas. El Setup completo va desde 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA incluido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto se tarda en tener el chatbot funcionando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo permanencia? ¿Puedo cancelar cuando quiera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay permanencia en ningún formato. La POC y el Setup son pago único sin permanencia. El plan recurrente es mes a mes y lo cancelas cuando quieras desde la propia consola, sin penalización y sin letra pequeña."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué idioma responde el chatbot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En español."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencia de Tidio o ManyChat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es un chatbot de plantilla: usa RAG sobre tus documentos, así que responde sobre tus reglas y no sobre material genérico. Es multi-canal (widget web + Telegram), no tiene vendor lock-in y la arquitectura está documentada, de forma que puedes migrar a otro proveedor sin rehacer el knowledge base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa con mis datos y mis documentos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tus documentos y conversaciones se procesan cumpliendo el RGPD. Puedes exportar el corpus y los logs cuando quieras. No hay vendor lock-in: la arquitectura está documentada y migras a otro proveedor sin rehacer el knowledge base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué soporte tengo si el chatbot deja de funcionar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los tickets ordinarios van por email, con respuesta en menos de 48h en plan recurring y prioritaria en el plan Pro. Para incidencias críticas (chatbot caído) hay WhatsApp y Telegram. La atención es en horario laboral peninsular."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +219,15 @@
           <li><a href="sistemas.html">Sistemas Personalizados</a></li>
           <li><a href="girobot.html">GiroBot · Twitch</a></li>
           <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
         </ul>
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -64,6 +254,8 @@
       No es Tidio ni ManyChat. Es un chatbot con RAG sobre TUS documentos,
       multi-canal (web + Telegram), sin alucinaciones y sin vendor lock-in.
       Tu información, contigo. Tu chatbot, contigo.
+      <strong>POC de 7 días por 158€</strong> (deducible del Setup), Setup desde 529€
+      y planes mensuales desde 84€/mes. IVA incluido.
     </p>
   </div>
 </section>
@@ -294,6 +486,52 @@
     cuánto costaría y qué sigue. Sin presión, sin compromiso.
   </p>
   <a href="index.html#contacto" class="btn-primary">Agendar llamada gratuita →</a>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[05] Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre el chatbot</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta un chatbot con IA para mi empresa?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Hay tres formatos. Una POC de 7 días por 158€ en pago único, que es deducible del Setup si después contratas. El Setup completo va desde 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA incluido.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto se tarda en tener el chatbot funcionando?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Tengo permanencia? ¿Puedo cancelar cuando quiera?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">No hay permanencia en ningún formato. La POC y el Setup son pago único sin permanencia. El plan recurrente es mes a mes y lo cancelas cuando quieras desde la propia consola, sin penalización y sin letra pequeña.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿En qué idioma responde el chatbot?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">En español.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿En qué se diferencia de Tidio o ManyChat?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">No es un chatbot de plantilla: usa RAG sobre tus documentos, así que responde sobre tus reglas y no sobre material genérico. Es multi-canal (widget web + Telegram), no tiene vendor lock-in y la arquitectura está documentada, de forma que puedes migrar a otro proveedor sin rehacer el knowledge base.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Qué pasa con mis datos y mis documentos?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Tus documentos y conversaciones se procesan cumpliendo el RGPD. Puedes exportar el corpus y los logs cuando quieras. No hay vendor lock-in: la arquitectura está documentada y migras a otro proveedor sin rehacer el knowledge base.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Qué soporte tengo si el chatbot deja de funcionar?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Los tickets ordinarios van por email, con respuesta en menos de 48h en plan recurring y prioritaria en el plan Pro. Para incidencias críticas (chatbot caído) hay WhatsApp y Telegram. La atención es en horario laboral peninsular.</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>

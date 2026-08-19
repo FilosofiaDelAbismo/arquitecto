@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de slug para URL online gratis · Arquitecto Digital</title>
+<meta name="description" content="Convierte cualquier título en un slug limpio para la URL: sin acentos, sin símbolos y separado por guiones. Opción de quitar palabras vacías. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/generador-slug.html">
+
+<meta property="og:title" content="Generador de slug para URL online gratis · Arquitecto Digital">
+<meta property="og:description" content="Convierte cualquier título en un slug limpio para la URL: sin acentos, sin símbolos y separado por guiones. Opción de quitar palabras vacías. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/generador-slug.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/generador-slug.html#app",
+  "name": "Generador de slugs para URL",
+  "url": "https://arquitectodigital.io/utilidades/generador-slug.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Convierte cualquier título en un slug limpio para la URL: sin acentos, sin símbolos y separado por guiones. Opción de quitar palabras vacías. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Convierte títulos en slugs para URL",
+    "Elimina acentos, eñes y símbolos",
+    "Separador configurable: guion, guion bajo o ninguno",
+    "Opción de quitar números",
+    "Opción de quitar palabras vacías en español",
+    "Genera la URL completa con tu prefijo",
+    "Cuenta caracteres y palabras del slug"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/generador-slug.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué longitud debe tener un slug?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay un número obligatorio, pero conviene que sea corto y legible: lo justo para entender de qué va la página al leer la URL. La herramienta te enseña cuántos caracteres y cuántas palabras tiene."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo dejar los números?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, se conservan por defecto. Si prefieres quitarlos (por ejemplo el año de un título), marca la casilla «Quitar números»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cambiar el slug de una página que ya está publicada afecta al SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. La URL antigua deja de existir y pierdes el posicionamiento que tuviera, salvo que configures una redirección 301 desde la antigua a la nueva."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Generador de slugs para URL",
+      "item": "https://arquitectodigital.io/utilidades/generador-slug.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › Generador de slugs para URL</p>
+    <span class="section-label">[Utilidad] General</span>
+    <h1>Generador de slugs<br><span class="accent">para tus URLs</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Escribe un título y obtén el slug listo para pegar en la URL: en minúsculas, sin acentos, sin símbolos raros y separado por guiones. Puedes quitar las palabras vacías para acortarlo. <strong>Todo se calcula en tu navegador</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-panel" style="margin-bottom:20px">
+    <label class="tool-field">
+      <span>Título original</span>
+      <input type="text" id="title" class="tool-input" value="El Increíble Día de la Marmota 2024" autocomplete="off">
+    </label>
+  </div>
+
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Resultado</h2>
+      <div id="slug-out" style="font-family:'JetBrains Mono',monospace;background:var(--bg-elevated);
+        border:1px solid var(--border);border-radius:8px;padding:14px 16px;color:var(--orange);
+        font-size:1.02em;word-break:break-all;min-height:48px">&nbsp;</div>
+      <p id="slug-meta" style="color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:.8em;margin-top:10px">—</p>
+      <div class="tool-actions" style="margin-top:12px">
+        <button type="button" class="tool-btn tool-btn--primary" id="copy-slug">Copiar slug</button>
+        <button type="button" class="tool-btn" id="copy-url">Copiar URL</button>
+        <span id="msg" role="status" aria-live="polite" style="align-self:center;color:var(--green);font-size:.88em"></span>
+      </div>
+      <label class="tool-field" style="margin-top:18px">
+        <span>Prefijo de URL</span>
+        <input type="text" id="prefix" class="tool-input" value="https://arquitectodigital.io/blog/">
+      </label>
+      <div id="url-out" style="font-family:'JetBrains Mono',monospace;background:var(--bg-elevated);
+        border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text-dim);
+        font-size:.85em;word-break:break-all">—</div>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Opciones</h2>
+      <label class="tool-field">
+        <span>Separador</span>
+        <select id="sep" class="tool-select">
+          <option value="-" selected>Guion (-)</option>
+          <option value="_">Guion bajo (_)</option>
+          <option value="">Sin separador</option>
+        </select>
+      </label>
+      <div style="display:grid;gap:9px;margin-top:6px">
+        <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer"><input type="checkbox" id="o-lower" checked> Pasar a minúsculas</label>
+        <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer"><input type="checkbox" id="o-deburr" checked> Quitar acentos y eñes</label>
+        <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer"><input type="checkbox" id="o-special" checked> Quitar símbolos</label>
+        <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer"><input type="checkbox" id="o-numbers"> Quitar números</label>
+        <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer"><input type="checkbox" id="o-stop"> Quitar palabras vacías (de, la, el…)</label>
+      </div>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Qué es un slug</h2>
+    <p>
+      El slug es la parte final de una URL que identifica la página, la que va después de la
+      barra: en <em>arquitectodigital.io/blog/como-montar-un-chatbot</em>, el slug es
+      <em>como-montar-un-chatbot</em>. Se escribe en minúsculas, sin acentos y con guiones en
+      lugar de espacios, porque los navegadores y los servidores no tratan bien los caracteres
+      especiales dentro de una URL.
+    </p>
+    <h2>Por qué guiones y no guiones bajos</h2>
+    <p>
+      Google ha recomendado históricamente el guion normal para separar palabras en las URLs,
+      porque lo interpreta como separador. El guion bajo tiende a unir las palabras. Si la URL
+      es nueva, usa guion.
+    </p>
+    <h2>Quitar las palabras vacías</h2>
+    <p>
+      Preposiciones y artículos como «de», «la» o «el» alargan la URL sin aportar. Puedes
+      quitarlos con la casilla correspondiente. Si al quitarlos el slug se quedara vacío, la
+      herramienta los conserva para no devolverte una URL en blanco.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Qué longitud debe tener un slug?</h3>
+    <p>No hay un número obligatorio, pero conviene que sea corto y legible: lo justo para entender de qué va la página al leer la URL. La herramienta te enseña cuántos caracteres y cuántas palabras tiene.</p>
+    <h3>¿Puedo dejar los números?</h3>
+    <p>Sí, se conservan por defecto. Si prefieres quitarlos (por ejemplo el año de un título), marca la casilla «Quitar números».</p>
+    <h3>¿Cambiar el slug de una página que ya está publicada afecta al SEO?</h3>
+    <p>Sí. La URL antigua deja de existir y pierdes el posicionamiento que tuviera, salvo que configures una redirección 301 desde la antigua a la nueva.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var STOP = new Set(('a al algo algun alguna algunas alguno algunos ante antes aqui aquel aquella aquellas aquellos asi aun aunque cada como con contra cual cuales cuando de del desde donde dos durante e el ella ellas ellos en entre era eran eres es esa esas ese eso esos esta estaba estaban estamos estan estar estas este esto estos estoy fue fui fuimos ha habia haber hace hacen hacer han has hasta hay he hemos la las le les lo los mas me mi mientras mis mucho muchos muy nada ni no nos nosotros nuestra nuestras nuestro nuestros nunca o os otra otras otro otros para pero poco por porque que quien quienes se sea sean ser si siendo sin sino sobre solo somos son su sus tambien te tenemos tener tengo ti tiene tienen toda todas todo todos tras tu tus un una unas uno unos usted ustedes va van vamos vosotros y ya yo').split(/\s+/));
+
+  function deburr(s) {
+    return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g,'n').replace(/Ñ/g,'N');
+  }
+
+  function slugify(t, o) {
+    if (!t) return '';
+    var s = t;
+    if (o.lower)   s = s.toLowerCase();
+    if (o.deburr)  s = deburr(s);
+    if (o.numbers) s = s.replace(/[0-9]/g, ' ');
+    if (o.special) s = s.replace(/[^a-zA-Z0-9 \-_]/g, ' ');
+    var parts = s.split(/[\s\-_]+/).filter(Boolean);
+    if (o.stop) {
+      var kept = parts.filter(function (p) { return !STOP.has(deburr(p).toLowerCase()); });
+      if (kept.length) parts = kept;
+    }
+    return parts.join(o.sep);
+  }
+
+  function opts() {
+    return { sep: $('sep').value, lower: $('o-lower').checked, deburr: $('o-deburr').checked,
+             special: $('o-special').checked, numbers: $('o-numbers').checked, stop: $('o-stop').checked };
+  }
+
+  function render() {
+    var slug = slugify($('title').value, opts());
+    $('slug-out').textContent = slug || ' ';
+    $('slug-meta').textContent = slug
+      ? slug.length + ' caracteres · ' + (slug ? slug.split(/[-_]/).filter(Boolean).length : 0) + ' palabras'
+      : '—';
+    var pre = $('prefix').value || '';
+    $('url-out').textContent = slug ? (pre.replace(/\/+$/, '') + '/' + slug) : '—';
+  }
+
+  function flash(t) { var m = $('msg'); m.textContent = t; setTimeout(function () { m.textContent = ''; }, 1600); }
+  function copy(txt) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { flash('Copiado'); });
+    } else { flash('Selecciona y copia con Ctrl+C'); }
+  }
+
+  ['title','prefix','sep','o-lower','o-deburr','o-special','o-numbers','o-stop'].forEach(function (id) {
+    $(id).addEventListener('input', render); $(id).addEventListener('change', render);
+  });
+  $('copy-slug').addEventListener('click', function () { copy($('slug-out').textContent.trim()); });
+  $('copy-url').addEventListener('click', function () { copy($('url-out').textContent.trim()); });
+  render();
+})();
+</script>
+</body>
+</html>

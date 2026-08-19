@@ -1,4 +1,92 @@
+# arquitectodigital.io
+# Politica: acceso ABIERTO. Queremos ser rastreados y CITADOS, tanto por
+# buscadores clasicos como por motores generativos (ChatGPT, Perplexity,
+# Gemini, Claude). Los bots de IA se declaran uno a uno de forma explicita
+# para dejar constancia de que es intencional y para que ningun cambio
+# futuro los bloquee por descuido.
+
 User-agent: *
+Allow: /
+
+# --- Buscadores clasicos ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- OpenAI ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# --- Google (entrenamiento y Gemini/AI Overviews) ---
+User-agent: Google-Extended
+Allow: /
+
+# --- Anthropic ---
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# --- Common Crawl (corpus del que beben muchos modelos) ---
+User-agent: CCBot
+Allow: /
+
+# --- Apple ---
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# --- Meta ---
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# --- Otros ---
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: YouBot
 Allow: /
 
 Sitemap: https://arquitectodigital.io/sitemap.xml

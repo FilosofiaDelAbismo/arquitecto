@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de grupos aleatorios para clase · gratis · Arquitecto Digital</title>
+<meta name="description" content="Pega tu lista de alumnos y repártela en grupos equilibrados al azar. Elige número de grupos o tamaño por grupo. Gratis, sin registro y sin subir la lista a ningún servidor.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/generador-grupos.html">
+
+<meta property="og:title" content="Generador de grupos aleatorios para clase · gratis · Arquitecto Digital">
+<meta property="og:description" content="Pega tu lista de alumnos y repártela en grupos equilibrados al azar. Elige número de grupos o tamaño por grupo. Gratis, sin registro y sin subir la lista a ningún servidor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/generador-grupos.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/generador-grupos.html#app",
+  "name": "Generador de grupos aleatorios",
+  "url": "https://arquitectodigital.io/utilidades/generador-grupos.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Pega tu lista de alumnos y repártela en grupos equilibrados al azar. Elige número de grupos o tamaño por grupo. Gratis, sin registro y sin subir la lista a ningún servidor.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Reparto aleatorio equilibrado",
+    "Por número de grupos o por tamaño de grupo",
+    "Barajado con el generador criptográfico del navegador",
+    "Admite listas separadas por líneas, comas o punto y coma",
+    "Copiar el resultado",
+    "No envía los nombres a ningún servidor"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/generador-grupos.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se guardan los nombres de mis alumnos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No hay servidor: la lista vive solo en la memoria de tu navegador mientras la pestaña está abierta y desaparece al cerrarla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los grupos quedan equilibrados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Al repartir por número de grupos, la diferencia entre el grupo más grande y el más pequeño nunca es mayor de una persona."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es aleatorio de verdad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Usa el generador aleatorio criptográfico del navegador cuando está disponible, así que dos repartos seguidos dan resultados distintos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo pegar la lista desde Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Admite un nombre por línea, o separados por comas o punto y coma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo hacer parejas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cambia a «Personas por grupo» y pon 2."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Educativo",
+      "item": "https://arquitectodigital.io/utilidades/educativo.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Generador de grupos aleatorios",
+      "item": "https://arquitectodigital.io/utilidades/generador-grupos.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/educativo.html">Educativo</a> › Generador de grupos aleatorios</p>
+    <span class="section-label">[Utilidad] Educativo</span>
+    <h1>Generador de<br><span class="accent">grupos aleatorios</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Pega la lista de tu clase y repártela en grupos equilibrados al azar, en un clic. Puedes fijar el número de grupos o cuánta gente va en cada uno. <strong>La lista de nombres no sale de tu navegador</strong>, que en un aula es exactamente lo que quieres.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Lista</h2>
+      <label class="tool-field">
+        <span>Un nombre por línea (o separados por comas)</span>
+        <textarea id="names" class="tool-textarea" style="min-height:230px" placeholder="Ana&#10;Luis&#10;Marta&#10;…"></textarea>
+      </label>
+      <p id="count" style="color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:.8em">0 nombres</p>
+
+      <label class="tool-field">
+        <span>Repartir por</span>
+        <select id="mode" class="tool-select">
+          <option value="groups" selected>Número de grupos</option>
+          <option value="size">Personas por grupo</option>
+        </select>
+      </label>
+      <label class="tool-field">
+        <span id="lbl-n">Número de grupos</span>
+        <input type="number" id="n" class="tool-input" min="1" max="60" value="4">
+      </label>
+      <div class="tool-actions">
+        <button type="button" class="tool-btn tool-btn--primary" id="btn-go">Repartir</button>
+        <button type="button" class="tool-btn" id="btn-copy">Copiar resultado</button>
+        <span id="msg" role="status" aria-live="polite" style="align-self:center;color:var(--green);font-size:.88em"></span>
+      </div>
+      <p id="warn" style="color:#ef4444;font-size:.88em;margin-top:8px"></p>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Grupos</h2>
+      <div id="out" style="display:grid;gap:12px">
+        <p style="color:var(--text-dim)">Pega tu lista y pulsa «Repartir».</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Cómo reparte</h2>
+    <p>
+      Primero baraja la lista completa al azar y después la reparte. Si eliges número de grupos,
+      va colocando de uno en uno y rotando, de forma que los grupos quedan lo más equilibrados
+      posible: con 22 alumnos en 4 grupos salen dos de 6 y dos de 5, nunca uno de 10 y otro de 2.
+    </p>
+    <p>
+      El barajado usa el generador aleatorio criptográfico del navegador cuando está disponible,
+      así que dos repartos seguidos con la misma lista dan resultados distintos de verdad.
+    </p>
+
+    <h2>Dos formas de repartir</h2>
+    <ul>
+      <li><strong>Por número de grupos:</strong> «quiero 4 grupos» y él decide cuántos van en cada uno.</li>
+      <li><strong>Por personas por grupo:</strong> «quiero parejas» o «tríos» y él decide cuántos grupos salen. Si la división no es exacta, el último grupo queda más pequeño.</li>
+    </ul>
+
+    <h2>Formatos de lista que admite</h2>
+    <p>
+      Un nombre por línea es lo más cómodo, pero también acepta nombres separados por comas o por
+      punto y coma, así que puedes pegar directamente desde una hoja de cálculo o desde un listado
+      de clase sin tener que reformatearlo.
+    </p>
+
+    <h2>Sobre los datos del alumnado</h2>
+    <p>
+      Los nombres de menores son datos personales. Esta herramienta no los envía a ningún sitio ni
+      los guarda: viven en la memoria de tu navegador mientras la pestaña está abierta y
+      desaparecen al cerrarla. No hay servidor que pueda verlos.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Se guardan los nombres de mis alumnos?</h3>
+    <p>No. No hay servidor: la lista vive solo en la memoria de tu navegador mientras la pestaña está abierta y desaparece al cerrarla.</p>
+    <h3>¿Los grupos quedan equilibrados?</h3>
+    <p>Sí. Al repartir por número de grupos, la diferencia entre el grupo más grande y el más pequeño nunca es mayor de una persona.</p>
+    <h3>¿Es aleatorio de verdad?</h3>
+    <p>Sí. Usa el generador aleatorio criptográfico del navegador cuando está disponible, así que dos repartos seguidos dan resultados distintos.</p>
+    <h3>¿Puedo pegar la lista desde Excel?</h3>
+    <p>Sí. Admite un nombre por línea, o separados por comas o punto y coma.</p>
+    <h3>¿Puedo hacer parejas?</h3>
+    <p>Sí. Cambia a «Personas por grupo» y pon 2.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  function parse() {
+    return ($('names').value || '')
+      .split(/[\n,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  function rnd(max) {
+    if (max <= 0) return 0;
+    if (window.crypto && crypto.getRandomValues) {
+      var a = new Uint32Array(1);
+      var th = Math.floor(0xFFFFFFFF / max) * max, v;
+      do { crypto.getRandomValues(a); v = a[0]; } while (v >= th);
+      return v % max;
+    }
+    return Math.floor(Math.random() * max);
+  }
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = rnd(i + 1), t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+
+  function count() {
+    var n = parse().length;
+    $('count').textContent = n + (n === 1 ? ' nombre' : ' nombres');
+  }
+
+  function go() {
+    var people = shuffle(parse());
+    $('warn').textContent = '';
+    if (!people.length) { $('warn').textContent = 'Pega primero la lista de nombres.'; return; }
+
+    var n = Math.max(1, parseInt($('n').value, 10) || 1);
+    var groups = [];
+    if ($('mode').value === 'groups') {
+      var k = Math.min(n, people.length);
+      for (var i = 0; i < k; i++) groups.push([]);
+      people.forEach(function (p, i) { groups[i % k].push(p); });
+    } else {
+      for (var j = 0; j < people.length; j += n) groups.push(people.slice(j, j + n));
+    }
+
+    $('out').innerHTML = groups.map(function (g, i) {
+      return '<div class="tool-panel" style="padding:13px 16px">' +
+        '<h3 style="margin:0 0 8px;font-size:.92em">Grupo ' + (i + 1) +
+        ' <span style="color:var(--text-faint);font-weight:400">· ' + g.length +
+        (g.length === 1 ? ' persona' : ' personas') + '</span></h3>' +
+        '<div style="color:var(--text-dim);line-height:1.7">' +
+        g.map(function (x) { return x.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }).join(' · ') +
+        '</div></div>';
+    }).join('');
+  }
+
+  $('mode').addEventListener('change', function () {
+    $('lbl-n').textContent = this.value === 'groups' ? 'Número de grupos' : 'Personas por grupo';
+  });
+  $('names').addEventListener('input', count);
+  $('btn-go').addEventListener('click', go);
+  $('btn-copy').addEventListener('click', function () {
+    var txt = Array.prototype.map.call($('out').querySelectorAll('.tool-panel'), function (p) {
+      return p.querySelector('h3').textContent.trim() + '\n' + p.lastElementChild.textContent.trim();
+    }).join('\n\n');
+    if (!txt) return;
+    var m = $('msg');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () {
+        m.textContent = 'Copiado'; setTimeout(function () { m.textContent = ''; }, 1800);
+      });
+    }
+  });
+  count();
+})();
+</script>
+</body>
+</html>

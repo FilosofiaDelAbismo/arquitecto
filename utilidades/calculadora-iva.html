@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de IVA online gratis · añadir y quitar IVA · Arquitecto Digital</title>
+<meta name="description" content="Calcula el IVA en los dos sentidos: añádelo a un importe neto o extráelo de un precio con IVA. Tipos de España, México, Colombia, Argentina, Chile, Perú y la UE. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/calculadora-iva.html">
+
+<meta property="og:title" content="Calculadora de IVA online gratis · añadir y quitar IVA · Arquitecto Digital">
+<meta property="og:description" content="Calcula el IVA en los dos sentidos: añádelo a un importe neto o extráelo de un precio con IVA. Tipos de España, México, Colombia, Argentina, Chile, Perú y la UE. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/calculadora-iva.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-iva.html#app",
+  "name": "Calculadora de IVA",
+  "url": "https://arquitectodigital.io/utilidades/calculadora-iva.html",
+  "applicationCategory": "https://schema.org/FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Calcula el IVA en los dos sentidos: añádelo a un importe neto o extráelo de un precio que ya lo incluye. Incluye los tipos de España, México, Colombia, Argentina, Chile, Perú y la Unión Europea, y admite un tipo personalizado. Funciona entera en el navegador.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Añadir IVA a un importe neto",
+    "Extraer el IVA de un precio final",
+    "Tipos de España, México, Colombia, Argentina, Chile, Perú y UE",
+    "Tipo personalizado",
+    "Cálculo por unidades"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-iva.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Por qué no puedo restar el porcentaje para quitar el IVA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque el porcentaje se aplicó sobre la base, no sobre el total. Restarlo del total lo calcula sobre una cifra mayor y sale de menos. Hay que dividir entre 1 más el tipo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Sirve para hacer una factura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sirve para calcular el importe, pero no sustituye a tu asesoría: qué tipo te corresponde depende del producto, del país y de tu situación fiscal. Aquí solo se hace la aritmética."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se guardan los importes que escribo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La herramienta no tiene servidor: todo el cálculo ocurre en tu navegador."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ecommerce",
+      "item": "https://arquitectodigital.io/utilidades/ecommerce.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Calculadora de IVA",
+      "item": "https://arquitectodigital.io/utilidades/calculadora-iva.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/ecommerce.html">Ecommerce</a> › Calculadora de IVA</p>
+    <span class="section-label">[Utilidad] Ecommerce</span>
+    <h1>Calculadora de IVA<br><span class="accent">en los dos sentidos</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Añade el IVA a un importe neto o extráelo de un precio que ya lo incluye. Elige el tipo
+      del país o escribe el tuyo. Es gratis, no hay que registrarse y
+      <strong>los números no salen de tu navegador</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+
+    <div class="tool-panel">
+      <h2>Datos</h2>
+      <div class="tool-actions" role="group" aria-label="Sentido del cálculo">
+        <button type="button" class="tool-btn tool-btn--primary" id="mode-add" aria-pressed="true">Añadir IVA</button>
+        <button type="button" class="tool-btn" id="mode-rem" aria-pressed="false">Quitar IVA</button>
+      </div>
+
+      <label class="tool-field">
+        <span id="lbl-amount">Importe neto (sin IVA)</span>
+        <input type="text" inputmode="decimal" id="amount" class="tool-input" placeholder="100" value="100">
+      </label>
+
+      <label class="tool-field">
+        <span>País</span>
+        <select id="country" class="tool-select">
+          <option value="ES" selected>España</option>
+          <option value="MX">México</option>
+          <option value="CO">Colombia</option>
+          <option value="AR">Argentina</option>
+          <option value="CL">Chile</option>
+          <option value="PE">Perú</option>
+          <option value="EU">Otros países de la UE</option>
+          <option value="custom">Tipo personalizado</option>
+        </select>
+      </label>
+
+      <label class="tool-field">
+        <span>Tipo aplicable</span>
+        <select id="rate" class="tool-select"></select>
+      </label>
+
+      <label class="tool-field" id="wrap-custom" style="display:none">
+        <span>Tipo personalizado (%)</span>
+        <input type="text" inputmode="decimal" id="custom-rate" class="tool-input" placeholder="21">
+      </label>
+
+      <label class="tool-field">
+        <span>Unidades</span>
+        <input type="text" inputmode="numeric" id="qty" class="tool-input" placeholder="1" value="1">
+      </label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Resultado</h2>
+      <table class="tool-table">
+        <tbody>
+          <tr><td>Base imponible</td><td style="text-align:right"><b id="r-base">—</b></td></tr>
+          <tr><td>Cuota de IVA</td><td style="text-align:right"><b id="r-tax">—</b></td></tr>
+          <tr><td>Total por unidad</td><td style="text-align:right"><b id="r-unit">—</b></td></tr>
+          <tr><td>Total (× unidades)</td><td style="text-align:right"><b id="r-total">—</b></td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-faint);font-size:.85em;margin-top:14px;line-height:1.6">
+        La base y la cuota se muestran por unidad. El total multiplica el precio con IVA
+        por el número de unidades.
+      </p>
+    </div>
+
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Los importes no se envían a ningún sitio.</strong> El cálculo lo hace tu propio
+    navegador. No hay servidor, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Cómo se calcula el IVA</h2>
+    <h3>Añadir IVA a un importe neto</h3>
+    <p>
+      Se multiplica la base por el tipo y se suma. Con una base de 100 € y un tipo del 21 %:
+      la cuota es 100 × 0,21 = 21 €, y el total 121 €.
+    </p>
+    <h3>Quitar el IVA de un precio final</h3>
+    <p>
+      Aquí el error habitual es restar el 21 % al precio final, y eso da mal. Hay que dividir:
+      base = total ÷ (1 + tipo). De un precio de 121 € al 21 %, la base es 121 ÷ 1,21 = 100 €,
+      y la cuota 21 €. Si hubieras restado el 21 % de 121 te habría dado 95,59 €, que es incorrecto.
+    </p>
+
+    <h2>Tipos incluidos</h2>
+    <p>
+      España (21 % general, 10 % reducido, 4 % superreducido), México (16 % y 8 % de frontera),
+      Colombia (19 % y 5 %), Argentina (21 %, 10,5 % y 27 %), Chile (19 %), Perú (18 % de IGV)
+      y una selección de tipos generales de la Unión Europea. También puedes escribir cualquier
+      otro tipo a mano.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Por qué no puedo restar el porcentaje para quitar el IVA?</h3>
+    <p>
+      Porque el porcentaje se aplicó sobre la base, no sobre el total. Restarlo del total lo
+      calcula sobre una cifra mayor y sale de menos. Hay que dividir entre 1 más el tipo.
+    </p>
+    <h3>¿Sirve para hacer una factura?</h3>
+    <p>
+      Sirve para calcular el importe, pero no sustituye a tu asesoría: qué tipo te corresponde
+      depende del producto, del país y de tu situación fiscal. Aquí solo se hace la aritmética.
+    </p>
+    <h3>¿Se guardan los importes que escribo?</h3>
+    <p>No. La herramienta no tiene servidor: todo el cálculo ocurre en tu navegador.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var RATES = {
+    ES: [{l:'21 % — General',v:21},{l:'10 % — Reducido',v:10},{l:'4 % — Superreducido',v:4},{l:'0 %',v:0}],
+    MX: [{l:'16 % — General',v:16},{l:'8 % — Frontera',v:8},{l:'0 %',v:0}],
+    CO: [{l:'19 % — General',v:19},{l:'5 % — Reducido',v:5},{l:'0 %',v:0}],
+    AR: [{l:'21 % — General',v:21},{l:'10,5 % — Reducido',v:10.5},{l:'27 % — Servicios públicos',v:27},{l:'0 %',v:0}],
+    CL: [{l:'19 % — General',v:19},{l:'0 %',v:0}],
+    PE: [{l:'18 % — IGV',v:18},{l:'0 %',v:0}],
+    EU: [{l:'27 % — Hungría',v:27},{l:'25 % — Suecia',v:25},{l:'21 % — Países Bajos',v:21},{l:'20 % — Francia',v:20},{l:'19 % — Alemania',v:19},{l:'17 % — Luxemburgo',v:17},{l:'0 %',v:0}],
+    custom: []
+  };
+
+  var mode = 'add';
+
+  function parseNum(s) {
+    if (typeof s !== 'string') s = String(s == null ? '' : s);
+    s = s.trim().replace(/\s/g, '');
+    if (!s) return NaN;
+    // "1.234,56" -> "1234.56" ; "1,234.56" -> "1234.56"
+    if (s.indexOf(',') > -1 && s.indexOf('.') > -1) {
+      s = (s.lastIndexOf(',') > s.lastIndexOf('.'))
+          ? s.replace(/\./g, '').replace(',', '.')
+          : s.replace(/,/g, '');
+    } else if (s.indexOf(',') > -1) {
+      s = s.replace(',', '.');
+    }
+    var n = parseFloat(s);
+    return isFinite(n) ? n : NaN;
+  }
+
+  var fmt = new Intl.NumberFormat('es-ES', { style:'currency', currency:'EUR' });
+  function money(n) { return isFinite(n) ? fmt.format(n) : '—'; }
+
+  function fillRates() {
+    var c = $('country').value;
+    var sel = $('rate');
+    if (c === 'custom') {
+      sel.innerHTML = '<option>(escribe el tipo abajo)</option>';
+      sel.disabled = true;
+      $('wrap-custom').style.display = '';
+    } else {
+      sel.disabled = false;
+      $('wrap-custom').style.display = 'none';
+      sel.innerHTML = RATES[c].map(function (r) {
+        return '<option value="' + r.v + '">' + r.l + '</option>';
+      }).join('');
+    }
+    calc();
+  }
+
+  function getRate() {
+    if ($('country').value === 'custom') return parseNum($('custom-rate').value) || 0;
+    return parseFloat($('rate').value) || 0;
+  }
+
+  function setMode(m) {
+    mode = m;
+    $('mode-add').classList.toggle('tool-btn--primary', m === 'add');
+    $('mode-rem').classList.toggle('tool-btn--primary', m === 'remove');
+    $('mode-add').setAttribute('aria-pressed', m === 'add' ? 'true' : 'false');
+    $('mode-rem').setAttribute('aria-pressed', m === 'remove' ? 'true' : 'false');
+    $('lbl-amount').textContent = (m === 'add') ? 'Importe neto (sin IVA)' : 'Importe bruto (con IVA)';
+    calc();
+  }
+
+  function calc() {
+    var amount = parseNum($('amount').value);
+    var qty = Math.max(1, parseInt(parseNum($('qty').value) || 1, 10));
+    var rate = getRate();
+    if (!isFinite(amount)) {
+      ['r-base','r-tax','r-unit','r-total'].forEach(function (id) { $(id).textContent = '—'; });
+      return;
+    }
+    var base, tax, total;
+    if (mode === 'add') {
+      base = amount; tax = base * rate / 100; total = base + tax;
+    } else {
+      total = amount; base = total / (1 + rate / 100); tax = total - base;
+    }
+    $('r-base').textContent  = money(base);
+    $('r-tax').textContent   = money(tax);
+    $('r-unit').textContent  = money(total);
+    $('r-total').textContent = money(total * qty);
+  }
+
+  $('mode-add').addEventListener('click', function () { setMode('add'); });
+  $('mode-rem').addEventListener('click', function () { setMode('remove'); });
+  $('country').addEventListener('change', fillRates);
+  ['amount','qty','custom-rate','rate'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+    $(id).addEventListener('change', calc);
+  });
+
+  fillRates();
+})();
+</script>
+</body>
+</html>

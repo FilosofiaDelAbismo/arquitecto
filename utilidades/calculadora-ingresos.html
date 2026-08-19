@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de ingresos de YouTube y redes · estimación con tus datos · Arquitecto Digital</title>
+<meta name="description" content="Estima los ingresos de un canal a partir de tus visitas, tu CPM y tus otras fuentes de ingreso. No inventa el CPM: lo pones tú, el que ves en tu propio panel. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/calculadora-ingresos.html">
+
+<meta property="og:title" content="Calculadora de ingresos de YouTube y redes · estimación con tus datos · Arquitecto Digital">
+<meta property="og:description" content="Estima los ingresos de un canal a partir de tus visitas, tu CPM y tus otras fuentes de ingreso. No inventa el CPM: lo pones tú, el que ves en tu propio panel. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/calculadora-ingresos.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-ingresos.html#app",
+  "name": "Calculadora de ingresos de creador",
+  "url": "https://arquitectodigital.io/utilidades/calculadora-ingresos.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Estima los ingresos de un canal a partir de tus visitas, tu CPM y tus otras fuentes de ingreso. No inventa el CPM: lo pones tú, el que ves en tu propio panel. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Cálculo con tu CPM real, no con medias inventadas",
+    "Porcentaje de visitas monetizadas ajustable",
+    "Suma patrocinios, afiliación, miembros y producto propio",
+    "Resta gastos mensuales",
+    "Proyección mensual y anual",
+    "Acepta números en formato español"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-ingresos.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Por qué no me sugiere un CPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque el CPM varía enormemente según nicho, país, época del año y formato. Cualquier cifra media que te diera sería una invención que te llevaría a planificar mal. El tuyo lo tienes en tu panel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde veo mi CPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En YouTube Studio, en analíticas, pestaña de ingresos. Ahí aparecen el CPM y el RPM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Uso el CPM o el RPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cualquiera de los dos. Si usas el RPM, pon el porcentaje de visitas monetizadas al 100 %, porque el RPM ya descuenta el reparto con la plataforma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El resultado incluye impuestos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Son cifras brutas. Lo que pagues depende de tu situación fiscal y eso no lo calcula esta herramienta."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Creadores",
+      "item": "https://arquitectodigital.io/utilidades/creadores.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Calculadora de ingresos de creador",
+      "item": "https://arquitectodigital.io/utilidades/calculadora-ingresos.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/creadores.html">Creadores</a> › Calculadora de ingresos de creador</p>
+    <span class="section-label">[Utilidad] Creadores</span>
+    <h1>Calculadora de<br><span class="accent">ingresos de creador</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Calcula lo que genera un canal con <strong>tus propias cifras</strong>: tus visitas, tu CPM real y tus otras fuentes de ingreso. No te inventa un CPM medio del sector, porque ese número varía tanto por nicho y país que cualquier estimación de esas engaña más que ayuda. El CPM lo pones tú.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Tus cifras</h2>
+      <label class="tool-field">
+        <span>Visitas al mes</span>
+        <input type="text" inputmode="numeric" id="views" class="tool-input" value="100000">
+      </label>
+      <label class="tool-field">
+        <span>Tu CPM en € (lo ves en tu panel de YouTube Studio)</span>
+        <input type="text" inputmode="decimal" id="cpm" class="tool-input" value="2,50">
+      </label>
+      <label class="tool-field">
+        <span>Porcentaje de visitas monetizadas</span>
+        <input type="text" inputmode="decimal" id="monet" class="tool-input" value="55">
+      </label>
+      <h2 style="margin-top:24px">Otras fuentes (al mes)</h2>
+      <label class="tool-field"><span>Patrocinios</span><input type="text" inputmode="decimal" id="spon" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Afiliación</span><input type="text" inputmode="decimal" id="affi" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Miembros y suscripciones</span><input type="text" inputmode="decimal" id="memb" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Producto propio</span><input type="text" inputmode="decimal" id="prod" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Gastos al mes (edición, música, herramientas…)</span><input type="text" inputmode="decimal" id="cost" class="tool-input" value="0"></label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Resultado</h2>
+      <table class="tool-table">
+        <tbody>
+          <tr><td>Visitas monetizadas</td><td style="text-align:right"><b id="r-mv">—</b></td></tr>
+          <tr><td>Ingresos por publicidad</td><td style="text-align:right"><b id="r-ads">—</b></td></tr>
+          <tr><td>Otras fuentes</td><td style="text-align:right"><b id="r-other">—</b></td></tr>
+          <tr><td>Bruto al mes</td><td style="text-align:right"><b id="r-gross">—</b></td></tr>
+          <tr><td>Gastos</td><td style="text-align:right"><b id="r-cost">—</b></td></tr>
+          <tr><td><strong style="color:var(--text)">Neto al mes</strong></td><td style="text-align:right"><b id="r-net" style="color:var(--orange)">—</b></td></tr>
+          <tr><td>Neto al año</td><td style="text-align:right"><b id="r-year">—</b></td></tr>
+        </tbody>
+      </table>
+      <p style="color:var(--text-faint);font-size:.85em;margin-top:14px;line-height:1.6">
+        Son cifras brutas antes de impuestos. Lo que pagues de IRPF, IVA o cotización depende de
+        tu situación fiscal y eso no lo calcula esta herramienta.
+      </p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Por qué esta calculadora no te inventa el CPM</h2>
+    <p>
+      La mayoría de calculadoras de ingresos de YouTube te dan una cifra a partir de un CPM medio
+      inventado. El problema es que el CPM varía brutalmente: por nicho, por país de la audiencia,
+      por época del año y por formato. Un canal de finanzas con audiencia estadounidense y otro de
+      entretenimiento con audiencia latinoamericana pueden llevarse diez veces de diferencia.
+    </p>
+    <p>
+      Por eso aquí <strong>el CPM lo pones tú</strong>, sacado de tu propio panel de YouTube Studio.
+      Así el resultado es una cuenta con tus números reales, no una adivinanza.
+    </p>
+
+    <h2>Dónde encuentro mi CPM</h2>
+    <p>
+      En YouTube Studio, en el apartado de analíticas, pestaña de ingresos. Verás dos cifras: el
+      CPM y el RPM. El CPM es lo que pagan los anunciantes por mil impresiones; el RPM es lo que
+      te queda a ti después del reparto con la plataforma. Si usas el RPM, pon el porcentaje de
+      visitas monetizadas al 100 %, porque el RPM ya lo tiene descontado.
+    </p>
+
+    <h2>Qué es el porcentaje de visitas monetizadas</h2>
+    <p>
+      No todas las visitas llevan anuncio: depende del bloqueador de anuncios del espectador, del
+      tipo de contenido y de si el vídeo está marcado como apto para anunciantes. Ese porcentaje
+      también lo ves en tu panel.
+    </p>
+
+    <h2>Y los impuestos</h2>
+    <p>
+      Las cifras son brutas. Lo que acabes pagando de IRPF, de IVA o de cotización depende de tu
+      situación y de tu país, y eso lo tiene que ver tu asesoría, no una calculadora online.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Por qué no me sugiere un CPM?</h3>
+    <p>Porque el CPM varía enormemente según nicho, país, época del año y formato. Cualquier cifra media que te diera sería una invención que te llevaría a planificar mal. El tuyo lo tienes en tu panel.</p>
+    <h3>¿Dónde veo mi CPM?</h3>
+    <p>En YouTube Studio, en analíticas, pestaña de ingresos. Ahí aparecen el CPM y el RPM.</p>
+    <h3>¿Uso el CPM o el RPM?</h3>
+    <p>Cualquiera de los dos. Si usas el RPM, pon el porcentaje de visitas monetizadas al 100 %, porque el RPM ya descuenta el reparto con la plataforma.</p>
+    <h3>¿El resultado incluye impuestos?</h3>
+    <p>No. Son cifras brutas. Lo que pagues depende de tu situación fiscal y eso no lo calcula esta herramienta.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  function num(id) {
+    var s = String($(id).value || '').trim().replace(/\s/g, '');
+    if (!s) return 0;
+    if (s.indexOf(',') > -1 && s.indexOf('.') > -1) {
+      s = (s.lastIndexOf(',') > s.lastIndexOf('.'))
+          ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, '');
+    } else if (s.indexOf(',') > -1) { s = s.replace(',', '.'); }
+    var n = parseFloat(s);
+    return isFinite(n) && n >= 0 ? n : 0;
+  }
+
+  var eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+  var int = new Intl.NumberFormat('es-ES');
+
+  function calc() {
+    var views = num('views');
+    var cpm   = num('cpm');
+    var monet = Math.max(0, Math.min(100, num('monet')));
+    var mv    = views * monet / 100;
+    var ads   = (mv / 1000) * cpm;
+    var other = num('spon') + num('affi') + num('memb') + num('prod');
+    var gross = ads + other;
+    var cost  = num('cost');
+    var net   = gross - cost;
+
+    $('r-mv').textContent    = int.format(Math.round(mv));
+    $('r-ads').textContent   = eur.format(ads);
+    $('r-other').textContent = eur.format(other);
+    $('r-gross').textContent = eur.format(gross);
+    $('r-cost').textContent  = eur.format(cost);
+    $('r-net').textContent   = eur.format(net);
+    $('r-year').textContent  = eur.format(net * 12);
+  }
+
+  ['views','cpm','monet','spon','affi','memb','prod','cost'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

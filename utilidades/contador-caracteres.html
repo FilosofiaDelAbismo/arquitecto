@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador de caracteres y palabras online gratis · Arquitecto Digital</title>
+<meta name="description" content="Cuenta caracteres, palabras, frases y tiempo de lectura, y comprueba si tu texto cabe en TikTok, Instagram, Twitter, YouTube, Amazon, Shopify, Etsy o una meta description. Gratis, sin registro y sin subir el texto.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/contador-caracteres.html">
+
+<meta property="og:title" content="Contador de caracteres y palabras online gratis · Arquitecto Digital">
+<meta property="og:description" content="Cuenta caracteres, palabras, frases y tiempo de lectura, y comprueba si tu texto cabe en TikTok, Instagram, Twitter, YouTube, Amazon, Shopify, Etsy o una meta description. Gratis, sin registro y sin subir el texto.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/contador-caracteres.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/contador-caracteres.html#app",
+  "name": "Contador de caracteres y palabras",
+  "url": "https://arquitectodigital.io/utilidades/contador-caracteres.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Cuenta caracteres, palabras, frases, párrafos y tiempo de lectura, y comprueba si el texto cabe en los límites de redes sociales, Amazon, Shopify, Etsy, eBay, Google Ads y etiquetas SEO. Funciona entero en el navegador, sin enviar el texto a ningún servidor.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Caracteres con y sin espacios",
+    "Palabras, frases y párrafos",
+    "Tiempo de lectura estimado",
+    "Densidad de palabras clave",
+    "Límites de redes sociales y SEO",
+    "Límites de Amazon, Shopify, Etsy, eBay y Google Ads",
+    "Límites educativos",
+    "Medición en bytes UTF-8 para search terms de Amazon"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/contador-caracteres.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se guarda el texto que pego?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No hay servidor al que enviarlo: el conteo ocurre íntegramente en tu navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay límite de uso o hay que registrarse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay límite ni registro. Es gratis y no tiene cuenta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué los search terms de Amazon se miden en bytes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque Amazon cuenta bytes UTF-8, no caracteres. Una letra con tilde o una eñe ocupa 2 bytes en vez de 1, así que un texto de 250 caracteres con acentos puede pasarse del límite. Esta herramienta lo mide en bytes cuando corresponde."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuenta bien los emojis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los cuenta como los cuenta el navegador, que es como los cuentan la mayoría de plataformas. Ten en cuenta que un emoji puede ocupar más de un carácter."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Contador de caracteres",
+      "item": "https://arquitectodigital.io/utilidades/contador-caracteres.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › Contador de caracteres</p>
+    <span class="section-label">[Utilidad] Texto</span>
+    <h1>Contador de caracteres<br><span class="accent">y palabras</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Pega tu texto y cuenta al instante caracteres, palabras, frases, párrafos y tiempo de
+      lectura. Además te dice si cabe en los límites reales de cada red social, de Amazon,
+      Shopify y Etsy, o de una etiqueta SEO. Es gratis, no hay que registrarse y
+      <strong>el texto no sale de tu navegador</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+
+    <div>
+      <div class="tool-actions">
+        <button type="button" class="tool-btn" id="btn-clear">Limpiar</button>
+        <button type="button" class="tool-btn" id="btn-copy">Copiar texto</button>
+        <span id="copy-msg" role="status" aria-live="polite" style="align-self:center;color:var(--green);font-size:.88em"></span>
+      </div>
+      <label class="tool-field">
+        <span class="sr-only" style="position:absolute;left:-9999px">Tu texto</span>
+        <textarea id="txt" class="tool-textarea" placeholder="Escribe o pega aquí tu texto…"></textarea>
+      </label>
+    </div>
+
+    <div style="display:grid;gap:18px;align-content:start">
+      <div class="tool-panel">
+        <h2>Métricas</h2>
+        <div class="tool-stats">
+          <div class="tool-stat"><b id="m-chars">0</b><span>Caracteres</span></div>
+          <div class="tool-stat"><b id="m-nosp">0</b><span>Sin espacios</span></div>
+          <div class="tool-stat"><b id="m-words">0</b><span>Palabras</span></div>
+        </div>
+        <div class="tool-stats" style="margin-top:10px">
+          <div class="tool-stat"><b id="m-sent">0</b><span>Frases</span></div>
+          <div class="tool-stat"><b id="m-para">0</b><span>Párrafos</span></div>
+          <div class="tool-stat"><b id="m-read">0s</b><span>Lectura</span></div>
+        </div>
+      </div>
+
+      <div class="tool-panel">
+        <h2>¿Cabe? Límites por plataforma</h2>
+        <label class="tool-field">
+          <span>Juego de límites</span>
+          <select id="sel-set" class="tool-select">
+            <option value="redes">Redes sociales y SEO</option>
+            <option value="ecom">Ecommerce · Amazon, Shopify, Etsy</option>
+            <option value="edu">Educativo</option>
+          </select>
+        </label>
+        <div id="limits"></div>
+      </div>
+
+      <div class="tool-panel">
+        <h2>Palabras más repetidas</h2>
+        <div id="density" style="color:var(--text-dim);font-size:.92em">Pega texto para ver la densidad de palabras clave.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tu texto no se envía a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    el conteo lo hace tu propio navegador. Puedes comprobarlo desconectando internet — sigue
+    funcionando.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Para qué sirve un contador de caracteres</h2>
+    <p>
+      Casi toda plataforma donde publicas tiene un tope de caracteres, y casi ninguna te avisa
+      antes de que se corte el texto. Una meta description que pasa de 160 caracteres se trunca
+      en Google con puntos suspensivos; un título de Amazon que pasa de 200 puede rechazarse; una
+      bio de TikTok se queda en 80. Este contador te enseña esos límites mientras escribes.
+    </p>
+
+    <h2>Qué cuenta exactamente</h2>
+    <ul>
+      <li><strong>Caracteres:</strong> todos, espacios incluidos. Es la cifra que usan casi todas las plataformas.</li>
+      <li><strong>Sin espacios:</strong> útil cuando te pagan por caracteres o cuando la plataforma no los cuenta.</li>
+      <li><strong>Palabras:</strong> secuencias de letras o números, incluyendo las que llevan guion o apóstrofo.</li>
+      <li><strong>Frases:</strong> fragmentos terminados en punto, interrogación, exclamación o puntos suspensivos.</li>
+      <li><strong>Párrafos:</strong> bloques separados por una línea en blanco.</li>
+      <li><strong>Tiempo de lectura:</strong> calculado a 200 palabras por minuto, la media de lectura en pantalla.</li>
+    </ul>
+
+    <h2>Los límites que comprueba</h2>
+    <h3>Redes sociales y SEO</h3>
+    <p>
+      Bio de TikTok (80), bio de Instagram (150), Twitter/X (280), título de YouTube (100),
+      descripción de YouTube (5.000), pie de foto de Instagram (2.200), meta description (160)
+      y title tag (60).
+    </p>
+    <h3>Ecommerce</h3>
+    <p>
+      Título de Amazon (200), bullet point (500), descripción (2.000) y search terms de backend
+      (250 bytes, no caracteres). Título de producto de Shopify (70) y meta description (160).
+      Título de Etsy (140), primera línea de descripción (160) y etiqueta individual (20).
+      Título de eBay (80). Título (30) y descripción (90) de Google Ads.
+    </p>
+    <h3>Educativo</h3>
+    <p>
+      Enunciado de pregunta corta (300), resumen breve (500), comentario de evaluación (1.000),
+      abstract académico (1.500) y descripción de actividad en el LMS (2.000).
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Se guarda el texto que pego?</h3>
+    <p>No. No hay servidor al que enviarlo: el conteo ocurre íntegramente en tu navegador.</p>
+    <h3>¿Hay límite de uso o hay que registrarse?</h3>
+    <p>No hay límite ni registro. Es gratis y no tiene cuenta.</p>
+    <h3>¿Por qué los search terms de Amazon se miden en bytes?</h3>
+    <p>
+      Porque Amazon cuenta bytes UTF-8, no caracteres. Una letra con tilde o una eñe ocupa
+      2 bytes en vez de 1, así que un texto de 250 caracteres con acentos puede pasarse del
+      límite. Esta herramienta lo mide en bytes cuando corresponde.
+    </p>
+    <h3>¿Cuenta bien los emojis?</h3>
+    <p>
+      Los cuenta como los cuenta el navegador, que es como los cuentan la mayoría de
+      plataformas. Ten en cuenta que un emoji puede ocupar más de un carácter.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var ta = $('txt');
+
+  var SETS = {
+    redes: [
+      { name: 'Bio de TikTok',        max: 80 },
+      { name: 'Bio de Instagram',     max: 150 },
+      { name: 'Twitter / X',          max: 280 },
+      { name: 'Título de YouTube',    max: 100 },
+      { name: 'Descripción YouTube',  max: 5000 },
+      { name: 'Pie de foto Instagram',max: 2200 },
+      { name: 'Meta description SEO', max: 160 },
+      { name: 'Title tag SEO',        max: 60 }
+    ],
+    ecom: [
+      { name: 'Amazon · Título',                  max: 200 },
+      { name: 'Amazon · Bullet point (cada uno)', max: 500 },
+      { name: 'Amazon · Descripción',             max: 2000 },
+      { name: 'Amazon · Search terms (backend)',  max: 250, unit: 'bytes' },
+      { name: 'Shopify · Título de producto',     max: 70 },
+      { name: 'Shopify · Meta description',       max: 160 },
+      { name: 'Etsy · Título',                    max: 140 },
+      { name: 'Etsy · 1ª línea de descripción',   max: 160 },
+      { name: 'Etsy · Etiqueta individual',       max: 20 },
+      { name: 'eBay · Título',                    max: 80 },
+      { name: 'Google Ads · Título',              max: 30 },
+      { name: 'Google Ads · Descripción',         max: 90 }
+    ],
+    edu: [
+      { name: 'Enunciado de pregunta corta',   max: 300 },
+      { name: 'Resumen breve',                 max: 500 },
+      { name: 'Comentario de evaluación',      max: 1000 },
+      { name: 'Abstract académico',            max: 1500 },
+      { name: 'Actividad en el LMS',           max: 2000 },
+      { name: 'Tweet pedagógico',              max: 280 }
+    ]
+  };
+
+  var STOP = new Set(('a al algo algun alguna algunas alguno algunos ante antes aqui aquel aquella aquellas aquellos asi aun aunque cada como con contra cual cuales cuando de del desde donde dos durante e el ella ellas ellos en entre era eran eres es esa esas ese eso esos esta estaba estaban estamos estan estar estas este esto estos estoy fue fui fuimos ha habia haber hace hacen hacer han has hasta hay he hemos la las le les lo los mas me mi mientras mis mucho muchos muy nada ni no nos nosotros nuestra nuestras nuestro nuestros nunca o os otra otras otro otros para pero poco por porque que quien quienes se sea sean ser si siendo sin sino sobre solo somos son su sus tambien te tenemos tener tengo ti tiene tienen toda todas todo todos tras tu tus un una unas uno unos usted ustedes va van vamos vosotros y ya yo about above after again all am an and any are as at be because been before being below between both but by can did do does doing down during each few for from further had has have having he her here hers herself him himself his how i if in into is it its itself just more most my myself nor not now of off on once only or other our ours ourselves out over own same she should so some such than that the their theirs them themselves then there these they this those through to too under until up very was we were what when where which while who whom why will with you your yours yourself yourselves').split(/\s+/));
+
+  var enc = (typeof TextEncoder !== 'undefined') ? new TextEncoder() : null;
+  function byteLen(s) { return enc ? enc.encode(s).length : s.length; }
+  function n(x) { return x.toLocaleString('es-ES'); }
+
+  function render() {
+    var t = ta.value;
+    var chars = t.length;
+    var nosp = t.replace(/\s/g, '').length;
+    var wordsArr = t.match(/[\p{L}\p{N}'\u2019-]+/gu) || [];
+    var words = wordsArr.length;
+
+    var sent = (t.match(/[^.!?\u2026]+[.!?\u2026]+/g) || []).length;
+    if (!sent && t.trim()) sent = 1;
+    var para = t.split(/\n{2,}/).filter(function (p) { return p.trim().length; }).length;
+    if (!para && t.trim()) para = 1;
+
+    var secs = Math.round((words / 200) * 60);
+    var read = secs < 60 ? secs + 's' : Math.floor(secs / 60) + 'm ' + (secs % 60) + 's';
+
+    $('m-chars').textContent = n(chars);
+    $('m-nosp').textContent  = n(nosp);
+    $('m-words').textContent = n(words);
+    $('m-sent').textContent  = n(sent);
+    $('m-para').textContent  = n(para);
+    $('m-read').textContent  = read;
+
+    // --- densidad ---
+    var counts = {}, meaningful = 0;
+    wordsArr.forEach(function (w) {
+      var k = w.toLowerCase();
+      if (k.length < 3 || STOP.has(k)) return;
+      counts[k] = (counts[k] || 0) + 1;
+      meaningful++;
+    });
+    var top = Object.keys(counts).map(function (k) { return [k, counts[k]]; })
+              .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 10);
+    var dens = $('density');
+    if (!top.length) {
+      dens.textContent = 'Pega texto para ver la densidad de palabras clave.';
+    } else {
+      var rows = top.map(function (kv) {
+        var pct = ((kv[1] / meaningful) * 100).toFixed(1);
+        return '<tr><td>' + kv[0] + '</td><td style="text-align:right"><b>' + kv[1] +
+               '</b> · ' + pct + '%</td></tr>';
+      }).join('');
+      dens.innerHTML = '<table class="tool-table"><tbody>' + rows + '</tbody></table>';
+    }
+
+    // --- limites ---
+    var set = SETS[$('sel-set').value] || SETS.redes;
+    $('limits').innerHTML = set.map(function (l) {
+      var v = (l.unit === 'bytes') ? byteLen(t) : chars;
+      var ratio = l.max ? v / l.max : 0;
+      var cls = ratio >= 1 ? ' is-over' : (ratio >= 0.85 ? ' is-warn' : '');
+      var w = Math.min(100, ratio * 100);
+      return '<div class="limit-row' + cls + '">' +
+        '<div class="limit-head">' +
+          '<span class="limit-name">' + l.name + '</span>' +
+          '<span class="limit-count">' + n(v) + ' / ' + n(l.max) +
+            (l.unit === 'bytes' ? ' bytes' : '') + '</span>' +
+        '</div>' +
+        '<div class="limit-track"><div class="limit-fill" style="width:' + w + '%"></div></div>' +
+      '</div>';
+    }).join('');
+  }
+
+  ta.addEventListener('input', render);
+  $('sel-set').addEventListener('change', render);
+  $('btn-clear').addEventListener('click', function () { ta.value = ''; render(); ta.focus(); });
+  $('btn-copy').addEventListener('click', function () {
+    var msg = $('copy-msg');
+    var done = function () { msg.textContent = 'Copiado'; setTimeout(function () { msg.textContent = ''; }, 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(ta.value).then(done).catch(function () { ta.select(); });
+    } else { ta.select(); document.execCommand && document.execCommand('copy'); done(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

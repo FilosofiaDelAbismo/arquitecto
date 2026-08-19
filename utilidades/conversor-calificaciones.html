@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversor de calificaciones entre países y sistemas · gratis · Arquitecto Digital</title>
+<meta name="description" content="Convierte una nota entre los sistemas de España, México, Argentina, Colombia, Chile, Estados Unidos (porcentaje, A-F y GPA), Reino Unido y ECTS. Equivalencias orientativas. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/conversor-calificaciones.html">
+
+<meta property="og:title" content="Conversor de calificaciones entre países y sistemas · gratis · Arquitecto Digital">
+<meta property="og:description" content="Convierte una nota entre los sistemas de España, México, Argentina, Colombia, Chile, Estados Unidos (porcentaje, A-F y GPA), Reino Unido y ECTS. Equivalencias orientativas. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/conversor-calificaciones.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/conversor-calificaciones.html#app",
+  "name": "Conversor de calificaciones",
+  "url": "https://arquitectodigital.io/utilidades/conversor-calificaciones.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Convierte una nota entre los sistemas de España, México, Argentina, Colombia, Chile, Estados Unidos (porcentaje, A-F y GPA), Reino Unido y ECTS. Equivalencias orientativas. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Once sistemas de calificación",
+    "Conversión a través de porcentaje intermedio",
+    "Escala chilena tratada correctamente desde 1",
+    "Letras A-F y GPA de Estados Unidos",
+    "Honours del Reino Unido",
+    "ECTS europeo",
+    "Cualitativo español IN/SU/BI/NT/SB"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/conversor-calificaciones.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Es una equivalencia oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No existe una tabla oficial universal: cada institución aplica la suya. Esto te da una referencia aproximada. Para una convalidación o una matrícula, pide a la institución de destino su tabla concreta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo hace la conversión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lleva tu nota a un porcentaje intermedio de 0 a 100 y desde ahí la traduce a cada una de las demás escalas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué Chile se calcula de otra forma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque su escala va de 1 a 7, no de 0 a 7. El 1 es la nota mínima y equivale a un 0 %. Tratarla como si empezara en cero inflaría todas las notas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo escribir la nota con coma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Admite tanto 7,5 como 7.5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué sistemas incluye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "España numérico y cualitativo, México, Argentina, Colombia, Chile, Estados Unidos en porcentaje, letras y GPA, Reino Unido con honours y el ECTS europeo."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Educativo",
+      "item": "https://arquitectodigital.io/utilidades/educativo.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Conversor de calificaciones",
+      "item": "https://arquitectodigital.io/utilidades/conversor-calificaciones.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/educativo.html">Educativo</a> › Conversor de calificaciones</p>
+    <span class="section-label">[Utilidad] Educativo</span>
+    <h1>Conversor de<br><span class="accent">calificaciones</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Escribe una nota en tu sistema y mira su equivalente en los demás: España, México, Argentina, Colombia, Chile, Estados Unidos en porcentaje, A–F y GPA, Reino Unido y ECTS. <strong>Son equivalencias orientativas</strong>, no oficiales — abajo te explico por qué eso importa.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Tu nota</h2>
+      <label class="tool-field">
+        <span>Sistema de origen</span>
+        <select id="sys" class="tool-select"></select>
+      </label>
+      <label class="tool-field">
+        <span>Nota</span>
+        <input type="text" id="grade" class="tool-input" value="7" autocomplete="off">
+      </label>
+      <p id="hint" style="color:var(--text-faint);font-size:.84em"></p>
+      <p id="warn" style="color:#ef4444;font-size:.88em"></p>
+      <div class="tool-stat" style="text-align:center;margin-top:16px">
+        <b id="pct">—</b><span>Equivalente en porcentaje</span>
+      </div>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Equivalencias</h2>
+      <div id="out"></div>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Lee esto antes de usar el resultado para algo importante</h2>
+    <p>
+      No existe una tabla oficial universal para convertir notas entre países. Cada universidad,
+      cada ministerio y cada organismo de homologación aplica su propia tabla, y no todas
+      coinciden. Lo que hace esta herramienta es llevar tu nota a un porcentaje intermedio y de
+      ahí a cada escala, que es el método más habitual.
+    </p>
+    <p>
+      Sirve para hacerte una idea: para saber si un 2:1 británico está más cerca de un notable o
+      de un sobresaliente, o qué GPA aproximado corresponde a tu expediente. <strong>No sirve
+      como equivalencia oficial.</strong> Si es para una solicitud, una convalidación o una
+      matrícula, pide a la institución de destino su tabla concreta: es la única que vale.
+    </p>
+
+    <h2>Por qué el sistema chileno se convierte distinto</h2>
+    <p>
+      Porque su escala no empieza en cero, sino en uno. Un 1 en Chile es la nota mínima, así que
+      equivale a un 0 %, y un 7 equivale al 100 %. Si se convirtiera dividiendo entre 7 como si
+      empezara en cero, todas las notas saldrían infladas.
+    </p>
+
+    <h2>Sistemas incluidos</h2>
+    <p>
+      España (numérico y cualitativo IN/SU/BI/NT/SB), México, Argentina, Colombia, Chile,
+      Estados Unidos en porcentaje, en letras A–F y en GPA sobre 4, Reino Unido con sus honours
+      (1st, 2:1, 2:2, 3rd) y el ECTS europeo de la A a la F.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Es una equivalencia oficial?</h3>
+    <p>No. No existe una tabla oficial universal: cada institución aplica la suya. Esto te da una referencia aproximada. Para una convalidación o una matrícula, pide a la institución de destino su tabla concreta.</p>
+    <h3>¿Cómo hace la conversión?</h3>
+    <p>Lleva tu nota a un porcentaje intermedio de 0 a 100 y desde ahí la traduce a cada una de las demás escalas.</p>
+    <h3>¿Por qué Chile se calcula de otra forma?</h3>
+    <p>Porque su escala va de 1 a 7, no de 0 a 7. El 1 es la nota mínima y equivale a un 0 %. Tratarla como si empezara en cero inflaría todas las notas.</p>
+    <h3>¿Puedo escribir la nota con coma?</h3>
+    <p>Sí. Admite tanto 7,5 como 7.5.</p>
+    <h3>¿Qué sistemas incluye?</h3>
+    <p>España numérico y cualitativo, México, Argentina, Colombia, Chile, Estados Unidos en porcentaje, letras y GPA, Reino Unido con honours y el ECTS europeo.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Todo se convierte a un porcentaje 0-100 intermedio y de ahi a cada sistema.
+  var SYS = [
+    { id:'es10',  label:'España',                scale:'0 a 10',
+      hint:'Escribe un número del 0 al 10. Se admiten decimales (7,5).',
+      from:function(v){ var n=num(v); return ok(n,0,10)? n*10 : NaN; },
+      to:function(p){ return (p/10).toFixed(2); } },
+    { id:'mx10',  label:'México',                scale:'0 a 10',
+      hint:'Escribe un número del 0 al 10.',
+      from:function(v){ var n=num(v); return ok(n,0,10)? n*10 : NaN; },
+      to:function(p){ return (p/10).toFixed(1); } },
+    { id:'ar10',  label:'Argentina',             scale:'0 a 10',
+      hint:'Escribe un número del 0 al 10.',
+      from:function(v){ var n=num(v); return ok(n,0,10)? n*10 : NaN; },
+      to:function(p){ return (p/10).toFixed(1); } },
+    { id:'co5',   label:'Colombia',              scale:'0 a 5',
+      hint:'Escribe un número del 0 al 5.',
+      from:function(v){ var n=num(v); return ok(n,0,5)? n*20 : NaN; },
+      to:function(p){ return (p/20).toFixed(1); } },
+    { id:'cl7',   label:'Chile',                 scale:'1 a 7',
+      hint:'Escribe un número del 1 al 7.',
+      from:function(v){ var n=num(v); return ok(n,1,7)? ((n-1)/6)*100 : NaN; },
+      to:function(p){ return (1 + (p/100)*6).toFixed(1); } },
+    { id:'us100', label:'EE. UU. · porcentaje',  scale:'0 a 100',
+      hint:'Escribe un número del 0 al 100.',
+      from:function(v){ var n=num(v); return ok(n,0,100)? n : NaN; },
+      to:function(p){ return p.toFixed(1); } },
+    { id:'usAF',  label:'EE. UU. · letras',      scale:'A+ a F',
+      hint:'Escribe una letra: A+, A, A-, B+, B, B-, C+, C, C-, D+, D, D- o F.',
+      from:function(v){ var k=String(v).trim().toUpperCase().replace(/\s/g,''); return LET[k]!=null? LET[k] : NaN; },
+      to:function(p){ 
+        var t=[[97,'A+'],[93,'A'],[90,'A-'],[87,'B+'],[83,'B'],[80,'B-'],
+               [77,'C+'],[73,'C'],[70,'C-'],[67,'D+'],[63,'D'],[60,'D-']];
+        for(var i=0;i<t.length;i++) if(p>=t[i][0]) return t[i][1];
+        return 'F'; } },
+    { id:'gpa4',  label:'GPA (EE. UU.)',         scale:'0 a 4,0',
+      hint:'Escribe un número del 0 al 4.',
+      from:function(v){ var n=num(v); return ok(n,0,4)? (n/4)*100 : NaN; },
+      to:function(p){ return ((p/100)*4).toFixed(2); } },
+    { id:'uk',    label:'Reino Unido · honours', scale:'1st · 2:1 · 2:2 · 3rd',
+      hint:'Escribe 1st, 2:1, 2:2, 3rd o Fail.',
+      from:function(v){ var k=String(v).trim().toLowerCase().replace(/\s/g,''); return UK[k]!=null? UK[k] : NaN; },
+      to:function(p){ return p>=70?'1st': p>=60?'2:1': p>=50?'2:2': p>=40?'3rd':'Fail'; } },
+    { id:'ects',  label:'ECTS europeo',          scale:'A a F',
+      hint:'Escribe A, B, C, D, E o F.',
+      from:function(v){ var k=String(v).trim().toUpperCase(); return ECTS[k]!=null? ECTS[k] : NaN; },
+      to:function(p){ return p>=90?'A': p>=80?'B': p>=70?'C': p>=60?'D': p>=50?'E':'F'; } },
+    { id:'esCual',label:'España · cualitativo',  scale:'IN · SU · BI · NT · SB',
+      hint:'Escribe IN, SU, BI, NT o SB.',
+      from:function(v){ var k=String(v).trim().toUpperCase(); return ESQ[k]!=null? ESQ[k] : NaN; },
+      to:function(p){ var n=p/10; return n<5?'IN (Insuficiente)': n<6?'SU (Suficiente)':
+                       n<7?'BI (Bien)': n<9?'NT (Notable)':'SB (Sobresaliente)'; } }
+  ];
+
+  var LET = { 'A+':98,'A':95,'A-':91,'B+':88,'B':85,'B-':81,
+              'C+':78,'C':75,'C-':71,'D+':68,'D':65,'D-':61,'F':40 };
+  var UK   = { '1st':75,'2:1':65,'2.1':65,'2:2':55,'2.2':55,'3rd':45,'fail':30 };
+  var ECTS = { 'A':95,'B':85,'C':75,'D':65,'E':55,'F':30 };
+  var ESQ  = { 'IN':40,'SU':55,'BI':65,'NT':80,'SB':95 };
+
+  function num(v) {
+    var s = String(v == null ? '' : v).trim().replace(',', '.');
+    var n = parseFloat(s);
+    return isFinite(n) ? n : NaN;
+  }
+  function ok(n, lo, hi) { return isFinite(n) && n >= lo && n <= hi; }
+
+  $('sys').innerHTML = SYS.map(function (s) {
+    return '<option value="' + s.id + '">' + s.label + ' (' + s.scale + ')</option>';
+  }).join('');
+
+  function render() {
+    var from = SYS.find(function (s) { return s.id === $('sys').value; }) || SYS[0];
+    $('hint').textContent = from.hint;
+    var p = from.from($('grade').value);
+
+    if (!isFinite(p)) {
+      $('warn').textContent = $('grade').value.trim()
+        ? 'Esa nota no encaja en la escala de ' + from.label + '.' : '';
+      $('pct').textContent = '—';
+      $('out').innerHTML = '<p style="color:var(--text-dim)">Escribe una nota válida.</p>';
+      return;
+    }
+    $('warn').textContent = '';
+    p = Math.max(0, Math.min(100, p));
+    $('pct').textContent = p.toFixed(1) + ' %';
+
+    $('out').innerHTML = '<table class="tool-table"><tbody>' + SYS.map(function (s) {
+      var me = (s.id === from.id);
+      return '<tr><td' + (me ? ' style="color:var(--orange)"' : '') + '>' + s.label +
+             '<br><span style="font-size:.78em;color:var(--text-faint)">' + s.scale + '</span></td>' +
+             '<td style="text-align:right"><b>' + s.to(p) + '</b></td></tr>';
+    }).join('') + '</tbody></table>';
+  }
+
+  $('sys').addEventListener('change', render);
+  $('grade').addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>

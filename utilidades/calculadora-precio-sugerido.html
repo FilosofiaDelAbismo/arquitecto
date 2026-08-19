@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de precio de venta según margen y costes · gratis · Arquitecto Digital</title>
+<meta name="description" content="Calcula a qué precio tienes que vender para conseguir el margen que quieres, contando comisión de plataforma, envío e IVA. Explica la diferencia entre margen y markup. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/calculadora-precio-sugerido.html">
+
+<meta property="og:title" content="Calculadora de precio de venta según margen y costes · gratis · Arquitecto Digital">
+<meta property="og:description" content="Calcula a qué precio tienes que vender para conseguir el margen que quieres, contando comisión de plataforma, envío e IVA. Explica la diferencia entre margen y markup. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/calculadora-precio-sugerido.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-precio-sugerido.html#app",
+  "name": "Calculadora de precio de venta",
+  "url": "https://arquitectodigital.io/utilidades/calculadora-precio-sugerido.html",
+  "applicationCategory": "https://schema.org/FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Calcula a qué precio tienes que vender para conseguir el margen que quieres, contando comisión de plataforma, envío e IVA. Explica la diferencia entre margen y markup. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Calcula el precio a partir del margen o del markup",
+    "Explica y muestra las dos cifras",
+    "Comisión de plataforma aplicada sobre el precio final",
+    "Incluye envío y otros costes",
+    "Precio con y sin IVA",
+    "Avisa cuando la cuenta es imposible"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-precio-sugerido.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre margen y markup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El margen se calcula sobre el precio de venta y el markup sobre el coste. Un markup del 50 % equivale a un margen del 33 %. Confundirlos hace que vendas más barato de lo que crees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué no basta con sumar la comisión al precio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque la comisión se cobra sobre el precio final, así que al subir el precio sube también la comisión. Hay que despejar la ecuación, no sumar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué me dice que no hay precio posible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque la comisión más el margen que pides suman el 100 % o más del precio. En ese caso ningún precio funciona: hay que bajar el margen o buscar una plataforma más barata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El precio final incluye IVA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se muestran los dos: el precio sin IVA, que es con el que trabajas tú, y el precio con IVA, que es el que ve el cliente."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ecommerce",
+      "item": "https://arquitectodigital.io/utilidades/ecommerce.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Calculadora de precio de venta",
+      "item": "https://arquitectodigital.io/utilidades/calculadora-precio-sugerido.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/ecommerce.html">Ecommerce</a> › Calculadora de precio de venta</p>
+    <span class="section-label">[Utilidad] Ecommerce</span>
+    <h1>A qué precio<br><span class="accent">tienes que vender</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Dime tu coste y el margen que quieres y te digo el precio de venta que hace falta, contando la comisión de la plataforma, el envío y el IVA. Incluye la trampa que arruina a más vendedores: <strong>confundir margen con markup</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Tus costes</h2>
+      <label class="tool-field"><span>Coste del producto</span><input type="text" inputmode="decimal" id="cost" class="tool-input" value="18"></label>
+      <label class="tool-field"><span>Envío que pagas tú</span><input type="text" inputmode="decimal" id="ship" class="tool-input" value="4,50"></label>
+      <label class="tool-field"><span>Otros costes por unidad</span><input type="text" inputmode="decimal" id="other" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Comisión de la plataforma (%)</span><input type="text" inputmode="decimal" id="fee" class="tool-input" value="15"></label>
+
+      <h2 style="margin-top:24px">Lo que quieres ganar</h2>
+      <label class="tool-field">
+        <span>Cómo lo defines</span>
+        <select id="mode" class="tool-select">
+          <option value="margin" selected>Margen sobre el precio de venta</option>
+          <option value="markup">Markup sobre el coste</option>
+        </select>
+      </label>
+      <label class="tool-field"><span id="lbl-pct">Margen deseado (%)</span><input type="text" inputmode="decimal" id="want" class="tool-input" value="35"></label>
+      <label class="tool-field"><span>IVA a aplicar (%)</span><input type="text" inputmode="decimal" id="vat" class="tool-input" value="21"></label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Precio que necesitas</h2>
+      <div class="tool-stat" style="text-align:center;padding:22px 14px">
+        <b id="r-final" style="font-size:2.2em">—</b>
+        <span>Precio de venta con IVA</span>
+      </div>
+      <table class="tool-table" style="margin-top:16px">
+        <tbody>
+          <tr><td>Precio sin IVA</td><td style="text-align:right"><b id="r-net">—</b></td></tr>
+          <tr><td>Comisión de la plataforma</td><td style="text-align:right"><b id="r-fee">—</b></td></tr>
+          <tr><td>Coste total por unidad</td><td style="text-align:right"><b id="r-cost">—</b></td></tr>
+          <tr><td>Beneficio por unidad</td><td style="text-align:right"><b id="r-profit" style="color:var(--orange)">—</b></td></tr>
+          <tr><td>Margen real</td><td style="text-align:right"><b id="r-margin">—</b></td></tr>
+          <tr><td>Markup equivalente</td><td style="text-align:right"><b id="r-markup">—</b></td></tr>
+        </tbody>
+      </table>
+      <p id="r-warn" style="color:#ef4444;font-size:.9em;margin-top:12px;line-height:1.6"></p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Margen y markup no son lo mismo</h2>
+    <p>
+      Esta confusión arruina negocios. El <strong>margen</strong> se calcula sobre el precio de
+      venta; el <strong>markup</strong>, sobre el coste. Un producto que te cuesta 10 € y vendes a
+      15 € tiene un markup del 50 % (le has sumado la mitad del coste) pero un margen del 33 %
+      (5 € de los 15 € que ingresas).
+    </p>
+    <p>
+      El error clásico es querer un margen del 50 %, aplicar un markup del 50 % y quedarse con un
+      margen real del 33 %. Por eso esta calculadora te deja elegir cuál de los dos estás
+      definiendo, y luego te enseña las dos cifras.
+    </p>
+
+    <h2>La comisión se cobra sobre el precio final</h2>
+    <p>
+      Este es el segundo error habitual. La comisión de la plataforma no se aplica a tu coste,
+      sino al precio al que vendes. Eso significa que subir el precio también sube la comisión, y
+      que la cuenta no se resuelve sumando: hay que despejar. La fórmula que aplica la herramienta
+      es precio = coste ÷ (1 − comisión − margen).
+    </p>
+
+    <h2>Cuando la cuenta no sale</h2>
+    <p>
+      Si la comisión más el margen que quieres suman el 100 % o más, no hay precio posible: por
+      mucho que subas, la comisión sube con él. La herramienta te avisa en lugar de darte un
+      número absurdo.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Qué diferencia hay entre margen y markup?</h3>
+    <p>El margen se calcula sobre el precio de venta y el markup sobre el coste. Un markup del 50 % equivale a un margen del 33 %. Confundirlos hace que vendas más barato de lo que crees.</p>
+    <h3>¿Por qué no basta con sumar la comisión al precio?</h3>
+    <p>Porque la comisión se cobra sobre el precio final, así que al subir el precio sube también la comisión. Hay que despejar la ecuación, no sumar.</p>
+    <h3>¿Por qué me dice que no hay precio posible?</h3>
+    <p>Porque la comisión más el margen que pides suman el 100 % o más del precio. En ese caso ningún precio funciona: hay que bajar el margen o buscar una plataforma más barata.</p>
+    <h3>¿El precio final incluye IVA?</h3>
+    <p>Se muestran los dos: el precio sin IVA, que es con el que trabajas tú, y el precio con IVA, que es el que ve el cliente.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function num(id) {
+    var s = String($(id).value || '').trim().replace(/\s/g, '');
+    if (!s) return 0;
+    if (s.indexOf(',') > -1 && s.indexOf('.') > -1) {
+      s = (s.lastIndexOf(',') > s.lastIndexOf('.'))
+          ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, '');
+    } else if (s.indexOf(',') > -1) { s = s.replace(',', '.'); }
+    var n = parseFloat(s);
+    return isFinite(n) ? n : 0;
+  }
+  var eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+  function money(n) { return isFinite(n) ? eur.format(n) : '—'; }
+  function pct(n) { return isFinite(n) ? n.toFixed(2).replace('.', ',') + ' %' : '—'; }
+
+  function calc() {
+    var base = num('cost') + num('ship') + num('other');
+    var fee  = num('fee') / 100;
+    var want = num('want') / 100;
+    var vat  = num('vat') / 100;
+    var mode = $('mode').value;
+    $('lbl-pct').textContent = (mode === 'margin') ? 'Margen deseado (%)' : 'Markup deseado (%)';
+
+    var net = NaN, warn = '';
+
+    if (mode === 'markup') {
+      // El markup se aplica al coste; la comision se cobra sobre el precio final.
+      var target = base * (1 + want);
+      net = (fee < 1) ? target / (1 - fee) : NaN;
+      if (fee >= 1) warn = 'Una comisión del 100 % o más hace imposible cualquier precio.';
+    } else {
+      // margen = (net - base - net*fee) / net  ->  net = base / (1 - fee - margen)
+      var denom = 1 - fee - want;
+      if (denom <= 0) {
+        warn = 'Con una comisión del ' + (fee * 100).toFixed(1).replace('.', ',') +
+               ' % no puedes tener un margen del ' + (want * 100).toFixed(1).replace('.', ',') +
+               ' %: entre los dos se comen el 100 % del precio. Baja el margen o cambia de plataforma.';
+      } else {
+        net = base / denom;
+      }
+    }
+
+    if (!isFinite(net) || net <= 0) {
+      ['r-final','r-net','r-fee','r-cost','r-profit','r-margin','r-markup'].forEach(function (id) {
+        $(id).textContent = '—';
+      });
+      $('r-warn').textContent = warn;
+      return;
+    }
+    $('r-warn').textContent = '';
+
+    var feeAmt  = net * fee;
+    var total   = base + feeAmt;
+    var profit  = net - total;
+
+    $('r-net').textContent    = money(net);
+    $('r-final').textContent  = money(net * (1 + vat));
+    $('r-fee').textContent    = money(feeAmt);
+    $('r-cost').textContent   = money(total);
+    $('r-profit').textContent = money(profit);
+    $('r-margin').textContent = pct((profit / net) * 100);
+    $('r-markup').textContent = base > 0 ? pct((profit / base) * 100) : '—';
+  }
+
+  ['cost','ship','other','fee','want','vat','mode'].forEach(function (id) {
+    $(id).addEventListener('input', calc); $(id).addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

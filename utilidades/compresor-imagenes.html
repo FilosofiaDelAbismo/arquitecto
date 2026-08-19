@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprimir imágenes online gratis sin subirlas · Arquitecto Digital</title>
+<meta name="description" content="Reduce el peso de tus imágenes JPG, PNG y WebP sin subirlas a ningún servidor. Ajusta la calidad, mira cuánto ahorras y descarga sueltas o en ZIP. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/compresor-imagenes.html">
+
+<meta property="og:title" content="Comprimir imágenes online gratis sin subirlas · Arquitecto Digital">
+<meta property="og:description" content="Reduce el peso de tus imágenes JPG, PNG y WebP sin subirlas a ningún servidor. Ajusta la calidad, mira cuánto ahorras y descarga sueltas o en ZIP. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/compresor-imagenes.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/vendor/jszip.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/compresor-imagenes.html#app",
+  "name": "Compresor de imágenes",
+  "url": "https://arquitectodigital.io/utilidades/compresor-imagenes.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Reduce el peso de tus imágenes JPG, PNG y WebP sin subirlas a ningún servidor. Ajusta la calidad, mira cuánto ahorras y descarga sueltas o en ZIP. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Comprime JPG, PNG y WebP en el navegador",
+    "Calidad ajustable del 10 % al 100 %",
+    "Salida en JPG o WebP",
+    "Redimensionado opcional por ancho máximo",
+    "Descarga individual o en ZIP",
+    "Muestra el ahorro exacto por imagen",
+    "No sube nada a ningún servidor"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/compresor-imagenes.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se suben mis imágenes a algún servidor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Se procesan con el canvas de tu propio navegador. Puedes desconectar internet después de cargar la página y la compresión seguirá funcionando."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto peso voy a ahorrar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la imagen y de la calidad que elijas. La herramienta te enseña el antes, el después y el porcentaje exacto de cada archivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Pierde calidad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, es compresión con pérdida. A 75 % casi nunca se aprecia a simple vista. Baja el control y mira el resultado hasta encontrar tu punto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa con la transparencia de un PNG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si conviertes a JPG se rellena de blanco, porque JPG no admite transparencia. Elige WebP para conservarla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay límite de imágenes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay límite impuesto por la herramienta. El límite práctico es la memoria de tu propio dispositivo."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Compresor de imágenes",
+      "item": "https://arquitectodigital.io/utilidades/compresor-imagenes.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › Compresor de imágenes</p>
+    <span class="section-label">[Utilidad] General</span>
+    <h1>Comprime tus imágenes<br><span class="accent">sin subirlas a ningún sitio</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Arrastra tus imágenes, elige la calidad y descárgalas más ligeras. Puedes bajarlas sueltas o todas juntas en un ZIP. <strong>Las imágenes no se suben a ningún servidor</strong>: se procesan dentro de tu navegador, así que puedes comprimir fotos privadas sin que salgan de tu equipo.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-panel" style="margin-bottom:20px">
+    <label for="file" style="display:block;border:2px dashed var(--border);border-radius:10px;
+      padding:34px 20px;text-align:center;cursor:pointer;color:var(--text-dim)" id="drop">
+      <strong style="color:var(--text)">Arrastra tus imágenes aquí</strong><br>
+      <span style="font-size:.92em">o pulsa para elegirlas · JPG, PNG o WebP</span>
+      <input type="file" id="file" accept="image/*" multiple style="display:none">
+    </label>
+    <p id="warn" style="color:#ef4444;font-size:.88em;margin-top:10px"></p>
+  </div>
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Ajustes</h2>
+      <label class="tool-field">
+        <span>Calidad: <b id="q-val" style="color:var(--orange)">75</b> %</span>
+        <input type="range" id="q" min="10" max="100" step="5" value="75" style="width:100%">
+      </label>
+      <label class="tool-field">
+        <span>Formato de salida</span>
+        <select id="fmt" class="tool-select">
+          <option value="image/jpeg" selected>JPG</option>
+          <option value="image/webp">WebP (suele pesar menos)</option>
+        </select>
+      </label>
+      <label class="tool-field">
+        <span>Ancho máximo (px, 0 = no redimensionar)</span>
+        <input type="number" id="maxw" class="tool-input" min="0" max="8000" value="0">
+      </label>
+      <div class="tool-actions">
+        <button type="button" class="tool-btn tool-btn--primary" id="btn-zip">Descargar todas en ZIP</button>
+        <button type="button" class="tool-btn" id="btn-clear">Vaciar</button>
+      </div>
+    </div>
+    <div class="tool-panel">
+      <h2>Resumen</h2>
+      <div class="tool-stats">
+        <div class="tool-stat"><b id="s-n">0</b><span>Imágenes</span></div>
+        <div class="tool-stat"><b id="s-before">0</b><span>Original</span></div>
+        <div class="tool-stat"><b id="s-after">0</b><span>Comprimido</span></div>
+      </div>
+      <p id="s-save" style="color:var(--green);margin-top:12px;font-size:.95em">—</p>
+    </div>
+  </div>
+  <div id="list" style="display:grid;gap:12px;margin-top:20px"></div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Por qué comprimir</h2>
+    <p>
+      Una foto de móvil pesa varios megas. Subida tal cual a una web, es lo que más ralentiza la
+      página, y la velocidad es un factor de posicionamiento. Bajar la calidad al 75 % suele
+      recortar el peso a la cuarta parte sin que se note a simple vista.
+    </p>
+    <h2>Qué hace exactamente</h2>
+    <p>
+      Vuelve a codificar la imagen con la calidad que elijas, opcionalmente reduciendo el ancho.
+      Es compresión con pérdida: se descarta información que el ojo apenas percibe. Por eso no
+      tiene sentido comprimir dos veces el mismo archivo.
+    </p>
+    <h2>JPG o WebP</h2>
+    <p>
+      WebP suele pesar bastante menos que JPG con la misma calidad aparente, y hoy lo admiten
+      todos los navegadores actuales. Si la imagen va a una web, elige WebP. Si tiene que abrirse
+      en programas antiguos, quédate en JPG.
+    </p>
+    <h2>Ojo con el PNG con transparencia</h2>
+    <p>
+      Al convertir a JPG, la transparencia se rellena de blanco, porque el formato JPG no la
+      admite. Si necesitas conservarla, usa WebP.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Se suben mis imágenes a algún servidor?</h3>
+    <p>No. Se procesan con el canvas de tu propio navegador. Puedes desconectar internet después de cargar la página y la compresión seguirá funcionando.</p>
+    <h3>¿Cuánto peso voy a ahorrar?</h3>
+    <p>Depende de la imagen y de la calidad que elijas. La herramienta te enseña el antes, el después y el porcentaje exacto de cada archivo.</p>
+    <h3>¿Pierde calidad?</h3>
+    <p>Sí, es compresión con pérdida. A 75 % casi nunca se aprecia a simple vista. Baja el control y mira el resultado hasta encontrar tu punto.</p>
+    <h3>¿Qué pasa con la transparencia de un PNG?</h3>
+    <p>Si conviertes a JPG se rellena de blanco, porque JPG no admite transparencia. Elige WebP para conservarla.</p>
+    <h3>¿Hay límite de imágenes?</h3>
+    <p>No hay límite impuesto por la herramienta. El límite práctico es la memoria de tu propio dispositivo.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var items = [];
+
+  function kb(b) {
+    if (b < 1024) return b + ' B';
+    if (b < 1024 * 1024) return (b / 1024).toFixed(1) + ' KB';
+    return (b / 1024 / 1024).toFixed(2) + ' MB';
+  }
+
+  function compress(file) {
+    return new Promise(function (resolve) {
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () {
+        var w = img.naturalWidth, h = img.naturalHeight;
+        var maxw = parseInt($('maxw').value, 10) || 0;
+        if (maxw > 0 && w > maxw) { h = Math.round(h * maxw / w); w = maxw; }
+        var cv = document.createElement('canvas');
+        cv.width = w; cv.height = h;
+        var ctx = cv.getContext('2d');
+        if ($('fmt').value === 'image/jpeg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); }
+        ctx.drawImage(img, 0, 0, w, h);
+        cv.toBlob(function (blob) {
+          URL.revokeObjectURL(url);
+          resolve({ name: file.name, before: file.size, blob: blob, w: w, h: h });
+        }, $('fmt').value, (parseInt($('q').value, 10) || 75) / 100);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); resolve(null); };
+      img.src = url;
+    });
+  }
+
+  function ext() { return $('fmt').value === 'image/webp' ? '.webp' : '.jpg'; }
+  function outName(n) { return n.replace(/\.[^.]+$/, '') + ext(); }
+
+  function render() {
+    $('s-n').textContent = items.length;
+    var b = items.reduce(function (a, x) { return a + x.before; }, 0);
+    var a2 = items.reduce(function (a, x) { return a + (x.blob ? x.blob.size : 0); }, 0);
+    $('s-before').textContent = kb(b);
+    $('s-after').textContent = kb(a2);
+    $('s-save').textContent = (b && a2)
+      ? 'Ahorras ' + kb(b - a2) + ' (' + Math.max(0, Math.round((1 - a2 / b) * 100)) + ' % menos)'
+      : '—';
+
+    $('list').innerHTML = items.map(function (x, i) {
+      var pct = x.blob ? Math.round((1 - x.blob.size / x.before) * 100) : 0;
+      return '<div class="tool-panel" style="padding:13px 16px;display:flex;justify-content:space-between;' +
+        'align-items:center;gap:14px;flex-wrap:wrap">' +
+        '<div><b style="color:var(--text);font-size:.94em">' + x.name + '</b><br>' +
+        '<span style="color:var(--text-faint);font-size:.82em">' + x.w + '×' + x.h + ' · ' +
+        kb(x.before) + ' → ' + kb(x.blob ? x.blob.size : 0) +
+        ' <span style="color:' + (pct > 0 ? 'var(--green)' : 'var(--text-faint)') + '">(' +
+        (pct > 0 ? '−' + pct + ' %' : 'sin mejora') + ')</span></span></div>' +
+        '<button type="button" class="tool-btn" data-i="' + i + '">Descargar</button></div>';
+    }).join('');
+  }
+
+  async function handle(files) {
+    $('warn').textContent = '';
+    var imgs = Array.prototype.filter.call(files, function (f) { return /^image\//.test(f.type); });
+    if (!imgs.length) { $('warn').textContent = 'Elige archivos de imagen.'; return; }
+    for (var i = 0; i < imgs.length; i++) {
+      var r = await compress(imgs[i]);
+      if (r) items.push(r);
+      render();
+    }
+  }
+
+  async function recompress() {
+    if (!items.length) return;
+    var files = items.map(function (x) { return x.file; }).filter(Boolean);
+    render();
+  }
+
+  $('file').addEventListener('change', function () { handle(this.files); this.value = ''; });
+  ['dragenter','dragover'].forEach(function (e) {
+    $('drop').addEventListener(e, function (ev) { ev.preventDefault(); this.style.borderColor = 'var(--orange)'; });
+  });
+  ['dragleave','drop'].forEach(function (e) {
+    $('drop').addEventListener(e, function (ev) { ev.preventDefault(); this.style.borderColor = 'var(--border)'; });
+  });
+  $('drop').addEventListener('drop', function (ev) { handle(ev.dataTransfer.files); });
+
+  $('list').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-i]'); if (!b) return;
+    var x = items[+b.dataset.i]; if (!x || !x.blob) return;
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(x.blob); a.download = outName(x.name);
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+  });
+
+  $('btn-clear').addEventListener('click', function () { items = []; render(); });
+  $('q').addEventListener('input', function () { $('q-val').textContent = this.value; });
+
+  $('btn-zip').addEventListener('click', function () {
+    if (!items.length) { $('warn').textContent = 'Añade imágenes primero.'; return; }
+    if (typeof JSZip !== 'function') { $('warn').textContent = 'No se ha podido cargar el empaquetador ZIP. Recarga la página.'; return; }
+    var zip = new JSZip();
+    items.forEach(function (x) { if (x.blob) zip.file(outName(x.name), x.blob); });
+    zip.generateAsync({ type: 'blob' }).then(function (blob) {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = 'imagenes-comprimidas.zip';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+    });
+  });
+
+  render();
+});
+</script>
+</body>
+</html>

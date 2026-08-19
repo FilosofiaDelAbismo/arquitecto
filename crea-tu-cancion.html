@@ -15,7 +15,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1722843912288989');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img alt="" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
@@ -35,6 +35,12 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- PERF: fuentes pedidas en paralelo desde el head. El @import de
+     assets/styles.css se mantiene (lo necesitan las paginas legales,
+     que no se tocan); el navegador deduplica por URL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
 <style>
@@ -63,6 +69,95 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
   button.service-cta:hover, a#btn-pago.service-cta:hover {
     background: var(--orange-bright); color: var(--bg); }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://arquitectodigital.io/crea-tu-cancion.html#service",
+  "name": "Crea tu canción",
+  "serviceType": "Creación de canción personalizada con IA",
+  "url": "https://arquitectodigital.io/crea-tu-cancion.html",
+  "description": "Una canción personalizada con letra a medida y voz, para tu ocasión especial. Eliges el estilo y el tema y recibes 2 versiones en MP3 por email. 25€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.",
+  "inLanguage": "es",
+  "provider": {
+    "@id": "https://arquitectodigital.io/#organization"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Canción personalizada",
+      "priceCurrency": "EUR",
+      "price": "25",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "25",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Letra a medida y voz sobre el estilo y la ocasión que elijas. Recibes 2 versiones en MP3 por email. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/crea-tu-cancion.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta una canción personalizada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "25€ en pago único, con IVA incluido y pago seguro por Stripe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En 4 pasos. Pagas la canción, eliges estilo (pop, balada, reggaetón, ranchera…) y tema (cumpleaños, aniversario, homenaje, pedir perdón…), la IA escribe la letra y tú la validas o pides otra, y por último se genera la canción y recibes 2 versiones por email."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué idioma puede estar la canción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En el idioma que quieras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué recibo exactamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2 versiones de la misma canción en MP3 por email. Son 2 tomas de la misma letra y el mismo estilo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo tengo para crearla después de pagar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "48 horas. Tras pagar recibes un código y tienes 48 horas para crear tu canción con él. Pasado ese plazo, el código caduca."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo comprarla si vivo fuera de España?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El servicio es solo para clientes con domicilio fiscal en España. Si el tuyo está fuera, escribe a daniel@arquitectodigital.io y se ve caso por caso."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -81,6 +176,15 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
           <li><a href="sistemas.html">Sistemas Personalizados</a></li>
           <li><a href="girobot.html">GiroBot · Twitch</a></li>
           <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
         </ul>
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -103,6 +207,7 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
       Una canción única, con su letra a medida y su voz, para tu ocasión
       especial. Tú eliges el estilo y el tema; nosotros la creamos con IA.
       Recibes 2 versiones de tu canción en MP3 por email.
+      <strong>25€</strong>, pago único. IVA incluido.
     </p>
   </div>
 </section>
@@ -189,6 +294,47 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
     <button type="submit" class="service-cta">Acceder a la creación →</button>
   </form>
   <p id="music-estado"></p>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[04] Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre tu canción</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta una canción personalizada?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">25€ en pago único, con IVA incluido y pago seguro por Stripe.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cómo funciona?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">En 4 pasos. Pagas la canción, eliges estilo (pop, balada, reggaetón, ranchera…) y tema (cumpleaños, aniversario, homenaje, pedir perdón…), la IA escribe la letra y tú la validas o pides otra, y por último se genera la canción y recibes 2 versiones por email.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿En qué idioma puede estar la canción?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">En el idioma que quieras.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Qué recibo exactamente?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">2 versiones de la misma canción en MP3 por email. Son 2 tomas de la misma letra y el mismo estilo.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto tiempo tengo para crearla después de pagar?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">48 horas. Tras pagar recibes un código y tienes 48 horas para crear tu canción con él. Pasado ese plazo, el código caduca.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Puedo comprarla si vivo fuera de España?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">El servicio es solo para clientes con domicilio fiscal en España. Si el tuyo está fuera, escribe a daniel@arquitectodigital.io y se ve caso por caso.</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>

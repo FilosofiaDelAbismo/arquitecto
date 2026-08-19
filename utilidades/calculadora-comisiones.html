@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de comisiones de Amazon, Etsy, eBay y marketplaces · gratis · Arquitecto Digital</title>
+<meta name="description" content="Calcula lo que te queda tras las comisiones de cada marketplace y qué precio necesitas para tu margen. Las tarifas son editables, porque cada plataforma cambia las suyas. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/calculadora-comisiones.html">
+
+<meta property="og:title" content="Calculadora de comisiones de Amazon, Etsy, eBay y marketplaces · gratis · Arquitecto Digital">
+<meta property="og:description" content="Calcula lo que te queda tras las comisiones de cada marketplace y qué precio necesitas para tu margen. Las tarifas son editables, porque cada plataforma cambia las suyas. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/calculadora-comisiones.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-comisiones.html#app",
+  "name": "Calculadora de comisiones de marketplace",
+  "url": "https://arquitectodigital.io/utilidades/calculadora-comisiones.html",
+  "applicationCategory": "https://schema.org/FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Calcula lo que te queda tras las comisiones de cada marketplace y qué precio necesitas para tu margen. Las tarifas son editables, porque cada plataforma cambia las suyas. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Todas las tarifas editables por el usuario",
+    "Comisión por referencia con mínimo por venta",
+    "Logística, publicación, pago y cuota mensual",
+    "Calcula el margen real por venta",
+    "Calcula el precio necesario para tu margen objetivo",
+    "Avisa cuando el margen pedido es imposible"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-comisiones.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Las tarifas que trae son las oficiales de Amazon o Etsy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, y es deliberado. Son valores de partida para que veas cómo funciona la herramienta. Las tarifas reales cambian con el tiempo, la categoría, el país y tu tipo de cuenta: cópialas de tu panel de vendedor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué no basta con restar la comisión al precio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para saber lo que te queda sí basta. Pero para calcular a qué precio vender, no: la comisión sube cuando sube el precio, así que hay que despejar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo reparto la cuota mensual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide la cuota entre las ventas que esperas hacer en el mes y pon ese número. Así la ves por unidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Trabajo con precios con IVA o sin IVA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sin IVA. El IVA no es ingreso tuyo. La herramienta te muestra también el precio con IVA al 21 % como referencia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se guardan mis datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El cálculo ocurre en tu navegador y no hay servidor al que enviarlos."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ecommerce",
+      "item": "https://arquitectodigital.io/utilidades/ecommerce.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Calculadora de comisiones de marketplace",
+      "item": "https://arquitectodigital.io/utilidades/calculadora-comisiones.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/ecommerce.html">Ecommerce</a> › Calculadora de comisiones de marketplace</p>
+    <span class="section-label">[Utilidad] Ecommerce</span>
+    <h1>Calculadora de<br><span class="accent">comisiones de marketplace</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Calcula lo que te queda de verdad tras las comisiones y qué precio necesitas para el margen que quieres. <strong>Las tarifas son campos editables, no cifras fijas</strong>: cada plataforma cambia las suyas y cada vendedor tiene sus condiciones, así que las pones tú desde tu panel.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-panel" style="margin-bottom:20px;border-left:3px solid var(--orange)">
+    <p style="color:var(--text-dim);line-height:1.7;margin:0">
+      <strong style="color:var(--text)">Sobre los valores de partida:</strong> los campos vienen
+      rellenos con órdenes de magnitud habituales para que puedas empezar a jugar, pero
+      <strong>no son las tarifas oficiales de ninguna plataforma</strong>: cambian con el tiempo,
+      por categoría, por país y por tu tipo de cuenta. Cópialas de tu panel de vendedor antes de
+      tomar una decisión con esto.
+    </p>
+  </div>
+
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Tu venta</h2>
+      <label class="tool-field"><span>Precio de venta (sin IVA)</span><input type="text" inputmode="decimal" id="price" class="tool-input" value="49,90"></label>
+      <label class="tool-field"><span>Coste del producto</span><input type="text" inputmode="decimal" id="cost" class="tool-input" value="18"></label>
+
+      <h2 style="margin-top:24px">Comisiones (edítalas con las tuyas)</h2>
+      <label class="tool-field"><span>Comisión por referencia (% del precio)</span><input type="text" inputmode="decimal" id="ref" class="tool-input" value="15"></label>
+      <label class="tool-field"><span>Comisión mínima por venta (€)</span><input type="text" inputmode="decimal" id="minfee" class="tool-input" value="0,30"></label>
+      <label class="tool-field"><span>Tarifa de logística o envío (€)</span><input type="text" inputmode="decimal" id="fulfil" class="tool-input" value="4,40"></label>
+      <label class="tool-field"><span>Tarifa por publicación (€)</span><input type="text" inputmode="decimal" id="listing" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Comisión de pago (%)</span><input type="text" inputmode="decimal" id="pay" class="tool-input" value="0"></label>
+      <label class="tool-field"><span>Cuota mensual repartida por venta (€)</span><input type="text" inputmode="decimal" id="monthly" class="tool-input" value="0"></label>
+
+      <h2 style="margin-top:24px">Objetivo</h2>
+      <label class="tool-field"><span>Margen que quieres (%)</span><input type="text" inputmode="decimal" id="want" class="tool-input" value="25"></label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Qué te queda</h2>
+      <table class="tool-table">
+        <tbody>
+          <tr><td>Comisión por referencia</td><td style="text-align:right"><b id="r-ref">—</b></td></tr>
+          <tr><td>Logística y envío</td><td style="text-align:right"><b id="r-ful">—</b></td></tr>
+          <tr><td>Publicación y pago</td><td style="text-align:right"><b id="r-oth">—</b></td></tr>
+          <tr><td><strong style="color:var(--text)">Total de comisiones</strong></td><td style="text-align:right"><b id="r-fees">—</b></td></tr>
+          <tr><td>% del precio que se van</td><td style="text-align:right"><b id="r-fpct">—</b></td></tr>
+          <tr><td>Coste del producto</td><td style="text-align:right"><b id="r-cost">—</b></td></tr>
+          <tr><td><strong style="color:var(--text)">Beneficio por venta</strong></td><td style="text-align:right"><b id="r-profit" style="color:var(--orange)">—</b></td></tr>
+          <tr><td>Margen real</td><td style="text-align:right"><b id="r-margin">—</b></td></tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top:24px">Para tu margen objetivo</h2>
+      <p id="r-need" style="color:var(--text-dim);line-height:1.7">—</p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Por qué las tarifas son editables y no fijas</h2>
+    <p>
+      Muchas calculadoras de comisiones traen las tarifas de Amazon, Etsy o eBay grabadas a fuego.
+      El problema es que esas tarifas cambian, y cambian por categoría, por país, por tamaño del
+      producto y por el tipo de cuenta que tengas. Una calculadora con cifras de hace dos años te
+      da un resultado que parece preciso y es falso, y con eso se toman decisiones de compra de
+      stock.
+    </p>
+    <p>
+      Aquí los campos vienen con valores de partida razonables para que veas cómo funciona, pero
+      la herramienta te pide explícitamente que los sustituyas por los tuyos. Los tienes en el panel
+      de vendedor de tu plataforma, y son los únicos que valen para tu caso.
+    </p>
+
+    <h2>Los conceptos que suele haber</h2>
+    <ul>
+      <li><strong>Comisión por referencia:</strong> un porcentaje del precio de venta. Es la principal.</li>
+      <li><strong>Comisión mínima:</strong> algunas plataformas cobran un mínimo por venta aunque el porcentaje dé menos.</li>
+      <li><strong>Logística:</strong> si la plataforma almacena y envía por ti, cobra una tarifa por unidad según peso y volumen.</li>
+      <li><strong>Publicación:</strong> algunas cobran por anuncio publicado, independientemente de si vendes.</li>
+      <li><strong>Comisión de pago:</strong> el porcentaje de la pasarela, cuando va aparte.</li>
+      <li><strong>Cuota mensual:</strong> repártela entre las ventas que esperas hacer para verla por unidad.</li>
+    </ul>
+
+    <h2>El precio que necesitas</h2>
+    <p>
+      La herramienta despeja la ecuación teniendo en cuenta que la comisión sube cuando sube el
+      precio. La fórmula es precio = (coste + tarifas fijas) ÷ (1 − comisión − margen). Si la
+      comisión y el margen que quieres suman el 100 %, te avisa de que no hay precio posible en
+      lugar de darte un número sin sentido.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Las tarifas que trae son las oficiales de Amazon o Etsy?</h3>
+    <p>No, y es deliberado. Son valores de partida para que veas cómo funciona la herramienta. Las tarifas reales cambian con el tiempo, la categoría, el país y tu tipo de cuenta: cópialas de tu panel de vendedor.</p>
+    <h3>¿Por qué no basta con restar la comisión al precio?</h3>
+    <p>Para saber lo que te queda sí basta. Pero para calcular a qué precio vender, no: la comisión sube cuando sube el precio, así que hay que despejar.</p>
+    <h3>¿Cómo reparto la cuota mensual?</h3>
+    <p>Divide la cuota entre las ventas que esperas hacer en el mes y pon ese número. Así la ves por unidad.</p>
+    <h3>¿Trabajo con precios con IVA o sin IVA?</h3>
+    <p>Sin IVA. El IVA no es ingreso tuyo. La herramienta te muestra también el precio con IVA al 21 % como referencia.</p>
+    <h3>¿Se guardan mis datos?</h3>
+    <p>No. El cálculo ocurre en tu navegador y no hay servidor al que enviarlos.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function num(id) {
+    var s = String($(id).value || '').trim().replace(/\s/g, '');
+    if (!s) return 0;
+    if (s.indexOf(',') > -1 && s.indexOf('.') > -1) {
+      s = (s.lastIndexOf(',') > s.lastIndexOf('.'))
+          ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, '');
+    } else if (s.indexOf(',') > -1) { s = s.replace(',', '.'); }
+    var n = parseFloat(s);
+    return isFinite(n) ? n : 0;
+  }
+  var eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+  function money(n) { return isFinite(n) ? eur.format(n) : '—'; }
+  function pct(n) { return isFinite(n) ? n.toFixed(2).replace('.', ',') + ' %' : '—'; }
+
+  function feesFor(price) {
+    var ref  = Math.max(price * num('ref') / 100, num('minfee'));
+    var ful  = num('fulfil');
+    var oth  = num('listing') + num('monthly') + price * num('pay') / 100;
+    return { ref: ref, ful: ful, oth: oth, total: ref + ful + oth };
+  }
+
+  function calc() {
+    var price = num('price'), cost = num('cost');
+    var f = feesFor(price);
+    var profit = price - f.total - cost;
+
+    $('r-ref').textContent    = money(f.ref);
+    $('r-ful').textContent    = money(f.ful);
+    $('r-oth').textContent    = money(f.oth);
+    $('r-fees').textContent   = money(f.total);
+    $('r-fpct').textContent   = price > 0 ? pct((f.total / price) * 100) : '—';
+    $('r-cost').textContent   = money(cost);
+    $('r-profit').textContent = money(profit);
+    $('r-margin').textContent = price > 0 ? pct((profit / price) * 100) : '—';
+
+    // Precio necesario para el margen objetivo.
+    // p - (p*ref% + fijos) - coste = margen*p  ->  p = (coste + fijos) / (1 - ref% - pay% - margen)
+    var refPct = num('ref') / 100, payPct = num('pay') / 100, want = num('want') / 100;
+    var fixed  = num('fulfil') + num('listing') + num('monthly');
+    var denom  = 1 - refPct - payPct - want;
+    if (denom <= 0) {
+      $('r-need').textContent = 'Con una comisión del ' + pct((refPct + payPct) * 100) +
+        ' no puedes conseguir un margen del ' + pct(want * 100) +
+        ': entre las dos cosas se comen todo el precio. Baja el margen objetivo o busca otra plataforma.';
+      return;
+    }
+    var need = (cost + fixed) / denom;
+    var nf = feesFor(need);
+    var np = need - nf.total - cost;
+    $('r-need').textContent =
+      'Para dejarte un ' + pct(want * 100) + ' de margen tendrías que vender a ' + money(need) +
+      ' sin IVA (' + money(need * 1.21) + ' con IVA al 21 %). Ahí te quedarían ' + money(np) +
+      ' por venta. Ahora estás vendiendo a ' + money(price) +
+      (need > price ? ', o sea ' + money(need - price) + ' por debajo.'
+                    : ', o sea ' + money(price - need) + ' por encima: vas sobrado.');
+  }
+
+  ['price','cost','ref','minfee','fulfil','listing','pay','monthly','want'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

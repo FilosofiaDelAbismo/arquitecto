@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════════════════
+   UTILIDADES · arquitectodigital.io
+   Hoja compartida por el hub, los 3 sectoriales y las herramientas.
+   NO redefine el tema: consume las variables de assets/styles.css
+   (--bg, --bg-card, --orange, --text, --text-dim, --border...).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ---------- Rejilla de tarjetas del hub y los sectoriales ---------- */
+.util-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+.util-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 20px;
+  transition: border-color .18s ease, transform .18s ease;
+}
+.util-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+.util-card h3 { margin: 0 0 8px; font-size: 1.05em; color: var(--text); }
+.util-card h3 a { color: inherit; text-decoration: none; }
+.util-card h3 a::after { content: ''; position: absolute; inset: 0; }
+.util-card p { margin: 0; color: var(--text-dim); line-height: 1.6; font-size: .95em; }
+.util-card .util-tag {
+  display: inline-block; margin-bottom: 10px; padding: 3px 9px;
+  border: 1px solid var(--border); border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: .68em;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint);
+}
+.util-card--sector { border-color: var(--orange-dim); }
+
+/* ---------- Migas ---------- */
+.util-breadcrumb {
+  font-family: 'JetBrains Mono', monospace; font-size: .8em;
+  color: var(--text-faint); margin-bottom: 14px;
+}
+.util-breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.util-breadcrumb a:hover { color: var(--orange); }
+
+/* ---------- Superficie de trabajo de una herramienta ---------- */
+.tool-wrap { display: grid; gap: 22px; margin-top: 34px; }
+@media (min-width: 900px) { .tool-wrap.tool-wrap--split { grid-template-columns: 1.15fr .85fr; } }
+
+.tool-panel {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px;
+}
+.tool-panel h2, .tool-panel h3 {
+  font-family: 'Fraunces', serif; color: var(--orange);
+  font-size: 1em; margin: 0 0 14px;
+}
+
+.tool-field { display: block; margin-bottom: 14px; }
+.tool-field > span {
+  display: block; margin-bottom: 6px; color: var(--text-dim);
+  font-size: .88em; letter-spacing: .02em;
+}
+.tool-input, .tool-textarea, .tool-select {
+  width: 100%; background: var(--bg-elevated); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 11px 13px; font-family: inherit; font-size: 1em; line-height: 1.5;
+}
+.tool-textarea { font-family: 'JetBrains Mono', monospace; font-size: .92em; min-height: 340px; resize: vertical; }
+.tool-input:focus, .tool-textarea:focus, .tool-select:focus {
+  outline: none; border-color: var(--orange);
+}
+
+.tool-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.tool-btn {
+  background: transparent; color: var(--text-dim);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 14px; font-family: inherit; font-size: .9em; cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+.tool-btn:hover { border-color: var(--orange); color: var(--text); }
+.tool-btn--primary { background: var(--orange); border-color: var(--orange); color: var(--bg); font-weight: 600; }
+.tool-btn--primary:hover { background: var(--orange-bright); border-color: var(--orange-bright); color: var(--bg); }
+
+/* ---------- Métricas ---------- */
+.tool-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tool-stat { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; padding: 13px 14px; }
+.tool-stat b {
+  display: block; font-family: 'JetBrains Mono', monospace;
+  font-size: 1.45em; font-weight: 500; color: var(--orange); line-height: 1.15;
+}
+.tool-stat span {
+  display: block; margin-top: 4px; font-family: 'JetBrains Mono', monospace;
+  font-size: .62em; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint);
+}
+
+/* ---------- Barras de límite ---------- */
+.limit-row { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.limit-row:last-child { border-bottom: none; }
+.limit-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.limit-name { color: var(--text-dim); font-size: .9em; }
+.limit-count { font-family: 'JetBrains Mono', monospace; font-size: .78em; color: var(--text-faint); white-space: nowrap; }
+.limit-track { height: 5px; background: var(--bg-elevated); border-radius: 999px; overflow: hidden; }
+.limit-fill { height: 100%; background: var(--green); border-radius: 999px; transition: width .12s linear; }
+.limit-row.is-warn .limit-fill { background: var(--orange-bright); }
+.limit-row.is-warn .limit-count { color: var(--orange-bright); }
+.limit-row.is-over .limit-fill { background: #ef4444; }
+.limit-row.is-over .limit-count { color: #ef4444; }
+
+/* ---------- Tabla de resultados ---------- */
+.tool-table { width: 100%; border-collapse: collapse; font-size: .92em; }
+.tool-table th, .tool-table td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+.tool-table th { color: var(--text-faint); font-family: 'JetBrains Mono', monospace; font-size: .72em; letter-spacing: .08em; text-transform: uppercase; font-weight: 400; }
+.tool-table td { color: var(--text-dim); }
+.tool-table td b { color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+
+/* ---------- Nota de privacidad (va en TODAS las herramientas) ---------- */
+.tool-privacy {
+  margin-top: 30px; padding: 14px 16px;
+  border: 1px solid var(--border); border-left: 3px solid var(--green);
+  border-radius: 8px; background: var(--bg-card);
+  color: var(--text-dim); font-size: .9em; line-height: 1.6;
+}
+
+/* ---------- Texto explicativo indexable ---------- */
+.tool-prose { margin-top: 44px; max-width: 760px; }
+.tool-prose h2 { font-family: 'Fraunces', serif; color: var(--text); font-size: 1.35em; margin: 32px 0 12px; }
+.tool-prose h3 { font-family: 'Fraunces', serif; color: var(--orange); font-size: 1.05em; margin: 24px 0 8px; }
+.tool-prose p, .tool-prose li { color: var(--text-dim); line-height: 1.75; }
+.tool-prose ul { margin: 10px 0 0 20px; }
+.tool-prose li { margin-bottom: 6px; }

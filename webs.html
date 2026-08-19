@@ -18,8 +18,107 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- PERF: fuentes pedidas en paralelo desde el head. El @import de
+     assets/styles.css se mantiene (lo necesitan las paginas legales,
+     que no se tocan); el navegador deduplica por URL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://arquitectodigital.io/webs.html#service",
+  "name": "Webs Personalizadas",
+  "serviceType": "Diseño y desarrollo de sitios web a medida",
+  "url": "https://arquitectodigital.io/webs.html",
+  "description": "Webs profesionales para empresas, autónomos y particulares: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Desde 954€ en pago único, IVA incluido. El mantenimiento mensual es por cotización según la web.",
+  "inLanguage": "es",
+  "provider": {
+    "@id": "https://arquitectodigital.io/#organization"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Essential",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "minPrice": "954",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "1 página con 5 secciones, diseño responsive, SEO básico + meta tags, sección de contacto con tus datos. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "minPrice": "2650",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Home + 4-6 páginas internas, blog integrado o conectado a autoblog, chatbot IA integrable contratándolo aparte, SEO técnico completo + sitemap. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/webs.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta una web profesional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde 954€ en pago único el plan Essential (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro va desde 2.650€ e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap. IVA incluido. El mantenimiento mensual es opcional y va por cotización según la web."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La web Essential se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué incluye y qué no incluye el precio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La web es mía o me quedo atado a una plataforma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin lock-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ver un ejemplo real de vuestro trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí: arquitectodigital.io es HTML estático en GitHub Pages, hecho con esta misma propuesta, y puedes verlo en producción."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +137,15 @@
           <li><a href="sistemas.html">Sistemas Personalizados</a></li>
           <li><a href="girobot.html">GiroBot · Twitch</a></li>
           <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
         </ul>
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -60,6 +168,7 @@
       Webs profesionales para empresas, autónomos y particulares. Diseño, desarrollo, deploy y
       dominio. Tu web se construye con tu contenido y tus datos.
       Sin lock-in: el código es tuyo, editable y migrable.
+      <strong>Desde 954€</strong>, pago único. IVA incluido.
     </p>
   </div>
 </section>
@@ -249,6 +358,42 @@
     cuándo puedes tenerla. Sin presión, sin compromiso.
   </p>
   <a href="index.html#contacto" class="btn-primary">Agendar llamada gratuita →</a>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[05] Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre webs personalizadas</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta una web profesional?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Desde 954€ en pago único el plan Essential (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro va desde 2.650€ e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap. IVA incluido. El mantenimiento mensual es opcional y va por cotización según la web.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto tarda?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">La web Essential se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Qué incluye y qué no incluye el precio?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿La web es mía o me quedo atado a una plataforma?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin lock-in.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Puedo ver un ejemplo real de vuestro trabajo?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Sí: arquitectodigital.io es HTML estático en GitHub Pages, hecho con esta misma propuesta, y puedes verlo en producción.</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>

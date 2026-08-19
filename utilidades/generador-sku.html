@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de SKU para tu catálogo online gratis · Arquitecto Digital</title>
+<meta name="description" content="Genera códigos SKU consistentes a partir de los atributos de tus productos. Plantilla configurable, generación por lotes y descarga en CSV. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/generador-sku.html">
+
+<meta property="og:title" content="Generador de SKU para tu catálogo online gratis · Arquitecto Digital">
+<meta property="og:description" content="Genera códigos SKU consistentes a partir de los atributos de tus productos. Plantilla configurable, generación por lotes y descarga en CSV. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/generador-sku.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/generador-sku.html#app",
+  "name": "Generador de SKU",
+  "url": "https://arquitectodigital.io/utilidades/generador-sku.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Genera códigos SKU consistentes a partir de los atributos de tus productos. Plantilla configurable, generación por lotes y descarga en CSV. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Plantilla de SKU configurable",
+    "Variables de marca, categoría, producto, variante, año y número",
+    "Generación por lotes desde una lista de variantes",
+    "Elimina acentos y símbolos automáticamente",
+    "Detecta y avisa de SKUs duplicados",
+    "Exportación a CSV",
+    "Copiar todos al portapapeles"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/generador-sku.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Es lo mismo un SKU que un código de barras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El SKU es tu código interno y te lo inventas tú. El EAN o código de barras es global y hay que comprarlo a un organismo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo generar cientos de golpe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Pon una variante por línea o separadas por comas y se genera un SKU para cada una, con su número correlativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si salen SKUs repetidos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La herramienta los marca en rojo y te avisa. Añade la variable de número correlativo a la plantilla o sube las letras por bloque."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportarlos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, a CSV, que se abre directamente en Excel o Google Sheets. También puedes copiarlos todos al portapapeles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se envían mis productos a algún servidor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Todo se genera en tu navegador."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ecommerce",
+      "item": "https://arquitectodigital.io/utilidades/ecommerce.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Generador de SKU",
+      "item": "https://arquitectodigital.io/utilidades/generador-sku.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/ecommerce.html">Ecommerce</a> › Generador de SKU</p>
+    <span class="section-label">[Utilidad] Ecommerce</span>
+    <h1>Generador de<br><span class="accent">códigos SKU</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Construye SKUs consistentes a partir de los atributos de tus productos con una plantilla que defines tú. Genera uno o cientos a la vez combinando tallas y colores, y descárgalos en CSV. <strong>Nada sale de tu navegador</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Plantilla</h2>
+      <label class="tool-field">
+        <span>Formato (usa las variables de abajo)</span>
+        <input type="text" id="tpl" class="tool-input" value="{MARCA}-{CAT}-{PROD}-{VAR}-{N}">
+      </label>
+      <p style="color:var(--text-faint);font-size:.82em;line-height:1.7">
+        Variables: <code>{MARCA}</code> <code>{CAT}</code> <code>{PROD}</code>
+        <code>{VAR}</code> <code>{N}</code> <code>{ANIO}</code>
+      </p>
+
+      <label class="tool-field"><span>Marca</span><input type="text" id="marca" class="tool-input" value="ARQ"></label>
+      <label class="tool-field"><span>Categoría</span><input type="text" id="cat" class="tool-input" value="Camisetas"></label>
+      <label class="tool-field"><span>Producto</span><input type="text" id="prod" class="tool-input" value="Manga corta algodón"></label>
+      <label class="tool-field"><span>Variantes (una por línea o separadas por comas)</span>
+        <textarea id="vars" class="tool-textarea" style="min-height:90px">Negro S, Negro M, Negro L, Blanco S, Blanco M, Blanco L</textarea>
+      </label>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <label class="tool-field"><span>Letras por bloque</span><input type="number" id="len" class="tool-input" min="1" max="8" value="3"></label>
+        <label class="tool-field"><span>Dígitos del número</span><input type="number" id="pad" class="tool-input" min="1" max="6" value="3"></label>
+      </div>
+      <label class="tool-field"><span>Empezar a numerar en</span><input type="number" id="start" class="tool-input" min="0" value="1"></label>
+      <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer">
+        <input type="checkbox" id="upper" checked> Todo en mayúsculas
+      </label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>SKUs generados</h2>
+      <div class="tool-actions">
+        <button type="button" class="tool-btn tool-btn--primary" id="btn-copy">Copiar todos</button>
+        <button type="button" class="tool-btn" id="btn-csv">Descargar CSV</button>
+        <span id="msg" role="status" aria-live="polite" style="align-self:center;color:var(--green);font-size:.88em"></span>
+      </div>
+      <div id="out" style="margin-top:14px"></div>
+      <p id="dup" style="color:#ef4444;font-size:.9em;margin-top:10px"></p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Qué es un SKU y qué no</h2>
+    <p>
+      El SKU es tu código interno para identificar cada variante de producto. Es tuyo: te lo
+      inventas tú y solo tiene que ser consistente y único dentro de tu catálogo. No lo confundas
+      con el EAN o el código de barras, que son códigos globales que se compran a un organismo y
+      no te puedes inventar.
+    </p>
+
+    <h2>Cómo hacer un buen SKU</h2>
+    <ul>
+      <li><strong>Que se lea:</strong> si al mirarlo sabes qué producto es, ahorras horas en el almacén.</li>
+      <li><strong>Consistente:</strong> mismo formato y mismo orden de bloques en todo el catálogo.</li>
+      <li><strong>Sin acentos ni símbolos raros:</strong> muchos sistemas los rompen. La herramienta los quita sola.</li>
+      <li><strong>Único de verdad:</strong> incluye siempre un número correlativo, o acabarás con dos productos compartiendo código.</li>
+      <li><strong>Que no cambie nunca:</strong> un SKU asignado se queda para siempre, aunque el producto cambie de precio o de nombre.</li>
+    </ul>
+
+    <h2>Cómo funciona la plantilla</h2>
+    <p>
+      Escribes el formato con variables y la herramienta las sustituye. De cada campo de texto
+      toma las iniciales de cada palabra, o las primeras letras si es una sola palabra: «Manga
+      corta algodón» con 3 letras por bloque se convierte en MCA. Las variables disponibles son
+      marca, categoría, producto, variante, año y número correlativo.
+    </p>
+
+    <h2>El aviso de duplicados</h2>
+    <p>
+      Si dos variantes generan el mismo código, la herramienta los marca en rojo. Suele pasar
+      cuando quitas el número correlativo de la plantilla o cuando dos variantes empiezan igual.
+      Un SKU duplicado en producción provoca envíos equivocados, así que conviene resolverlo antes.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Es lo mismo un SKU que un código de barras?</h3>
+    <p>No. El SKU es tu código interno y te lo inventas tú. El EAN o código de barras es global y hay que comprarlo a un organismo.</p>
+    <h3>¿Puedo generar cientos de golpe?</h3>
+    <p>Sí. Pon una variante por línea o separadas por comas y se genera un SKU para cada una, con su número correlativo.</p>
+    <h3>¿Qué pasa si salen SKUs repetidos?</h3>
+    <p>La herramienta los marca en rojo y te avisa. Añade la variable de número correlativo a la plantilla o sube las letras por bloque.</p>
+    <h3>¿Puedo exportarlos?</h3>
+    <p>Sí, a CSV, que se abre directamente en Excel o Google Sheets. También puedes copiarlos todos al portapapeles.</p>
+    <h3>¿Se envían mis productos a algún servidor?</h3>
+    <p>No. Todo se genera en tu navegador.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var rows = [];
+
+  function deburr(s) {
+    return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ñ/g,'n').replace(/Ñ/g,'N');
+  }
+  function block(s, n) {
+    var clean = deburr(s).replace(/[^A-Za-z0-9 ]/g, ' ').trim();
+    if (!clean) return '';
+    var words = clean.split(/\s+/);
+    var out;
+    if (words.length >= n) {
+      out = words.slice(0, n).map(function (w) { return w.charAt(0); }).join('');
+    } else {
+      out = words.join('').slice(0, n);
+    }
+    return out;
+  }
+
+  function build() {
+    var tpl   = $('tpl').value || '{MARCA}-{PROD}-{N}';
+    var n     = Math.max(1, Math.min(8, parseInt($('len').value, 10) || 3));
+    var pad   = Math.max(1, Math.min(6, parseInt($('pad').value, 10) || 3));
+    var start = parseInt($('start').value, 10) || 0;
+    var year  = String(new Date().getFullYear());
+
+    var variants = ($('vars').value || '').split(/[\n,;]+/)
+                     .map(function (s) { return s.trim(); }).filter(Boolean);
+    if (!variants.length) variants = [''];
+
+    rows = variants.map(function (v, i) {
+      var sku = tpl
+        .replace(/\{MARCA\}/g, block($('marca').value, n))
+        .replace(/\{CAT\}/g,   block($('cat').value, n))
+        .replace(/\{PROD\}/g,  block($('prod').value, n))
+        .replace(/\{VAR\}/g,   block(v, n))
+        .replace(/\{ANIO\}/g,  year)
+        .replace(/\{N\}/g,     String(start + i).padStart(pad, '0'));
+      sku = sku.replace(/-{2,}/g, '-').replace(/^-|-$/g, '');
+      if ($('upper').checked) sku = sku.toUpperCase();
+      return { sku: sku, variant: v };
+    });
+
+    var seen = {}, dups = [];
+    rows.forEach(function (r) {
+      if (seen[r.sku]) { if (dups.indexOf(r.sku) === -1) dups.push(r.sku); }
+      seen[r.sku] = true;
+    });
+
+    $('out').innerHTML = '<table class="tool-table"><thead><tr><th>SKU</th><th>Variante</th></tr></thead><tbody>' +
+      rows.map(function (r) {
+        var dup = dups.indexOf(r.sku) > -1;
+        return '<tr><td><b' + (dup ? ' style="color:#ef4444"' : '') + '>' + r.sku + '</b></td>' +
+               '<td>' + (r.variant || '—').replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</td></tr>';
+      }).join('') + '</tbody></table>';
+
+    $('dup').textContent = dups.length
+      ? 'Hay ' + dups.length + ' SKU repetidos. Añade {N} a la plantilla o sube las letras por bloque.'
+      : '';
+  }
+
+  function flash(t) { var m = $('msg'); m.textContent = t; setTimeout(function () { m.textContent = ''; }, 1800); }
+
+  $('btn-copy').addEventListener('click', function () {
+    var txt = rows.map(function (r) { return r.sku; }).join('\n');
+    if (!txt) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { flash('Copiados'); });
+    }
+  });
+  $('btn-csv').addEventListener('click', function () {
+    if (!rows.length) return;
+    var csv = 'sku,variante\n' + rows.map(function (r) {
+      return '"' + r.sku.replace(/"/g,'""') + '","' + String(r.variant).replace(/"/g,'""') + '"';
+    }).join('\n');
+    var a = document.createElement('a');
+    a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent('\ufeff' + csv);
+    a.download = 'skus.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  });
+
+  ['tpl','marca','cat','prod','vars','len','pad','start','upper'].forEach(function (id) {
+    $(id).addEventListener('input', build); $(id).addEventListener('change', build);
+  });
+  build();
+})();
+</script>
+</body>
+</html>

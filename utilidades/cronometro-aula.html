@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cronómetro y temporizador para clase, grande y a pantalla completa · Arquitecto Digital</title>
+<meta name="description" content="Cronómetro y cuenta atrás con dígitos enormes, pensados para proyectar en clase. Presets de 1, 5, 10, 15 y 30 minutos, aviso sonoro y pantalla completa. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/cronometro-aula.html">
+
+<meta property="og:title" content="Cronómetro y temporizador para clase, grande y a pantalla completa · Arquitecto Digital">
+<meta property="og:description" content="Cronómetro y cuenta atrás con dígitos enormes, pensados para proyectar en clase. Presets de 1, 5, 10, 15 y 30 minutos, aviso sonoro y pantalla completa. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/cronometro-aula.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/cronometro-aula.html#app",
+  "name": "Cronómetro y temporizador de aula",
+  "url": "https://arquitectodigital.io/utilidades/cronometro-aula.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Cronómetro y cuenta atrás con dígitos enormes, pensados para proyectar en clase. Presets de 1, 5, 10, 15 y 30 minutos, aviso sonoro y pantalla completa. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Cuenta atrás y cronómetro",
+    "Dígitos grandes para proyectar",
+    "Modo pantalla completa",
+    "Control con teclado: espacio y R",
+    "Presets de 1 a 45 minutos",
+    "Aviso sonoro generado en el navegador",
+    "Vueltas con parciales",
+    "Preciso aunque cambies de pestaña"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/cronometro-aula.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se puede usar en un proyector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, está pensado para eso. Los dígitos escalan con el ancho de pantalla y hay un modo de pantalla completa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede controlar con el teclado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. La barra espaciadora arranca y pausa, y la tecla R reinicia. Es lo cómodo cuando estás dando clase y no quieres volver al ratón."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El aviso sonoro descarga algún archivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El sonido lo genera el propio navegador. Puedes desactivarlo con la casilla correspondiente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se desajusta si cambio de pestaña?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El tiempo se calcula con el reloj del sistema, así que al volver a la pestaña sigue siendo correcto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito conexión a internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo para cargar la página la primera vez. Después funciona sin conexión."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Educativo",
+      "item": "https://arquitectodigital.io/utilidades/educativo.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Cronómetro y temporizador de aula",
+      "item": "https://arquitectodigital.io/utilidades/cronometro-aula.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/educativo.html">Educativo</a> › Cronómetro y temporizador de aula</p>
+    <span class="section-label">[Utilidad] Educativo</span>
+    <h1>Cronómetro y<br><span class="accent">temporizador de aula</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Dígitos enormes, pensados para que se lean desde el fondo de la clase. Cuenta atrás con presets de 1 a 30 minutos y cronómetro con vueltas. Tiene modo pantalla completa y aviso sonoro al terminar. Gratis y sin registro.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-panel" style="text-align:center;padding:30px 20px">
+    <div class="tool-actions" style="justify-content:center">
+      <button type="button" class="tool-btn tool-btn--primary" id="tab-down">Cuenta atrás</button>
+      <button type="button" class="tool-btn" id="tab-up">Cronómetro</button>
+    </div>
+
+    <div id="display" style="font-family:'JetBrains Mono',monospace;font-weight:500;
+      font-size:clamp(3.4rem,17vw,10rem);line-height:1.05;color:var(--orange);
+      letter-spacing:.02em;margin:26px 0 10px">05:00</div>
+    <p id="state" style="color:var(--text-faint);font-family:'JetBrains Mono',monospace;
+      font-size:.82em;letter-spacing:.1em;text-transform:uppercase">Listo</p>
+
+    <div class="tool-actions" style="justify-content:center;margin-top:20px">
+      <button type="button" class="tool-btn tool-btn--primary" id="btn-play">Empezar</button>
+      <button type="button" class="tool-btn" id="btn-reset">Reiniciar</button>
+      <button type="button" class="tool-btn" id="btn-lap">Vuelta</button>
+      <button type="button" class="tool-btn" id="btn-full">Pantalla completa</button>
+    </div>
+  </div>
+
+  <div class="tool-wrap tool-wrap--split" style="margin-top:20px">
+    <div class="tool-panel" id="panel-down">
+      <h2>Tiempo de la cuenta atrás</h2>
+      <div class="tool-actions">
+        <button type="button" class="tool-btn" data-min="1">1 min</button>
+        <button type="button" class="tool-btn" data-min="2">2 min</button>
+        <button type="button" class="tool-btn" data-min="5">5 min</button>
+        <button type="button" class="tool-btn" data-min="10">10 min</button>
+        <button type="button" class="tool-btn" data-min="15">15 min</button>
+        <button type="button" class="tool-btn" data-min="20">20 min</button>
+        <button type="button" class="tool-btn" data-min="30">30 min</button>
+        <button type="button" class="tool-btn" data-min="45">45 min</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px">
+        <label class="tool-field"><span>Minutos</span><input type="number" id="mm" class="tool-input" min="0" max="180" value="5"></label>
+        <label class="tool-field"><span>Segundos</span><input type="number" id="ss" class="tool-input" min="0" max="59" value="0"></label>
+      </div>
+      <label style="display:flex;gap:9px;align-items:center;color:var(--text-dim);font-size:.92em;cursor:pointer">
+        <input type="checkbox" id="beep" checked> Aviso sonoro al terminar
+      </label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Vueltas</h2>
+      <div id="laps" style="color:var(--text-dim)">Pulsa «Vuelta» mientras el cronómetro corre.</div>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Pensado para proyectar</h2>
+    <p>
+      Los dígitos escalan con el ancho de la pantalla, así que en un proyector se leen desde el
+      fondo del aula. El botón de pantalla completa quita todo lo demás y deja solo el número.
+      Con la barra espaciadora se arranca y se pausa sin tener que apuntar con el ratón, y con la
+      tecla R se reinicia.
+    </p>
+
+    <h2>Cuenta atrás</h2>
+    <p>
+      Presets de 1, 2, 5, 10, 15, 20, 30 y 45 minutos, o el tiempo que escribas. Al llegar a cero
+      el número se pone en rojo y suena un triple aviso, generado por el propio navegador: no
+      descarga ningún archivo de sonido.
+    </p>
+
+    <h2>Cronómetro con vueltas</h2>
+    <p>
+      Cuenta hacia arriba con centésimas y guarda vueltas, mostrando tanto el tiempo total como el
+      parcial de cada una. Sirve para exposiciones cronometradas, pruebas de lectura o cualquier
+      actividad por turnos.
+    </p>
+
+    <h2>Por qué no se desajusta</h2>
+    <p>
+      El tiempo se calcula a partir del reloj del sistema, no contando fotogramas. Eso significa
+      que aunque cambies de pestaña o el navegador ralentice la animación, al volver el tiempo
+      mostrado sigue siendo el correcto.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Se puede usar en un proyector?</h3>
+    <p>Sí, está pensado para eso. Los dígitos escalan con el ancho de pantalla y hay un modo de pantalla completa.</p>
+    <h3>¿Se puede controlar con el teclado?</h3>
+    <p>Sí. La barra espaciadora arranca y pausa, y la tecla R reinicia. Es lo cómodo cuando estás dando clase y no quieres volver al ratón.</p>
+    <h3>¿El aviso sonoro descarga algún archivo?</h3>
+    <p>No. El sonido lo genera el propio navegador. Puedes desactivarlo con la casilla correspondiente.</p>
+    <h3>¿Se desajusta si cambio de pestaña?</h3>
+    <p>No. El tiempo se calcula con el reloj del sistema, así que al volver a la pestaña sigue siendo correcto.</p>
+    <h3>¿Necesito conexión a internet?</h3>
+    <p>Solo para cargar la página la primera vez. Después funciona sin conexión.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var mode = 'down';          // 'down' | 'up'
+  var running = false;
+  var startedAt = 0;          // timestamp de arranque
+  var accumulated = 0;        // ms acumulados en pausas
+  var targetMs = 5 * 60000;
+  var laps = [];
+  var raf = null;
+  var fired = false;
+
+  function fmt(ms) {
+    if (ms < 0) ms = 0;
+    var t = Math.floor(ms / 1000);
+    var h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), s = t % 60;
+    var cs = Math.floor((ms % 1000) / 10);
+    var base = (h > 0 ? String(h).padStart(2,'0') + ':' : '') +
+               String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    return (mode === 'up' && h === 0) ? base + '.' + String(cs).padStart(2,'0') : base;
+  }
+
+  function elapsed() { return accumulated + (running ? (Date.now() - startedAt) : 0); }
+
+  function beep() {
+    if (!$('beep').checked) return;
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      var ac = new Ctx();
+      [0, 0.35, 0.7].forEach(function (off) {
+        var o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sine'; o.frequency.value = 880;
+        o.connect(g); g.connect(ac.destination);
+        g.gain.setValueAtTime(0.001, ac.currentTime + off);
+        g.gain.exponentialRampToValueAtTime(0.25, ac.currentTime + off + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + off + 0.28);
+        o.start(ac.currentTime + off); o.stop(ac.currentTime + off + 0.3);
+      });
+      setTimeout(function () { ac.close(); }, 1500);
+    } catch (e) {}
+  }
+
+  function tick() {
+    var e = elapsed();
+    if (mode === 'down') {
+      var left = targetMs - e;
+      $('display').textContent = fmt(left);
+      if (left <= 0 && !fired) {
+        fired = true; running = false;
+        $('display').style.color = '#ef4444';
+        $('state').textContent = 'Tiempo cumplido';
+        $('btn-play').textContent = 'Empezar';
+        beep();
+      }
+    } else {
+      $('display').textContent = fmt(e);
+    }
+    if (running) raf = requestAnimationFrame(tick);
+  }
+
+  function setTarget() {
+    var m = Math.max(0, Math.min(180, parseInt($('mm').value, 10) || 0));
+    var s = Math.max(0, Math.min(59, parseInt($('ss').value, 10) || 0));
+    targetMs = (m * 60 + s) * 1000;
+    if (!running) reset();
+  }
+
+  function reset() {
+    running = false; accumulated = 0; fired = false;
+    if (raf) cancelAnimationFrame(raf);
+    $('display').style.color = 'var(--orange)';
+    $('display').textContent = (mode === 'down') ? fmt(targetMs) : fmt(0);
+    $('state').textContent = 'Listo';
+    $('btn-play').textContent = 'Empezar';
+  }
+
+  function toggle() {
+    if (mode === 'down' && targetMs <= 0) return;
+    if (running) {
+      accumulated = elapsed(); running = false;
+      $('state').textContent = 'En pausa';
+      $('btn-play').textContent = 'Continuar';
+      if (raf) cancelAnimationFrame(raf);
+    } else {
+      if (mode === 'down' && fired) reset();
+      running = true; startedAt = Date.now();
+      $('state').textContent = 'En marcha';
+      $('btn-play').textContent = 'Pausa';
+      tick();
+    }
+  }
+
+  function setMode(m) {
+    mode = m; 
+    $('tab-down').classList.toggle('tool-btn--primary', m === 'down');
+    $('tab-up').classList.toggle('tool-btn--primary', m === 'up');
+    $('panel-down').style.display = (m === 'down') ? '' : 'none';
+    $('btn-lap').style.display = (m === 'up') ? '' : 'none';
+    laps = []; $('laps').textContent = 'Pulsa «Vuelta» mientras el cronómetro corre.';
+    reset();
+  }
+
+  $('tab-down').addEventListener('click', function () { setMode('down'); });
+  $('tab-up').addEventListener('click', function () { setMode('up'); });
+  $('btn-play').addEventListener('click', toggle);
+  $('btn-reset').addEventListener('click', reset);
+  $('btn-lap').addEventListener('click', function () {
+    if (mode !== 'up' || !running) return;
+    laps.unshift(elapsed());
+    $('laps').innerHTML = '<table class="tool-table"><tbody>' + laps.map(function (l, i) {
+      var prev = laps[i + 1] || 0;
+      return '<tr><td>Vuelta ' + (laps.length - i) + '</td>' +
+             '<td style="text-align:right"><b>' + fmt(l) + '</b>' +
+             '<span style="color:var(--text-faint);font-size:.82em"> (+' + fmt(l - prev) + ')</span></td></tr>';
+    }).join('') + '</tbody></table>';
+  });
+  $('btn-full').addEventListener('click', function () {
+    var el = document.documentElement;
+    if (!document.fullscreenElement) { (el.requestFullscreen || function () {}).call(el); }
+    else { (document.exitFullscreen || function () {}).call(document); }
+  });
+  document.querySelectorAll('button[data-min]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      $('mm').value = b.dataset.min; $('ss').value = 0; setTarget();
+    });
+  });
+  ['mm','ss'].forEach(function (id) { $(id).addEventListener('input', setTarget); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.code === 'Space') { e.preventDefault(); toggle(); }
+    if (e.key === 'r' || e.key === 'R') reset();
+  });
+
+  setMode('down');
+})();
+</script>
+</body>
+</html>

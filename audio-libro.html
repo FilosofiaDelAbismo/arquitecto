@@ -18,8 +18,131 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- PERF: fuentes pedidas en paralelo desde el head. El @import de
+     assets/styles.css se mantiene (lo necesitan las paginas legales,
+     que no se tocan); el navegador deduplica por URL. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://arquitectodigital.io/audio-libro.html#service",
+  "name": "Audio → Libro",
+  "serviceType": "Transcripción y maquetación de audio a libro digital",
+  "url": "https://arquitectodigital.io/audio-libro.html",
+  "description": "Convierte tus audios, podcasts o conferencias en un libro digital con transcripción profesional y entrega en 48h. Desde 149€ en pago único, IVA incluido. Entrega 100% digital, sin versión impresa.",
+  "inLanguage": "es",
+  "provider": {
+    "@id": "https://arquitectodigital.io/#organization"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Ebook",
+      "priceCurrency": "EUR",
+      "price": "149",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "149",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Hasta 2h de audio, entrega en PDF + EPUB, portada temática generada con IA. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Libro",
+      "priceCurrency": "EUR",
+      "price": "299",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "299",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Hasta 6h de audio, entrega en PDF + EPUB + DOCX + MD + TXT, portada temática generada con IA. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Libro Premium",
+      "priceCurrency": "EUR",
+      "price": "499",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "EUR",
+        "price": "499",
+        "valueAddedTaxIncluded": true
+      },
+      "description": "Hasta 10h de audio, todos los formatos (PDF/EPUB/DOCX/MD/TXT), portada temática generada con IA. Pago único, IVA incluido.",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/audio-libro.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta convertir mis audios en un libro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde 149€ en pago único (hasta 2h de audio, entrega en PDF + EPUB). El plan de 299€ cubre hasta 6h y añade DOCX, MD y TXT. El de 499€ cubre hasta 10h con todos los formatos. Los tres incluyen portada temática generada con IA e IVA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "48 horas desde la confirmación del audio. Si tu audio supera la duración del plan que elegiste, se te avisa antes de cobrar y se te propone o subir de plan o recortar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Vale cualquier grabación? La mía es de móvil.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Vale cualquier mp3, wav o m4a, también de móvil. Si la calidad es muy baja (mucho ruido o el micro muy lejos) se te avisa antes de empezar para que decidas si recortar o volver a grabar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo vender el libro en Amazon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El libro es 100% tuyo y puedes autopublicarlo (Amazon KDP, Lulu), regalarlo o venderlo sin restricciones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Y si no me gusta cómo ha quedado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tras la primera entrega tienes 7 días para pedir ajustes de capítulos, títulos o portada. Las revisiones de contenido fuerte (una reescritura amplia) cuentan como sprint nuevo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Me lo entregáis también en papel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La entrega es 100% digital, sin versión impresa. Recibes el libro en PDF y EPUB, y en más formatos según el plan."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -38,6 +161,15 @@
           <li><a href="sistemas.html">Sistemas Personalizados</a></li>
           <li><a href="girobot.html">GiroBot · Twitch</a></li>
           <li><a href="cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
         </ul>
       </li>
       <li><a href="portfolio.html">Portfolio</a></li>
@@ -60,6 +192,7 @@
       Convierte tus audios, podcasts o conferencias en un libro digital.
       Transcripción profesional y entrega en PDF y EPUB.
       Entrega 100% digital en 48h.
+      <strong>Desde 149€</strong>, pago único. IVA incluido.
     </p>
   </div>
 </section>
@@ -308,6 +441,47 @@
     En 15 minutos te confirmo si encaja y qué plan tiene sentido.
   </p>
   <a href="index.html#contacto" class="btn-primary">Empezar mi libro →</a>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">[06] Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre audio a libro</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta convertir mis audios en un libro?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Desde 149€ en pago único (hasta 2h de audio, entrega en PDF + EPUB). El plan de 299€ cubre hasta 6h y añade DOCX, MD y TXT. El de 499€ cubre hasta 10h con todos los formatos. Los tres incluyen portada temática generada con IA e IVA.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto tarda?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">48 horas desde la confirmación del audio. Si tu audio supera la duración del plan que elegiste, se te avisa antes de cobrar y se te propone o subir de plan o recortar.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Vale cualquier grabación? La mía es de móvil.</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Sí. Vale cualquier mp3, wav o m4a, también de móvil. Si la calidad es muy baja (mucho ruido o el micro muy lejos) se te avisa antes de empezar para que decidas si recortar o volver a grabar.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Puedo vender el libro en Amazon?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Sí. El libro es 100% tuyo y puedes autopublicarlo (Amazon KDP, Lulu), regalarlo o venderlo sin restricciones.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Y si no me gusta cómo ha quedado?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">Tras la primera entrega tienes 7 días para pedir ajustes de capítulos, títulos o portada. Las revisiones de contenido fuerte (una reescritura amplia) cuentan como sprint nuevo.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Me lo entregáis también en papel?</h3>
+      <p style="color: var(--text-dim); line-height: 1.6;">No. La entrega es 100% digital, sin versión impresa. Recibes el libro en PDF y EPUB, y en más formatos según el plan.</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>

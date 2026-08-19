@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lector de texto a voz online gratis · Arquitecto Digital</title>
+<meta name="description" content="Escucha cualquier texto en voz alta con las voces que ya trae tu navegador. Ajusta velocidad y tono. Gratis, sin registro y sin enviar el texto a ningún servidor.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/lector-texto-voz.html">
+
+<meta property="og:title" content="Lector de texto a voz online gratis · Arquitecto Digital">
+<meta property="og:description" content="Escucha cualquier texto en voz alta con las voces que ya trae tu navegador. Ajusta velocidad y tono. Gratis, sin registro y sin enviar el texto a ningún servidor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/lector-texto-voz.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/lector-texto-voz.html#app",
+  "name": "Lector de texto a voz",
+  "url": "https://arquitectodigital.io/utilidades/lector-texto-voz.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Escucha cualquier texto en voz alta con las voces que ya trae tu navegador. Ajusta velocidad y tono. Gratis, sin registro y sin enviar el texto a ningún servidor.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Lee cualquier texto en voz alta",
+    "Usa las voces instaladas en tu dispositivo",
+    "Velocidad ajustable de 0,5× a 2×",
+    "Tono ajustable",
+    "Pausar, reanudar y parar",
+    "Prioriza las voces en español",
+    "No envía el texto a ningún servidor"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/lector-texto-voz.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Necesito instalar algo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Usa las voces que ya trae tu sistema operativo a través del navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo descargar el audio en MP3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La API de síntesis del navegador reproduce el sonido pero no permite guardarlo en un archivo. Para eso harían falta un servicio externo y un servidor, que es justo lo que esta herramienta evita."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué veo pocas voces en español?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque dependen de tu dispositivo, no de esta página. Puedes añadir más desde los ajustes de idioma y voz de tu sistema operativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se envía el texto a algún servidor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Todo el proceso ocurre en tu navegador, con las voces instaladas en tu equipo."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lector de texto a voz",
+      "item": "https://arquitectodigital.io/utilidades/lector-texto-voz.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › Lector de texto a voz</p>
+    <span class="section-label">[Utilidad] General</span>
+    <h1>Lector de<br><span class="accent">texto a voz</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Pega un texto y escúchalo en voz alta. Usa las voces que ya vienen instaladas en tu propio dispositivo, así que <strong>no hay ninguna API de por medio ni el texto sale de tu navegador</strong>. Puedes ajustar la velocidad y el tono.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Texto</h2>
+      <label class="tool-field">
+        <span class="sr-only" style="position:absolute;left:-9999px">Texto a leer</span>
+        <textarea id="txt" class="tool-textarea" style="min-height:240px" placeholder="Escribe o pega aquí el texto que quieres escuchar…">Hola. Este es un ejemplo de lectura en voz alta.</textarea>
+      </label>
+      <p id="count" style="color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:.8em">0 caracteres</p>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Voz y ajustes</h2>
+      <label class="tool-field">
+        <span>Voz</span>
+        <select id="voice" class="tool-select"></select>
+      </label>
+      <label class="tool-field">
+        <span>Velocidad: <b id="rate-val" style="color:var(--orange)">1.0</b>×</span>
+        <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" style="width:100%">
+      </label>
+      <label class="tool-field">
+        <span>Tono: <b id="pitch-val" style="color:var(--orange)">1.0</b></span>
+        <input type="range" id="pitch" min="0" max="2" step="0.1" value="1" style="width:100%">
+      </label>
+      <div class="tool-actions" style="margin-top:6px">
+        <button type="button" class="tool-btn tool-btn--primary" id="btn-play">Leer</button>
+        <button type="button" class="tool-btn" id="btn-pause">Pausa</button>
+        <button type="button" class="tool-btn" id="btn-stop">Parar</button>
+      </div>
+      <p id="warn" style="color:#ef4444;font-size:.88em;margin-top:10px"></p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>De dónde salen las voces</h2>
+    <p>
+      De tu propio dispositivo. Windows, macOS, Android e iOS traen voces instaladas, y esta
+      página simplemente le pide al navegador que las use mediante la API de síntesis de voz que
+      ya lleva incorporada. No hay ningún servicio de pago detrás ni el texto viaja a ninguna parte.
+    </p>
+    <p>
+      La consecuencia es que <strong>las voces disponibles dependen de tu equipo</strong>. En dos
+      ordenadores distintos verás listas distintas. Si quieres más voces en español, se instalan
+      desde los ajustes de idioma de tu sistema operativo, no desde aquí.
+    </p>
+
+    <h2>Para qué se usa</h2>
+    <ul>
+      <li>Revisar un texto escuchándolo: los errores de redacción se detectan mucho mejor de oído.</li>
+      <li>Escuchar un artículo largo mientras haces otra cosa.</li>
+      <li>Comprobar cómo suena un guion antes de grabarlo.</li>
+      <li>Accesibilidad, para quien prefiere escuchar antes que leer en pantalla.</li>
+    </ul>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Necesito instalar algo?</h3>
+    <p>No. Usa las voces que ya trae tu sistema operativo a través del navegador.</p>
+    <h3>¿Puedo descargar el audio en MP3?</h3>
+    <p>No. La API de síntesis del navegador reproduce el sonido pero no permite guardarlo en un archivo. Para eso harían falta un servicio externo y un servidor, que es justo lo que esta herramienta evita.</p>
+    <h3>¿Por qué veo pocas voces en español?</h3>
+    <p>Porque dependen de tu dispositivo, no de esta página. Puedes añadir más desde los ajustes de idioma y voz de tu sistema operativo.</p>
+    <h3>¿Se envía el texto a algún servidor?</h3>
+    <p>No. Todo el proceso ocurre en tu navegador, con las voces instaladas en tu equipo.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var synth = window.speechSynthesis;
+
+  if (!synth) {
+    $('warn').textContent = 'Tu navegador no admite la síntesis de voz. Prueba con Chrome, Edge o Safari actualizados.';
+    ['btn-play','btn-pause','btn-stop'].forEach(function (id) { $(id).disabled = true; });
+    return;
+  }
+
+  var voices = [];
+  function loadVoices() {
+    voices = synth.getVoices();
+    if (!voices.length) return;
+    // Primero las de español, luego el resto.
+    voices.sort(function (a, b) {
+      var ae = /^es/i.test(a.lang) ? 0 : 1, be = /^es/i.test(b.lang) ? 0 : 1;
+      return ae - be || a.lang.localeCompare(b.lang) || a.name.localeCompare(b.name);
+    });
+    $('voice').innerHTML = voices.map(function (v, i) {
+      return '<option value="' + i + '">' + v.name + ' (' + v.lang + ')' + (v.default ? ' · por defecto' : '') + '</option>';
+    }).join('');
+  }
+  loadVoices();
+  synth.onvoiceschanged = loadVoices;
+
+  function count() {
+    var n = ($('txt').value || '').length;
+    $('count').textContent = n.toLocaleString('es-ES') + ' caracteres';
+  }
+
+  function speak() {
+    var text = $('txt').value || '';
+    if (!text.trim()) { $('warn').textContent = 'Escribe algún texto primero.'; return; }
+    $('warn').textContent = '';
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    var v = voices[parseInt($('voice').value, 10)];
+    if (v) { u.voice = v; u.lang = v.lang; }
+    u.rate = parseFloat($('rate').value) || 1;
+    u.pitch = parseFloat($('pitch').value) || 1;
+    u.onerror = function () { $('warn').textContent = 'No se ha podido reproducir el texto.'; };
+    synth.speak(u);
+  }
+
+  $('btn-play').addEventListener('click', speak);
+  $('btn-pause').addEventListener('click', function () {
+    if (synth.speaking && !synth.paused) synth.pause(); else if (synth.paused) synth.resume();
+  });
+  $('btn-stop').addEventListener('click', function () { synth.cancel(); });
+  $('rate').addEventListener('input', function () { $('rate-val').textContent = parseFloat(this.value).toFixed(1); });
+  $('pitch').addEventListener('input', function () { $('pitch-val').textContent = parseFloat(this.value).toFixed(1); });
+  $('txt').addEventListener('input', count);
+  count();
+})();
+</script>
+</body>
+</html>

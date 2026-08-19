@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de nota media ponderada online gratis · Arquitecto Digital</title>
+<meta name="description" content="Calcula la nota final a partir de varias pruebas con su peso. Te avisa si los pesos no suman 100 % y te dice qué necesitas en lo que queda para aprobar. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/calculadora-notas.html">
+
+<meta property="og:title" content="Calculadora de nota media ponderada online gratis · Arquitecto Digital">
+<meta property="og:description" content="Calcula la nota final a partir de varias pruebas con su peso. Te avisa si los pesos no suman 100 % y te dice qué necesitas en lo que queda para aprobar. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/calculadora-notas.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-notas.html#app",
+  "name": "Calculadora de notas ponderadas",
+  "url": "https://arquitectodigital.io/utilidades/calculadora-notas.html",
+  "applicationCategory": "https://schema.org/UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Calcula la nota final a partir de varias pruebas con su peso. Te avisa si los pesos no suman 100 % y te dice qué necesitas en lo que queda para aprobar. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Nota media ponderada con pesos libres",
+    "Aviso cuando los pesos no suman 100 %",
+    "Calcula la nota necesaria en lo que queda",
+    "Escalas 0-10, 0-100, 0-5 y 1-7",
+    "Añadir y quitar pruebas",
+    "Detecta objetivos inalcanzables"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-notas.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre media ponderada y media normal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La media normal trata todas las notas como si valieran lo mismo. La ponderada tiene en cuenta el peso de cada prueba, que es como se califica en la mayoría de asignaturas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Y si mis pesos no suman 100 %?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La herramienta te avisa y calcula la nota con el peso que hayas introducido. Es útil para ir viendo cómo va el curso antes de tenerlo todo evaluado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar una escala que no sea de 0 a 10?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Puedes elegir 0-10, 0-100, 0-5 o 1-7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se guardan las notas que introduzco?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Todo el cálculo ocurre en tu navegador y no se envía ni se almacena nada."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Educativo",
+      "item": "https://arquitectodigital.io/utilidades/educativo.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Calculadora de notas ponderadas",
+      "item": "https://arquitectodigital.io/utilidades/calculadora-notas.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/educativo.html">Educativo</a> › Calculadora de notas ponderadas</p>
+    <span class="section-label">[Utilidad] Educativo</span>
+    <h1>Calculadora de<br><span class="accent">notas ponderadas</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Añade cada prueba con su nota y su peso y obtén la nota final. Te avisa si los pesos no suman 100 % y te calcula <strong>qué nota necesitas en lo que queda</strong> para llegar al 5 o a la nota que te propongas. Gratis y sin registro.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Pruebas</h2>
+      <div id="rows" style="display:grid;gap:10px"></div>
+      <div class="tool-actions" style="margin-top:14px">
+        <button type="button" class="tool-btn" id="btn-add">Añadir prueba</button>
+        <button type="button" class="tool-btn" id="btn-reset">Reiniciar</button>
+      </div>
+      <label class="tool-field" style="margin-top:18px">
+        <span>Nota máxima de la escala</span>
+        <select id="scale" class="tool-select">
+          <option value="10" selected>0 a 10 (España)</option>
+          <option value="100">0 a 100</option>
+          <option value="5">0 a 5 (Colombia)</option>
+          <option value="7">1 a 7 (Chile)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Resultado</h2>
+      <div class="tool-stat" style="text-align:center;padding:24px 14px">
+        <b id="r-final" style="font-size:2.4em">—</b>
+        <span>Nota final</span>
+      </div>
+      <table class="tool-table" style="margin-top:16px">
+        <tbody>
+          <tr><td>Peso introducido</td><td style="text-align:right"><b id="r-weight">0 %</b></td></tr>
+          <tr><td>Peso que falta</td><td style="text-align:right"><b id="r-left">100 %</b></td></tr>
+        </tbody>
+      </table>
+      <p id="r-warn" style="color:var(--orange-bright);font-size:.9em;margin-top:12px;line-height:1.6"></p>
+
+      <h2 style="margin-top:24px">¿Qué necesito para aprobar?</h2>
+      <label class="tool-field">
+        <span>Nota a la que quieres llegar</span>
+        <input type="text" inputmode="decimal" id="target" class="tool-input" value="5">
+      </label>
+      <p id="r-need" style="color:var(--text-dim);line-height:1.7">—</p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Cómo se calcula una nota ponderada</h2>
+    <p>
+      Se multiplica cada nota por su peso, se suman todos esos productos y se divide entre la
+      suma de los pesos. Con un examen de 7 que vale el 60 %, un trabajo de 8 que vale el 30 % y
+      una actitud de 9 que vale el 10 %: (7×60 + 8×30 + 9×10) ÷ 100 = 7,5.
+    </p>
+    <p>
+      El error típico es hacer la media normal de las tres notas, que daría 8. No es lo mismo:
+      la media simple trata todas las pruebas como si valieran igual.
+    </p>
+
+    <h2>Si los pesos no suman 100</h2>
+    <p>
+      La herramienta te avisa y calcula la nota con lo que hayas metido, dividiendo entre el peso
+      realmente introducido. Así puedes ir viendo cómo va la nota a mitad de curso, sin esperar a
+      tenerlo todo evaluado.
+    </p>
+
+    <h2>Qué necesito para aprobar</h2>
+    <p>
+      Esta es la pregunta que de verdad importa a mitad de trimestre. La herramienta despeja la
+      incógnita: dado lo que ya llevas y el peso que queda por evaluar, calcula qué nota necesitas
+      en lo que falta. Si el resultado sale por encima del máximo de la escala, te dice
+      claramente que no es alcanzable.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Qué diferencia hay entre media ponderada y media normal?</h3>
+    <p>La media normal trata todas las notas como si valieran lo mismo. La ponderada tiene en cuenta el peso de cada prueba, que es como se califica en la mayoría de asignaturas.</p>
+    <h3>¿Y si mis pesos no suman 100 %?</h3>
+    <p>La herramienta te avisa y calcula la nota con el peso que hayas introducido. Es útil para ir viendo cómo va el curso antes de tenerlo todo evaluado.</p>
+    <h3>¿Puedo usar una escala que no sea de 0 a 10?</h3>
+    <p>Sí. Puedes elegir 0-10, 0-100, 0-5 o 1-7.</p>
+    <h3>¿Se guardan las notas que introduzco?</h3>
+    <p>No. Todo el cálculo ocurre en tu navegador y no se envía ni se almacena nada.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var rows = [];
+
+  function num(v) {
+    var s = String(v == null ? '' : v).trim().replace(',', '.');
+    var n = parseFloat(s);
+    return isFinite(n) ? n : NaN;
+  }
+
+  function draw() {
+    $('rows').innerHTML = rows.map(function (r, i) {
+      return '<div style="display:grid;grid-template-columns:1fr 90px 90px 40px;gap:8px;align-items:center">' +
+        '<input type="text" class="tool-input" data-f="name" data-i="' + i + '" value="' + (r.name || '').replace(/"/g,'&quot;') + '" placeholder="Nombre" style="padding:9px 11px">' +
+        '<input type="text" inputmode="decimal" class="tool-input" data-f="grade" data-i="' + i + '" value="' + (r.grade || '') + '" placeholder="Nota" style="padding:9px 11px">' +
+        '<input type="text" inputmode="decimal" class="tool-input" data-f="weight" data-i="' + i + '" value="' + (r.weight || '') + '" placeholder="Peso %" style="padding:9px 11px">' +
+        '<button type="button" class="tool-btn" data-del="' + i + '" style="padding:9px 0" aria-label="Eliminar prueba">×</button>' +
+      '</div>';
+    }).join('');
+  }
+
+  function calc() {
+    var max = parseFloat($('scale').value) || 10;
+    var sumW = 0, sumWG = 0, valid = 0;
+    rows.forEach(function (r) {
+      var w = num(r.weight), g = num(r.grade);
+      if (isFinite(w) && w > 0) {
+        sumW += w;
+        if (isFinite(g)) { sumWG += g * w; valid += w; }
+      }
+    });
+
+    $('r-weight').textContent = (Math.round(sumW * 100) / 100) + ' %';
+    var left = Math.round((100 - sumW) * 100) / 100;
+    $('r-left').textContent = left + ' %';
+
+    var warn = '';
+    if (sumW > 100) warn = 'Los pesos suman más de 100 %. Revisa los porcentajes.';
+    else if (sumW < 100 && sumW > 0) warn = 'Todavía falta un ' + left + ' % por asignar. La nota final se calcula solo con lo introducido.';
+    $('r-warn').textContent = warn;
+
+    var final = valid > 0 ? (sumWG / valid) : NaN;
+    $('r-final').textContent = isFinite(final) ? final.toFixed(2) : '—';
+
+    // Que nota hace falta en el peso restante para llegar al objetivo
+    var target = num($('target').value);
+    if (!isFinite(target) || left <= 0 || !isFinite(sumWG)) {
+      $('r-need').textContent = left <= 0
+        ? 'Ya está todo evaluado: no queda peso pendiente.'
+        : 'Escribe la nota a la que quieres llegar.';
+      return;
+    }
+    var need = (target * 100 - sumWG) / left;
+    if (need <= 0) {
+      $('r-need').textContent = 'Ya has alcanzado el ' + target + ' aunque saques un 0 en el ' + left + ' % restante.';
+    } else if (need > max) {
+      $('r-need').textContent = 'Necesitarías un ' + need.toFixed(2) + ' en el ' + left +
+        ' % restante, y la escala llega solo hasta ' + max + '. No es alcanzable.';
+    } else {
+      $('r-need').textContent = 'Necesitas un ' + need.toFixed(2) + ' en el ' + left + ' % restante.';
+    }
+  }
+
+  $('rows').addEventListener('input', function (e) {
+    var el = e.target;
+    if (el.dataset.f) { rows[+el.dataset.i][el.dataset.f] = el.value; calc(); }
+  });
+  $('rows').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-del]'); if (!b) return;
+    rows.splice(+b.dataset.del, 1); draw(); calc();
+  });
+  $('btn-add').addEventListener('click', function () {
+    rows.push({ name: 'Prueba ' + (rows.length + 1), grade: '', weight: '' }); draw(); calc();
+  });
+  $('btn-reset').addEventListener('click', function () {
+    rows = [{ name: 'Examen', grade: '7', weight: '60' },
+            { name: 'Trabajo', grade: '8', weight: '30' },
+            { name: 'Actitud', grade: '9', weight: '10' }];
+    draw(); calc();
+  });
+  ['scale','target'].forEach(function (id) { $(id).addEventListener('input', calc); $(id).addEventListener('change', calc); });
+
+  rows = [{ name: 'Examen', grade: '7', weight: '60' },
+          { name: 'Trabajo', grade: '8', weight: '30' },
+          { name: 'Actitud', grade: '9', weight: '10' }];
+  draw(); calc();
+})();
+</script>
+</body>
+</html>

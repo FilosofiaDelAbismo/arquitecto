@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de ROI, margen y punto de equilibrio online gratis · Arquitecto Digital</title>
+<meta name="description" content="Calcula margen bruto, margen neto, ROI, ROAS y el punto de equilibrio de un producto o una campaña. Te dice cuántas unidades necesitas vender para cubrir costes. Gratis y sin registro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/utilidades/calculadora-roi-margen.html">
+
+<meta property="og:title" content="Calculadora de ROI, margen y punto de equilibrio online gratis · Arquitecto Digital">
+<meta property="og:description" content="Calcula margen bruto, margen neto, ROI, ROAS y el punto de equilibrio de un producto o una campaña. Te dice cuántas unidades necesitas vender para cubrir costes. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arquitectodigital.io/utilidades/calculadora-roi-margen.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/utilidades.css">
+<script defer src="/assets/cookies.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-roi-margen.html#app",
+  "name": "Calculadora de ROI, margen y break-even",
+  "url": "https://arquitectodigital.io/utilidades/calculadora-roi-margen.html",
+  "applicationCategory": "https://schema.org/FinanceApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requiere JavaScript",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "description": "Calcula margen bruto, margen neto, ROI, ROAS y el punto de equilibrio de un producto o una campaña. Te dice cuántas unidades necesitas vender para cubrir costes. Gratis y sin registro.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "featureList": [
+    "Margen de contribución por unidad",
+    "Margen bruto y margen neto",
+    "ROI y ROAS",
+    "Punto de equilibrio en unidades",
+    "Detecta márgenes negativos",
+    "Comisión de plataforma configurable",
+    "Acepta números en formato español"
+  ],
+  "publisher": {
+    "@id": "https://arquitectodigital.io/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://arquitectodigital.io/utilidades/calculadora-roi-margen.html#faq",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre ROI y ROAS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El ROI mide beneficio sobre inversión total. El ROAS mide ingresos sobre inversión publicitaria. El ROAS puede parecer bueno y estar perdiendo dinero si tu margen es bajo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es el punto de equilibrio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las unidades que necesitas vender para cubrir costes fijos y publicidad. Por debajo pierdes, por encima ganas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué me sale «imposible» el punto de equilibrio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque tu margen de contribución es cero o negativo: cada unidad vendida te cuesta más de lo que ingresa. En ese caso vender más no arregla nada; hay que subir el precio o bajar los costes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los precios llevan IVA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trabaja con precios sin IVA. El IVA no es ingreso tuyo: lo recaudas y lo liquidas. Si necesitas quitarlo de un precio final, usa la calculadora de IVA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se guardan mis números?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El cálculo ocurre en tu navegador y no hay servidor al que enviarlos."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://arquitectodigital.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Utilidades",
+      "item": "https://arquitectodigital.io/utilidades/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ecommerce",
+      "item": "https://arquitectodigital.io/utilidades/ecommerce.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Calculadora de ROI, margen y break-even",
+      "item": "https://arquitectodigital.io/utilidades/calculadora-roi-margen.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/index.html#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/index.html#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/index.html#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <p class="util-breadcrumb"><a href="/">Inicio</a> › <a href="/utilidades/">Utilidades</a> › <a href="/utilidades/ecommerce.html">Ecommerce</a> › Calculadora de ROI, margen y break-even</p>
+    <span class="section-label">[Utilidad] Ecommerce</span>
+    <h1>ROI, margen y<br><span class="accent">punto de equilibrio</span>.</h1>
+    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 700px; line-height: 1.7; margin-top: 20px;">
+      Mete tu precio, tu coste y tus gastos y obtén el margen bruto, el margen neto, el ROI, el ROAS y <strong>cuántas unidades necesitas vender para dejar de perder dinero</strong>. Es la cuenta que decide si un producto merece la pena antes de comprar stock.
+    </p>
+  </div>
+</section>
+
+<section class="section-content" style="max-width: 1100px; margin: 0 auto;">
+  <div class="tool-wrap tool-wrap--split">
+    <div class="tool-panel">
+      <h2>Por unidad</h2>
+      <label class="tool-field"><span>Precio de venta (sin IVA)</span><input type="text" inputmode="decimal" id="price" class="tool-input" value="49,90"></label>
+      <label class="tool-field"><span>Coste del producto</span><input type="text" inputmode="decimal" id="cogs" class="tool-input" value="18"></label>
+      <label class="tool-field"><span>Envío que pagas tú</span><input type="text" inputmode="decimal" id="ship" class="tool-input" value="4,50"></label>
+      <label class="tool-field"><span>Comisión de la plataforma (%)</span><input type="text" inputmode="decimal" id="fee" class="tool-input" value="15"></label>
+      <label class="tool-field"><span>Otros costes variables por unidad</span><input type="text" inputmode="decimal" id="var" class="tool-input" value="0"></label>
+
+      <h2 style="margin-top:24px">Del periodo</h2>
+      <label class="tool-field"><span>Costes fijos (almacén, cuotas, sueldos…)</span><input type="text" inputmode="decimal" id="fixed" class="tool-input" value="500"></label>
+      <label class="tool-field"><span>Inversión en publicidad</span><input type="text" inputmode="decimal" id="ads" class="tool-input" value="300"></label>
+      <label class="tool-field"><span>Unidades vendidas</span><input type="text" inputmode="numeric" id="units" class="tool-input" value="100"></label>
+    </div>
+
+    <div class="tool-panel">
+      <h2>Resultado</h2>
+      <table class="tool-table">
+        <tbody>
+          <tr><td>Coste variable por unidad</td><td style="text-align:right"><b id="r-cv">—</b></td></tr>
+          <tr><td>Margen de contribución por unidad</td><td style="text-align:right"><b id="r-cm">—</b></td></tr>
+          <tr><td>Margen bruto</td><td style="text-align:right"><b id="r-gm">—</b></td></tr>
+          <tr><td>Ingresos del periodo</td><td style="text-align:right"><b id="r-rev">—</b></td></tr>
+          <tr><td>Beneficio del periodo</td><td style="text-align:right"><b id="r-profit">—</b></td></tr>
+          <tr><td>Margen neto</td><td style="text-align:right"><b id="r-nm">—</b></td></tr>
+          <tr><td>ROI</td><td style="text-align:right"><b id="r-roi">—</b></td></tr>
+          <tr><td>ROAS</td><td style="text-align:right"><b id="r-roas">—</b></td></tr>
+          <tr><td><strong style="color:var(--text)">Punto de equilibrio</strong></td><td style="text-align:right"><b id="r-be" style="color:var(--orange)">—</b></td></tr>
+        </tbody>
+      </table>
+      <p id="r-note" style="color:var(--text-dim);font-size:.9em;margin-top:14px;line-height:1.6"></p>
+    </div>
+  </div>
+
+  <p class="tool-privacy">
+    <strong>Tus datos no se envían a ningún sitio.</strong> Esta herramienta no tiene servidor:
+    todo ocurre dentro de tu navegador. Es gratis, no hay registro y no se guarda nada.
+  </p>
+
+  <div class="tool-prose">
+    <h2>Las cinco cifras y para qué sirve cada una</h2>
+    <ul>
+      <li><strong>Margen de contribución:</strong> lo que deja cada unidad después de sus costes variables. Es la cifra que financia los costes fijos. Si es negativa, vender más te arruina más rápido.</li>
+      <li><strong>Margen bruto:</strong> ese margen expresado en porcentaje sobre el precio.</li>
+      <li><strong>Margen neto:</strong> el beneficio del periodo sobre los ingresos, ya con costes fijos y publicidad descontados.</li>
+      <li><strong>ROI:</strong> el beneficio sobre todo lo que has invertido. Responde a «¿por cada euro puesto, cuánto he ganado?».</li>
+      <li><strong>ROAS:</strong> ingresos divididos entre inversión publicitaria. Ojo, mide ingresos, no beneficio: un ROAS de 3× puede ser ruinoso si tu margen es del 20 %.</li>
+    </ul>
+
+    <h2>El punto de equilibrio</h2>
+    <p>
+      Es el número de unidades a partir del cual dejas de perder dinero. Se calcula dividiendo los
+      costes fijos más la publicidad entre el margen de contribución de cada unidad. Es la cifra
+      que deberías mirar antes de comprar stock: si el punto de equilibrio está por encima de lo
+      que crees que vas a vender, el producto no sale.
+    </p>
+
+    <h2>Por qué el ROAS engaña</h2>
+    <p>
+      Mucha gente optimiza por ROAS porque es el número que enseña la plataforma de anuncios. Pero
+      el ROAS divide entre ingresos, no entre beneficio. Con un margen del 20 %, un ROAS de 3×
+      significa que de cada 100 € de venta te quedan 20 € de margen y has gastado 33 € en
+      anuncios: estás perdiendo dinero con un ROAS que parece bueno. Por eso aquí se calculan las
+      dos cosas.
+    </p>
+
+    <h2>Preguntas frecuentes</h2>
+    <h3>¿Qué diferencia hay entre ROI y ROAS?</h3>
+    <p>El ROI mide beneficio sobre inversión total. El ROAS mide ingresos sobre inversión publicitaria. El ROAS puede parecer bueno y estar perdiendo dinero si tu margen es bajo.</p>
+    <h3>¿Qué es el punto de equilibrio?</h3>
+    <p>Las unidades que necesitas vender para cubrir costes fijos y publicidad. Por debajo pierdes, por encima ganas.</p>
+    <h3>¿Por qué me sale «imposible» el punto de equilibrio?</h3>
+    <p>Porque tu margen de contribución es cero o negativo: cada unidad vendida te cuesta más de lo que ingresa. En ese caso vender más no arregla nada; hay que subir el precio o bajar los costes.</p>
+    <h3>¿Los precios llevan IVA?</h3>
+    <p>Trabaja con precios sin IVA. El IVA no es ingreso tuyo: lo recaudas y lo liquidas. Si necesitas quitarlo de un precio final, usa la calculadora de IVA.</p>
+    <h3>¿Se guardan mis números?</h3>
+    <p>No. El cálculo ocurre en tu navegador y no hay servidor al que enviarlos.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle (identico al del resto del sitio) -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function num(id) {
+    var s = String($(id).value || '').trim().replace(/\s/g, '');
+    if (!s) return 0;
+    if (s.indexOf(',') > -1 && s.indexOf('.') > -1) {
+      s = (s.lastIndexOf(',') > s.lastIndexOf('.'))
+          ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, '');
+    } else if (s.indexOf(',') > -1) { s = s.replace(',', '.'); }
+    var n = parseFloat(s);
+    return isFinite(n) ? n : 0;
+  }
+  var eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+  function money(n) { return isFinite(n) ? eur.format(n) : '—'; }
+  function pct(n) { return isFinite(n) ? n.toFixed(2).replace('.', ',') + ' %' : '—'; }
+
+  function calc() {
+    var price = num('price');
+    var cv    = num('cogs') + num('ship') + num('var') + price * num('fee') / 100;
+    var cm    = price - cv;
+    var units = Math.max(0, Math.round(num('units')));
+    var fixed = num('fixed'), ads = num('ads');
+
+    var rev    = price * units;
+    var profit = cm * units - fixed - ads;
+    var inv    = cv * units + fixed + ads;
+
+    $('r-cv').textContent = money(cv);
+    $('r-cm').textContent = money(cm);
+    $('r-gm').textContent = price > 0 ? pct((cm / price) * 100) : '—';
+    $('r-rev').textContent = money(rev);
+    $('r-profit').textContent = money(profit);
+    $('r-nm').textContent = rev > 0 ? pct((profit / rev) * 100) : '—';
+    $('r-roi').textContent = inv > 0 ? pct((profit / inv) * 100) : '—';
+    $('r-roas').textContent = ads > 0 ? (rev / ads).toFixed(2).replace('.', ',') + '×' : '—';
+
+    var note = '';
+    if (cm <= 0) {
+      $('r-be').textContent = 'Imposible';
+      note = 'Cada unidad que vendes te cuesta más de lo que ingresas: el margen de contribución es ' +
+             money(cm) + '. Con estos números no hay punto de equilibrio, porque vender más aumenta la pérdida. ' +
+             'Sube el precio o baja los costes variables.';
+    } else {
+      var be = Math.ceil((fixed + ads) / cm);
+      $('r-be').textContent = be.toLocaleString('es-ES') + ' unidades';
+      note = 'Necesitas vender ' + be.toLocaleString('es-ES') + ' unidades para cubrir los ' +
+             money(fixed + ads) + ' de costes fijos y publicidad. ' +
+             (units >= be ? 'Con ' + units.toLocaleString('es-ES') + ' unidades ya estás por encima.'
+                          : 'Con ' + units.toLocaleString('es-ES') + ' unidades te faltan ' +
+                            (be - units).toLocaleString('es-ES') + '.');
+    }
+    $('r-note').textContent = note;
+  }
+
+  ['price','cogs','ship','fee','var','fixed','ads','units'].forEach(function (id) {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>
