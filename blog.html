@@ -49,6 +49,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Por qué tu newsletter IA acaba en spam (y cómo evitarlo)",
+      "description": "Los fallos de segmentación, entregabilidad y gestión de listas que mandan newsletters automatizadas directo a la carpeta de spam, con soluciones concretas aplicadas en producción.",
+      "url": "https://arquitectodigital.io/blog.html#art-por-que-tu-newsletter-ia-acaba-en-spam-20260820",
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Chatbots IA que fallan: errores reales antes de invertir",
       "description": "La mayoría de chatbots empresariales no fallan por mala suerte, sino por errores técnicos predecibles. Aquí está el diagnóstico honesto antes de que firmes nada.",
       "url": "https://arquitectodigital.io/blog.html#art-chatbots-ia-que-fallan-errores-reales-antes-de-20260813",
@@ -431,6 +449,112 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-por-que-tu-newsletter-ia-acaba-en-spam-20260820">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-08-20">
+      <meta itemprop="dateModified" content="2026-08-20">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Newsletter IA</span>
+          <time class="af-date" datetime="2026-08-20" itemprop="datePublished">20 Ago 2026</time>
+          <span class="af-read">· 7 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Por qué tu newsletter IA acaba en spam (y cómo evitarlo)</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Los fallos de segmentación, entregabilidad y gestión de listas que mandan newsletters automatizadas directo a la carpeta de spam, con soluciones concretas aplicadas en producción.</p>
+        <div class="af-content" id="art-por-que-tu-newsletter-ia-acaba-en-spam-20260820-content">
+          <h3>El problema no es la IA. Es la fontanería.</h3>
+<p>Cuando una newsletter automatizada con IA termina en spam, la reacción habitual es culpar al contenido generado. Error. En la mayoría de casos que he visto, el contenido es lo de menos. El problema está antes: en la infraestructura de envío, en cómo está construida la lista y en cómo se segmenta. Son fallos de fontanería, no de redacción.</p>
+<p>Este artículo desglosa los fallos más frecuentes por categoría, con lo que realmente funciona para corregirlos.</p>
+
+<h3>Fallos de autenticación: el error que nadie revisa hasta que es tarde</h3>
+<p>El primer filtro que aplica cualquier servidor de correo receptor es técnico, no semántico. Antes de leer una sola línea de tu email, el servidor comprueba si quien dice enviar ese correo tiene autorización para hacerlo.</p>
+<p>Los tres registros que deben estar configurados correctamente son:</p>
+<ul>
+  <li><strong>SPF (Sender Policy Framework):</strong> declara qué servidores tienen permiso para enviar en nombre de tu dominio. Si no está configurado o está mal apuntado, el email llega con una señal de alerta.</li>
+  <li><strong>DKIM (DomainKeys Identified Mail):</strong> firma criptográfica que verifica que el mensaje no fue alterado en tránsito. Sin DKIM, muchos filtros antispam aplican penalización directa.</li>
+  <li><strong>DMARC:</strong> política que indica qué hacer cuando SPF o DKIM fallan. Sin DMARC, el dominio queda expuesto a suplantación y los grandes proveedores (Gmail, Outlook) lo saben.</li>
+</ul>
+<p>Es habitual encontrar listas con miles de suscriptores enviando desde un dominio sin DKIM configurado. El resultado es predecible: tasa de entrega baja, reputación de dominio deteriorada y, con el tiempo, bloqueos parciales en determinados proveedores de correo.</p>
+
+<div class="highlight">💡 Antes de enviar un solo email, verifica tu configuración con herramientas como MXToolbox o mail-tester.com. Un score por debajo de 9/10 en mail-tester es señal de que hay trabajo técnico pendiente.</div>
+
+<h3>Gestión de listas: el fallo silencioso que destruye la reputación</h3>
+<p>Una lista de email no es estática. Enviar a direcciones inválidas, inactivas o que nunca dieron consentimiento explícito es una de las formas más rápidas de arruinar la reputación del dominio.</p>
+<p>Los problemas más comunes que degradan una lista con el tiempo:</p>
+<ul>
+  <li><strong>Direcciones con hard bounce acumuladas:</strong> cada dirección inexistente que rebota es una señal negativa para los ISP. Mantener esas direcciones en lista y seguir enviando es un error que se paga caro.</li>
+  <li><strong>Trampas de spam (spam traps):</strong> direcciones que parecen válidas pero están controladas por organizaciones antispam. Suelen aparecer en listas compradas o muy antiguas sin depuración.</li>
+  <li><strong>Suscriptores inactivos sin gestión:</strong> alguien que lleva 12 meses sin abrir un solo email no es un activo, es un lastre para la tasa de apertura y, por tanto, para la reputación del dominio.</li>
+  <li><strong>Consentimiento ambiguo o inexistente:</strong> en entornos GDPR (España y UE) y legislaciones similares en LATAM, enviar a contactos que no dieron consentimiento explícito no es solo un riesgo técnico, es un riesgo legal.</li>
+</ul>
+<p>La solución no es compleja, pero requiere disciplina: limpieza periódica de bounces, segmentación de inactivos antes de reactivarlos o eliminarlos, y doble opt-in desde el primer día.</p>
+
+<h3>Segmentación mal ejecutada: enviar a todos es enviar a nadie</h3>
+<p>La IA puede personalizar contenido con una granularidad que antes era inviable para una PYME. Pero esa capacidad no sirve de nada si la segmentación de base está mal definida.</p>
+<p>Los patrones de fallo más frecuentes en segmentación:</p>
+<ul>
+  <li><strong>Segmentos demasiado amplios:</strong> agrupar a todos los contactos en un solo envío porque "son clientes" ignora diferencias críticas en interés, etapa del ciclo de compra o perfil de uso.</li>
+  <li><strong>Segmentos basados en datos obsoletos:</strong> si la segmentación se hizo hace 18 meses y nadie ha actualizado los criterios, los segmentos ya no reflejan la realidad de la lista.</li>
+  <li><strong>Frecuencia de envío no diferenciada:</strong> enviar con la misma frecuencia a un suscriptor muy activo y a uno que apenas interactúa es una forma segura de acumular quejas y bajas.</li>
+  <li><strong>A/B testing sin volumen suficiente:</strong> hacer A/B testing con segmentos de 50 contactos no produce datos estadísticamente útiles. El test se convierte en ruido.</li>
+</ul>
+
+<div class="prompt-box">
+<strong>Prompt para auditar la lógica de segmentación de tu lista:</strong><br><br>
+"Tengo una lista de email con [X] suscriptores en el sector [sector]. Los criterios de segmentación actuales son [describe los criterios]. Identifica qué información falta para hacer una segmentación útil por comportamiento y etapa del ciclo de compra. No me des soluciones genéricas: dime qué datos debería estar recogiendo que probablemente no estoy recogiendo."
+</div>
+
+<h3>El contenido generado por IA y los filtros semánticos</h3>
+<p>Aquí sí entra la IA, pero de forma diferente a lo que se suele pensar. Los filtros modernos no detectan "si lo escribió una IA". Lo que detectan son patrones de texto asociados a spam: promesas exageradas, palabras de alta frecuencia en correos fraudulentos, exceso de mayúsculas, ratio texto/imagen desequilibrado o links hacia dominios con mala reputación.</p>
+<p>El contenido generado por IA tiende a caer en algunos de estos patrones si no hay supervisión editorial: frases superlativas, estructuras repetitivas, llamadas a la acción genéricas. La solución no es evitar la IA, es revisar el output antes de enviar y ajustar el tono al contexto real de la audiencia.</p>
+
+<h3>Warming de dominio: el paso que se salta siempre</h3>
+<p>Si empiezas a enviar desde un dominio nuevo o desde una IP nueva, no puedes lanzar directamente a toda la lista. Los ISP necesitan tiempo para establecer la reputación del remitente. Enviar volúmenes altos desde el primer día activa alarmas automáticas.</p>
+<p>El warming consiste en escalar el volumen de envíos de forma gradual durante varias semanas, empezando por los suscriptores más comprometidos (los que tienen más probabilidad de abrir y hacer clic). Es un proceso lento y tedioso, pero saltárselo es uno de los errores más costosos en entregabilidad.</p>
+
+<h3>Qué implica esto en la práctica</h3>
+<p>Una newsletter automatizada con IA que funciona bien en producción no es solo contenido generado y enviado. Es infraestructura técnica correctamente configurada, lista depurada con criterio, segmentación basada en datos reales y supervisión editorial del output de la IA.</p>
+<p>Las buenas prácticas anti-spam (SPF, DKIM, DMARC) y una entregabilidad cuidada no son marketing: son el conjunto de decisiones técnicas que marcan la diferencia entre un email que llega y uno que no. Si quieres ver cómo se aplican en la práctica, puedes suscribirte a la newsletter de Arquitecto Digital desde la web.</p>
+<p>Si ya tienes una newsletter en marcha y sospechas que hay problemas de entregabilidad, el primer paso es una auditoría técnica del dominio, no cambiar el contenido.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué mi newsletter acaba en spam si el contenido es bueno?</div>
+              <div class="faq-a"><span>El contenido es solo una parte de la ecuación. Los filtros antispam evalúan primero la autenticación técnica del dominio (SPF, DKIM, DMARC) y la reputación del remitente. Sin esos elementos bien configurados, el contenido nunca llega a evaluarse.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia debo limpiar mi lista de email?</div>
+              <div class="faq-a"><span>Depende del volumen y la frecuencia de envío, pero como regla general conviene revisar los hard bounces después de cada campaña y hacer una depuración más profunda de inactivos cada 6 meses.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿El contenido generado por IA activa los filtros antispam?</div>
+              <div class="faq-a"><span>No directamente. Los filtros detectan patrones asociados a spam (promesas exageradas, palabras de alto riesgo, estructuras repetitivas), que pueden aparecer en texto generado por IA sin supervisión editorial. La solución es revisar el output antes de enviar.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué es el warming de dominio y cuánto tiempo lleva?</div>
+              <div class="faq-a"><span>Es el proceso de escalar gradualmente el volumen de envíos desde un dominio o IP nueva para construir reputación ante los ISP. Dependiendo del volumen objetivo, puede llevar entre 4 y 8 semanas hacerlo correctamente.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿El doble opt-in es obligatorio o solo recomendable?</div>
+              <div class="faq-a"><span>En el contexto del GDPR europeo es la práctica más segura para demostrar consentimiento explícito. En LATAM la regulación varía por país, pero el doble opt-in reduce significativamente el riesgo de quejas y mejora la calidad de la lista independientemente del marco legal.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">newsletter automatizada</span><span class="atag">entregabilidad email</span><span class="atag">spam filtros</span><span class="atag">segmentación email marketing</span><span class="atag">automatización IA PYMEs</span></div>
+        <button class="af-link" onclick="toggleArticle('art-por-que-tu-newsletter-ia-acaba-en-spam-20260820-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-chatbots-ia-que-fallan-errores-reales-antes-de-20260813">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
