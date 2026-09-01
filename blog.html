@@ -49,6 +49,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Cénit y el modo autónomo: cuándo escribe la IA y cuándo no",
+      "description": "Un diario personal con un compañero de IA plantea una pregunta incómoda: si escribe él, ¿sigue siendo tu diario? Cómo está resuelto en Cénit y qué decisiones de diseño hay detrás.",
+      "url": "https://arquitectodigital.io/blog.html#art-cenit-y-el-modo-autonomo-cuando-escribe-la-20260901",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Audio a Libro: lo que el servicio no hace (y por qué se dice)",
       "description": "Convertir horas de podcast en un libro digital es un problema resuelto. Convertirlas en un buen libro, no. Dónde está la frontera exacta y cómo saber si este servicio te sirve.",
       "url": "https://arquitectodigital.io/blog.html#art-audio-a-libro-lo-que-el-servicio-no-20260828",
@@ -485,6 +503,114 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-cenit-y-el-modo-autonomo-cuando-escribe-la-20260901">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-01">
+      <meta itemprop="dateModified" content="2026-09-01">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Cénit · Diario con IA</span>
+          <time class="af-date" datetime="2026-09-01" itemprop="datePublished">01 Sep 2026</time>
+          <span class="af-read">· 7 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Cénit y el modo autónomo: cuándo escribe la IA y cuándo no</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Un diario personal con un compañero de IA plantea una pregunta incómoda: si escribe él, ¿sigue siendo tu diario? Cómo está resuelto en Cénit y qué decisiones de diseño hay detrás.</p>
+        <div class="af-content" id="art-cenit-y-el-modo-autonomo-cuando-escribe-la-20260901-content">
+          <p>Hay una contradicción en la idea de un diario personal con inteligencia artificial. Un diario sirve para poner en orden lo que uno piensa. Si el texto lo pone otro, el ejercicio pierde el sentido. Y sin embargo, la parte más difícil de llevar un diario no es escribir: es sentarse a hacerlo.</p>
+
+<h3>El problema real no es la página en blanco</h3>
+
+<p>Quien ha intentado llevar un diario conoce el patrón. Las primeras entradas salen solas. Luego llega un día raro, se rompe la cadena, y el cuaderno se queda cerrado. El obstáculo no suele ser no saber qué escribir, sino que nadie te devuelve nada. Escribes en el vacío.</p>
+
+<p>Cénit es una app de diario personal para Android, hecha en Flutter, que incorpora un compañero de IA llamado Mario. Mario ofrece reflexiones diarias y acompaña la escritura. Esa es la parte fácil de contar. La parte interesante es dónde se pone el límite.</p>
+
+<h3>Modo autónomo: qué hace exactamente</h3>
+
+<p>Cénit incluye un modo autónomo para que Mario escriba o sugiera sin intervención constante. Dicho así suena a que la app escribe tu diario por ti, y conviene entender qué significa en la práctica.</p>
+
+<p>El modo autónomo cubre el hueco de los días en que no vas a escribir. No sustituye tu voz: aporta una reflexión o una sugerencia sobre la que puedes construir. La diferencia entre las dos cosas es la misma que hay entre un compañero que te pregunta cómo te ha ido el día y uno que responde por ti.</p>
+
+<div class="highlight">💡 La pregunta útil no es "¿escribe la IA?", sino "¿de quién es la última palabra?". En un diario, si la respuesta no eres tú, la herramienta está mal diseñada.</div>
+
+<h3>La decisión de diseño que casi nadie mira: la copia de seguridad</h3>
+
+<p>Aquí es donde se ve si una app de diario se ha pensado en serio. Cénit hace la copia de seguridad y la restauración mediante SAF, el Storage Access Framework de Android. Traducido: el archivo de respaldo vive donde tú decides, no en un rincón privado de la aplicación.</p>
+
+<p>La consecuencia práctica es la que importa. La copia sobrevive a desinstalar la app. Puedes borrar Cénit, cambiar de móvil o hacer limpieza, y tus entradas siguen ahí. Con el patrón contrario —respaldo dentro del sandbox de la app— desinstalar significa perderlo todo, y muchos usuarios lo descubren tarde.</p>
+
+<p>Esto no es una funcionalidad vistosa. No sale en una captura de pantalla. Pero es la diferencia entre un diario que puedes llevar años y uno que se evapora con un cambio de teléfono.</p>
+
+<h3>Privacidad como consecuencia, no como eslogan</h3>
+
+<p>En Cénit tus entradas se quedan contigo. Lo digo sin adornos porque no hay mucho más que decir: un diario personal que necesita mandar tu vida a un servidor para funcionar es un producto mal planteado desde el principio.</p>
+
+<div class="prompt-box">Antes de instalar cualquier app de diario, haz estas tres preguntas: ¿dónde se guarda el respaldo?, ¿sobrevive a desinstalar la app?, ¿puedo abrir el archivo con otra herramienta si mañana la app desaparece? Si alguna respuesta incomoda al fabricante, ya sabes lo que tienes.</div>
+
+<h3>Cómo está planteado el precio</h3>
+
+<p>Cénit tiene un plan Pro de 29,99€. Es un pago único por un año de uso: no es una suscripción y no se renueva automáticamente. Lo destaco porque es una decisión deliberada y va contra la costumbre del sector. Una suscripción que se renueva sola convierte el olvido del usuario en ingreso, y en una app donde el usuario escribe cosas íntimas ese incentivo está mal puesto.</p>
+
+<h3>Para quién no es</h3>
+
+<p>Si buscas una herramienta de productividad con tareas, calendarios e integraciones, Cénit no es eso. Si buscas terapia, tampoco: un compañero de IA que sugiere reflexiones no es un profesional, y cualquiera que te venda lo contrario te está vendiendo humo.</p>
+
+<p>Cénit tiene sentido si quieres escribir con cierta regularidad, quieres que algo te dé pie los días flojos, y quieres que lo escrito siga siendo tuyo y siga estando ahí dentro de tres años.</p>
+
+<h3>Lo que me llevo de construirlo</h3>
+
+<p>Construir una app de diario obliga a decidir muy pronto cuánto espacio le das a la IA. Es fácil llenar el producto de generación automática: es lo que mejor demo hace. Y es justo lo que vacía el producto de sentido. El criterio que apliqué fue simple: la IA acompaña, propone y pregunta; el texto que cuenta lo pones tú.</p>
+
+<h3>Qué significa "compañero de IA" sin que suene a marketing</h3>
+
+<p>La palabra compañero se usa mucho y explica poco. En Cénit, Mario hace dos cosas concretas: ofrece reflexiones diarias y acompaña la escritura. Ni diagnostica, ni interpreta, ni saca conclusiones sobre tu vida.</p>
+
+<p>La distinción tiene consecuencias de diseño. Un sistema que interpreta necesita construir un perfil tuyo, y para eso necesita acumular y procesar todo lo que escribes. Un sistema que acompaña puede limitarse a dar pie. La segunda opción es más modesta y es la que permite que tus entradas se queden contigo.</p>
+
+<h3>El hábito, que es el problema de fondo</h3>
+
+<p>Ninguna app crea un hábito. Lo que puede hacer una app es no ponerlo difícil. En un diario, poner las cosas difíciles suele tener estas formas: pedir cuenta y contraseña antes de dejarte escribir una línea, exigir conexión, tardar en abrir, o convertir la pantalla inicial en un panel de estadísticas sobre tu constancia.</p>
+
+<p>Lo que sí ayuda: que la app abra en la pantalla de escribir, que funcione sin depender de nada externo, y que los días en que no tienes nada que decir haya algo que te dé pie. Eso último es exactamente para lo que está el modo autónomo.</p>
+
+<h3>Una nota sobre Flutter</h3>
+
+<p>Cénit está hecha en Flutter. Para el usuario esto es irrelevante y no debería aparecer en ningún argumento de venta. Lo menciono por transparencia técnica: es una decisión que afecta al mantenimiento y a la velocidad con la que se pueden corregir cosas, no a lo que el usuario experimenta.</p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿El modo autónomo escribe mi diario por mí?</div>
+              <div class="faq-a"><span>No sustituye tu voz. Sirve para que Mario escriba o sugiera sin que tengas que pedírselo cada vez, sobre todo los días en que no ibas a escribir nada. La última palabra sigue siendo tuya.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa con mis entradas si desinstalo la app?</div>
+              <div class="faq-a"><span>La copia de seguridad se hace mediante SAF, el Storage Access Framework de Android, y sobrevive a desinstalar la app. El archivo vive donde tú decides, no dentro del sandbox de Cénit.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cénit es una suscripción?</div>
+              <div class="faq-a"><span>No. El plan Pro es un pago único por un año de uso y no se renueva automáticamente.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Está disponible para iPhone?</div>
+              <div class="faq-a"><span>Cénit es una app para Android, hecha en Flutter. No hay versión para iPhone.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">Cénit</span><span class="atag">diario</span><span class="atag">IA personal</span><span class="atag">Android</span><span class="atag">privacidad</span></div>
+        <button class="af-link" onclick="toggleArticle('art-cenit-y-el-modo-autonomo-cuando-escribe-la-20260901-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-audio-a-libro-lo-que-el-servicio-no-20260828">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
