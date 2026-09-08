@@ -49,6 +49,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Las dos puertas de calidad de un autoblog que publica solo",
+      "description": "Generar artículos automáticamente es fácil. Publicarlos sin revisarlos es temerario. Cómo funcionan las dos puertas que un post tiene que cruzar antes de salir, y por qué a veces no las cruza.",
+      "url": "https://arquitectodigital.io/blog.html#art-las-dos-puertas-de-calidad-de-un-autoblog-20260908",
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Landing o web con blog: cómo elegir sin pagar de más",
       "description": "Los dos planes de web a medida resuelven problemas distintos. Cuatro preguntas para saber cuál te toca, y qué significa de verdad que la web se integre con el chatbot y el autoblog.",
       "url": "https://arquitectodigital.io/blog.html#art-landing-o-web-con-blog-como-elegir-sin-20260904",
@@ -521,6 +539,120 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-las-dos-puertas-de-calidad-de-un-autoblog-20260908">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-08">
+      <meta itemprop="dateModified" content="2026-09-08">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Autoblog IA SEO</span>
+          <time class="af-date" datetime="2026-09-08" itemprop="datePublished">08 Sep 2026</time>
+          <span class="af-read">· 8 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Las dos puertas de calidad de un autoblog que publica solo</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Generar artículos automáticamente es fácil. Publicarlos sin revisarlos es temerario. Cómo funcionan las dos puertas que un post tiene que cruzar antes de salir, y por qué a veces no las cruza.</p>
+        <div class="af-content" id="art-las-dos-puertas-de-calidad-de-un-autoblog-20260908-content">
+          <p>La objeción razonable a un blog que publica solo no es "la IA escribe mal". Escribe correctamente. La objeción es otra: <em>¿quién comprueba lo que dice antes de que salga a tu web con tu nombre encima?</em></p>
+
+<p>Es la pregunta correcta, y merece una respuesta concreta en vez de un "tenemos control de calidad". Así que voy a contar cómo está montado el mío.</p>
+
+<h3>El punto de partida: de dónde sale el contenido</h3>
+
+<p>El servicio de autoblog genera con IA premium sobre un RAG personalizado por cliente: el artículo se ancla en tu propio material de marca, no en lo que el modelo recuerde de internet. Además incluye schema markup, SEO técnico —alt tags, meta— e integración con WordPress, con programación por cliente. El volumen va de 2 a 16 artículos al mes según el plan.</p>
+
+<p>Eso resuelve el tema y el tono. No resuelve la verdad de lo que se afirma. Para eso están las puertas.</p>
+
+<h3>Primera puerta: revisión editorial</h3>
+
+<p>Cada borrador pasa por una revisión que puntúa ortografía, coherencia, fidelidad al negocio, tono, valor real del artículo y riesgos. Devuelve una puntuación y una lista de problemas. Si no llega al umbral, el post no se publica: queda retenido esperando decisión humana.</p>
+
+<p>Esta puerta caza lo que suena mal. Es necesaria y es insuficiente, y sé por qué: un artículo puede estar perfectamente escrito y decir una cifra falsa con total aplomo. La revisión editorial le da una nota alta porque, editorialmente, es un buen artículo.</p>
+
+<h3>Segunda puerta: verificación de cifras</h3>
+
+<p>De ahí salió la segunda puerta, que es la que de verdad protege. Un verificador extrae del borrador toda afirmación cuantitativa —precios, porcentajes, estadísticas, plazos, superlativos, citas a estudios— y contrasta cada una contra el material del cliente. Lo que no está respaldado, se rechaza. Y el rechazo es un veto: da igual la nota editorial.</p>
+
+<p>Hay una tercera comprobación, más silenciosa: comparación por similitud contra los artículos ya publicados del mismo cliente. Si el borrador se parece demasiado a algo que ya está en el blog, se retiene. Un blog que repite el mismo artículo con otras palabras se canibaliza a sí mismo.</p>
+
+<div class="highlight">💡 Las dos puertas miden cosas distintas y hay que tener las dos. La editorial pregunta "¿está bien escrito?". La de cifras pregunta "¿es verdad?". Un texto puede aprobar la primera y suspender la segunda sin ninguna contradicción.</div>
+
+<h3>La caja de precios</h3>
+
+<p>Hay una regla adicional que merece mención aparte porque resuelve un problema concreto: el generador tiene prohibido escribir una cifra de precio. Literalmente. Si el borrador contiene una cantidad con símbolo de moneda, se rechaza la generación entera.</p>
+
+<p>Para citar un precio, el texto tiene que usar un marcador que el sistema sustituye después por la cifra real del catálogo. Así un precio publicado no puede ser inventado: o sale de la tabla de precios, o no sale.</p>
+
+<div class="prompt-box">Si estás evaluando cualquier servicio de blog automático, pregunta esto: "¿qué pasa si el artículo se inventa un precio mío?". Si la respuesta habla de revisar después de publicar, el control no existe. La comprobación tiene que ocurrir antes de tocar la web.</div>
+
+<h3>Qué pasa cuando un post no pasa</h3>
+
+<p>Se queda retenido, en una cola de revisión. Alguien lo mira, decide, y lo aprueba o lo descarta. No se publica automáticamente "porque tocaba publicar hoy".</p>
+
+<p>Esto tiene un coste real: hay huecos. Un mes puede salir con menos artículos de los previstos porque dos se quedaron retenidos. Prefiero explicar ese hueco que explicar por qué tu blog afirmó un dato falso.</p>
+
+<h3>Los planes</h3>
+
+<p>El autoblog es una cuota mensual, según el volumen: desde 41€ el plan Starter, 84€ el Essential, 158€ el Profesional y 296€ el Premium. Lo que cambia entre ellos es el número de artículos al mes; el control de calidad es el mismo en todos.</p>
+
+<h3>Lo que no se promete</h3>
+
+<p>No prometo posiciones en Google. Nadie serio lo hace. Un blog con publicación constante, contenido anclado en tu negocio y SEO técnico correcto es una base sólida, y el resto depende de tu sector, tu competencia y el tiempo.</p>
+
+<p>Lo que sí prometo es lo verificable: que lo que se publica ha cruzado las dos puertas, y que si no las cruza, no se publica.</p>
+
+<h3>El duplicado interno, el problema que crece con el tiempo</h3>
+
+<p>Las dos primeras puertas protegen de errores. La tercera protege de algo distinto: de ti mismo dentro de un año.</p>
+
+<p>Un blog que publica sobre un negocio concreto tiende a repetirse. No porque el sistema falle, sino porque un negocio tiene un número finito de cosas que decir y el generador vuelve a las mismas por pura afinidad temática. A los seis meses tienes cuatro artículos que son el mismo con otras palabras, compitiendo entre ellos en la misma búsqueda.</p>
+
+<p>Por eso cada borrador se compara con los artículos anteriores del cliente antes de publicarse, y el que se parece demasiado se retiene. Es la puerta menos vistosa y la que más valor acumula con el tiempo.</p>
+
+<h3>La programación por cliente</h3>
+
+<p>Cada cliente tiene su propia cadencia: el sistema calcula cuándo toca el siguiente artículo según el volumen del plan y lo publica en ese momento. No hay un día de la semana fijo para todos.</p>
+
+<p>Esto importa por una razón práctica: la constancia pesa más que la frecuencia. Un blog con dos artículos al mes durante dos años funciona mejor que uno con dieciséis artículos un mes y silencio los cinco siguientes. La programación automática es lo que sostiene esa constancia cuando la persona está ocupada, que es siempre.</p>
+
+<h3>Lo que sigue necesitando una persona</h3>
+
+<p>Decidir sobre lo retenido. Un post que no pasa las puertas necesita a alguien que lo lea y decida si se corrige, se aprueba o se descarta. Eso no se automatiza sin renunciar a la razón de ser del control.</p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Quién revisa lo que publica un blog automático?</div>
+              <div class="faq-a"><span>Cada borrador cruza dos puertas antes de publicarse: una revisión editorial con puntuación y una verificación de todas las cifras contra el material del cliente. Lo que no pasa queda retenido para revisión humana.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puede el sistema inventarse un precio?</div>
+              <div class="faq-a"><span>No. El generador tiene prohibido escribir cifras con moneda: si lo hace, se rechaza la generación. Los precios entran por un marcador que se sustituye desde el catálogo real.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si un artículo no pasa el control?</div>
+              <div class="faq-a"><span>No se publica. Se queda en una cola de revisión hasta que una persona decide. Puede haber meses con menos artículos de los previstos.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Garantiza posiciones en Google?</div>
+              <div class="faq-a"><span>No. Ningún servicio serio lo garantiza. Lo que aporta es publicación constante, contenido anclado en tu negocio y SEO técnico correcto.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">autoblog</span><span class="atag">SEO</span><span class="atag">control de calidad</span><span class="atag">RAG</span></div>
+        <button class="af-link" onclick="toggleArticle('art-las-dos-puertas-de-calidad-de-un-autoblog-20260908-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-landing-o-web-con-blog-como-elegir-sin-20260904">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
