@@ -49,6 +49,24 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Antes de montar un chatbot RAG: preparar la documentación",
+      "description": "El 90% del trabajo de un chatbot que no alucina ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.",
+      "url": "https://arquitectodigital.io/blog.html#art-antes-de-montar-un-chatbot-rag-preparar-la-20260923",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "author": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arquitecto Digital"
+      },
+      "articleSection": "Educación",
+      "timeRequired": "PT7M"
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "GiroBot: tres herramientas en una y por qué van juntas",
       "description": "Un chatbot de chat, un autoclipper vertical y alertas con voz IA. Por qué un streamer necesita las tres y qué problema resuelve cada una durante y después del directo.",
       "url": "https://arquitectodigital.io/blog.html#art-girobot-tres-herramientas-en-una-y-por-que-20260919",
@@ -593,6 +611,121 @@
     <!-- Posts próximamente: mismos 3 que el index, página propia. -->
     <div class="blog-grid">
       <!-- NEW_ARTICLES_HERE -->
+
+    <div class="featured-wrap reveal" id="art-antes-de-montar-un-chatbot-rag-preparar-la-20260923">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-23">
+      <meta itemprop="dateModified" content="2026-09-23">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Chatbots e IA Conversacional</span>
+          <time class="af-date" datetime="2026-09-23" itemprop="datePublished">23 Sep 2026</time>
+          <span class="af-read">· 8 min lectura</span>
+        </div>
+        <h2 class="af-title" itemprop="headline">Antes de montar un chatbot RAG: preparar la documentación</h2>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">El 90% del trabajo de un chatbot que no alucina ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.</p>
+        <div class="af-content" id="art-antes-de-montar-un-chatbot-rag-preparar-la-20260923-content">
+          <p>Casi todas las conversaciones sobre chatbots con RAG empiezan por el modelo. Cuál usar, cómo se configura, qué guardrails lleva. Es la parte visible y la que se puede enseñar en una demo. Y es la que menos determina si el chatbot va a funcionar.</p>
+
+<p>Lo que decide el resultado es el material que le das. Un chatbot con RAG responde a partir de tus documentos: si esos documentos están mal, la respuesta está mal, y ningún ajuste del modelo lo arregla.</p>
+
+<h3>Qué es exactamente el material</h3>
+
+<p>En el servicio de chatbots que ofrezco, el RAG se monta sobre tus documentos, con canal web y Telegram, memoria episódica —no solo memoria de la conversación en curso—, handoff humano automático y un pipeline de 14 pasos con safety guardrails. Todo eso es infraestructura. El contenido lo pones tú.</p>
+
+<p>Y ese contenido suele llegar en un estado peor de lo que el cliente cree.</p>
+
+<h3>Los cuatro problemas que aparecen siempre</h3>
+
+<p><strong>Uno: documentos que se contradicen.</strong> El PDF de tarifas de hace dos años dice una cosa y la página web dice otra. Un humano sabe cuál vale. El sistema de recuperación no: encontrará los dos, y responderá con el que se parezca más a la pregunta. Si hay dos verdades en el material, el chatbot elegirá una al azar cada vez.</p>
+
+<p><strong>Dos: información que solo existe en la cabeza de alguien.</strong> Las preguntas más frecuentes de tus clientes suelen tener respuestas que nadie ha escrito nunca. Están en la experiencia de la persona que lleva atención al cliente. Si no se escriben, el chatbot no las tendrá, y responderá con lo más parecido que encuentre, que no será suficiente.</p>
+
+<p><strong>Tres: documentos que no dicen lo que parece.</strong> Un catálogo comercial está escrito para persuadir, no para informar. Está lleno de adjetivos y corto de datos. Como fuente para responder preguntas concretas rinde mucho menos de lo que su extensión sugiere.</p>
+
+<p><strong>Cuatro: formatos que pierden estructura.</strong> Una tabla de precios en PDF maquetado se convierte, al extraerse, en una fila de números sin cabeceras. El dato está y a la vez no está: nadie puede saber a qué corresponde cada cifra.</p>
+
+<div class="highlight">💡 Prueba de diez minutos, antes de contratar nada: coge las diez preguntas que más te hacen tus clientes y busca la respuesta en tu documentación, tú, a mano. Las que no encuentres o encuentres contradictorias son exactamente las que el chatbot va a fallar.</div>
+
+<h3>Qué hacer con cada problema</h3>
+
+<ul>
+<li><strong>Contradicciones:</strong> decide cuál es la fuente buena y retira la otra del material. No la corrijas "mentalmente": retírala.</li>
+<li><strong>Conocimiento no escrito:</strong> siéntate media hora con quien atiende clientes y escribid juntos las respuestas a esas diez preguntas. Es el documento más rentable del proyecto.</li>
+<li><strong>Material comercial:</strong> úsalo para el tono, no como fuente de datos. Los datos van en un documento aparte, escueto y sin adjetivos.</li>
+<li><strong>Tablas y PDF maquetados:</strong> pásalos a un formato con estructura explícita, aunque sea un texto plano con etiquetas claras.</li>
+</ul>
+
+<h3>Por qué existe el POC de siete días</h3>
+
+<p>El servicio incluye una prueba de concepto de 7 días, deducible del setup, con precio 158€. No es un descuento de captación: es la respuesta a este problema.</p>
+
+<p>Un POC sobre tu documentación real, con tus preguntas reales, enseña en una semana lo que ninguna demo enseña: si tu material aguanta. Si en el POC el chatbot responde mal a preguntas que tú sabes contestar, el problema está en el material y aún estás a tiempo de arreglarlo, o de decidir que no compensa.</p>
+
+<div class="prompt-box">Cómo aprovechar un POC de verdad: no le hagas las preguntas fáciles. Hazle las tres que a ti te cuesta contestar, la que tiene matices legales, y la que depende de un dato que cambia cada trimestre. Ahí es donde se ve si el sistema sirve.</div>
+
+<h3>Después del POC</h3>
+
+<p>Si el POC funciona, el setup completo en widget web parte de 529€; con el bot de Telegram añadido, 849€. La cuota mensual va desde 84€, con 190€ en el tramo medio y 423€ en el superior con soporte prioritario. Los tres recurrentes son cancelables cuando quieras.</p>
+
+<h3>El resumen incómodo</h3>
+
+<p>La calidad de un chatbot con RAG está limitada por la calidad de tu documentación, y esa parte no la puede hacer el proveedor por ti. Puedo montar la infraestructura, los guardrails, la memoria y el handoff. Lo que no puedo es saber cuál de tus dos tablas de precios es la buena.</p>
+
+<p>La buena noticia es que ese trabajo tiene valor aunque no montes el chatbot: una documentación ordenada y sin contradicciones sirve para el equipo, para la web y para cualquier cosa que hagas después.</p>
+
+<h3>Dos piezas que la documentación no arregla sola</h3>
+
+<p>He insistido en el material porque es donde está el problema que nadie mira. Hay otras dos piezas que sí son infraestructura y que conviene entender, porque cambian mucho la experiencia.</p>
+
+<p>La primera es la <strong>memoria episódica</strong>. No es lo mismo que recordar la conversación en curso: es que el sistema tenga contexto de interacciones anteriores. La diferencia se nota cuando un cliente vuelve y no tiene que volver a explicarlo todo desde cero.</p>
+
+<p>La segunda es el <strong>handoff humano automático</strong>. Un chatbot honesto tiene que saber cuándo callarse y pasar la conversación a una persona. Sin handoff, un bot que no sabe la respuesta hace lo peor que puede hacer: improvisar. Con handoff, el caso llega a quien puede resolverlo, y el cliente no se queda dando vueltas.</p>
+
+<h3>Los guardrails y por qué son un pipeline</h3>
+
+<p>La seguridad no es una casilla que se activa. En este servicio es un pipeline de 14 pasos con safety guardrails: comprobaciones encadenadas antes de que una respuesta salga al cliente. Un único filtro final no basta, porque los problemas aparecen en fases distintas —en lo que se recupera, en lo que se compone y en lo que se dice.</p>
+
+<h3>Cómo saber si el material está listo</h3>
+
+<p>Una señal práctica: si cuando entra alguien nuevo al equipo puede resolver el 80 por ciento de las consultas leyendo vuestra documentación, el material está listo para un RAG. Si el recién llegado necesita preguntar a un compañero para casi todo, el chatbot va a estar en la misma situación, y sin compañero al que preguntar.</p>
+
+<p>Esa prueba no cuesta nada y ahorra bastantes sorpresas.</p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué documentos hacen falta para montar un chatbot con RAG?</div>
+              <div class="faq-a"><span>Los que respondan a las preguntas reales de tus clientes, sin contradicciones entre ellos y con la estructura intacta. Un catálogo comercial sirve para el tono, no como fuente de datos.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Para qué sirve el POC de 7 días?</div>
+              <div class="faq-a"><span>Para comprobar sobre tu documentación real y con tus preguntas reales si el material aguanta, antes de comprometer el setup. Es deducible del setup si decides continuar.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué canales cubre el chatbot?</div>
+              <div class="faq-a"><span>Widget web y Telegram. El setup del widget web y el que añade Telegram son distintos.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puedo cancelar la cuota mensual?</div>
+              <div class="faq-a"><span>Sí, los tres planes recurrentes son cancelables cuando quieras.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">chatbot</span><span class="atag">RAG</span><span class="atag">documentación</span><span class="atag">PYMEs</span></div>
+        <button class="af-link" onclick="toggleArticle('art-antes-de-montar-un-chatbot-rag-preparar-la-20260923-content',this)">Leer artículo completo →</button>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+
 
     <div class="featured-wrap reveal" id="art-girobot-tres-herramientas-en-una-y-por-que-20260919">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
