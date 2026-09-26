@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita · Arquitecto Digital</title>
+<meta name="description" content="Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html">
+
+<meta property="og:title" content="SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita">
+<meta property="og:description" content="Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-06-20">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita",
+  "description": "Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.",
+  "url": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html"
+  },
+  "datePublished": "2026-06-20",
+  "dateModified": "2026-06-20",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Organization",
+    "name": "Arquitecto Digital"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Arquitecto Digital"
+  },
+  "articleSection": "Email Marketing"
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620">← Volver al blog</a></p>
+<div class="featured-wrap" id="art-spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-06-20">
+      <meta itemprop="dateModified" content="2026-06-20">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Email Marketing</span>
+          <time class="af-date" datetime="2026-06-20" itemprop="datePublished">20 Jun 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.</p>
+        <div class="af-content af-content-open" id="art-spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620-content">
+          <h3>El problema real: no es el contenido, es la reputación técnica</h3>
+<p>Muchas pymes invierten tiempo en redactar una newsletter decente, eligen un buen asunto, cuidan el diseño, y aun así los correos no llegan. La tasa de apertura es ridícula. El equipo culpa al contenido. Cambian el asunto. Vuelven a enviar. Mismo resultado.</p>
+<p>El problema casi nunca está en el texto. Está en la capa técnica que los servidores de correo usan para decidir si tu mensaje es legítimo o basura. Y esa capa tiene tres nombres: <strong>SPF, DKIM y DMARC</strong>.</p>
+<p>No son opcionales. No son tecnicismos para ingenieros. Son el pasaporte que necesita tu email para cruzar la frontera de la bandeja de entrada.</p>
+
+<h3>Qué es SPF y qué problema resuelve</h3>
+<p><strong>SPF (Sender Policy Framework)</strong> es un registro DNS que declara qué servidores tienen permiso para enviar correo en nombre de tu dominio. Sin él, cualquier servidor del mundo puede mandar un email que aparezca como si viniera de <em>info@tuempresa.com</em>.</p>
+<p>Cuando el servidor receptor recibe un email tuyo, consulta tu DNS y pregunta: "¿está este servidor en la lista autorizada?". Si no hay lista, o si el servidor no aparece en ella, el mensaje pierde puntos de reputación. Muchos filtros lo mandan directamente a spam.</p>
+<p>Un registro SPF mal configurado o ausente es uno de los errores más comunes que se ven en pymes que usan plataformas de email marketing sin haber tocado el DNS de su dominio.</p>
+
+<h3>Qué es DKIM y por qué no basta con SPF</h3>
+<p><strong>DKIM (DomainKeys Identified Mail)</strong> añade una firma criptográfica a cada email que envías. Es la diferencia entre decir "soy yo quien manda esto" y poder <em>demostrarlo</em>.</p>
+<p>SPF verifica el origen del servidor. DKIM verifica que el contenido del mensaje no ha sido alterado en tránsito. Son complementarios, no intercambiables. Un email puede pasar SPF y fallar DKIM si alguien modificó el contenido durante el envío, o si la plataforma de envío no está correctamente configurada con las claves de tu dominio.</p>
+<p>La firma DKIM se publica también en tu DNS como un registro TXT. Cuando la plataforma de envío firma el email con la clave privada y el receptor verifica con la clave pública del DNS, el circuito se cierra. Si algo no cuadra, el email pierde credibilidad ante el filtro.</p>
+
+<h3>Qué es DMARC y cómo une todo lo anterior</h3>
+<p><strong>DMARC (Domain-based Message Authentication, Reporting and Conformance)</strong> es la política que decides publicar para decirle al mundo qué hacer cuando un email de tu dominio falla SPF o DKIM.</p>
+<p>Tienes tres opciones de política:</p>
+<ul>
+  <li><strong>none</strong>: solo monitoriza, no hace nada con los mensajes sospechosos. Útil para auditar antes de activar nada.</li>
+  <li><strong>quarantine</strong>: los mensajes sospechosos van a spam en lugar de a bandeja de entrada.</li>
+  <li><strong>reject</strong>: los mensajes que no pasan la validación se rechazan directamente. No llegan.</li>
+</ul>
+<p>Además, DMARC permite recibir informes de los servidores receptores: sabes cuántos emails de tu dominio se están enviando, desde dónde, y cuántos fallan la validación. Es el único mecanismo que te da visibilidad real sobre si alguien está suplantando tu dominio.</p>
+
+<div class="highlight">💡 Un dominio sin DMARC configurado es un dominio que no controla su propia reputación. Cualquier spammer puede enviar emails que parezcan tuyos, y tú no recibirás ninguna alerta.</div>
+
+<h3>Lo que suele salir mal en pymes</h3>
+<p>Hay patrones que se repiten. El más habitual: una pyme contrata una plataforma de email marketing, importa su lista y empieza a enviar sin tocar el DNS. La plataforma envía desde sus propios servidores, pero el dominio del remitente es el tuyo. Sin SPF que autorice esos servidores, sin DKIM firmado con tu dominio, los filtros de Gmail, Outlook y Yahoo lo ven con sospecha.</p>
+<p>Otro patrón frecuente: el SPF existe pero está mal construido. Tiene demasiadas consultas DNS encadenadas (el límite es 10), o incluye rangos de IP demasiado amplios que los filtros modernos penalizan. Un registro SPF técnicamente válido puede seguir siendo un problema si está mal diseñado.</p>
+<p>También es habitual ver dominios con DMARC en política <em>none</em> que llevan meses así, sin que nadie haya revisado los informes. La política <em>none</em> sin revisión periódica es como tener una cámara de seguridad sin mirar las grabaciones.</p>
+
+<h3>Por qué esto importa especialmente si usas automatización</h3>
+<p>Si tu estrategia de comunicación incluye newsletters automatizadas, la entregabilidad técnica no es un detalle secundario: es la base sobre la que descansa todo lo demás. Puedes tener segmentación sofisticada, A/B testing bien planteado y contenido relevante. Si el email no llega a la bandeja de entrada, nada de eso importa.</p>
+<p>En el servicio de newsletter que gestionamos, la configuración de SPF y DKIM forma parte de las buenas prácticas anti-spam que se aplican desde el inicio, antes de enviar el primer mensaje. No es un añadido posterior: es parte de la arquitectura de entregabilidad.</p>
+
+<div class="prompt-box">
+<strong>Prompt para auditar tu situación actual:</strong><br>
+"Actúa como especialista en entregabilidad de email. Tengo un dominio [tudominio.com] y uso [nombre de la plataforma] para enviar newsletters. Dame una lista de verificación técnica para comprobar si SPF, DKIM y DMARC están correctamente configurados, qué herramientas gratuitas puedo usar para validarlos, y qué errores comunes debo buscar en cada registro DNS."
+</div>
+
+<h3>Cómo diagnosticar tu estado actual</h3>
+<p>Antes de tocar nada, conviene saber dónde estás. Hay herramientas públicas que permiten consultar los registros DNS de tu dominio y ver si SPF, DKIM y DMARC existen y están bien formados. MXToolbox, mail-tester.com o las herramientas de diagnóstico de Google Postmaster son puntos de partida razonables.</p>
+<p>Lo que debes buscar:</p>
+<ul>
+  <li>¿Existe un registro SPF en tu DNS? ¿Incluye los servidores de tu plataforma de envío?</li>
+  <li>¿Está DKIM configurado? ¿La firma corresponde a tu dominio o al dominio de la plataforma?</li>
+  <li>¿Tienes DMARC publicado? ¿En qué política? ¿Estás recibiendo y revisando los informes?</li>
+</ul>
+<p>Si la respuesta a cualquiera de estas preguntas es "no sé" o "no", tienes trabajo pendiente antes de escalar el volumen de envíos.</p>
+
+<h3>El coste de ignorarlo</h3>
+<p>Una lista de correo bien construida es un activo de negocio. Cuesta tiempo y dinero conseguir suscriptores de calidad. Perder entregabilidad por no haber configurado tres registros DNS es uno de los errores más evitables que existen, y uno de los más costosos en términos de reputación de dominio a largo plazo.</p>
+<p>Los filtros de spam tienen memoria. Un dominio que acumula quejas o bajas tasas de apertura durante meses tarda tiempo en recuperar su reputación, incluso después de corregir los problemas técnicos.</p>
+<p>Si tu newsletter forma parte de tu estrategia de captación o fidelización, la entregabilidad técnica merece la misma atención que el contenido. Sin esa base, el resto del trabajo se construye sobre arena.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puedo configurar SPF, DKIM y DMARC yo mismo sin conocimientos técnicos?</div>
+              <div class="faq-a"><span>Puedes entender qué hacen y usar herramientas de diagnóstico para ver tu estado actual. La configuración en sí requiere acceder al panel DNS de tu dominio y crear o editar registros TXT. No es especialmente complejo, pero un error en el formato puede romper la entregabilidad, así que si no tienes experiencia con DNS, conviene que lo revise alguien técnico antes de publicar los cambios.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si solo configuro SPF pero no DKIM ni DMARC?</div>
+              <div class="faq-a"><span>SPF solo cubre una parte del problema: verifica el servidor de origen, pero no la integridad del contenido ni te da visibilidad sobre usos fraudulentos de tu dominio. Los filtros modernos de Gmail y Outlook valoran la presencia de los tres mecanismos. Tener solo SPF es mejor que nada, pero no es suficiente para una entregabilidad robusta.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia debo revisar estos registros?</div>
+              <div class="faq-a"><span>Cada vez que cambies de plataforma de envío, añadas un nuevo servicio que mande correos en tu nombre, o notes una caída en las tasas de apertura. Además, si tienes DMARC activo, revisar los informes de forma periódica (al menos mensualmente) te permite detectar problemas antes de que afecten a tu reputación de dominio.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿El servicio de newsletter de Arquitecto Digital gestiona esta configuración?</div>
+              <div class="faq-a"><span>Las buenas prácticas anti-spam, incluyendo SPF y DKIM, forman parte del servicio desde el inicio. La configuración en el DNS de tu dominio requiere acceso a tu panel de hosting, algo que se coordina durante el proceso de alta para que todo esté correcto antes del primer envío.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta el servicio de newsletter con entregabilidad gestionada?</div>
+              <div class="faq-a"><span>El servicio de newsletter IA tiene planes desde 41€ al mes hasta 158€ al mes, con opciones según el volumen de suscriptores y funcionalidades como segmentación y A/B testing incluidas.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">email marketing</span><span class="atag">entregabilidad</span><span class="atag">SPF DKIM DMARC</span><span class="atag">newsletter pyme</span><span class="atag">automatización email</span></div>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/newsletter-signup.html">Newsletter de Arquitecto Digital →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

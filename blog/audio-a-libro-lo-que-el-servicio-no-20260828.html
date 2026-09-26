@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio a Libro: lo que el servicio no hace (y por qué se dice) · Arquitecto Digital</title>
+<meta name="description" content="Convertir horas de podcast en un libro digital es un problema resuelto. Convertirlas en un buen libro, no. Dónde está la frontera exacta y cómo saber si este servicio te sirve.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/audio-a-libro-lo-que-el-servicio-no-20260828.html">
+
+<meta property="og:title" content="Audio a Libro: lo que el servicio no hace (y por qué se dice)">
+<meta property="og:description" content="Convertir horas de podcast en un libro digital es un problema resuelto. Convertirlas en un buen libro, no. Dónde está la frontera exacta y cómo saber si este servicio te sirve.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/audio-a-libro-lo-que-el-servicio-no-20260828.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-08-28">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Audio a Libro: lo que el servicio no hace (y por qué se dice)",
+  "description": "Convertir horas de podcast en un libro digital es un problema resuelto. Convertirlas en un buen libro, no. Dónde está la frontera exacta y cómo saber si este servicio te sirve.",
+  "url": "https://arquitectodigital.io/blog/audio-a-libro-lo-que-el-servicio-no-20260828.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://arquitectodigital.io/blog/audio-a-libro-lo-que-el-servicio-no-20260828.html"
+  },
+  "datePublished": "2026-08-28",
+  "dateModified": "2026-08-28",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Organization",
+    "name": "Arquitecto Digital"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Arquitecto Digital"
+  },
+  "articleSection": "Audio → Libro"
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-audio-a-libro-lo-que-el-servicio-no-20260828">← Volver al blog</a></p>
+<div class="featured-wrap" id="art-audio-a-libro-lo-que-el-servicio-no-20260828">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-08-28">
+      <meta itemprop="dateModified" content="2026-08-28">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Audio → Libro</span>
+          <time class="af-date" datetime="2026-08-28" itemprop="datePublished">28 Ago 2026</time>
+          <span class="af-read">· 7 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Audio a Libro: lo que el servicio no hace (y por qué se dice)</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Convertir horas de podcast en un libro digital es un problema resuelto. Convertirlas en un buen libro, no. Dónde está la frontera exacta y cómo saber si este servicio te sirve.</p>
+        <div class="af-content af-content-open" id="art-audio-a-libro-lo-que-el-servicio-no-20260828-content">
+          <p>La forma más rápida de que un cliente quede descontento es dejar que se imagine lo que compra. En un servicio que convierte audio en libro digital, el hueco entre lo que la gente imagina y lo que recibe puede ser enorme. Así que este artículo va de los límites.</p>
+
+<h3>Qué hace el sistema, en una frase</h3>
+
+<p>Audio a Libro transcribe tus audios, podcasts o conferencias con un motor profesional y, con esa transcripción, genera el libro digital. Eso es lo que recibes. La portada temática se genera con IA. La entrega es 100% digital y se hace en 48h, con pago único.</p>
+
+<h3>Y ahora lo que no hace</h3>
+
+<p>No hay edición editorial. Conviene desglosarlo porque cada palabra cuenta:</p>
+
+<ul>
+<li><strong>No se reescribe el contenido.</strong> Si en el audio te repites, el libro se repite.</li>
+<li><strong>No se reorganiza.</strong> El orden del libro es el orden en que lo dijiste.</li>
+<li><strong>No se maqueta a mano.</strong> No hay un diseñador ajustando viudas y huérfanas.</li>
+</ul>
+
+<p>Lo que se entrega es el audio convertido a texto y volcado a formatos de lectura. Ni más ni menos.</p>
+
+<div class="highlight">💡 Regla para decidir en treinta segundos: si tu audio ya está estructurado —tiene un orden, un principio y un final—, este servicio te da un libro utilizable. Si tu audio es una conversación que va saltando de tema, te dará una conversación que va saltando de tema, en PDF.</div>
+
+<h3>Solo digital: no hay libro en papel</h3>
+
+<p>Esto genera confusión y lo digo sin rodeos. No hay libro en papel, ni encuadernado, ni impresión bajo demanda, ni envío postal. Si lo que quieres es un objeto físico para regalar, este no es el servicio.</p>
+
+<h3>Los tres planes y en qué se diferencian de verdad</h3>
+
+<p>Hay tres planes, y la diferencia entre ellos es más simple de lo que parece:</p>
+
+<ul>
+<li><strong>Ebook</strong> — hasta 2h de audio, en PDF y EPUB. Desde 149€.</li>
+<li><strong>Libro</strong> — hasta 6h de audio, en PDF, EPUB, DOCX, MD y TXT. 299€.</li>
+<li><strong>Libro Premium</strong> — hasta 10h de audio, los mismos formatos que Libro. 499€.</li>
+</ul>
+
+<p>La única diferencia entre Libro y Libro Premium son las horas de audio que admiten: 6h el primero y 10h el segundo. El tratamiento del audio es el mismo en los tres planes. No hay una versión "mejor procesada": hay una versión que admite más material.</p>
+
+<p>Lo aclaro porque en muchos servicios el plan caro implica más cuidado. Aquí no. Pagar más no compra mejor tratamiento, compra más duración.</p>
+
+<h3>La extensión final no se puede prometer</h3>
+
+<p>Una pregunta recurrente es cuántas páginas saldrán. No hay respuesta fija: la extensión depende del ritmo y la densidad del audio. Dos grabaciones de la misma duración pueden dar libros muy distintos según se hable rápido o despacio, con silencios o sin ellos, con contenido denso o con divagación.</p>
+
+<p>Cualquiera que te dé un número exacto de páginas antes de escuchar tu audio se lo está inventando.</p>
+
+<h3>La ventana de ajustes</h3>
+
+<p>Tras la primera entrega hay 7 días para pedir ajustes de capítulos, títulos o portada. Esos ajustes se hacen manualmente, a petición.</p>
+
+<p>El límite también está dicho: una reescritura amplia cuenta como encargo nuevo. Es coherente con lo anterior — si el servicio no incluye edición editorial, pedir edición editorial después no puede entrar por la puerta de atrás.</p>
+
+<div class="prompt-box">Cómo grabar para que el resultado sea decente: (1) di en voz alta el título de cada bloque antes de empezarlo, así los capítulos salen solos; (2) evita muletillas de arranque, se transcriben; (3) si te equivocas, no digas "corto y repito", simplemente repite la frase entera bien; (4) graba en un sitio silencioso, la transcripción mejora mucho.</div>
+
+<h3>Para quién sí</h3>
+
+<p>Para quien ya tiene material grabado con estructura y quiere convertirlo en algo leíble y distribuible: una formación grabada, una serie de conferencias, un podcast temático con orden. En esos casos el volcado a texto ahorra un trabajo real y el resultado es directamente utilizable.</p>
+
+<p>Para quien quiere publicar un libro con ambición literaria, no. Ese trabajo es de edición humana, cuesta mucho más y este servicio no lo hace ni dice hacerlo.</p>
+
+<h3>Los formatos y para qué sirve cada uno</h3>
+
+<p>El plan Ebook entrega PDF y EPUB. Los planes Libro y Libro Premium añaden DOCX, MD y TXT. No es relleno de catálogo: cada formato resuelve un uso distinto.</p>
+
+<ul>
+<li><strong>PDF</strong> — para leer en pantalla grande o imprimir tú mismo. Maqueta fija.</li>
+<li><strong>EPUB</strong> — para lector de libros electrónicos y móvil. El texto se adapta al tamaño de pantalla.</li>
+<li><strong>DOCX</strong> — para seguir trabajando el texto. Es el formato que quieres si vas a editarlo después.</li>
+<li><strong>MD</strong> — para publicar en web o pasarlo por otras herramientas sin pelearte con el formato.</li>
+<li><strong>TXT</strong> — el texto pelado, para buscar, indexar o alimentar otro sistema.</li>
+</ul>
+
+<p>Si tu intención es editar el resultado, DOCX es la razón real para no quedarte en el plan más básico. Y es un motivo más honesto que "el plan superior es mejor".</p>
+
+<h3>La estructura la pones al grabar, no después</h3>
+
+<p>Como no hay reorganización, el orden del libro es el orden del audio. Eso convierte la grabación en el momento donde se decide la calidad del resultado, y es una buena noticia: es la parte que controlas del todo.</p>
+
+<p>Si vas a grabar expresamente para esto, escribe antes un guion de cuatro líneas con los bloques. Si el material ya está grabado, mira si el orden se sostiene leído. Una serie de episodios que se entienden sueltos funciona; una conversación de sobremesa, no.</p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿El libro se edita o se corrige?</div>
+              <div class="faq-a"><span>No hay edición editorial: no se reescribe el contenido, no se reorganiza y no se maqueta a mano. Se entrega el audio convertido a texto y volcado a formatos de lectura.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Recibo un libro en papel?</div>
+              <div class="faq-a"><span>No. La entrega es solo digital: no hay libro en papel, ni encuadernado, ni impresión bajo demanda, ni envío postal.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿En qué se diferencian Libro y Libro Premium?</div>
+              <div class="faq-a"><span>Solo en las horas de audio que admiten: 6h el plan Libro y 10h el Premium. El tratamiento del audio es idéntico en los tres planes.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puedo pedir cambios después de recibirlo?</div>
+              <div class="faq-a"><span>Tras la primera entrega hay 7 días para pedir ajustes de capítulos, títulos o portada, que se hacen manualmente. Una reescritura amplia cuenta como encargo nuevo.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">Audio a Libro</span><span class="atag">transcripción</span><span class="atag">ebook</span><span class="atag">podcast</span></div>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/audio-libro.html">Convertir audios en libro →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
