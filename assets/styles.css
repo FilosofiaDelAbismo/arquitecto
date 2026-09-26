@@ -169,6 +169,13 @@ nav {
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .cenit-banner .cb-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255, 107, 53,0.45); }
+/* Mismos estilos que el badge del home lleva inline, en clases para partials/cenit-badge.html */
+.cenit-banner .cb-title-link { color: inherit; text-decoration: none; }
+.cenit-banner .cb-cta--ghost { background: transparent; border: 1px solid currentColor; }
+.cenit-banner .cb-play { display: inline-flex; align-items: center; line-height: 0; }
+.cenit-banner .cb-play img { height: 40px; width: auto; display: block; border: 0; }
+.cenit-banner--inline { margin-top: 32px; }   /* fuera del hero va tras otro bloque: separarlo */
+.cenit-banner--inline .hero-tag { margin-bottom: 0; }   /* el margen de 30px es espaciado del hero */
 
 .hero h1 {
   font-family: 'Fraunces', serif;
