@@ -1600,3 +1600,22 @@ a[href$="/newsletter.html"] { display: none !important; }
 .consent-note { font-size: 0.82rem; color: var(--text-faint); margin: 6px 0 0; }
 /* CTA de compra deshabilitada hasta aceptar (mantiene click para avisar) */
 .cta-disabled { opacity: 0.5; filter: grayscale(0.35); cursor: not-allowed; }
+
+/* ── Footer canónico (partials/footer.html) ─────────────────────────────
+   6 bloques en una fila: marca + Servicios, Mis proyectos, Utilidades,
+   Recursos y Legal (más ancha: 15 enlaces con rótulos largos).
+   .footer-extra-row (solo el home) ocupa una fila entera. */
+.footer-grid.footer-grid--full {
+  grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr)) 1.5fr;
+  gap: 32px;
+}
+.footer-grid--full .footer-extra-row { grid-column: 1 / -1; }
+.footer-extra-row .footer-bolas { display: flex; flex-wrap: wrap; gap: 18px 14px; }
+.footer-extra-row .footer-bolas a.footer-bola { width: 84px; }
+@media (max-width: 1024px) {
+  .footer-grid.footer-grid--full { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-grid--full .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .footer-grid.footer-grid--full { grid-template-columns: 1fr; }
+}
