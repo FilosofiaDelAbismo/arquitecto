@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antes de montar un chatbot RAG: preparar la documentación · Arquitecto Digital</title>
-<meta name="description" content="El 90% del trabajo de un chatbot que no alucina ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.">
+<meta name="description" content="El 90% del trabajo de un chatbot que responde bien ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/antes-de-montar-un-chatbot-rag-preparar-la-20260923.html">
 
 <meta property="og:title" content="Antes de montar un chatbot RAG: preparar la documentación">
-<meta property="og:description" content="El 90% del trabajo de un chatbot que no alucina ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.">
+<meta property="og:description" content="El 90% del trabajo de un chatbot que responde bien ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://arquitectodigital.io/blog/antes-de-montar-un-chatbot-rag-preparar-la-20260923.html">
 <meta property="og:site_name" content="Arquitecto Digital">
@@ -35,7 +35,7 @@
     {
       "@type": "BlogPosting",
       "headline": "Antes de montar un chatbot RAG: preparar la documentación",
-      "description": "El 90% del trabajo de un chatbot que no alucina ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.",
+      "description": "El 90% del trabajo de un chatbot que responde bien ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.",
       "url": "https://arquitectodigital.io/blog/antes-de-montar-un-chatbot-rag-preparar-la-20260923.html",
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -165,7 +165,7 @@
         <h1 class="af-title" itemprop="headline">Antes de montar un chatbot RAG: preparar la documentación</h1>
       </div>
       <div class="af-body" itemprop="articleBody">
-        <p class="af-excerpt">El 90% del trabajo de un chatbot que no alucina ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.</p>
+        <p class="af-excerpt">El 90% del trabajo de un chatbot que responde bien ocurre antes de escribir código: en qué documentos le das y en qué estado. Qué revisar en los tuyos antes de empezar.</p>
         <div class="af-content af-content-open" id="art-antes-de-montar-un-chatbot-rag-preparar-la-20260923-content">
           <p>Casi todas las conversaciones sobre chatbots con RAG empiezan por el modelo. Cuál usar, cómo se configura, qué guardrails lleva. Es la parte visible y la que se puede enseñar en una demo. Y es la que menos determina si el chatbot va a funcionar.</p>
 
@@ -173,7 +173,7 @@
 
 <h3>Qué es exactamente el material</h3>
 
-<p>En el servicio de chatbots que ofrezco, el RAG se monta sobre tus documentos, con canal web y Telegram, memoria episódica —no solo memoria de la conversación en curso—, handoff humano automático y un pipeline de 14 pasos con safety guardrails. Todo eso es infraestructura. El contenido lo pones tú.</p>
+<p>En el servicio de chatbots que ofrezco, el RAG se monta sobre tus documentos, con canal web y Telegram, memoria episódica —no solo memoria de la conversación en curso—, un aviso con tu WhatsApp cuando no sabe la respuesta y un pipeline de 14 pasos con safety guardrails. Todo eso es infraestructura. El contenido lo pones tú.</p>
 
 <p>Y ese contenido suele llegar en un estado peor de lo que el cliente cree.</p>
 
@@ -212,7 +212,7 @@
 
 <h3>El resumen incómodo</h3>
 
-<p>La calidad de un chatbot con RAG está limitada por la calidad de tu documentación, y esa parte no la puede hacer el proveedor por ti. Puedo montar la infraestructura, los guardrails, la memoria y el handoff. Lo que no puedo es saber cuál de tus dos tablas de precios es la buena.</p>
+<p>La calidad de un chatbot con RAG está limitada por la calidad de tu documentación, y esa parte no la puede hacer el proveedor por ti. Puedo montar la infraestructura, los guardrails, la memoria y el aviso de WhatsApp. Lo que no puedo es saber cuál de tus dos tablas de precios es la buena.</p>
 
 <p>La buena noticia es que ese trabajo tiene valor aunque no montes el chatbot: una documentación ordenada y sin contradicciones sirve para el equipo, para la web y para cualquier cosa que hagas después.</p>
 
@@ -222,7 +222,7 @@
 
 <p>La primera es la <strong>memoria episódica</strong>. No es lo mismo que recordar la conversación en curso: es que el sistema tenga contexto de interacciones anteriores. La diferencia se nota cuando un cliente vuelve y no tiene que volver a explicarlo todo desde cero.</p>
 
-<p>La segunda es el <strong>handoff humano automático</strong>. Un chatbot honesto tiene que saber cuándo callarse y pasar la conversación a una persona. Sin handoff, un bot que no sabe la respuesta hace lo peor que puede hacer: improvisar. Con handoff, el caso llega a quien puede resolverlo, y el cliente no se queda dando vueltas.</p>
+<p>La segunda es <strong>qué hace cuando no sabe</strong>. Un chatbot honesto tiene que saber cuándo callarse. Si no, un bot que no sabe la respuesta hace lo peor que puede hacer: improvisar. En el mío, cuando no tiene el dato lo dice y le indica al cliente cómo contactarte por WhatsApp, así sabe a quién escribir y no se queda dando vueltas.</p>
 
 <h3>Los guardrails y por qué son un pipeline</h3>
 

@@ -40,7 +40,7 @@
   "name": "Chatbot para empresas",
   "serviceType": "Desarrollo de chatbot con IA para empresas",
   "url": "https://arquitectodigital.io/chatbot.html",
-  "description": "Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), sin alucinaciones y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup desde 529€; planes mensuales desde 84€/mes. Todos los precios con IVA incluido.",
+  "description": "Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup desde 529€; planes mensuales desde 84€/mes. Todos los precios con IVA incluido.",
   "inLanguage": "es",
   "provider": {
     "@id": "https://arquitectodigital.io/#organization"
@@ -260,7 +260,8 @@
     </h1>
     <p style="color: var(--text-dim); font-size: 1.1em; max-width: 640px; line-height: 1.7; margin-top: 20px;">
       No es Tidio ni ManyChat. Es un chatbot con RAG sobre TUS documentos,
-      multi-canal (web + Telegram), sin alucinaciones y sin vendor lock-in.
+      multi-canal (web + Telegram) y sin vendor lock-in. Una comprobación
+      determinista bloquea cualquier cifra que no esté en tus documentos.
       Tu información, contigo. Tu chatbot, contigo.
       <strong>POC de 7 días por 158€</strong> (deducible del Setup), Setup desde 529€
       y planes mensuales desde 84€/mes. IVA incluido.
@@ -275,13 +276,14 @@
   <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.75; margin-top: 20px;">
     El funcionamiento es directo: el usuario pregunta, el sistema busca en
     TUS documentos mediante RAG, recupera los fragmentos relevantes, y el
-    modelo sintetiza una respuesta basada en ellos. No improvisa. No alucina.
-    Consulta lo que tú le diste.
+    modelo sintetiza una respuesta basada en ellos. No improvisa: consulta
+    lo que tú le diste. Y una comprobación determinista bloquea cualquier
+    cifra que no esté en tus documentos.
   </p>
   <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.75; margin-top: 16px;">
     Disponible en web widget y Telegram. Memoria episódica (no solo
-    conversación). Handoff humano automático cuando la pregunta queda fuera
-    de dominio. Documentación completa. Cero vendor lock-in: tus datos y tu
+    conversación). Cuando no tiene la respuesta, te indica cómo contactar
+    por WhatsApp. Documentación completa. Cero vendor lock-in: tus datos y tu
     bot pueden migrarse cuando quieras.
   </p>
 </section>
@@ -417,8 +419,8 @@
       </h4>
       <p style="color: var(--text-dim); line-height: 1.6;">
         Trámites, contratos, normativa específica de tu sector. El
-        chatbot es el primer filtro y escala a humano cuando la consulta
-        excede su dominio. Ahorra horas de soporte previas a la llamada.
+        chatbot es el primer filtro y, cuando la consulta excede su dominio,
+        te indica cómo contactar por WhatsApp. Ahorra horas de soporte previas a la llamada.
       </p>
     </div>
 
@@ -429,8 +431,7 @@
       </h4>
       <p style="color: var(--text-dim); line-height: 1.6;">
         APIs, productos, troubleshooting interno. El chatbot convierte
-        manuales y wikis en un knowledge base conversacional, con citas
-        a los documentos fuente.
+        manuales y wikis en un knowledge base conversacional.
       </p>
     </div>
 
@@ -454,7 +455,8 @@
       <h4 style="font-family: 'Fraunces', serif; font-size: 1.15em; margin-bottom: 8px; color: var(--text);">Clínicas</h4>
       <p style="color: var(--text-dim); line-height: 1.6;">
         Horarios, cómo pedir cita, preparación antes de un tratamiento.
-        Lo clínico se deriva siempre a recepción.
+        Las consultas clínicas no las responde: te indica cómo hablar con
+        recepción.
         <a href="muestra-clinica/" style="color: var(--orange);">Ver demo de clínica →</a>
       </p>
     </div>
@@ -479,7 +481,8 @@
       <h4 style="font-family: 'Fraunces', serif; font-size: 1.15em; margin-bottom: 8px; color: var(--text);">Gestorías y despachos</h4>
       <p style="color: var(--text-dim); line-height: 1.6;">
         Plazos y documentación que hay que aportar en cada trámite. Hace de
-        primer filtro antes de la cita y pasa a una persona lo que no sabe.
+        primer filtro antes de la cita y, cuando no sabe algo, te indica
+        cómo contactar por WhatsApp.
       </p>
     </div>
 
