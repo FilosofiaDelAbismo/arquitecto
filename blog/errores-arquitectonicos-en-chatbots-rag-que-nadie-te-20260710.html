@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Errores arquitectónicos en chatbots RAG que nadie te cuenta",
-  "description": "La mayoría de chatbots RAG para PYMEs fallan por los mismos tres problemas de fondo. Aquí el análisis técnico sin filtros.",
-  "url": "https://arquitectodigital.io/blog/errores-arquitectonicos-en-chatbots-rag-que-nadie-te-20260710.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/errores-arquitectonicos-en-chatbots-rag-que-nadie-te-20260710.html"
-  },
-  "datePublished": "2026-07-10",
-  "dateModified": "2026-07-10",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Errores arquitectónicos en chatbots RAG que nadie te cuenta",
+      "description": "La mayoría de chatbots RAG para PYMEs fallan por los mismos tres problemas de fondo. Aquí el análisis técnico sin filtros.",
+      "url": "https://arquitectodigital.io/blog/errores-arquitectonicos-en-chatbots-rag-que-nadie-te-20260710.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/errores-arquitectonicos-en-chatbots-rag-que-nadie-te-20260710.html"
+      },
+      "datePublished": "2026-07-10",
+      "dateModified": "2026-07-10",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es exactamente un error de chunking en RAG y por qué importa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El chunking es cómo se divide el documento en fragmentos antes de indexarlo. Si los fragmentos cortan ideas a la mitad o mezclan temas distintos, el modelo recibe contexto incompleto y tiende a rellenar los huecos con conocimiento general, lo que produce respuestas incorrectas aunque suenen coherentes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El chatbot RAG aprende solo con el tiempo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No de forma automática. En la mayoría de implementaciones RAG, el modelo base no cambia. Lo que puede mejorar es la knowledge base y las instrucciones del sistema, pero eso requiere intervención humana deliberada. Sin un proceso de revisión y actualización, el chatbot no mejora: se queda estático o empeora si los documentos fuente quedan desactualizados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es un feedback loop en el contexto de un chatbot y cómo se implementa de forma básica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es cualquier mecanismo que permite saber cuándo el chatbot falla y actuar sobre ello. En su forma más básica: registro de conversaciones, opción para que el usuario indique si la respuesta fue útil, y revisión periódica de los casos donde el chatbot escaló a un humano. No requiere tecnología compleja, requiere proceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si mi chatbot actual tiene problemas de arquitectura RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Señales habituales: responde bien a preguntas simples pero falla cuando la respuesta requiere combinar información de varias partes del documento; da respuestas que no están en tus documentos pero suenan plausibles; no puede indicar de dónde viene la información que proporciona; las respuestas no cambian aunque hayas actualizado los documentos fuente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta hacer una prueba de concepto antes de comprometerse con un chatbot RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El POC de 7 días tiene un coste de 158€ como pago único. Si después decides avanzar con el setup completo, ese importe se descuenta del precio del setup. La idea es que puedas evaluar el sistema con tus documentos reales antes de tomar ninguna decisión de mayor alcance."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/errores-arquitectonicos-en-chatbots-rag-que-nadie-te-20260710.html#faq"
+    }
+  ]
 }
 </script>
 <style>

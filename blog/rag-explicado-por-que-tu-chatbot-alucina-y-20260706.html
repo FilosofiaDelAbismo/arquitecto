@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "RAG explicado: por qué tu chatbot alucina y cómo corregirlo",
-  "description": "Los chatbots genéricos inventan respuestas porque no tienen acceso a tu información real. RAG soluciona eso, y no necesitas un presupuesto de gran empresa para implementarlo.",
-  "url": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html"
-  },
-  "datePublished": "2026-07-06",
-  "dateModified": "2026-07-06",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "RAG explicado: por qué tu chatbot alucina y cómo corregirlo",
+      "description": "Los chatbots genéricos inventan respuestas porque no tienen acceso a tu información real. RAG soluciona eso, y no necesitas un presupuesto de gran empresa para implementarlo.",
+      "url": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html"
+      },
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre un chatbot normal y uno con RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chatbot normal responde desde lo que el modelo aprendió en su entrenamiento, que no incluye tu información. Un chatbot con RAG consulta primero tus documentos reales y genera la respuesta basándose en ellos, lo que elimina las alucinaciones sobre datos de tu empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito reentrenar el modelo cada vez que actualizo mis documentos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Esa es precisamente una de las ventajas de RAG frente al fine-tuning. Actualizas el documento en la base de conocimiento y el sistema empieza a usar la versión nueva de inmediato, sin ningún proceso de reentrenamiento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si un proveedor de chatbot realmente usa RAG o es solo marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pídele que muestre las fuentes de cada respuesta y prueba a hacerle preguntas sobre temas que no estén en sus documentos. Si responde con confianza sobre algo inexistente, no hay guardrails reales. Si dice claramente que no tiene esa información, el sistema funciona bien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si el chatbot no encuentra respuesta en los documentos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un sistema bien diseñado responde con una negativa clara y, si está configurado para ello, escala la conversación a un agente humano. Inventar una respuesta plausible cuando no hay información es el comportamiento que los guardrails deben prevenir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué significa vendor lock-in en el contexto de un chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Significa que tus documentos, configuración e historial de conversaciones quedan almacenados en la plataforma del proveedor. Si decides cambiar de solución, pierdes todo eso. Un sistema sin vendor lock-in te entrega el código y los datos para que queden en tu infraestructura."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html#faq"
+    }
+  ]
 }
 </script>
 <style>

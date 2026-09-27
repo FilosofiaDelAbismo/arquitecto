@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots IA en PYMEs: cuándo RAG funciona y cuándo es ruido",
-  "description": "La mayoría de chatbots IA en PYMEs fallan por razones técnicas concretas, no por mala suerte. Diagnóstico honesto de qué falla, cuándo RAG es la solución real y cuándo es sobrecarga que no necesitas.",
-  "url": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html"
-  },
-  "datePublished": "2026-07-14",
-  "dateModified": "2026-07-14",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots IA en PYMEs: cuándo RAG funciona y cuándo es ruido",
+      "description": "La mayoría de chatbots IA en PYMEs fallan por razones técnicas concretas, no por mala suerte. Diagnóstico honesto de qué falla, cuándo RAG es la solución real y cuándo es sobrecarga que no necesitas.",
+      "url": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html"
+      },
+      "datePublished": "2026-07-14",
+      "dateModified": "2026-07-14",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es RAG y por qué importa para un chatbot de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval-Augmented Generation) es una arquitectura que permite al chatbot buscar en tus propios documentos antes de responder, en lugar de depender solo del conocimiento general del modelo. Reduce las alucinaciones y hace que las respuestas sean específicas a tu negocio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo NO necesito RAG en mi chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cuando tu chatbot solo gestiona flujos lineales predecibles (citas, formularios, consultas de estado vía API) o cuando tu base de conocimiento es muy pequeña y no cambia. En esos casos, un prompt bien diseñado y un flujo estructurado es más eficiente y más barato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi chatbot actual da respuestas incorrectas sobre mi negocio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Casi siempre por una de estas tres razones: no tiene acceso a tu información específica, no tiene memoria de la conversación, o no tiene guardrails que le impidan improvisar cuando no sabe la respuesta. Cada uno de esos fallos tiene solución técnica distinta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo probar un chatbot con RAG antes de pagar el setup completo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El servicio de Arquitecto Digital incluye un POC de siete días desde 158€ donde puedes ver el chatbot funcionando sobre tus propios documentos antes de comprometerte con el setup completo. El coste del POC es deducible si continúas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué debo preparar antes de implementar un chatbot con RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lo más importante es el estado de tu documentación. Si tus documentos están desactualizados, son contradictorios o están mal estructurados, el chatbot va a dar respuestas malas independientemente del modelo que uses. Auditar y ordenar el corpus antes de la implementación es parte del trabajo, no un detalle secundario."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html#faq"
+    }
+  ]
 }
 </script>
 <style>

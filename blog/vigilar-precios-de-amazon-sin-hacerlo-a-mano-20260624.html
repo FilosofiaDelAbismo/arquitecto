@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Vigilar precios de Amazon sin hacerlo a mano: guía práctica",
-  "description": "Monitorizar precios de competidores en Amazon a mano es inviable a escala. Aquí explicamos qué funciona, qué falla y cómo automatizarlo sin perder el control.",
-  "url": "https://arquitectodigital.io/blog/vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624.html"
-  },
-  "datePublished": "2026-06-24",
-  "dateModified": "2026-06-24",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Automatización e-commerce"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Vigilar precios de Amazon sin hacerlo a mano: guía práctica",
+      "description": "Monitorizar precios de competidores en Amazon a mano es inviable a escala. Aquí explicamos qué funciona, qué falla y cómo automatizarlo sin perder el control.",
+      "url": "https://arquitectodigital.io/blog/vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624.html"
+      },
+      "datePublished": "2026-06-24",
+      "dateModified": "2026-06-24",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Automatización e-commerce",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Es legal monitorizar precios de Amazon de forma automatizada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consultar precios públicos de Amazon es legal. Lo que puede entrar en conflicto con los términos de servicio de Amazon es el scraping masivo sin usar sus APIs oficiales. La vía más segura es usar la Product Advertising API o herramientas de terceros que ya gestionan ese acceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia hay que capturar precios para que los datos sean útiles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de la categoría. En electrónica o productos de alta rotación, una captura cada pocas horas puede ser relevante. En categorías más estables, una vez al día es suficiente. Lo importante es que la frecuencia sea consistente para poder detectar tendencias."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hago si no tengo equipo técnico para montar esto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La opción más pragmática para una PYME sin perfil técnico es combinar una herramienta con API ya existente (como Keepa) con un sistema de alertas sencillo. Si el volumen de referencias lo justifica, externalizar la automatización suele ser más barato que el tiempo que consume hacerlo a mano."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tiene sentido monitorizar precios si no vendo en Amazon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, especialmente si Amazon es un competidor indirecto. Si tu cliente puede comprar el mismo producto en Amazon, el precio de Amazon es tu referencia de mercado, aunque no vendas ahí. Ignorarlo es tomar decisiones de pricing con información incompleta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo evito que el sistema de alertas genere demasiado ruido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Definiendo umbrales de alerta antes de activar el sistema. No alertes por cada variación; alertes cuando el diferencial entre tu precio y el de Amazon supere un porcentaje que tú consideras relevante para la decisión de negocio. Sin ese filtro, cualquier sistema de monitorización acaba ignorándose."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/vigilar-precios-de-amazon-sin-hacerlo-a-mano-20260624.html#faq"
+    }
+  ]
 }
 </script>
 <style>

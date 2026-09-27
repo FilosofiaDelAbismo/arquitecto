@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots que alucinan: qué falla, qué es RAG y qué preguntar",
-  "description": "Los chatbots genéricos inventan respuestas porque no saben lo que no saben. Aquí tienes el diagnóstico técnico honesto y las preguntas que debes hacer antes de comprar cualquier solución.",
-  "url": "https://arquitectodigital.io/blog/chatbots-que-alucinan-que-falla-que-es-rag-20260802.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-que-alucinan-que-falla-que-es-rag-20260802.html"
-  },
-  "datePublished": "2026-08-02",
-  "dateModified": "2026-08-02",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots que alucinan: qué falla, qué es RAG y qué preguntar",
+      "description": "Los chatbots genéricos inventan respuestas porque no saben lo que no saben. Aquí tienes el diagnóstico técnico honesto y las preguntas que debes hacer antes de comprar cualquier solución.",
+      "url": "https://arquitectodigital.io/blog/chatbots-que-alucinan-que-falla-que-es-rag-20260802.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-que-alucinan-que-falla-que-es-rag-20260802.html"
+      },
+      "datePublished": "2026-08-02",
+      "dateModified": "2026-08-02",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es una alucinación en un chatbot de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es cuando el modelo genera una respuesta inventada pero formulada con confianza, porque no tiene la información correcta y rellena el hueco con lo que estadísticamente parece plausible. No es un fallo puntual: es el comportamiento por defecto cuando no hay contexto verificable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿RAG elimina completamente las alucinaciones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. RAG las reduce significativamente al anclar las respuestas a documentos reales que tú controlas. Pero si los documentos están mal estructurados, el chunking es deficiente o no hay guardrails de salida, el sistema puede seguir fallando de formas más sutiles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si el chatbot que me ofrecen usa RAG de verdad o es solo un wrapper de ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pide que te expliquen el proceso de indexación de tus documentos, cómo se actualiza cuando cambias información y qué ocurre cuando el sistema no encuentra respuesta. Si no pueden responder con detalle técnico, probablemente no hay RAG real detrás."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el handoff humano y por qué importa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es el mecanismo por el que el chatbot detecta que no puede resolver una consulta y la transfiere a una persona real. Sin este mecanismo, el sistema improvisa respuestas en situaciones que superan su capacidad, que es exactamente cuando más daño puede hacer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué documentos necesito preparar para implementar un chatbot RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cualquier información que tu equipo de atención al cliente usa hoy para responder preguntas: FAQs, manuales de producto, políticas de servicio, catálogos, condiciones comerciales. La calidad del sistema depende directamente de la calidad y estructura de esos documentos."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-que-alucinan-que-falla-que-es-rag-20260802.html#faq"
+    }
+  ]
 }
 </script>
 <style>

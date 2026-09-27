@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots IA en PYMEs: los errores técnicos que nadie cuenta",
-  "description": "RAG mal configurado, entrenamiento insuficiente, métricas que mienten. Un análisis técnico sin filtros de los fallos más comunes en implementaciones de IA para PYMEs, y qué distingue a los proyectos que sí funcionan en producción.",
-  "url": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-los-errores-tecnicos-que-20260809.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-los-errores-tecnicos-que-20260809.html"
-  },
-  "datePublished": "2026-08-09",
-  "dateModified": "2026-08-09",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Automatización IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots IA en PYMEs: los errores técnicos que nadie cuenta",
+      "description": "RAG mal configurado, entrenamiento insuficiente, métricas que mienten. Un análisis técnico sin filtros de los fallos más comunes en implementaciones de IA para PYMEs, y qué distingue a los proyectos que sí funcionan en producción.",
+      "url": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-los-errores-tecnicos-que-20260809.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-los-errores-tecnicos-que-20260809.html"
+      },
+      "datePublished": "2026-08-09",
+      "dateModified": "2026-08-09",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Automatización IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es RAG y por qué es imprescindible para un chatbot de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval-Augmented Generation) es la técnica que permite al modelo recuperar información de tu base de conocimiento antes de responder. Sin RAG, el chatbot solo usa su entrenamiento general y no sabe nada específico de tu negocio, lo que lleva a respuestas incorrectas o inventadas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El fine-tuning es necesario para que un chatbot aprenda sobre mi empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En la mayoría de PYMEs, no. Un RAG bien construido con un prompt de sistema preciso cubre los casos de uso habituales sin necesidad de fine-tuning. El fine-tuning aporta valor cuando hay un volumen alto de interacciones y datos de calidad suficientes para entrenarlo correctamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si las métricas que me presenta mi proveedor son fiables?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pregunta cómo se calcula exactamente cada métrica. Una tasa de resolución que no distingue entre \"el usuario encontró la respuesta\" y \"el usuario no abrió un ticket\" no mide lo que parece. Las métricas útiles son las que se conectan directamente con resultados operativos del negocio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué preguntas técnicas debo hacer antes de contratar una implementación de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Como mínimo: cómo funciona la recuperación de información, qué ocurre cuando el modelo no sabe responder, cómo se actualiza la base de conocimiento y si los datos y la configuración quedan en tu infraestructura o en la del proveedor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué señal indica que un chatbot no tiene RAG funcional?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si el chatbot responde preguntas sobre tus productos, precios o políticas con información que no aparece en ningún documento tuyo, no está usando tu base de conocimiento. Está generando respuestas desde su entrenamiento general, lo que incluye inventar datos con aparente seguridad."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-los-errores-tecnicos-que-20260809.html#faq"
+    }
+  ]
 }
 </script>
 <style>

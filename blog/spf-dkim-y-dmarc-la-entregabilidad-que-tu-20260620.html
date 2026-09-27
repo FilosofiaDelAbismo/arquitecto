@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita",
-  "description": "Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.",
-  "url": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html"
-  },
-  "datePublished": "2026-06-20",
-  "dateModified": "2026-06-20",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Email Marketing"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita",
+      "description": "Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.",
+      "url": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html"
+      },
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-06-20",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Email Marketing",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Puedo configurar SPF, DKIM y DMARC yo mismo sin conocimientos técnicos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes entender qué hacen y usar herramientas de diagnóstico para ver tu estado actual. La configuración en sí requiere acceder al panel DNS de tu dominio y crear o editar registros TXT. No es especialmente complejo, pero un error en el formato puede romper la entregabilidad, así que si no tienes experiencia con DNS, conviene que lo revise alguien técnico antes de publicar los cambios."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si solo configuro SPF pero no DKIM ni DMARC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SPF solo cubre una parte del problema: verifica el servidor de origen, pero no la integridad del contenido ni te da visibilidad sobre usos fraudulentos de tu dominio. Los filtros modernos de Gmail y Outlook valoran la presencia de los tres mecanismos. Tener solo SPF es mejor que nada, pero no es suficiente para una entregabilidad robusta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia debo revisar estos registros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada vez que cambies de plataforma de envío, añadas un nuevo servicio que mande correos en tu nombre, o notes una caída en las tasas de apertura. Además, si tienes DMARC activo, revisar los informes de forma periódica (al menos mensualmente) te permite detectar problemas antes de que afecten a tu reputación de dominio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El servicio de newsletter de Arquitecto Digital gestiona esta configuración?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las buenas prácticas anti-spam, incluyendo SPF y DKIM, forman parte del servicio desde el inicio. La configuración en el DNS de tu dominio requiere acceso a tu panel de hosting, algo que se coordina durante el proceso de alta para que todo esté correcto antes del primer envío."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta el servicio de newsletter con entregabilidad gestionada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El servicio de newsletter IA tiene planes desde 41€ al mes hasta 158€ al mes, con opciones según el volumen de suscriptores y funcionalidades como segmentación y A/B testing incluidas."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html#faq"
+    }
+  ]
 }
 </script>
 <style>

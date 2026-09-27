@@ -31,26 +31,69 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Las dos puertas de calidad de un autoblog que publica solo",
-  "description": "Generar artículos automáticamente es fácil. Publicarlos sin revisarlos es temerario. Cómo funcionan las dos puertas que un post tiene que cruzar antes de salir, y por qué a veces no las cruza.",
-  "url": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html"
-  },
-  "datePublished": "2026-09-08",
-  "dateModified": "2026-09-08",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Autoblog IA SEO"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Las dos puertas de calidad de un autoblog que publica solo",
+      "description": "Generar artículos automáticamente es fácil. Publicarlos sin revisarlos es temerario. Cómo funcionan las dos puertas que un post tiene que cruzar antes de salir, y por qué a veces no las cruza.",
+      "url": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html"
+      },
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Autoblog IA SEO",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Quién revisa lo que publica un blog automático?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada borrador cruza dos puertas antes de publicarse: una revisión editorial con puntuación y una verificación de todas las cifras contra el material del cliente. Lo que no pasa queda retenido para revisión humana."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puede el sistema inventarse un precio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El generador tiene prohibido escribir cifras con moneda: si lo hace, se rechaza la generación. Los precios entran por un marcador que se sustituye desde el catálogo real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si un artículo no pasa el control?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No se publica. Se queda en una cola de revisión hasta que una persona decide. Puede haber meses con menos artículos de los previstos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Garantiza posiciones en Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Ningún servicio serio lo garantiza. Lo que aporta es publicación constante, contenido anclado en tu negocio y SEO técnico correcto."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html#faq"
+    }
+  ]
 }
 </script>
 <style>

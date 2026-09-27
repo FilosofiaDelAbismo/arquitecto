@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "RAG explicado con un caso real: por qué tu chatbot no entiende tu negocio",
-  "description": "Los chatbots genéricos fallan porque no saben nada de tu empresa. RAG resuelve eso, pero hay que montarlo bien para no quedar atrapado en un proveedor.",
-  "url": "https://arquitectodigital.io/blog/rag-explicado-con-un-caso-real-por-que-20260611.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/rag-explicado-con-un-caso-real-por-que-20260611.html"
-  },
-  "datePublished": "2026-06-11",
-  "dateModified": "2026-06-11",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "RAG explicado con un caso real: por qué tu chatbot no entiende tu negocio",
+      "description": "Los chatbots genéricos fallan porque no saben nada de tu empresa. RAG resuelve eso, pero hay que montarlo bien para no quedar atrapado en un proveedor.",
+      "url": "https://arquitectodigital.io/blog/rag-explicado-con-un-caso-real-por-que-20260611.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/rag-explicado-con-un-caso-real-por-que-20260611.html"
+      },
+      "datePublished": "2026-06-11",
+      "dateModified": "2026-06-11",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre un chatbot normal y uno con RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chatbot normal responde desde el entrenamiento base del modelo o desde un árbol de decisión fijo. Uno con RAG consulta tus propios documentos en tiempo real antes de responder, lo que le permite dar información precisa y actualizada sobre tu negocio específico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito un equipo técnico interno para mantener un chatbot con RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No necesariamente. Si el sistema está bien diseñado, actualizar la base de conocimiento es tan simple como añadir o editar documentos. El mantenimiento técnico del pipeline puede quedar en manos del proveedor o consultor que lo construyó."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa con mis datos si el proveedor cierra o cambia sus condiciones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de cómo esté construido. Con un stack propio —base vectorial en tu infraestructura, código en tu repositorio— tus datos y configuraciones son tuyas. Con una plataforma SaaS, los datos suelen estar en sus servidores y la portabilidad es limitada o nula."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿RAG funciona en cualquier idioma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, siempre que el modelo de embeddings y el modelo de lenguaje soporten el idioma. Para español, la mayoría de modelos actuales tienen soporte sólido, aunque conviene verificarlo con una prueba real sobre tus documentos antes de ponerlo en producción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo lleva tener un chatbot con RAG funcionando?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un POC básico con documentos reales puede estar operativo en pocos días. Un sistema en producción con guardrails, memoria episódica y handoff humano requiere más configuración, pero no estamos hablando de meses. El cuello de botella suele ser la calidad y organización de los documentos fuente, no la tecnología."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/rag-explicado-con-un-caso-real-por-que-20260611.html#faq"
+    }
+  ]
 }
 </script>
 <style>

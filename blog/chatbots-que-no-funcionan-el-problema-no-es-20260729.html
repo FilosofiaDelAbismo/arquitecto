@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots que no funcionan: el problema no es la IA",
-  "description": "La mayoría de chatbots empresariales fallan por decisiones de implementación, no por limitaciones de la tecnología. Aquí están los problemas estructurales reales y cómo se corrigen.",
-  "url": "https://arquitectodigital.io/blog/chatbots-que-no-funcionan-el-problema-no-es-20260729.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-que-no-funcionan-el-problema-no-es-20260729.html"
-  },
-  "datePublished": "2026-07-29",
-  "dateModified": "2026-07-29",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots que no funcionan: el problema no es la IA",
+      "description": "La mayoría de chatbots empresariales fallan por decisiones de implementación, no por limitaciones de la tecnología. Aquí están los problemas estructurales reales y cómo se corrigen.",
+      "url": "https://arquitectodigital.io/blog/chatbots-que-no-funcionan-el-problema-no-es-20260729.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-que-no-funcionan-el-problema-no-es-20260729.html"
+      },
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-07-29",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi chatbot responde bien en la demo pero falla con clientes reales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque las demos se prueban con preguntas ideales y documentos limpios. Los usuarios reales hacen preguntas inesperadas, usan vocabulario distinto y buscan información que el sistema no tiene bien indexada. El fallo suele estar en la preparación de datos y en la ausencia de RAG funcional, no en el modelo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es RAG y por qué lo necesita mi chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval-Augmented Generation) es el mecanismo por el que el chatbot recupera información de tus propios documentos antes de responder. Sin RAG, el bot responde desde su entrenamiento general, que no incluye tu negocio. Con RAG, responde basándose en tu catálogo, tus políticas y tu documentación real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cambiar de modelo de IA (GPT, Claude, etc.) arreglaría los problemas de mi chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En la mayoría de casos, no. Si el problema es datos sin procesar, ausencia de RAG o falta de instrucciones de sistema, cambiar de modelo no cambia nada estructural. El modelo es el último eslabón; los fallos suelen estar antes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo lleva arreglar un chatbot mal implementado frente a construir uno nuevo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del estado del sistema existente. En muchos casos, reconstruir la arquitectura desde cero con los datos ya disponibles es más rápido y limpio que parchear un sistema con problemas estructurales. La prueba de concepto de 7 días está diseñada precisamente para evaluar eso con tus documentos reales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué preguntas debo hacer antes de contratar una implementación de chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tres preguntas clave: ¿El sistema usa RAG sobre mis documentos o responde desde entrenamiento general? ¿Cómo se preparan los datos antes de entrar al sistema? ¿Qué mecanismo existe para escalar a un humano cuando el bot no sabe responder? Si las respuestas son vagas o evasivas, es una señal de alerta."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-que-no-funcionan-el-problema-no-es-20260729.html#faq"
+    }
+  ]
 }
 </script>
 <style>

@@ -31,26 +31,69 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Cénit y el modo autónomo: cuándo escribe la IA y cuándo no",
-  "description": "Un diario personal con un compañero de IA plantea una pregunta incómoda: si escribe él, ¿sigue siendo tu diario? Cómo está resuelto en Cénit y qué decisiones de diseño hay detrás.",
-  "url": "https://arquitectodigital.io/blog/cenit-y-el-modo-autonomo-cuando-escribe-la-20260901.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/cenit-y-el-modo-autonomo-cuando-escribe-la-20260901.html"
-  },
-  "datePublished": "2026-09-01",
-  "dateModified": "2026-09-01",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Cénit · Diario con IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Cénit y el modo autónomo: cuándo escribe la IA y cuándo no",
+      "description": "Un diario personal con un compañero de IA plantea una pregunta incómoda: si escribe él, ¿sigue siendo tu diario? Cómo está resuelto en Cénit y qué decisiones de diseño hay detrás.",
+      "url": "https://arquitectodigital.io/blog/cenit-y-el-modo-autonomo-cuando-escribe-la-20260901.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/cenit-y-el-modo-autonomo-cuando-escribe-la-20260901.html"
+      },
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-01",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Cénit · Diario con IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿El modo autónomo escribe mi diario por mí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No sustituye tu voz. Sirve para que Mario escriba o sugiera sin que tengas que pedírselo cada vez, sobre todo los días en que no ibas a escribir nada. La última palabra sigue siendo tuya."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa con mis entradas si desinstalo la app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La copia de seguridad se hace mediante SAF, el Storage Access Framework de Android, y sobrevive a desinstalar la app. El archivo vive donde tú decides, no dentro del sandbox de Cénit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cénit es una suscripción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El plan Pro es un pago único por un año de uso y no se renueva automáticamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Está disponible para iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cénit es una app para Android, hecha en Flutter. No hay versión para iPhone."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/cenit-y-el-modo-autonomo-cuando-escribe-la-20260901.html#faq"
+    }
+  ]
 }
 </script>
 <style>

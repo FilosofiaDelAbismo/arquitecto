@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Por qué tu newsletter IA acaba en spam (y cómo evitarlo)",
-  "description": "Los fallos de segmentación, entregabilidad y gestión de listas que mandan newsletters automatizadas directo a la carpeta de spam, con soluciones concretas aplicadas en producción.",
-  "url": "https://arquitectodigital.io/blog/por-que-tu-newsletter-ia-acaba-en-spam-20260820.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/por-que-tu-newsletter-ia-acaba-en-spam-20260820.html"
-  },
-  "datePublished": "2026-08-20",
-  "dateModified": "2026-08-20",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Newsletter IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Por qué tu newsletter IA acaba en spam (y cómo evitarlo)",
+      "description": "Los fallos de segmentación, entregabilidad y gestión de listas que mandan newsletters automatizadas directo a la carpeta de spam, con soluciones concretas aplicadas en producción.",
+      "url": "https://arquitectodigital.io/blog/por-que-tu-newsletter-ia-acaba-en-spam-20260820.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/por-que-tu-newsletter-ia-acaba-en-spam-20260820.html"
+      },
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Newsletter IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi newsletter acaba en spam si el contenido es bueno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El contenido es solo una parte de la ecuación. Los filtros antispam evalúan primero la autenticación técnica del dominio (SPF, DKIM, DMARC) y la reputación del remitente. Sin esos elementos bien configurados, el contenido nunca llega a evaluarse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia debo limpiar mi lista de email?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del volumen y la frecuencia de envío, pero como regla general conviene revisar los hard bounces después de cada campaña y hacer una depuración más profunda de inactivos cada 6 meses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El contenido generado por IA activa los filtros antispam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No directamente. Los filtros detectan patrones asociados a spam (promesas exageradas, palabras de alto riesgo, estructuras repetitivas), que pueden aparecer en texto generado por IA sin supervisión editorial. La solución es revisar el output antes de enviar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el warming de dominio y cuánto tiempo lleva?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es el proceso de escalar gradualmente el volumen de envíos desde un dominio o IP nueva para construir reputación ante los ISP. Dependiendo del volumen objetivo, puede llevar entre 4 y 8 semanas hacerlo correctamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El doble opt-in es obligatorio o solo recomendable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En el contexto del GDPR europeo es la práctica más segura para demostrar consentimiento explícito. En LATAM la regulación varía por país, pero el doble opt-in reduce significativamente el riesgo de quejas y mejora la calidad de la lista independientemente del marco legal."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/por-que-tu-newsletter-ia-acaba-en-spam-20260820.html#faq"
+    }
+  ]
 }
 </script>
 <style>

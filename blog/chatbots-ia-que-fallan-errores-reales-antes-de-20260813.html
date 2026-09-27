@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots IA que fallan: errores reales antes de invertir",
-  "description": "La mayoría de chatbots empresariales no fallan por mala suerte, sino por errores técnicos predecibles. Aquí está el diagnóstico honesto antes de que firmes nada.",
-  "url": "https://arquitectodigital.io/blog/chatbots-ia-que-fallan-errores-reales-antes-de-20260813.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-ia-que-fallan-errores-reales-antes-de-20260813.html"
-  },
-  "datePublished": "2026-08-13",
-  "dateModified": "2026-08-13",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots e IA Conversacional"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots IA que fallan: errores reales antes de invertir",
+      "description": "La mayoría de chatbots empresariales no fallan por mala suerte, sino por errores técnicos predecibles. Aquí está el diagnóstico honesto antes de que firmes nada.",
+      "url": "https://arquitectodigital.io/blog/chatbots-ia-que-fallan-errores-reales-antes-de-20260813.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-ia-que-fallan-errores-reales-antes-de-20260813.html"
+      },
+      "datePublished": "2026-08-13",
+      "dateModified": "2026-08-13",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots e IA Conversacional",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es RAG y por qué es tan importante para un chatbot empresarial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval-Augmented Generation) es el mecanismo que conecta el modelo de lenguaje con tus documentos propios. Sin RAG, el chatbot solo conoce información genérica y tiende a inventar respuestas cuando le preguntas sobre tu negocio específico. Con RAG, recupera información real de tu base de conocimiento antes de responder."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si un proveedor de chatbots tiene experiencia real en producción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pídele que te muestre un caso de fallo documentado y cómo lo resolvió. Un proveedor con experiencia real puede explicar qué pasa cuando el chatbot no sabe la respuesta, qué protocolo de testing aplica y cómo gestiona el handoff al humano. Si solo muestra demos perfectas, es una señal de alerta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Un chatbot puede aprender automáticamente de las conversaciones con mis clientes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En la mayoría de implementaciones para PYMEs, no. El modelo base no cambia con el uso. Lo que puede mejorar es la base de conocimiento, pero eso requiere que alguien la actualice manualmente. Desconfía de promesas de \"aprendizaje continuo automático\" sin una explicación técnica concreta de cómo funciona."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué debería incluir un chatbot empresarial mínimamente serio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Como mínimo: RAG conectado a tus documentos reales, memoria conversacional dentro de la sesión, handoff automático a un humano cuando el bot no puede resolver la consulta, y acceso a logs de conversación para poder auditar y mejorar el sistema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tiene sentido hacer un POC antes de contratar el servicio completo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, y debería ser obligatorio. Un POC sobre tus datos reales y tus casos de uso reales es la única forma de validar que el chatbot funciona para tu negocio antes de comprometer una inversión mayor. Cualquier proveedor serio debería ofrecerlo."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-ia-que-fallan-errores-reales-antes-de-20260813.html#faq"
+    }
+  ]
 }
 </script>
 <style>

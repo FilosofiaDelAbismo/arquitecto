@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots que no sirven: errores de arquitectura reales",
-  "description": "La mayoría de chatbots empresariales fallan por decisiones técnicas concretas y evitables, no por limitaciones de la IA. Aquí está el diagnóstico honesto, sin promesas de marketing.",
-  "url": "https://arquitectodigital.io/blog/chatbots-que-no-sirven-errores-de-arquitectura-reales-20260718.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-que-no-sirven-errores-de-arquitectura-reales-20260718.html"
-  },
-  "datePublished": "2026-07-18",
-  "dateModified": "2026-07-18",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Automatización IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots que no sirven: errores de arquitectura reales",
+      "description": "La mayoría de chatbots empresariales fallan por decisiones técnicas concretas y evitables, no por limitaciones de la IA. Aquí está el diagnóstico honesto, sin promesas de marketing.",
+      "url": "https://arquitectodigital.io/blog/chatbots-que-no-sirven-errores-de-arquitectura-reales-20260718.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-que-no-sirven-errores-de-arquitectura-reales-20260718.html"
+      },
+      "datePublished": "2026-07-18",
+      "dateModified": "2026-07-18",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Automatización IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es RAG y por qué importa en un chatbot empresarial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval-Augmented Generation) es la técnica que permite a un chatbot buscar información relevante en tus propios documentos antes de generar una respuesta. Sin RAG, el modelo solo usa lo que aprendió en su entrenamiento, que no incluye nada específico de tu negocio. Con RAG mal implementado, los problemas persisten aunque uses la tecnología."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si mi chatbot actual está alucinando?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El síntoma más claro es cuando el chatbot responde con seguridad a preguntas para las que no debería tener información suficiente. Prueba con preguntas sobre casos límite, información muy reciente o situaciones fuera del dominio habitual. Si el sistema responde con confianza en lugar de declinar, probablemente está inventando."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre un chatbot de FAQ y un chatbot con RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chatbot de FAQ busca coincidencias exactas o aproximadas entre la pregunta del usuario y una lista predefinida de respuestas. Un chatbot con RAG recupera fragmentos relevantes de una base documental amplia y genera una respuesta contextualizada. La diferencia práctica es que RAG puede responder preguntas que no estaban previstas explícitamente, siempre que la información esté en la base de conocimiento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El handoff humano automático es difícil de implementar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Técnicamente no es lo más complejo del sistema, pero requiere decisiones de diseño claras: qué condiciones activan el escalado, a qué canal se deriva (email, Telegram, CRM), y quién recibe la alerta. Lo que suele fallar no es la tecnología sino la falta de definición de esas reglas antes de construir el sistema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia hay que actualizar la base de conocimiento de un chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del negocio, pero cualquier sistema en producción debería tener un proceso definido de actualización. Si tu catálogo, precios, políticas o procedimientos cambian y el chatbot no se actualiza, empezará a responder con información desactualizada sin advertirlo. Es habitual que esto ocurra durante semanas sin que nadie lo detecte si no hay monitorización activa de conversaciones."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-que-no-sirven-errores-de-arquitectura-reales-20260718.html#faq"
+    }
+  ]
 }
 </script>
 <style>

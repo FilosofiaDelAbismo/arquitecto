@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots que fallan en producción: errores del arquitecto, no de la IA",
-  "description": "Un chatbot no falla porque la IA sea mala. Falla porque alguien tomó decisiones técnicas equivocadas antes de desplegarlo. Aquí están los errores concretos, sin excusas.",
-  "url": "https://arquitectodigital.io/blog/chatbots-que-fallan-en-produccion-errores-del-arquitecto-20260805.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-que-fallan-en-produccion-errores-del-arquitecto-20260805.html"
-  },
-  "datePublished": "2026-08-05",
-  "dateModified": "2026-08-05",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots que fallan en producción: errores del arquitecto, no de la IA",
+      "description": "Un chatbot no falla porque la IA sea mala. Falla porque alguien tomó decisiones técnicas equivocadas antes de desplegarlo. Aquí están los errores concretos, sin excusas.",
+      "url": "https://arquitectodigital.io/blog/chatbots-que-fallan-en-produccion-errores-del-arquitecto-20260805.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-que-fallan-en-produccion-errores-del-arquitecto-20260805.html"
+      },
+      "datePublished": "2026-08-05",
+      "dateModified": "2026-08-05",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es RAG y por qué es imprescindible en un chatbot empresarial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RAG (Retrieval-Augmented Generation) es el mecanismo que permite al modelo consultar tu documentación real antes de responder. Sin RAG, el chatbot solo sabe lo que aprendió en su entrenamiento general, no lo específico de tu empresa. El resultado es un sistema que improvisa respuestas sobre tu negocio, lo cual es peor que no tener chatbot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué mis documentos bien organizados no garantizan que el chatbot responda bien?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque la calidad de los datos para RAG no depende solo de que estén \"ordenados\". Depende de que estén en formato legible por máquina, con estructura semántica clara, sin versiones mezcladas y fragmentados en chunks calibrados para el caso de uso. Un PDF bien maquetado para humanos puede ser basura para un sistema de embeddings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si mi chatbot actual está fallando en silencio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si no tienes logging de conversaciones y no revisas periódicamente una muestra de interacciones, no lo sabes. El primer paso es activar el registro completo de preguntas y respuestas, y revisar manualmente los casos donde el usuario no siguió interactuando tras la respuesta. Ahí suelen estar los fallos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El modelo de IA que usa el chatbot importa mucho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Menos de lo que se suele decir. Un modelo potente sobre una arquitectura mala produce resultados malos. Un modelo moderado sobre una arquitectura bien construida —con RAG, datos limpios, fallback y observabilidad— produce resultados útiles. La elección del modelo es la última decisión, no la primera."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué debe hacer un chatbot cuando no tiene respuesta para una pregunta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Debe decirlo de forma explícita y, si el diseño lo contempla, derivar al canal adecuado (formulario, email, teléfono). Esto no es un fallo, es el comportamiento correcto. El problema es cuando el sistema no tiene instrucción de fallback y rellena el vacío con texto plausible pero incorrecto."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-que-fallan-en-produccion-errores-del-arquitecto-20260805.html#faq"
+    }
+  ]
 }
 </script>
 <style>

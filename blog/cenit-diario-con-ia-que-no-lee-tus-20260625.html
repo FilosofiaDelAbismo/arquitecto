@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Cénit: diario con IA que no se queda con tus datos",
-  "description": "Un diario personal con IA para Android que guarda tu diario en tu dispositivo; a la IA solo llega lo que tú eliges enviar para reflexionar. Sin renovación automática, sin humo.",
-  "url": "https://arquitectodigital.io/blog/cenit-diario-con-ia-que-no-lee-tus-20260625.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/cenit-diario-con-ia-que-no-lee-tus-20260625.html"
-  },
-  "datePublished": "2026-06-25",
-  "dateModified": "2026-06-25",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Herramientas IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Cénit: diario con IA que no se queda con tus datos",
+      "description": "Un diario personal con IA para Android que guarda tu diario en tu dispositivo; a la IA solo llega lo que tú eliges enviar para reflexionar. Sin renovación automática, sin humo.",
+      "url": "https://arquitectodigital.io/blog/cenit-diario-con-ia-que-no-lee-tus-20260625.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/cenit-diario-con-ia-que-no-lee-tus-20260625.html"
+      },
+      "datePublished": "2026-06-25",
+      "dateModified": "2026-06-25",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Herramientas IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Mis entradas en Cénit se sincronizan con algún servidor externo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Las entradas se almacenan localmente en tu dispositivo. El backup se hace mediante SAF, el sistema nativo de Android, y tú eliges dónde guardarlo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa con mis datos si desinstalo la app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si has hecho backup con SAF antes de desinstalar, tus entradas permanecen en la carpeta que elegiste. Al reinstalar, puedes restaurarlas desde ahí."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es una suscripción mensual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Es un pago único por un año de uso que no se renueva automáticamente. Al terminar el año, decides si continúas o no."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Funciona en iPhone o en ordenador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Actualmente Cénit es una app para Android. No está disponible para iOS ni para escritorio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hace exactamente el compañero Mario?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mario ofrece reflexiones y preguntas sobre lo que escribes, y en Modo Autónomo puede sugerir o escribir sin intervención constante. Trabaja sobre tu texto; no tiene acceso a información externa ni actúa como buscador."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/cenit-diario-con-ia-que-no-lee-tus-20260625.html#faq"
+    }
+  ]
 }
 </script>
 <style>

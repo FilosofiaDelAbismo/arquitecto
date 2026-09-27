@@ -31,26 +31,77 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Chatbots que alucinan: qué es RAG y por qué importa",
-  "description": "Los chatbots genéricos inventan respuestas porque no saben nada de tu empresa. RAG lo resuelve conectando el modelo a tus documentos reales. Aquí te explico cómo funciona y qué preguntar antes de contratar uno.",
-  "url": "https://arquitectodigital.io/blog/chatbots-que-alucina-que-es-rag-y-por-20260912.html",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://arquitectodigital.io/blog/chatbots-que-alucina-que-es-rag-y-por-20260912.html"
-  },
-  "datePublished": "2026-09-12",
-  "dateModified": "2026-09-12",
-  "inLanguage": "es",
-  "author": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Arquitecto Digital"
-  },
-  "articleSection": "Chatbots IA"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots que alucinan: qué es RAG y por qué importa",
+      "description": "Los chatbots genéricos inventan respuestas porque no saben nada de tu empresa. RAG lo resuelve conectando el modelo a tus documentos reales. Aquí te explico cómo funciona y qué preguntar antes de contratar uno.",
+      "url": "https://arquitectodigital.io/blog/chatbots-que-alucina-que-es-rag-y-por-20260912.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-que-alucina-que-es-rag-y-por-20260912.html"
+      },
+      "datePublished": "2026-09-12",
+      "dateModified": "2026-09-12",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es exactamente una alucinación en un chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es cuando el modelo genera una respuesta que suena coherente pero que no está basada en información real ni verificable. Inventa datos, políticas o hechos que no existen en ningún documento de tu empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿RAG elimina completamente las alucinaciones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las reduce drásticamente cuando está bien implementado, pero no las elimina al 100%. Si el documento fuente tiene errores o está desactualizado, el sistema puede reproducirlos. La calidad del output depende de la calidad de los documentos de entrada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar RAG con los documentos que ya tengo en mi empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En la mayoría de casos sí, pero requiere un trabajo previo de revisión y estructuración. Documentos contradictorios, desactualizados o mal formateados degradan la calidad del sistema. Parte del trabajo de implementación es auditar esa base documental."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre un chatbot con RAG y uno con fine-tuning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El fine-tuning modifica el modelo con tus datos durante el entrenamiento; es costoso, difícil de actualizar y no garantiza ausencia de alucinaciones. RAG mantiene el modelo base intacto y le entrega contexto en tiempo real desde tus documentos; es más fácil de actualizar y más transparente en sus fuentes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si el chatbot que tengo ahora alucina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hazle preguntas específicas de tu negocio que no estén en su guión preprogramado —detalles de productos, condiciones de servicio, fechas de promociones pasadas— y verifica las respuestas contra tus documentos reales. Si responde con confianza y se equivoca, tienes un problema de arquitectura."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-que-alucina-que-es-rag-y-por-20260912.html#faq"
+    }
+  ]
 }
 </script>
 <style>
