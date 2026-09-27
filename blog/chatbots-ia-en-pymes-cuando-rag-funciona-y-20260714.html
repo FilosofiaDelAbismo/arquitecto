@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html"
       },
       "datePublished": "2026-07-14",
-      "dateModified": "2026-07-14",
+      "dateModified": "2026-09-27",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -87,7 +87,7 @@
           "name": "¿Puedo probar un chatbot con RAG antes de pagar el setup completo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. El servicio de Arquitecto Digital incluye un POC de siete días desde 158€ donde puedes ver el chatbot funcionando sobre tus propios documentos antes de comprometerte con el setup completo. El coste del POC es deducible si continúas."
+            "text": "Sí. El servicio de Arquitecto Digital incluye un POC de siete días por 158 € donde puedes ver el chatbot funcionando sobre tus propios documentos antes de comprometerte con el setup completo. El coste del POC es deducible si continúas."
           }
         },
         {
@@ -160,7 +160,7 @@
 <div class="featured-wrap" id="art-chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-07-14">
-      <meta itemprop="dateModified" content="2026-07-14">
+      <meta itemprop="dateModified" content="2026-09-27">
       <meta itemprop="author" content="Arquitecto Digital">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
@@ -176,15 +176,11 @@
         <p class="af-excerpt">La mayoría de chatbots IA en PYMEs fallan por razones técnicas concretas, no por mala suerte. Diagnóstico honesto de qué falla, cuándo RAG es la solución real y cuándo es sobrecarga que no necesitas.</p>
         <div class="af-content af-content-open" id="art-chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714-content">
           <h3>Por qué el chatbot que compraste no funciona como esperabas</h3>
-<p>Si has instalado un chatbot en tu web y el resultado ha sido una mezcla de respuestas inventadas, clientes frustrados y soporte que sigue siendo manual, no estás solo. Es el patrón más habitual que veo en PYMEs que se acercan al tema sin criterio técnico previo.</p>
+<p>Si has instalado un chatbot en tu web y el resultado ha sido una mezcla de respuestas inventadas, clientes frustrados y soporte que sigue siendo manual, no estás solo. Es un patrón habitual cuando se monta un chatbot sin criterio técnico previo.</p>
 <p>El problema rara vez es la IA en sí. El problema es la arquitectura. Y antes de gastar más dinero, conviene entender exactamente qué está fallando.</p>
 
-<h3>Los tres fallos técnicos más comunes</h3>
-<ul>
-  <li><strong>El chatbot no sabe nada de tu negocio.</strong> Los chatbots genéricos basados en prompts simples responden con el conocimiento general del modelo. Si un cliente pregunta por tu política de devoluciones o el precio de un servicio específico, el modelo improvisa. Y cuando improvisa, alucina.</li>
-  <li><strong>No tiene memoria útil.</strong> Muchas implementaciones tratan cada mensaje como si fuera el primero. El cliente explica su problema, el chatbot responde, el cliente da más contexto, y el bot ha olvidado lo anterior. Eso no es un asistente, es un formulario con voz.</li>
-  <li><strong>No sabe cuándo escalar a humano.</strong> Un chatbot sin handoff automático definido retiene conversaciones que no puede resolver. El cliente espera. Se frustra. Abandona. Y tú te enteras tres días después cuando revisas los logs, si es que los revisas.</li>
-</ul>
+<h3>Los fallos técnicos más comunes</h3>
+<p>Chatbots que no saben nada del negocio, que no recuerdan lo que se ha dicho en la conversación o que no saben cuándo pasar el caso a una persona: los siete errores frecuentes, y qué se hace con cada uno, están en <a href="/blog/chatbots-para-empresas-por-que-fallan.html">chatbots para empresas: por qué fallan y cómo evitarlo</a>. Aquí la pregunta es otra: cuándo RAG es la solución y cuándo sobra.</p>
 
 <h3>Qué es RAG y para qué sirve de verdad</h3>
 <p>RAG significa <em>Retrieval-Augmented Generation</em>. En términos prácticos: antes de generar una respuesta, el sistema busca en una base de conocimiento tuya (documentos, FAQs, fichas de producto, normativa, lo que sea) los fragmentos más relevantes para la pregunta del usuario, y los inyecta como contexto al modelo. El modelo no improvisa; responde sobre lo que le das.</p>
@@ -200,7 +196,7 @@
   <li>El coste de una respuesta incorrecta es real: un cliente que recibe información errónea sobre un plazo legal, un precio o una condición contractual.</li>
   <li>El volumen de consultas justifica la automatización: si recibes diez preguntas al mes, el ROI de un sistema RAG completo probablemente no cierra.</li>
 </ul>
-<p>Un ejemplo concreto: un chatbot legal con RAG construido sobre un corpus de legislación amplio, con mecanismos anti-alucinación específicos. Sin RAG, ese chatbot sería peligroso: el modelo contestaría de memoria sobre normativa que cambia cada año. Con RAG bien implementado, puede responder preguntas legales concretas con precisión y, cuando la pregunta supera el corpus disponible, lo dice explícitamente en lugar de inventar jurisprudencia.</p>
+<p>Un ejemplo: Legalito, un chatbot legal que construí con RAG sobre legislación oficial y que ya no está en servicio. Sin RAG, un chatbot así sería peligroso: el modelo contestaría de memoria sobre normativa que cambia. Estaba diseñado para no responder cuando no encontraba base documental suficiente, en lugar de inventar, y eso fue lo que lo hizo utilizable.</p>
 
 <h3>Cuándo RAG es sobrecarga innecesaria</h3>
 <p>No todo chatbot necesita RAG. Hay casos donde añadir esa capa de recuperación de información complica sin aportar valor:</p>
@@ -216,7 +212,7 @@
 </div>
 
 <h3>Qué diferencia una arquitectura que funciona de una que no</h3>
-<p>He visto implementaciones que fallan por razones muy concretas y repetibles. Algunas observaciones de lo que suele marcar la diferencia:</p>
+<p>Las implementaciones que fallan suelen hacerlo por razones concretas y repetibles. Lo que suele marcar la diferencia:</p>
 <ul>
   <li><strong>La calidad del corpus importa más que el modelo.</strong> Un modelo potente con documentación mal estructurada, desactualizada o contradictoria va a dar respuestas malas. La basura entra, la basura sale. Antes de elegir qué LLM usar, pregúntate en qué estado está tu base de conocimiento.</li>
   <li><strong>Los guardrails no son opcionales.</strong> Un chatbot sin límites definidos sobre qué puede y qué no puede responder es un riesgo. En sectores como legal, salud o finanzas, esto no es un detalle, es el centro del diseño.</li>
@@ -226,7 +222,7 @@
 
 <h3>Cómo evaluar si tu caso necesita RAG antes de gastar</h3>
 <p>Una forma práctica de saberlo: documenta las últimas cincuenta consultas reales que ha recibido tu equipo de soporte o ventas. Clasifícalas en dos grupos: las que se responden con información genérica del sector, y las que requieren conocimiento específico de tu empresa (precios, políticas, estado de pedidos, procedimientos internos). Si el segundo grupo supera claramente al primero, RAG tiene sentido. Si el primer grupo domina, probablemente un prompt bien diseñado y un flujo estructurado es suficiente.</p>
-<p>Si quieres probar antes de comprometerte, el servicio de chatbot RAG de Arquitecto Digital incluye un POC de siete días desde 158€, deducible del setup si decides continuar. La idea es exactamente esa: que veas el comportamiento real sobre tus documentos antes de tomar ninguna decisión de inversión.</p>
+<p>Si quieres probar antes de comprometerte, el servicio de chatbot RAG de Arquitecto Digital incluye un POC de siete días por 158 €, deducible del setup si decides continuar. La idea es exactamente esa: que veas el comportamiento real sobre tus documentos antes de tomar ninguna decisión de inversión.</p>
 <p>El criterio técnico honesto no siempre lleva a "necesitas RAG". A veces lleva a "necesitas arreglar primero tu documentación" o "el problema es el diseño del flujo, no el modelo". Eso también es parte del diagnóstico.</p>
           <div class="faq-block">
             <div>
@@ -243,7 +239,7 @@
             </div>
             <div>
               <div class="faq-q" onclick="toggleFaq(this)">¿Puedo probar un chatbot con RAG antes de pagar el setup completo?</div>
-              <div class="faq-a"><span>Sí. El servicio de Arquitecto Digital incluye un POC de siete días desde 158€ donde puedes ver el chatbot funcionando sobre tus propios documentos antes de comprometerte con el setup completo. El coste del POC es deducible si continúas.</span></div>
+              <div class="faq-a"><span>Sí. El servicio de Arquitecto Digital incluye un POC de siete días por 158 € donde puedes ver el chatbot funcionando sobre tus propios documentos antes de comprometerte con el setup completo. El coste del POC es deducible si continúas.</span></div>
             </div>
             <div>
               <div class="faq-q" onclick="toggleFaq(this)">¿Qué debo preparar antes de implementar un chatbot con RAG?</div>

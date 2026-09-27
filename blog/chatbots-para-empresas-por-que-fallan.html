@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbots para empresas: por qué fallan y cómo evitarlo · Arquitecto Digital</title>
+<meta name="description" content="Los siete errores que hunden un chatbot de empresa, cuándo no necesitas RAG, qué preguntar a un proveedor y qué cuesta hacerlo bien.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/chatbots-para-empresas-por-que-fallan.html">
+
+<meta property="og:title" content="Chatbots para empresas: por qué fallan y cómo evitarlo">
+<meta property="og:description" content="Los siete errores que hunden un chatbot de empresa, cuándo no necesitas RAG, qué preguntar a un proveedor y qué cuesta hacerlo bien.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/chatbots-para-empresas-por-que-fallan.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-09-27">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Chatbots para empresas: por qué fallan y cómo evitarlo",
+      "description": "Los siete errores que hunden un chatbot de empresa, cuándo no necesitas RAG, qué preguntar a un proveedor y qué cuesta hacerlo bien.",
+      "url": "https://arquitectodigital.io/blog/chatbots-para-empresas-por-que-fallan.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/chatbots-para-empresas-por-que-fallan.html"
+      },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué falla un chatbot de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Casi nunca por el modelo. Falla por lo que hay alrededor: documentación sin preparar, recuperación mal calibrada, sin memoria, sin límites sobre lo que puede afirmar, sin paso a una persona y sin nadie que revise sus respuestas en producción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Todos los chatbots necesitan RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Si solo guías por un proceso fijo o tienes pocas preguntas que no cambian, un flujo estructurado o unas instrucciones bien escritas son más robustos y más baratos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si un chatbot se inventa las respuestas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pregúntale algo cuya respuesta sabes que no está en sus documentos. Si contesta con detalle y seguridad en lugar de decir que no tiene esa información, no tiene límites de salida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta un chatbot con RAG para una pyme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En mi servicio hay una prueba de concepto de 7 días por 158 €, deducible del setup; el setup va desde 529 € y los planes mensuales desde 84 €. Todo con IVA incluido."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/chatbots-para-empresas-por-que-fallan.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-chatbots-para-empresas-por-que-fallan">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-chatbots-para-empresas-por-que-fallan">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-27">
+      <meta itemprop="dateModified" content="2026-09-27">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Chatbots IA</span>
+          <time class="af-date" datetime="2026-09-27" itemprop="datePublished">27 Sep 2026</time>
+          <span class="af-read">· 7 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Chatbots para empresas: por qué fallan y cómo evitarlo</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Los siete errores que hunden un chatbot de empresa, cuándo no necesitas RAG, qué preguntar a un proveedor y qué cuesta hacerlo bien.</p>
+        <div class="af-content af-content-open" id="art-chatbots-para-empresas-por-que-fallan-content">
+          <h3>El diagnóstico equivocado: no es la IA, es la arquitectura</h3>
+<p>Cuando un chatbot de empresa responde mal, lo primero que se culpa es al modelo. Casi nunca es el modelo. Los modelos de lenguaje actuales redactan bien, entienden preguntas mal escritas y resumen con soltura. Lo que falla es lo que hay alrededor: qué información le das, cómo se la das, qué hace cuando no la tiene y quién se entera cuando se equivoca.</p>
+<p>He montado chatbots con RAG sobre documentación real: el asistente de esta web y, antes, un chatbot legal que ya no está en servicio. Los fallos que hunden un chatbot de empresa son bastante previsibles. Estos son siete frecuentes, y qué se hace con cada uno.</p>
+
+<h3>Error 1: montar el chatbot sobre documentación sin preparar</h3>
+<p>Se vuelcan PDFs escaneados, FAQs antiguas, un Excel con celdas combinadas y tres versiones de la misma política de devoluciones, y se espera que el sistema saque respuestas limpias. No las saca. Si dos documentos dicen cosas distintas, el chatbot usará una u otra según cómo esté formulada la pregunta.</p>
+<p>La preparación del material es la parte menos vistosa del proyecto y la que más decide el resultado. Qué entra, en qué versión, troceado cómo y sin contradicciones. Lo desarrollo en <a href="/blog/antes-de-montar-un-chatbot-rag-preparar-la-20260923.html">antes de montar un chatbot RAG: preparar la documentación</a>.</p>
+
+<h3>Error 2: un modelo sin RAG, o con un RAG de mentira</h3>
+<p>Un modelo general no sabe nada de tu empresa: ni tus precios, ni tus plazos, ni tus condiciones. Si le preguntan, rellena el hueco con lo que parece plausible. Eso es una alucinación, y es el comportamiento normal de un modelo al que no se le ha dado la información.</p>
+<p>RAG (generación aumentada por recuperación) resuelve eso: antes de responder, el sistema busca en tus documentos los fragmentos relevantes y el modelo contesta a partir de ellos. El problema es que muchas soluciones llaman RAG a una búsqueda por palabras clave sobre un PDF mal estructurado. El nombre está; la recuperación no. Lo explico con detalle en <a href="/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html">RAG explicado: por qué tu chatbot alucina y cómo corregirlo</a>.</p>
+
+<h3>Error 3: la recuperación mal calibrada</h3>
+<p>Aun con RAG de verdad, la recuperación puede fallar en silencio, y es el fallo más difícil de ver porque la respuesta sale igual de segura:</p>
+<ul>
+<li><strong>Fragmentos mal cortados.</strong> Demasiado grandes y cada uno trae ruido; demasiado pequeños y la respuesta queda incompleta, así que el modelo rellena.</li>
+<li><strong>Documentos que compiten.</strong> Si dos fragmentos parecidos responden a la misma pregunta, se desplazan entre sí y a veces gana el menos útil. En el asistente de esta web, la base está troceada por pregunta real: cada fragmento contesta una pregunta de principio a fin.</li>
+<li><strong>Umbral de relevancia mal puesto.</strong> Si el sistema acepta fragmentos poco parecidos a la pregunta, contesta con información que no viene a cuento. Si es demasiado estricto, no encuentra nada y deriva todo.</li>
+</ul>
+
+<h3>Error 4: un chatbot sin memoria</h3>
+<p>El usuario pregunta por el plan mensual, luego escribe "¿y ese se puede cancelar?", y el chatbot no sabe a qué se refiere "ese". Tratar cada mensaje como si fuera el primero produce conversaciones rotas en las que el cliente tiene que repetir el contexto una y otra vez. La memoria de la conversación no es un extra: es lo mínimo para que una pregunta de seguimiento funcione.</p>
+
+<h3>Error 5: sin límites sobre lo que puede afirmar</h3>
+<p>Un modelo sin restricciones intentará responder a todo, tenga o no información. Los límites (qué responde, qué declina, cuándo pide aclaración, cuándo deriva) no son censura. Son el criterio de calidad del sistema.</p>
+<p>Las cifras son donde más duele. Un precio inventado no es una imprecisión: es un compromiso que no has hecho. En el asistente de esta web, la última barrera antes de enviar una respuesta es una comprobación determinista: cada precio, porcentaje o cantidad de la respuesta tiene que estar en los fragmentos recuperados para esa pregunta, o ser un redondeo de una cifra que esté. Si sobra una, esa respuesta no se envía: el usuario recibe un mensaje que le pide confirmar el dato con una persona, y el rechazo queda registrado con la cifra que sobraba. Al principio esa comprobación la hacía otro modelo de lenguaje, que tumbaba respuestas correctas. Por qué lo cambié y qué me obligó a rediseñar lo cuento en <a href="/blog/validador-determinista-en-vez-de-juez-llm.html">la reja que no deja pasar cifras inventadas</a>.</p>
+
+<h3>Error 6: sin paso a una persona</h3>
+<p>Hay preguntas que ningún chatbot debe resolver solo: casos fuera de su dominio, clientes enfadados, situaciones con consecuencias legales o médicas. Un chatbot sin salida hacia una persona convierte cada caso difícil en una mala experiencia. El paso a humano no es un fallo del chatbot; es una funcionalidad que se diseña: qué lo dispara, a qué canal va y quién recibe el aviso.</p>
+
+<h3>Error 7: desplegar y olvidarse, con métricas que mienten</h3>
+<p>Un chatbot en producción no está terminado. Los documentos se quedan viejos, aparecen preguntas que nadie previó y el proveedor del modelo lo actualiza. Si nadie mira los registros de conversación, el sistema puede pasarse semanas contestando mal a una categoría entera de preguntas sin que nadie se entere.</p>
+<p>Y las métricas habituales no avisan:</p>
+<ul>
+<li><strong>Tasa de resolución inflada.</strong> Se cuenta como resuelta la conversación que no acaba en ticket. Si el cliente se rinde y llama por teléfono, sigue contando como éxito.</li>
+<li><strong>Satisfacción sin contexto.</strong> Una buena nota media no dice nada si el bot solo contesta lo trivial y deriva todo lo difícil.</li>
+<li><strong>Volumen como éxito.</strong> Más conversaciones pueden significar que el chatbot no resuelve y la gente reformula la misma pregunta.</li>
+</ul>
+<p>Lo que sí sirve: saber qué tipo de preguntas se resuelven sin escalar, y que cada rechazo del sistema deje escrito por qué se produjo.</p>
+
+<div class="highlight">💡 El mejor indicador de que un chatbot está bien construido no es la demo. Es lo que hace cuando le preguntas algo que no está en sus documentos: ¿lo admite o se lo inventa?</div>
+
+<h3>Cuándo NO necesitas RAG</h3>
+<p>No todo chatbot necesita RAG, y venderlo siempre sería hacerte gastar de más:</p>
+<ul>
+<li><strong>Flujos lineales.</strong> Si solo hay que guiar por un proceso fijo (pedir una cita, consultar el estado de un pedido contra una API), un flujo estructurado es más robusto y más barato.</li>
+<li><strong>Pocas preguntas que no cambian.</strong> Si tu documentación son diez respuestas estables, caben en las instrucciones del sistema sin montar un índice.</li>
+<li><strong>Cuando el problema es otro.</strong> Si falla porque nadie definió los casos de uso o porque la integración con tu CRM está rota, añadir RAG no arregla nada.</li>
+</ul>
+<p>Lo desarrollo en <a href="/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html">cuándo RAG funciona y cuándo es ruido</a>.</p>
+
+<h3>Cómo evaluar a un proveedor antes de firmar</h3>
+<p>Estas preguntas separan una implementación seria de una interfaz bonita encima de un modelo genérico. Si las respuestas son vagas, ya tienes la información que necesitas.</p>
+<ul>
+<li>¿Cómo se trocean e indexan mis documentos, y qué pasa cuando cambio uno?</li>
+<li>¿Qué hace el chatbot cuando la respuesta no está en mis documentos?</li>
+<li>¿Qué comprueba antes de dar una cifra, un precio o un plazo?</li>
+<li>¿Recuerda el contexto de la conversación?</li>
+<li>¿Cuándo pasa la conversación a una persona, y a quién le llega?</li>
+<li>¿Puedo ver ejemplos de respuestas malas que haya dado el sistema y qué se hizo con ellas?</li>
+<li>¿Puedo exportar mis documentos y los registros si me voy a otro proveedor?</li>
+</ul>
+<p>Y una prueba que puedes hacer tú: pregúntale algo cuya respuesta sabes que no está en sus documentos. Si contesta con detalle y seguridad, no tiene límites.</p>
+
+<h3>Qué cuesta hacerlo bien</h3>
+<p>Un chatbot con RAG sobre tus documentos tiene un coste de puesta en marcha (preparar el material, indexarlo, integrarlo en tu web) y un coste mensual de operación. Los precios de mi servicio están publicados: una prueba de concepto de 7 días por 158 € (deducible si después contratas), el setup desde 529 € y planes mensuales desde 84 €, todo con IVA incluido. El detalle, qué incluye cada plan y los plazos están en la página del <a href="/chatbot.html">chatbot para empresas</a>.</p>
+<p>La prueba de concepto existe para una cosa: comprobar con tus documentos, antes de invertir más, si tu caso necesita esto o no.</p>
+
+<p><em>Daniel · Arquitecto Digital. Los sistemas los diseño y dirijo yo; la implementación la hago con asistentes de IA de programación.</em></p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué falla un chatbot de empresa?</div>
+              <div class="faq-a"><span>Casi nunca por el modelo. Falla por lo que hay alrededor: documentación sin preparar, recuperación mal calibrada, sin memoria, sin límites sobre lo que puede afirmar, sin paso a una persona y sin nadie que revise sus respuestas en producción.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Todos los chatbots necesitan RAG?</div>
+              <div class="faq-a"><span>No. Si solo guías por un proceso fijo o tienes pocas preguntas que no cambian, un flujo estructurado o unas instrucciones bien escritas son más robustos y más baratos.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si un chatbot se inventa las respuestas?</div>
+              <div class="faq-a"><span>Pregúntale algo cuya respuesta sabes que no está en sus documentos. Si contesta con detalle y seguridad en lugar de decir que no tiene esa información, no tiene límites de salida.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta un chatbot con RAG para una pyme?</div>
+              <div class="faq-a"><span>En mi servicio hay una prueba de concepto de 7 días por 158 €, deducible del setup; el setup va desde 529 € y los planes mensuales desde 84 €. Todo con IVA incluido.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">chatbot para empresas</span><span class="atag">RAG</span><span class="atag">alucinaciones IA</span><span class="atag">automatización IA pymes</span></div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/chatbot.html">Chatbot para empresas →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

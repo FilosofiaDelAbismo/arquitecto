@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publicar en un repo que también tocan humanos: GitHub App, sha y por qué el bot nunca hace force-push · Arquitecto Digital</title>
+<meta name="description" content="Cómo convive un bot que publica por la API de GitHub con cambios hechos a mano en el mismo repo: tokens efímeros, concurrencia optimista y reglas de push.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html">
+
+<meta property="og:title" content="Publicar en un repo que también tocan humanos: GitHub App, sha y por qué el bot nunca hace force-push">
+<meta property="og:description" content="Cómo convive un bot que publica por la API de GitHub con cambios hechos a mano en el mismo repo: tokens efímeros, concurrencia optimista y reglas de push.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-09-27">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Publicar en un repo que también tocan humanos: GitHub App, sha y por qué el bot nunca hace force-push",
+      "description": "Cómo convive un bot que publica por la API de GitHub con cambios hechos a mano en el mismo repo: tokens efímeros, concurrencia optimista y reglas de push.",
+      "url": "https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html"
+      },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Autoblog IA SEO",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué una GitHub App y no un token personal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque los tokens personales de grano fino caducan, y uno caducado dejó de publicar sin avisar. La App usa credenciales de corta duración que se renuevan solas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué impide que el bot pise un cambio hecho a mano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La API exige enviar el sha de la versión que se leyó. Si el fichero ha cambiado desde entonces, GitHub rechaza la escritura y el post queda marcado como fallido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué no se hace todo en un solo commit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La API de contenidos escribe fichero a fichero. Por eso el orden está pensado: primero la página, luego el índice y el sitemap al final. Un commit único con la API de árboles es una mejora pendiente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué reglas sigo al hacer push a mano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fetch antes de push, comprobar que el remoto es el esperado, nada de force-push sin confirmarlo antes y no tocar el índice ni el sitemap cerca de la hora del bot."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-publicar-en-un-repo-compartido-github-app">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-publicar-en-un-repo-compartido-github-app">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-27">
+      <meta itemprop="dateModified" content="2026-09-27">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Autoblog IA SEO</span>
+          <time class="af-date" datetime="2026-09-27" itemprop="datePublished">27 Sep 2026</time>
+          <span class="af-read">· 4 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Publicar en un repo que también tocan humanos: GitHub App, sha y por qué el bot nunca hace force-push</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Cómo convive un bot que publica por la API de GitHub con cambios hechos a mano en el mismo repo: tokens efímeros, concurrencia optimista y reglas de push.</p>
+        <div class="af-content af-content-open" id="art-publicar-en-un-repo-compartido-github-app-content">
+          <h3>El escenario: un bot y una persona escribiendo en el mismo repositorio</h3>
+<p>El blog de esta web lo publica un bot. Cada pocos días escribe un post y lo sube al repositorio de la web: la página del post, el índice del blog y el sitemap. En ese mismo repositorio trabajo yo a mano: cambios de diseño, páginas nuevas, correcciones. Dos escritores sobre los mismos ficheros, y uno de ellos no avisa antes de escribir.</p>
+
+<h3>Primera lección: un token que caduca en silencio</h3>
+<p>El sistema de publicación automática que usaba antes, para otros blogs míos, subía los posts con git push y un token personal de acceso de GitHub. Los tokens de grano fino caducan, y ese caducó a los 30 días. La publicación automática estuvo unos cinco días caída en silencio: el push fallaba, el error quedaba escrito en un log y no saltaba ninguna alerta. Lo descubrió una auditoría, no un aviso.</p>
+<p>Lo sustituí por una GitHub App. La diferencia es de diseño, no de comodidad: la App firma con su clave privada un JWT de vida muy corta (minutos), lo cambia por un token de instalación que dura una hora, y el bot lo cachea y lo renueva antes de que caduque. No hay credenciales de larga duración que puedan morir en silencio. Y la clave privada nunca se escribe en un registro.</p>
+
+<h3>Segunda lección: escribir sin pisar lo que no has visto</h3>
+<p>El bot no usa git: escribe por la API de contenidos de GitHub, fichero a fichero. Esa API tiene un mecanismo que resuelve la mitad del problema de la concurrencia: para actualizar un fichero hay que enviar el identificador (el sha) de la versión que leíste. Si alguien lo ha cambiado desde entonces, ese sha ya no es el actual y GitHub rechaza la escritura.</p>
+<p>Eso es concurrencia optimista, y cambia el tipo de fallo. En lugar de "el bot pisó el cambio de otro", el fallo pasa a ser "el bot no pudo publicar y lo dice". El error se clasifica como no reintentable: reintentar a ciegas la misma escritura con el mismo sha no puede salir bien. Y el post queda registrado como fallido, a la vista, y el bot avisa por Telegram en el momento: justo lo que faltaba con el token.</p>
+<p>Para las páginas de post, que son ficheros nuevos, la API funciona al revés: crear un fichero es escribir sin sha. Si el fichero ya existe (por ejemplo, al republicar un post), el bot lee primero su sha y lo actualiza en lugar de crear un duplicado.</p>
+
+<h3>Tercera lección: el orden de las escrituras es parte del diseño</h3>
+<p>Publicar un post son hasta tres escrituras: la página, el índice y el sitemap. La API de contenidos no permite hacerlas en un único commit atómico, así que el orden decide qué pasa si algo falla a mitad:</p>
+<ul>
+<li><strong>Primero la página.</strong> Si falla, no se toca nada más y no queda un teaser apuntando a una página que no existe.</li>
+<li><strong>Después el índice del blog.</strong> A partir de aquí el post es visible.</li>
+<li><strong>El sitemap, el último y sin tumbar nada.</strong> Si falla, el post ya está publicado y el fallo se registra para corregirlo aparte.</li>
+</ul>
+<p>Un único commit con varios ficheros (con la API de árboles de git) sería más limpio y lo tengo apuntado como mejora. Mientras tanto, el orden garantiza que un fallo deja el sitio coherente, aunque incompleto.</p>
+
+<h3>El lado humano: las mismas reglas, sin API que las imponga</h3>
+<p>Cuando trabajo a mano uso git normal, y ahí nadie me obliga a enviar el sha correcto. Así que me impongo las reglas equivalentes:</p>
+<ul>
+<li><strong>Fetch antes de push, y comprobar.</strong> Antes de subir, traigo el estado remoto y compruebo que el último commit remoto es el que espero. Si el bot ha publicado entretanto, no subo nada y reviso.</li>
+<li><strong>Nada de force-push sin confirmarlo antes.</strong> Un force-push sobre la rama principal borraría los commits que el bot haya hecho desde mi último fetch, y lo haría sin avisar.</li>
+<li><strong>Lejos de la hora del bot.</strong> Conozco a qué hora publica, así que los cambios que tocan el índice o el sitemap no los hago cerca de esa hora.</li>
+<li><strong>Si toco lo que el bot también escribe, regenero justo antes de aplicar.</strong> Un cambio preparado por la noche sobre el índice del blog puede quedarse viejo si el bot ha publicado por la mañana. Se regenera sobre el estado actual antes de copiarlo.</li>
+</ul>
+
+<div class="highlight">💡 La API te protege de pisar lo que no has visto. Con git a mano, esa protección la tienes que poner tú: fetch, comprobar y no forzar.</div>
+
+<h3>Resultado</h3>
+<p>El bot publica sin credenciales que caduquen, no puede sobrescribir un cambio que no ha visto, y cuando algo sale mal deja el sitio en un estado coherente y un registro de qué pasó. En el lado humano, un push que no cuadra con lo esperado se para en lugar de forzarse.</p>
+<p>No es un sistema sofisticado. Es tratar el repositorio como lo que es cuando hay un bot dentro: un recurso compartido con más de un escritor. Así funciona el <a href="/autoblog.html">blog automático con IA</a> que ofrezco como servicio.</p>
+
+<p><em>Daniel · Arquitecto Digital. Los sistemas los diseño y dirijo yo; la implementación la hago con asistentes de IA de programación.</em></p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué una GitHub App y no un token personal?</div>
+              <div class="faq-a"><span>Porque los tokens personales de grano fino caducan, y uno caducado dejó de publicar sin avisar. La App usa credenciales de corta duración que se renuevan solas.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué impide que el bot pise un cambio hecho a mano?</div>
+              <div class="faq-a"><span>La API exige enviar el sha de la versión que se leyó. Si el fichero ha cambiado desde entonces, GitHub rechaza la escritura y el post queda marcado como fallido.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué no se hace todo en un solo commit?</div>
+              <div class="faq-a"><span>La API de contenidos escribe fichero a fichero. Por eso el orden está pensado: primero la página, luego el índice y el sitemap al final. Un commit único con la API de árboles es una mejora pendiente.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué reglas sigo al hacer push a mano?</div>
+              <div class="faq-a"><span>Fetch antes de push, comprobar que el remoto es el esperado, nada de force-push sin confirmarlo antes y no tocar el índice ni el sitemap cerca de la hora del bot.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">github app</span><span class="atag">automatización</span><span class="atag">concurrencia</span><span class="atag">blog automático</span></div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/autoblog.html">Blog automático con IA →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

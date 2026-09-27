@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambié un juez LLM por un validador determinista: la reja que no deja pasar cifras inventadas · Arquitecto Digital</title>
+<meta name="description" content="Por qué un modelo no debe juzgar las cifras de otro, cómo funciona una comprobación determinista de números y qué obliga a cambiar en la base de conocimiento.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html">
+
+<meta property="og:title" content="Cambié un juez LLM por un validador determinista: la reja que no deja pasar cifras inventadas">
+<meta property="og:description" content="Por qué un modelo no debe juzgar las cifras de otro, cómo funciona una comprobación determinista de números y qué obliga a cambiar en la base de conocimiento.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-09-27">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Cambié un juez LLM por un validador determinista: la reja que no deja pasar cifras inventadas",
+      "description": "Por qué un modelo no debe juzgar las cifras de otro, cómo funciona una comprobación determinista de números y qué obliga a cambiar en la base de conocimiento.",
+      "url": "https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html"
+      },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Chatbots IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no usar un modelo para verificar las cifras de otro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque puede rechazar respuestas correctas cuando una cifra «no le cuadra», cuesta una llamada al modelo por cada respuesta con números y su veredicto no es reproducible. Una regla determinista cuesta cero y dice qué cifra sobra."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hace la reja cuando encuentra una cifra que no está en la fuente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Esa respuesta no se envía: el usuario recibe un mensaje que le pide confirmar el dato con una persona, y el registro guarda qué número sobraba y cuáles había en la fuente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Acepta redondeos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, redondeos válidos de una cifra de la fuente, como 79 u 80 a partir de 79,18. No acepta bandas de tolerancia: un número cercano no cuenta como el mismo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué cambia en la base de conocimiento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hay que trocearla por preguntas reales, repetir el precio en cada fragmento que lo necesite y anclar toda cifra a algo publicado, porque solo se aceptan números presentes en lo recuperado para esa pregunta."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-validador-determinista-en-vez-de-juez-llm">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-validador-determinista-en-vez-de-juez-llm">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-27">
+      <meta itemprop="dateModified" content="2026-09-27">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Chatbots IA</span>
+          <time class="af-date" datetime="2026-09-27" itemprop="datePublished">27 Sep 2026</time>
+          <span class="af-read">· 4 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Cambié un juez LLM por un validador determinista: la reja que no deja pasar cifras inventadas</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Por qué un modelo no debe juzgar las cifras de otro, cómo funciona una comprobación determinista de números y qué obliga a cambiar en la base de conocimiento.</p>
+        <div class="af-content af-content-open" id="art-validador-determinista-en-vez-de-juez-llm-content">
+          <h3>El problema: un chatbot que da precios</h3>
+<p>El asistente de esta web contesta preguntas sobre mis servicios, y entre las preguntas que recibe están las de dinero: cuánto cuesta, qué incluye, cuánto tarda. Un precio inventado no es un error de redacción: es un compromiso que no he hecho. La última barrera antes de enviar una respuesta es una comprobación de cifras, y la he tenido que rehacer entera.</p>
+
+<h3>Primera versión: un modelo juzgando a otro modelo</h3>
+<p>La primera comprobación era la solución obvia: sacar las afirmaciones con cifras de la respuesta y pedirle a un modelo pequeño que juzgara si cada una estaba respaldada por los fragmentos recuperados. Costaba una llamada extra al modelo por cada respuesta con números.</p>
+<p>El resultado no justificaba la llamada. El juez tumbaba respuestas correctas porque "no le cuadraban". Y cuando rechazaba, señalaba la afirmación, pero no las cifras que sí había en la fuente, así que costaba ver qué había que corregir.</p>
+
+<h3>La decisión: una reja determinista</h3>
+<p>Lo sustituí por algo sin modelo: un normalizador de números que ya usaba en otros pipelines de contenido. La lógica cabe en una línea: se extraen los valores numéricos de los fragmentos recuperados, se extraen los de cada afirmación de la respuesta, y cada precio, porcentaje o cantidad de la respuesta tiene que estar en la fuente.</p>
+<p>La parte con criterio está en qué cuenta como "estar":</p>
+<ul>
+<li><strong>Redondear sí, inventar no.</strong> Se aceptan redondeos válidos de una cifra de la fuente (79,18 puede aparecer como 79 o como 80), pero no hay bandas de tolerancia. Un 85 no es "casi 80".</li>
+<li><strong>Ante la duda, dejar pasar.</strong> Fue una decisión explícita: prefiero un falso negativo a un falso positivo. Tumbar una respuesta correcta es justo el fallo que tenía el juez anterior. Si una afirmación no tiene números que se puedan interpretar, pasa.</li>
+<li><strong>El caso peligroso de verdad.</strong> Si la fuente no trae ningún número y la respuesta sí, se rechaza: no hay nada contra lo que anclarlo.</li>
+<li><strong>El rechazo dice qué cifra sobra.</strong> El registro guarda el número que sobraba y los que había en la fuente. Un rechazo que no señala nada no se puede arreglar.</li>
+</ul>
+<p>Cuando la reja rechaza, esa respuesta no se envía: el usuario recibe un mensaje que le pide confirmar el dato con una persona, y el rechazo queda registrado con la cifra que sobraba y las que había en la fuente. El resto del pipeline no se tocó ni una línea; la reja respeta la misma interfaz que el juez al que sustituye.</p>
+
+<h3>Lo que costó: dos fugas que los tests no veían</h3>
+<p>Hubo dos agujeros que solo aparecieron al exigir ver la salida real y no el recuento de tests en verde:</p>
+<ul>
+<li><strong>Un test que no probaba nada.</strong> Uno de los casos usaba "3 planes", que el extractor ni siquiera considera una afirmación. El test pasaba sin ejercitar la reja. Lo cambié por "El plan cuesta 3 €".</li>
+<li><strong>Un precio disfrazado de año.</strong> Para no rechazar fechas, los números entre 1900 y 2199 tenían una exención. Así, un "2.100 €" inventado se colaba como si fuera un año, igual que "desde enero de 2026 cuesta 2.100 €". La solución fue que las cifras de dinero nunca reciben la exención de fechas, ni por su valor ni por el contexto.</li>
+</ul>
+
+<h3>El precio real: te obliga a diseñar el corpus</h3>
+<p>Una reja así no es gratis en diseño. Solo acepta cifras presentes en los fragmentos recuperados para esa consulta concreta, así que la base de conocimiento tiene que estar pensada para ello:</p>
+<ul>
+<li><strong>Trocear por pregunta, no por servicio.</strong> Cada fragmento responde una pregunta real de principio a fin.</li>
+<li><strong>Repetir el precio donde haga falta.</strong> Si el precio vive en un único fragmento y la consulta recupera otro, la respuesta correcta se tumba. Duplicar el dato es deliberado.</li>
+<li><strong>Fragmentos estancos.</strong> Dos fragmentos que compiten por la misma pregunta se desplazan entre sí en la recuperación.</li>
+<li><strong>Toda cifra, anclada a algo publicado.</strong> Si un número no está en la web, no entra en la base de conocimiento.</li>
+</ul>
+<p>El tamaño importa: con una base muy pequeña la reja se convierte en un cerrojo que bloquea casi todo, y con una enorme y mal repartida la recuperación empeora y también bloquea más. El punto bueno está en una base mediana, bien troceada.</p>
+
+<div class="highlight">💡 El cambio no fue "quitar la IA". Fue poner cada cosa donde rinde: el modelo redacta; una regla determinista decide si una cifra existe.</div>
+
+<h3>Resultado</h3>
+<p>Coste por respuesta de la comprobación: de una llamada al modelo a cero. Sin latencia de red, reproducible (la misma respuesta da siempre el mismo veredicto) y con rechazos que dicen qué hay que corregir. Salió con 24 tests nuevos, incluidos los dos casos de las fugas. Lo que queda abierto es llevarla al generador de este blog, donde primero hay que probarla en modo observación para no convertirla en un cerrojo.</p>
+<p>Si quieres un chatbot que no se invente tus precios, esta es la comprobación que tiene el asistente de esta web y que se puede activar en el tuyo: <a href="/chatbot.html">chatbot para empresas</a>. Y los fallos que van más allá de las cifras, en <a href="/blog/chatbots-para-empresas-por-que-fallan.html">chatbots para empresas: por qué fallan y cómo evitarlo</a>.</p>
+
+<p><em>Daniel · Arquitecto Digital. Los sistemas los diseño y dirijo yo; la implementación la hago con asistentes de IA de programación.</em></p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué no usar un modelo para verificar las cifras de otro?</div>
+              <div class="faq-a"><span>Porque puede rechazar respuestas correctas cuando una cifra «no le cuadra», cuesta una llamada al modelo por cada respuesta con números y su veredicto no es reproducible. Una regla determinista cuesta cero y dice qué cifra sobra.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué hace la reja cuando encuentra una cifra que no está en la fuente?</div>
+              <div class="faq-a"><span>Esa respuesta no se envía: el usuario recibe un mensaje que le pide confirmar el dato con una persona, y el registro guarda qué número sobraba y cuáles había en la fuente.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Acepta redondeos?</div>
+              <div class="faq-a"><span>Sí, redondeos válidos de una cifra de la fuente, como 79 u 80 a partir de 79,18. No acepta bandas de tolerancia: un número cercano no cuenta como el mismo.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué cambia en la base de conocimiento?</div>
+              <div class="faq-a"><span>Hay que trocearla por preguntas reales, repetir el precio en cada fragmento que lo necesite y anclar toda cifra a algo publicado, porque solo se aceptan números presentes en lo recuperado para esa pregunta.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">validación determinista</span><span class="atag">RAG</span><span class="atag">alucinaciones</span><span class="atag">chatbot en producción</span></div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/chatbot.html">Chatbot para empresas →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un solo header para 87 páginas estáticas: parciales con marcadores en vez de un generador · Arquitecto Digital</title>
+<meta name="description" content="Cómo mantengo una cabecera y un pie únicos en una web estática sin generador de sitios: marcadores HTML, un script idempotente y un modo comprobación.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html">
+
+<meta property="og:title" content="Un solo header para 87 páginas estáticas: parciales con marcadores en vez de un generador">
+<meta property="og:description" content="Cómo mantengo una cabecera y un pie únicos en una web estática sin generador de sitios: marcadores HTML, un script idempotente y un modo comprobación.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-09-27">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Un solo header para 87 páginas estáticas: parciales con marcadores en vez de un generador",
+      "description": "Cómo mantengo una cabecera y un pie únicos en una web estática sin generador de sitios: marcadores HTML, un script idempotente y un modo comprobación.",
+      "url": "https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html"
+      },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Webs Personalizadas",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no usar un generador de sitios estáticos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque el HTML del repositorio es el que se sirve, sin fase de build, y porque un bot sube posts ya terminados por la API. El problema a resolver eran dos o tres bloques repetidos, no toda la web."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si una página tiene un marcador mal cerrado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El script deja esa página intacta y termina con error. Solo reescribe lo que hay entre marcadores y comprueba que el resto del fichero queda igual."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si alguna página se ha quedado desincronizada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con el modo comprobación: no escribe nada y sale con error si alguna página no coincide con los parciales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué la plantilla del blog empieza por guion bajo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque GitHub Pages pasa Jekyll por encima y Jekyll no publica esos ficheros. La plantilla está en el repositorio, pero su URL da un 404."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-parciales-html-con-marcadores-sin-generador">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-parciales-html-con-marcadores-sin-generador">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-27">
+      <meta itemprop="dateModified" content="2026-09-27">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Webs Personalizadas</span>
+          <time class="af-date" datetime="2026-09-27" itemprop="datePublished">27 Sep 2026</time>
+          <span class="af-read">· 4 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Un solo header para 87 páginas estáticas: parciales con marcadores en vez de un generador</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Cómo mantengo una cabecera y un pie únicos en una web estática sin generador de sitios: marcadores HTML, un script idempotente y un modo comprobación.</p>
+        <div class="af-content af-content-open" id="art-parciales-html-con-marcadores-sin-generador-content">
+          <h3>El problema: la misma cabecera copiada en decenas de páginas</h3>
+<p>Esta web es HTML estático servido por GitHub Pages: páginas de servicios, legales, utilidades y el blog. Cada página llevaba su propia copia de la cabecera y del pie. Mientras eran pocas no importaba. Cuando pasaron de cincuenta, cada cambio de menú era una operación de riesgo.</p>
+<p>El historial lo deja claro. Un cambio de navegación en julio tocó 21 páginas; el banner de cookies, a finales de julio, 26; el pie legal, en agosto, 14. Cada uno a base de edición en bloque, con su copia de seguridad por fichero, y con el riesgo de que una página con un espacio distinto o un enlace ya cambiado a mano se quedara con la versión vieja sin que nadie lo viera.</p>
+
+<h3>La opción evidente, y por qué no encaja aquí</h3>
+<p>La respuesta de manual es un generador de sitios estáticos: plantillas, includes y una fase de build. GitHub Pages incluso trae uno integrado. No encaja aquí por tres motivos concretos:</p>
+<ul>
+<li><strong>Lo que hay en el repositorio es lo que se sirve.</strong> Sin build, el HTML que ves en el repo es el que ve Google. No hay un paso intermedio que pueda fallar ni una salida que revisar aparte.</li>
+<li><strong>Un bot escribe en este repositorio.</strong> El blog lo publica un sistema automático que sube HTML ya terminado por la API de GitHub. Con un generador de por medio, ese flujo tendría que pasar por el build o aprender su formato.</li>
+<li><strong>Migrar decenas de páginas a layouts</strong> era reescribirlas todas para resolver un problema que solo afecta a dos o tres bloques de cada una.</li>
+</ul>
+
+<h3>Lo que hice: huecos marcados y un script que los rellena</h3>
+<p>Cada página declara dónde va un bloque compartido con dos comentarios HTML, uno de apertura y otro de cierre, con el nombre del bloque. El bloque canónico vive una sola vez en una carpeta de parciales. Un script recorre las páginas y sustituye lo que hay entre los marcadores por la versión canónica. Lo que hay entre medias es una copia generada, y así lo trata todo el mundo.</p>
+<p>El script está pensado para no poder romper una página:</p>
+<ul>
+<li><strong>Solo toca lo que hay entre marcadores.</strong> Antes de escribir, comprueba que el resto del fichero queda byte a byte igual. Si no, no escribe.</li>
+<li><strong>Es idempotente.</strong> Una segunda pasada no cambia nada.</li>
+<li><strong>Los errores no escriben a medias.</strong> Un marcador sin cerrar, un bloque anidado o un parcial que no existe dejan esa página intacta y hacen que el script termine con error.</li>
+<li><strong>Tiene modo comprobación.</strong> Con una opción no escribe nada: sale con error si alguna página está desincronizada. Es el paso previo a cada commit que toca páginas.</li>
+<li><strong>Admite extras.</strong> La portada lleva un pie con un bloque adicional; se declara en el propio marcador y el parcial tiene un hueco para él. Sin plantillas condicionales.</li>
+</ul>
+
+<h3>Lo que ha dado de sí</h3>
+<p>La primera pasada convirtió 57 páginas. Hoy son 87, porque todo lo nuevo nace con los marcadores puestos. Añadir la insignia de la app de Google Play a las 29 utilidades fue crear un parcial y poner su marcador: un cambio revisable en lugar de 29 ediciones sueltas.</p>
+<p>El caso que más me gusta es el del blog. La plantilla con la que el bot crea cada página de post también lleva los marcadores, así que el script la mantiene al día como a cualquier otra página. Si mañana cambio el menú, los posts que publique el bot a partir de ese momento salen con el menú nuevo sin tocar el bot.</p>
+<p>Y un detalle de GitHub Pages que acabó jugando a favor: aunque no uso su generador, Pages pasa Jekyll por encima del repositorio, y Jekyll no publica los ficheros cuyo nombre empieza por guion bajo. La plantilla de posts se llama así a propósito: está en el repositorio, el script la sincroniza, el bot la lee por la API y, si alguien pide su URL, recibe un 404. Lo comprobé en producción, no lo di por supuesto.</p>
+
+<div class="highlight">💡 No hacía falta un generador. Hacía falta que "la misma cabecera" existiera en un solo sitio y que algo avisara cuando una página se desviara.</div>
+
+<h3>Lo que cuesta</h3>
+<ul>
+<li><strong>Bytes repetidos.</strong> Cada página sigue llevando su copia de la cabecera. En páginas de este tamaño no se nota, pero existe.</li>
+<li><strong>Disciplina en lugar de build.</strong> Si cambias un parcial y no ejecutas el script, las páginas se quedan con la versión anterior. No hay integración continua que lo impida; lo que hay es el modo comprobación, que lo detecta antes del commit si lo usas. Es una red que depende de un hábito.</li>
+<li><strong>No es un sistema de plantillas.</strong> Sirve para bloques idénticos en muchas páginas. Si algún día necesito lógica (menús que cambian por sección, variables), este enfoque se queda corto y tocará replantearlo.</li>
+</ul>
+<p>Si tu web tiene este mismo problema, o quieres una que no lo tenga desde el principio, es lo que hago en <a href="/webs.html">webs personalizadas</a>.</p>
+
+<p><em>Daniel · Arquitecto Digital. Los sistemas los diseño y dirijo yo; la implementación la hago con asistentes de IA de programación.</em></p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué no usar un generador de sitios estáticos?</div>
+              <div class="faq-a"><span>Porque el HTML del repositorio es el que se sirve, sin fase de build, y porque un bot sube posts ya terminados por la API. El problema a resolver eran dos o tres bloques repetidos, no toda la web.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si una página tiene un marcador mal cerrado?</div>
+              <div class="faq-a"><span>El script deja esa página intacta y termina con error. Solo reescribe lo que hay entre marcadores y comprueba que el resto del fichero queda igual.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si alguna página se ha quedado desincronizada?</div>
+              <div class="faq-a"><span>Con el modo comprobación: no escribe nada y sale con error si alguna página no coincide con los parciales.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué la plantilla del blog empieza por guion bajo?</div>
+              <div class="faq-a"><span>Porque GitHub Pages pasa Jekyll por encima y Jekyll no publica esos ficheros. La plantilla está en el repositorio, pero su URL da un 404.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">html estático</span><span class="atag">github pages</span><span class="atag">mantenimiento web</span><span class="atag">parciales</span></div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/webs.html">Webs personalizadas →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

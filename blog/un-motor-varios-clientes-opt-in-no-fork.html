@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un motor, varios clientes: por qué “una URL por post” es opt-in y no un fork · Arquitecto Digital</title>
+<meta name="description" content="Cómo añadí un modo nuevo a un publicador compartido sin cambiar nada a los demás sitios: claves opt-in, una foto de producción y una prueba golden byte a byte.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html">
+
+<meta property="og:title" content="Un motor, varios clientes: por qué “una URL por post” es opt-in y no un fork">
+<meta property="og:description" content="Cómo añadí un modo nuevo a un publicador compartido sin cambiar nada a los demás sitios: claves opt-in, una foto de producción y una prueba golden byte a byte.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-09-27">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Un motor, varios clientes: por qué “una URL por post” es opt-in y no un fork",
+      "description": "Cómo añadí un modo nuevo a un publicador compartido sin cambiar nada a los demás sitios: claves opt-in, una foto de producción y una prueba golden byte a byte.",
+      "url": "https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html"
+      },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Sistemas Personalizados",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no hacer un fork del publicador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque cada arreglo futuro habría que llevarlo a dos copias, y acaban divergiendo sin que nadie lo decida. Un modo opt-in mantiene un solo código."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es una prueba golden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pasar las mismas entradas por la versión anterior y por la nueva, y comparar todas las salidas byte a byte. Si algo cambia para quien no ha activado nada, la prueba falla."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si la configuración está incompleta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El publicador ignora el modo nuevo, lo avisa en el registro y publica como siempre. Mejor un post a la antigua que uno a medias."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el coste de este enfoque?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las ramas condicionales se acumulan, la configuración pasa a ser casi código y hay trabajo previo de fotografiar producción y montar la prueba."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-un-motor-varios-clientes-opt-in-no-fork">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-un-motor-varios-clientes-opt-in-no-fork">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-09-27">
+      <meta itemprop="dateModified" content="2026-09-27">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Sistemas Personalizados</span>
+          <time class="af-date" datetime="2026-09-27" itemprop="datePublished">27 Sep 2026</time>
+          <span class="af-read">· 5 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Un motor, varios clientes: por qué “una URL por post” es opt-in y no un fork</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Cómo añadí un modo nuevo a un publicador compartido sin cambiar nada a los demás sitios: claves opt-in, una foto de producción y una prueba golden byte a byte.</p>
+        <div class="af-content af-content-open" id="art-un-motor-varios-clientes-opt-in-no-fork-content">
+          <h3>El punto de partida: un publicador, varios sitios</h3>
+<p>El blog de esta web lo publica un motor que escribe, revisa y sube los posts solo. Ese motor no es exclusivo de esta web: el mismo código de publicación sirve también a otros sitios míos, hoy en pausa. Hasta hace poco, todos funcionaban igual: el post entero se inyectaba como un bloque dentro de una única página de blog, con un ancla por artículo.</p>
+<p>Para el SEO de esta web eso tenía un techo: veintiocho posts dentro de una sola URL compiten entre sí y ninguno tiene su propia página que posicionar. Quería "una URL por post". Los demás sitios no lo necesitaban, y ninguno debía cambiar por lo que necesitaba este.</p>
+
+<h3>Por qué opt-in y no un fork</h3>
+<p>Hay tres formas de meter un comportamiento nuevo en un código compartido, y solo una encaja cuando los demás no deben notar nada:</p>
+<ul>
+<li><strong>Un fork del publicador.</strong> Es rápido el primer día y caro para siempre: cada arreglo futuro hay que llevarlo a dos copias, y acaban divergiendo sin que nadie lo decida.</li>
+<li><strong>Cambiar el comportamiento para todos.</strong> Obliga a migrar sitios que no lo necesitan, con el riesgo de romper algo que no había que tocar.</li>
+<li><strong>Un modo opt-in por cliente.</strong> El mismo código, con un comportamiento nuevo que solo se activa si la configuración de ese cliente lo pide. Sin las claves nuevas, todo sigue exactamente igual.</li>
+</ul>
+<p>Por eso el modo nuevo es opt-in. La condición era dura: para los sitios que no activan nada, la salida tenía que ser idéntica byte a byte, no "equivalente".</p>
+
+<h3>Cómo quedó el opt-in</h3>
+<ul>
+<li><strong>Dos claves, las dos o ninguna.</strong> El modo página necesita dónde guardar los posts y qué plantilla usar. Si solo está configurada una de las dos, el publicador ignora el modo nuevo, avisa en el registro y publica como siempre. Prefiero un post publicado a la antigua que uno a medias.</li>
+<li><strong>La plantilla vive en el repositorio del sitio, no en el bot.</strong> La cabecera, el pie y el diseño son del sitio. El bot solo rellena huecos: título, descripción, canonical, datos estructurados y artículo.</li>
+<li><strong>El orden de escritura importa.</strong> Primero la página del post, luego el teaser en el índice del blog, luego el sitemap. Si falla la página, no se toca nada más. Si falla solo el sitemap, el post queda publicado y el fallo se registra.</li>
+<li><strong>Un mapa de servicios relacionados.</strong> También en la configuración: según la categoría o el título, cada post enlaza al servicio que le corresponde.</li>
+</ul>
+
+<h3>Cómo demostré que los demás no cambiaban</h3>
+<p>Antes de tocar una línea, hice un commit con el estado exacto que había en producción. Esa foto era la referencia.</p>
+<p>Encima monté una prueba golden: el mismo post de prueba pasa, en cada escenario, por el publicador viejo (sacado de esa foto) y por el nuevo, contra un GitHub simulado que registra cada escritura. Se comparan todas: qué fichero, con qué mensaje, contra qué versión y con qué contenido. Cuatro escenarios, que cubren los tipos de sitio que existen: uno con datos estructurados en el índice, uno antiguo sin ellos, uno multidioma con el blog en una subcarpeta, y esta misma web antes de activar nada. Los cuatro dieron idéntico.</p>
+<p>Sin las claves, el código nuevo se comporta igual que el viejo: eso es lo que prueba el golden. El cambio real llegó al añadir las claves en la configuración cifrada de este cliente y reiniciar el servicio, y la vuelta atrás era restaurar la configuración anterior.</p>
+
+<h3>La segunda vez, con lo aprendido</h3>
+<p>Poco después volví a tocar el mismo publicador: datos estructurados más completos en cada post (autor, editor, imagen y las preguntas frecuentes como FAQPage). El mismo patrón: tres claves opt-in, valores por defecto que reproducen lo de antes, y el golden de los cuatro escenarios otra vez idéntico.</p>
+<p>Esa segunda vez encontré un hueco en mi propia red: el golden no cubría el modo página, porque cuando lo escribí ese modo no existía. Hice una comprobación puntual del modo página sin las claves nuevas, contra el código anterior, antes de dar el cambio por bueno; meterla en el golden como escenario fijo sigue pendiente. La suite del módulo pasó de 445 a 451 tests en verde.</p>
+
+<div class="highlight">💡 Una prueba golden es tan buena como sus escenarios. Cada vez que el sistema gana un modo nuevo, el golden tiene que ganar un escenario.</div>
+
+<h3>Lo que cuesta este enfoque</h3>
+<ul>
+<li><strong>Las ramas se acumulan.</strong> Cada opt-in es un "si está configurado, haz esto". Con dos o tres es manejable; con quince, el publicador sería un laberinto. Toca revisarlos y, cuando todos los clientes usan un modo, convertirlo en el comportamiento por defecto.</li>
+<li><strong>La configuración pasa a ser código.</strong> Una clave mal escrita cambia el comportamiento en producción. Por eso las claves inválidas se ignoran con aviso en vez de romper, y por eso añadir una clave sigue un procedimiento con copia de seguridad previa.</li>
+<li><strong>Más trabajo antes de empezar.</strong> La foto de producción y el golden llevan tiempo. Es el precio de poder decir "a los demás no les ha cambiado nada" con una prueba en la mano, y no con un "no debería".</li>
+</ul>
+<p>Este es el tipo de sistema que construyo: piezas compartidas que sirven a varios casos sin copiarse, y cambios que se pueden activar y deshacer sin miedo. Si tienes un proceso así, lo vemos en <a href="/sistemas.html">sistemas personalizados</a>.</p>
+
+<p><em>Daniel · Arquitecto Digital. Los sistemas los diseño y dirijo yo; la implementación la hago con asistentes de IA de programación.</em></p>
+
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Por qué no hacer un fork del publicador?</div>
+              <div class="faq-a"><span>Porque cada arreglo futuro habría que llevarlo a dos copias, y acaban divergiendo sin que nadie lo decida. Un modo opt-in mantiene un solo código.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué es una prueba golden?</div>
+              <div class="faq-a"><span>Pasar las mismas entradas por la versión anterior y por la nueva, y comparar todas las salidas byte a byte. Si algo cambia para quien no ha activado nada, la prueba falla.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si la configuración está incompleta?</div>
+              <div class="faq-a"><span>El publicador ignora el modo nuevo, lo avisa en el registro y publica como siempre. Mejor un post a la antigua que uno a medias.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuál es el coste de este enfoque?</div>
+              <div class="faq-a"><span>Las ramas condicionales se acumulan, la configuración pasa a ser casi código y hay trabajo previo de fotografiar producción y montar la prueba.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">arquitectura</span><span class="atag">multi-cliente</span><span class="atag">tests golden</span><span class="atag">despliegue seguro</span></div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/sistemas.html">Sistemas personalizados →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
