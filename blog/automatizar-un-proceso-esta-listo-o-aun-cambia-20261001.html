@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatizar un proceso: ¿está listo o aún cambia demasiado? · Arquitecto Digital</title>
+<meta name="description" content="Congelar en código un proceso que todavía muta es uno de los errores más costosos en automatización. Estos son los criterios para saber cuándo un proceso está realmente maduro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/automatizar-un-proceso-esta-listo-o-aun-cambia-20261001.html">
+
+<meta property="og:title" content="Automatizar un proceso: ¿está listo o aún cambia demasiado?">
+<meta property="og:description" content="Congelar en código un proceso que todavía muta es uno de los errores más costosos en automatización. Estos son los criterios para saber cuándo un proceso está realmente maduro.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/automatizar-un-proceso-esta-listo-o-aun-cambia-20261001.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-10-01">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Automatizar un proceso: ¿está listo o aún cambia demasiado?",
+      "description": "Congelar en código un proceso que todavía muta es uno de los errores más costosos en automatización. Estos son los criterios para saber cuándo un proceso está realmente maduro.",
+      "url": "https://arquitectodigital.io/blog/automatizar-un-proceso-esta-listo-o-aun-cambia-20261001.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/automatizar-un-proceso-esta-listo-o-aun-cambia-20261001.html"
+      },
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-01",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Automatización para PYMEs",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo debe llevar estable un proceso antes de automatizarlo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No hay un número universal, pero como referencia práctica: al menos dos o tres ciclos completos sin cambios estructurales. Un ciclo es una vuelta entera del proceso, ya sea mensual, trimestral o por campaña. Si en ese período nadie ha tenido que redefinir quién hace qué o cómo se hace, hay estabilidad suficiente para plantearse automatizar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si automatizo un proceso y luego cambia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de cuánto cambie y de cómo esté construido el sistema. Cambios menores en parámetros o plantillas suelen ser absorbibles sin coste. Cambios estructurales —quién hace qué, qué herramientas intervienen, qué se considera un resultado válido— suelen requerir rediseño. Por eso la arquitectura importa tanto como el proceso en sí."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La documentación tiene que ser formal antes de automatizar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No necesariamente formal, pero sí existente y usada. Un checklist en un documento compartido, una plantilla de correo que todo el equipo sigue, un Excel con los pasos: cualquiera de esos vale. Lo que no vale es \"lo tenemos en la cabeza\": si está solo en la cabeza de una persona, no está documentado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hago si diferentes personas del equipo hacen el proceso de forma diferente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Antes de automatizar hay que acordar cuál es la versión canónica. Eso es trabajo interno, no técnico. La automatización puede ayudar a estandarizar, pero no puede decidir qué versión del proceso es la correcta: esa decisión la tiene que tomar el equipo primero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tiene sentido automatizar aunque el proceso vaya a cambiar por crecimiento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, si la arquitectura está diseñada para escalar. La pregunta relevante no es solo si el proceso está maduro hoy, sino si es la versión que se quiere escalar. Automatizar un proceso que ya se sabe que va a romperse con el volumen es construir deuda técnica desde el primer día."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/automatizar-un-proceso-esta-listo-o-aun-cambia-20261001.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-automatizar-un-proceso-esta-listo-o-aun-cambia-20261001">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-automatizar-un-proceso-esta-listo-o-aun-cambia-20261001">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-10-01">
+      <meta itemprop="dateModified" content="2026-10-01">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Automatización para PYMEs</span>
+          <time class="af-date" datetime="2026-10-01" itemprop="datePublished">01 Oct 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Automatizar un proceso: ¿está listo o aún cambia demasiado?</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Congelar en código un proceso que todavía muta es uno de los errores más costosos en automatización. Estos son los criterios para saber cuándo un proceso está realmente maduro.</p>
+        <div class="af-content af-content-open" id="art-automatizar-un-proceso-esta-listo-o-aun-cambia-20261001-content">
+          <h3>El error que nadie cuenta antes de automatizar</h3>
+<p>Hay una conversación que ocurre con frecuencia en proyectos de automatización: alguien quiere automatizar un proceso, se invierte tiempo y dinero en construirlo, y tres meses después el proceso ha cambiado tanto que el sistema automatizado ya no encaja. El resultado: código que hay que reescribir, flujos que hay que rediseñar, y una sensación de haber tirado el presupuesto.</p>
+<p>El problema no fue la automatización. Fue hacerla demasiado pronto.</p>
+<p>Distinguir un proceso maduro de uno que todavía está en evolución no es una cuestión de intuición. Hay señales concretas que permiten tomar esa decisión con criterio.</p>
+
+<h3>Qué significa que un proceso esté "maduro"</h3>
+<p>Un proceso maduro no es necesariamente un proceso perfecto. Es un proceso <strong>estable en su lógica esencial</strong>: las entradas son predecibles, las salidas esperadas están definidas, y las excepciones son conocidas aunque no siempre resueltas.</p>
+<p>Madurez no significa que no vaya a cambiar nunca. Significa que los cambios son incrementales, no estructurales. Que si hoy el proceso tiene cinco pasos, dentro de seis meses seguirá teniendo cinco pasos aunque algún detalle varíe.</p>
+<p>Un proceso inmaduro, en cambio, es aquel donde todavía se discute qué debería hacer, quién debería hacerlo, o en qué orden. Automatizar eso es congelar una decisión que aún no se ha tomado.</p>
+
+<h3>Señales de que el proceso está listo para automatizar</h3>
+<ul>
+  <li><strong>Alguien lo ejecuta de memoria.</strong> Si hay una persona en el equipo que puede hacer el proceso sin consultar instrucciones, es señal de que la lógica está interiorizada y estabilizada.</li>
+  <li><strong>Existe documentación, aunque sea informal.</strong> Un checklist, un correo que sirve de plantilla, un Excel con los pasos. No hace falta que sea perfecta: hace falta que exista y que se use.</li>
+  <li><strong>Las excepciones son conocidas y acotadas.</strong> Todo proceso tiene casos raros. Si el equipo puede enumerar cuáles son sin pensar demasiado, el proceso está suficientemente definido.</li>
+  <li><strong>El proceso lleva al menos dos o tres ciclos completos sin cambios estructurales.</strong> Un ciclo completo es una vuelta entera: un mes, un trimestre, una campaña. Si ha pasado por varias iteraciones sin que nadie haya dicho "esto ya no funciona así", hay estabilidad real.</li>
+  <li><strong>El coste del error manual es visible y medible.</strong> Cuando el equipo puede señalar concretamente qué pasa cuando alguien se olvida de un paso, el proceso está suficientemente comprendido como para automatizarlo con garantías.</li>
+</ul>
+
+<h3>Señales de que el proceso aún no está listo</h3>
+<ul>
+  <li><strong>Cada persona del equipo lo hace de forma diferente.</strong> Si hay tres versiones del mismo proceso en la misma empresa, no hay un proceso: hay tres experimentos en curso. Automatizar uno de ellos no resuelve nada.</li>
+  <li><strong>La lógica depende de decisiones que todavía se toman caso a caso.</strong> Supongamos que una PYME quiere automatizar la cualificación de leads, pero los criterios de cualificación cambian según el comercial, el mes, o el tipo de cliente. Eso no es un proceso: es criterio humano no sistematizado.</li>
+  <li><strong>Ha habido cambios estructurales en los últimos tres meses.</strong> No ajustes menores, sino cambios en quién hace qué, qué herramientas se usan, o qué se considera un resultado válido.</li>
+  <li><strong>Nadie puede describir el proceso completo de principio a fin sin dudar.</strong> Si al preguntar "¿cómo funciona exactamente este proceso?" la respuesta incluye "depende", "a veces", o "eso lo gestiona fulanito a su manera", hay trabajo previo que hacer antes de tocar código.</li>
+  <li><strong>El proceso está ligado a una decisión estratégica pendiente.</strong> Imagina una empresa que quiere automatizar su proceso de onboarding de clientes, pero todavía está decidiendo si va a cambiar de CRM. Automatizar ahora es construir sobre arena.</li>
+</ul>
+
+<div class="highlight">💡 Una regla práctica: si no puedes escribir el proceso en un folio sin dejar espacios en blanco ni poner "a veces", no está listo para automatizar. El folio en blanco es el mejor test de madurez antes de llamar a ningún técnico.</div>
+
+<h3>El caso especial de los procesos que cambian por crecimiento</h3>
+<p>Hay procesos que son estables hoy pero que el propio crecimiento de la empresa va a romper. Una PYME que gestiona diez pedidos al día con un proceso manual puede tener ese proceso perfectamente definido, pero si en seis meses va a pasar a cien pedidos, la lógica actual no escala.</p>
+<p>En estos casos, automatizar el proceso actual puede ser un error aunque esté maduro. La pregunta correcta no es "¿está maduro?" sino "¿es la versión que queremos escalar?"</p>
+<p>La diferencia importa porque un sistema bien construido debería poder crecer con la empresa sin reescribirse desde cero. Pero eso requiere que la arquitectura del proceso esté diseñada para escalar, no solo para funcionar hoy.</p>
+
+<h3>Qué hacer cuando el proceso no está listo</h3>
+<p>La respuesta honesta es: documentar primero, automatizar después. No es la respuesta que vende proyectos rápidos, pero es la que evita reescrituras caras.</p>
+<p>Documentar significa ejecutar el proceso de forma consciente durante un período, anotar las excepciones, identificar quién toma qué decisiones y por qué, y llegar a un acuerdo interno sobre cuál es la versión canónica. Solo entonces tiene sentido congelar esa lógica en código.</p>
+<p>En algunos casos, el propio ejercicio de documentar revela que el proceso tiene problemas que nadie había visto. Eso es valioso aunque sea incómodo: es mejor descubrirlo antes de automatizar que después.</p>
+
+<div class="prompt-box">
+<strong>Prompt de diagnóstico previo a la automatización</strong><br><br>
+Usa este prompt con tu equipo antes de hablar con ningún técnico:<br><br>
+"Describe el proceso [nombre del proceso] de principio a fin, incluyendo: quién lo inicia, qué información necesita para empezar, cada paso en orden, qué herramientas se usan en cada paso, qué pasa cuando algo sale mal, y cómo se sabe que el proceso ha terminado correctamente. Si algún paso depende de criterio personal o varía según el caso, márcalo explícitamente."<br><br>
+Si al rellenar esta descripción aparecen más de dos o tres puntos marcados como "depende", el proceso necesita más tiempo antes de automatizarse.
+</div>
+
+<h3>El criterio final: ¿qué costaría cambiar el proceso después de automatizarlo?</h3>
+<p>Antes de dar luz verde a cualquier automatización, vale la pena hacerse esta pregunta: si dentro de seis meses este proceso cambia de forma significativa, ¿qué costaría adaptar el sistema?</p>
+<p>Si la respuesta es "poco, porque la arquitectura está diseñada para ello", adelante. Si la respuesta es "tendríamos que reescribirlo casi entero", eso es una señal de que o bien el proceso no está maduro, o bien la arquitectura propuesta no es la adecuada.</p>
+<p>Un sistema bien construido no debería ser frágil ante cambios razonables. Pero tampoco debería prometerse que va a absorber cualquier cambio sin coste: eso sería humo. El equilibrio está en construir sobre procesos estables y con arquitecturas que no te encierren.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo debe llevar estable un proceso antes de automatizarlo?</div>
+              <div class="faq-a"><span>No hay un número universal, pero como referencia práctica: al menos dos o tres ciclos completos sin cambios estructurales. Un ciclo es una vuelta entera del proceso, ya sea mensual, trimestral o por campaña. Si en ese período nadie ha tenido que redefinir quién hace qué o cómo se hace, hay estabilidad suficiente para plantearse automatizar.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si automatizo un proceso y luego cambia?</div>
+              <div class="faq-a"><span>Depende de cuánto cambie y de cómo esté construido el sistema. Cambios menores en parámetros o plantillas suelen ser absorbibles sin coste. Cambios estructurales —quién hace qué, qué herramientas intervienen, qué se considera un resultado válido— suelen requerir rediseño. Por eso la arquitectura importa tanto como el proceso en sí.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿La documentación tiene que ser formal antes de automatizar?</div>
+              <div class="faq-a"><span>No necesariamente formal, pero sí existente y usada. Un checklist en un documento compartido, una plantilla de correo que todo el equipo sigue, un Excel con los pasos: cualquiera de esos vale. Lo que no vale es &quot;lo tenemos en la cabeza&quot;: si está solo en la cabeza de una persona, no está documentado.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué hago si diferentes personas del equipo hacen el proceso de forma diferente?</div>
+              <div class="faq-a"><span>Antes de automatizar hay que acordar cuál es la versión canónica. Eso es trabajo interno, no técnico. La automatización puede ayudar a estandarizar, pero no puede decidir qué versión del proceso es la correcta: esa decisión la tiene que tomar el equipo primero.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Tiene sentido automatizar aunque el proceso vaya a cambiar por crecimiento?</div>
+              <div class="faq-a"><span>Sí, si la arquitectura está diseñada para escalar. La pregunta relevante no es solo si el proceso está maduro hoy, sino si es la versión que se quiere escalar. Automatizar un proceso que ya se sabe que va a romperse con el volumen es construir deuda técnica desde el primer día.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">automatización PYMEs</span><span class="atag">procesos de negocio</span><span class="atag">madurez de procesos</span><span class="atag">antes de automatizar</span><span class="atag">criterio técnico</span></div>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/sistemas.html">Automatización con IA para empresas →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
