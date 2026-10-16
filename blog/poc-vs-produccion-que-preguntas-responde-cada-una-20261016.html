@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POC vs. producción: qué preguntas responde cada una · Arquitecto Digital</title>
+<meta name="description" content="Una prueba de concepto corta resuelve dudas técnicas, no de negocio. Saber cuál es cuál evita gastar dinero en el sitio equivocado.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html">
+
+<meta property="og:title" content="POC vs. producción: qué preguntas responde cada una">
+<meta property="og:description" content="Una prueba de concepto corta resuelve dudas técnicas, no de negocio. Saber cuál es cuál evita gastar dinero en el sitio equivocado.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-10-16">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "POC vs. producción: qué preguntas responde cada una",
+      "description": "Una prueba de concepto corta resuelve dudas técnicas, no de negocio. Saber cuál es cuál evita gastar dinero en el sitio equivocado.",
+      "url": "https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html"
+      },
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Automatización IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto debe durar una POC de automatización IA para una PYME?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del alcance, pero una POC bien delimitada suele resolverse en días o pocas semanas. Si se extiende más, normalmente es porque el alcance no estaba claro o se ha convertido en un piloto sin reconocerlo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Una POC garantiza que el sistema funcionará en producción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Una POC reduce el riesgo técnico al validar que la arquitectura es viable con los datos disponibles. No garantiza adopción, escalabilidad ni coste de mantenimiento sostenible: eso solo lo confirma producción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué datos debo usar en una POC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Datos reales en el estado en que están hoy. Usar datos curados o preparados específicamente para la demo produce resultados que no son representativos del problema real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre una POC y un piloto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La POC valida viabilidad técnica en entorno controlado. El piloto valida funcionamiento con usuarios reales durante un periodo acotado. Son etapas distintas con preguntas distintas: saltarse el piloto es uno de los errores más frecuentes en proyectos de IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si una propuesta de POC está bien diseñada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Debe incluir criterios de éxito definidos antes de empezar, una lista explícita de lo que queda fuera del alcance y participación de quien va a operar el sistema en producción. Si solo describe lo que se va a probar sin decir qué constituye un resultado aceptable, no es una POC: es una demo."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/chatbot.html">Chatbots Personalizados</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/audio-libro.html">Audio → Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/sistemas.html">Sistemas Personalizados</a></li>
+          <li><a href="/girobot.html">GiroBot · Twitch</a></li>
+          <li><a href="/cenit/">Cénit · Diario con IA</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/utilidades/" aria-haspopup="true" aria-expanded="false">Utilidades</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/utilidades/creadores.html">Creadores de contenido</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+          <li><a href="/utilidades/">Ver todas →</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/#proceso">Proceso</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/newsletter-signup.html">Newsletter</a></li>
+      <li><a href="/redes.html">Redes</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-poc-vs-produccion-que-preguntas-responde-cada-una-20261016">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-poc-vs-produccion-que-preguntas-responde-cada-una-20261016">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-10-16">
+      <meta itemprop="dateModified" content="2026-10-16">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Automatización IA</span>
+          <time class="af-date" datetime="2026-10-16" itemprop="datePublished">16 Oct 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">POC vs. producción: qué preguntas responde cada una</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Una prueba de concepto corta resuelve dudas técnicas, no de negocio. Saber cuál es cuál evita gastar dinero en el sitio equivocado.</p>
+        <div class="af-content af-content-open" id="art-poc-vs-produccion-que-preguntas-responde-cada-una-20261016-content">
+          <h3>El error más caro: confundir validación técnica con validación de negocio</h3>
+
+<p>Muchas PYMEs llegan a una prueba de concepto (POC) esperando que les diga si la automatización va a funcionar en su empresa. Es una expectativa razonable, pero incorrecta. Una POC bien diseñada responde preguntas técnicas concretas. Las preguntas de negocio —si el sistema se adoptará, si reducirá carga real, si el ROI se sostiene— solo tienen respuesta en producción, con usuarios reales y datos reales.</p>
+
+<p>Confundir ambos planos es el origen de muchos proyectos que se aprueban con entusiasmo tras una demo y mueren en silencio tres meses después.</p>
+
+<h3>Qué preguntas sí responde una POC corta</h3>
+
+<p>Una POC de alcance limitado —días o pocas semanas, no meses— puede responder con fiabilidad estas preguntas:</p>
+
+<ul>
+  <li><strong>¿El modelo entiende el dominio?</strong> Si el vocabulario técnico de tu sector, tus productos o tu legislación produce respuestas coherentes o produce basura.</li>
+  <li><strong>¿La calidad del dato es suficiente?</strong> Los documentos internos que tienes —manuales, FAQs, contratos— están en un estado que permite indexarlos y recuperarlos bien, o requieren limpieza previa.</li>
+  <li><strong>¿La arquitectura elegida es viable?</strong> Si el enfoque técnico seleccionado —RAG, agente, flujo determinista— puede manejar los casos de uso prioritarios sin forzar el sistema.</li>
+  <li><strong>¿Hay casos límite que rompen el sistema?</strong> Preguntas ambiguas, documentos contradictorios, idiomas mezclados: la POC los expone en entorno controlado, no delante del cliente.</li>
+  <li><strong>¿El coste de inferencia es razonable?</strong> Con un volumen simulado puedes estimar qué gasto mensual genera el sistema antes de comprometerte.</li>
+</ul>
+
+<div class="highlight">💡 Una POC honesta termina con una lista de lo que funcionó, lo que no funcionó y lo que sigue sin saberse. Si solo tiene la columna de lo que funcionó, no es una POC: es una demo de ventas.</div>
+
+<h3>Qué preguntas NO puede responder ninguna POC</h3>
+
+<p>Aquí está el territorio que muchos vendedores de IA prefieren no delimitar:</p>
+
+<ul>
+  <li><strong>¿Lo usará el equipo?</strong> La adopción depende de hábitos, de si el sistema encaja en el flujo real de trabajo y de si la respuesta es suficientemente buena para que alguien deje de hacer lo que hacía antes. Ninguna demo lo predice.</li>
+  <li><strong>¿Aguanta el volumen real?</strong> Simular carga es útil, pero no equivale a cien usuarios simultáneos con patrones de uso impredecibles y picos en momentos que nadie anticipó.</li>
+  <li><strong>¿Cómo se comporta cuando los datos cambian?</strong> Los precios se actualizan, los procedimientos se modifican, los documentos se añaden. La POC trabaja con un snapshot estático. Producción es un organismo vivo.</li>
+  <li><strong>¿Cuánto cuesta mantenerlo?</strong> El coste real incluye actualizaciones de la base de conocimiento, revisión de respuestas incorrectas, ajustes cuando el modelo de base cambia de versión. Eso no aparece en una POC.</li>
+  <li><strong>¿Qué pasa cuando falla?</strong> Los modos de fallo reales —una pregunta que el sistema no debería responder y responde con seguridad; un dato desactualizado que nadie detecta— solo emergen con uso continuado.</li>
+</ul>
+
+<div class="prompt-box">
+<strong>Prompt de diagnóstico para evaluar una propuesta de POC:</strong><br><br>
+"Analiza esta propuesta de prueba de concepto y clasifica cada objetivo declarado en dos categorías: (A) preguntas que una POC puede responder con fiabilidad técnica, (B) preguntas que solo producción puede responder. Para las de tipo B, indica qué métrica o condición de producción permitiría responderlas y en qué plazo mínimo realista."
+</div>
+
+<h3>El patrón que suele fallar: la POC como argumento de venta</h3>
+
+<p>Imagina una empresa de servicios profesionales que aprueba un chatbot interno tras una POC de dos semanas. La demo funciona bien con veinte documentos curados. Seis meses después, el sistema tiene trescientos documentos, la mitad desactualizados, y el equipo ha dejado de usarlo porque las respuestas mezclan versiones antiguas y nuevas de los procedimientos.</p>
+
+<p>El problema no era la tecnología. Era que la POC nunca evaluó el proceso de mantenimiento de la base de conocimiento, porque ese proceso no existía. La POC respondió "¿funciona RAG con estos documentos?" y nadie preguntó "¿quién actualiza los documentos y cuándo?".</p>
+
+<p>Es habitual que el alcance de la POC lo defina quien vende el sistema, no quien lo va a operar. El resultado es una validación técnica impecable de algo que no representa el problema real.</p>
+
+<h3>Cómo diseñar una POC que no te engañe</h3>
+
+<p>Antes de aprobar cualquier prueba de concepto, conviene tener respuesta a estas preguntas:</p>
+
+<ol>
+  <li><strong>¿Qué decisión concreta tomamos al terminar la POC?</strong> Si la respuesta es vaga ("ver si funciona"), la POC no está bien definida.</li>
+  <li><strong>¿Con qué datos trabajamos?</strong> Datos reales en el estado en que están hoy, no datos limpios preparados para la demo.</li>
+  <li><strong>¿Qué criterio de éxito tiene cada objetivo?</strong> No "responde bien", sino "responde correctamente en X de cada Y casos de prueba definidos antes de empezar".</li>
+  <li><strong>¿Qué queda fuera del alcance y cómo se valida después?</strong> La lista de lo que no se prueba es tan importante como la de lo que sí se prueba.</li>
+  <li><strong>¿Quién va a operar el sistema en producción y está en la sala durante la POC?</strong> Si la persona que lo va a mantener no participa en la validación, la POC mide la opinión del equipo técnico, no la viabilidad operativa.</li>
+</ol>
+
+<h3>La secuencia lógica: POC, piloto, producción</h3>
+
+<p>Una POC no es el paso anterior a producción. Es el paso anterior a un piloto. La secuencia correcta tiene tres etapas con preguntas distintas:</p>
+
+<ul>
+  <li><strong>POC:</strong> ¿Es técnicamente viable con estos datos y esta arquitectura?</li>
+  <li><strong>Piloto:</strong> ¿Funciona con usuarios reales en condiciones reales durante un periodo acotado?</li>
+  <li><strong>Producción:</strong> ¿Se sostiene en el tiempo, escala y se mantiene sin coste desproporcionado?</li>
+</ul>
+
+<p>Saltarse el piloto es el error más frecuente. La presión por "pasar a producción rápido" convierte una validación técnica en un despliegue prematuro. Y cuando el sistema falla en producción, la conclusión suele ser "la IA no funciona", cuando la conclusión correcta sería "la validación fue insuficiente".</p>
+
+<div class="highlight">💡 Una POC bien hecha reduce el riesgo técnico. No elimina el riesgo de negocio. Quien te diga lo contrario está vendiendo, no asesorando.</div>
+
+<h3>Lo que sí puedes exigir al terminar una POC</h3>
+
+<p>Al cerrar una prueba de concepto, deberías poder responder con evidencia —no con intuición— a estas tres preguntas: la arquitectura elegida maneja los casos de uso prioritarios sin forzarla; los datos disponibles son suficientes para arrancar o hay un plan concreto para los que no lo son; el coste técnico estimado está dentro del rango que hace viable el proyecto.</p>
+
+<p>Todo lo demás —adopción, ROI, escalabilidad, mantenimiento— es una hipótesis razonable, no una certeza. Tratarla como certeza es donde empiezan los proyectos que fracasan con buenas demos.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto debe durar una POC de automatización IA para una PYME?</div>
+              <div class="faq-a"><span>Depende del alcance, pero una POC bien delimitada suele resolverse en días o pocas semanas. Si se extiende más, normalmente es porque el alcance no estaba claro o se ha convertido en un piloto sin reconocerlo.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Una POC garantiza que el sistema funcionará en producción?</div>
+              <div class="faq-a"><span>No. Una POC reduce el riesgo técnico al validar que la arquitectura es viable con los datos disponibles. No garantiza adopción, escalabilidad ni coste de mantenimiento sostenible: eso solo lo confirma producción.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué datos debo usar en una POC?</div>
+              <div class="faq-a"><span>Datos reales en el estado en que están hoy. Usar datos curados o preparados específicamente para la demo produce resultados que no son representativos del problema real.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia hay entre una POC y un piloto?</div>
+              <div class="faq-a"><span>La POC valida viabilidad técnica en entorno controlado. El piloto valida funcionamiento con usuarios reales durante un periodo acotado. Son etapas distintas con preguntas distintas: saltarse el piloto es uno de los errores más frecuentes en proyectos de IA.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si una propuesta de POC está bien diseñada?</div>
+              <div class="faq-a"><span>Debe incluir criterios de éxito definidos antes de empezar, una lista explícita de lo que queda fuera del alcance y participación de quien va a operar el sistema en producción. Si solo describe lo que se va a probar sin decir qué constituye un resultado aceptable, no es una POC: es una demo.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">prueba de concepto</span><span class="atag">automatización IA</span><span class="atag">chatbot PYME</span><span class="atag">RAG</span><span class="atag">gestión de proyectos IA</span></div>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/sistemas.html">Automatización con IA para empresas →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbots</a></li>
+          <li><a href="/autoblog.html">Autoblog</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+          <li><a href="/sistemas.html">Sistemas</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Utilidades</h5>
+        <ul>
+          <li><a href="/utilidades/">Todas las utilidades</a></li>
+          <li><a href="/utilidades/contador-caracteres.html">Contador de caracteres</a></li>
+          <li><a href="/utilidades/creadores.html">Creadores</a></li>
+          <li><a href="/utilidades/educativo.html">Educativo</a></li>
+          <li><a href="/utilidades/ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
