@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://arquitectodigital.io/blog.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -393,5 +393,9 @@
   <url>
     <loc>https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html</loc>
     <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://arquitectodigital.io/blog/coste-por-unidad-publicada-como-medirlo-y-donde-20261019.html</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
 </urlset>
