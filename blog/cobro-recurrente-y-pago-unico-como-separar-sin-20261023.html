@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobro recurrente y pago único: cómo separar sin liar la contabilidad · Arquitecto Digital</title>
+<meta name="description" content="Mezclar suscripciones y pagos únicos en el mismo negocio complica la contabilidad si no se estructura desde el principio. Aquí está el criterio técnico para hacerlo bien.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html">
+
+<meta property="og:title" content="Cobro recurrente y pago único: cómo separar sin liar la contabilidad">
+<meta property="og:description" content="Mezclar suscripciones y pagos únicos en el mismo negocio complica la contabilidad si no se estructura desde el principio. Aquí está el criterio técnico para hacerlo bien.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-10-23">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Cobro recurrente y pago único: cómo separar sin liar la contabilidad",
+      "description": "Mezclar suscripciones y pagos únicos en el mismo negocio complica la contabilidad si no se estructura desde el principio. Aquí está el criterio técnico para hacerlo bien.",
+      "url": "https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html"
+      },
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Gestión y Operaciones",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Puedo emitir una sola factura que incluya el setup y la cuota mensual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Técnicamente sí, pero no es recomendable. Mezclar ambos conceptos en una factura complica la conciliación contable, dificulta el reconocimiento de ingresos diferidos y genera ambigüedad en caso de cancelación parcial. Lo más limpio es una factura por concepto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El recibo que genera Stripe vale como factura en España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El recibo de Stripe es un comprobante de pago, no una factura legal. Para cumplir con la normativa española, necesitas emitir una factura con NIF del cliente, desglose de IVA y los datos fiscales requeridos. Stripe permite integrarse con herramientas de facturación, pero la configuración requiere revisión con un asesor fiscal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo se devenga el IVA en una cuota mensual recurrente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de tu régimen. En criterio de devengo (el más habitual en sociedades), el IVA se declara cuando se emite la factura, aunque no hayas cobrado. En criterio de caja (disponible para autónomos bajo ciertos límites), el IVA se ingresa cuando se cobra. Confundir ambos regímenes es un error frecuente con consecuencias fiscales reales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué ocurre contablemente si un cliente cancela su suscripción a mitad de mes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si hay devolución proporcional, se emite una nota de crédito que reduce el ingreso y el IVA del periodo. Si el contrato no contempla devolución, el ingreso se mantiene, pero debe estar justificado contractualmente. Lo importante es tener este flujo definido antes de que ocurra la primera cancelación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es necesario separar las cuentas contables de ingresos recurrentes y pagos únicos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La normativa no siempre lo exige explícitamente, pero es una práctica que clarifica la lectura del negocio: separa la base de ingresos estable de los ingresos puntuales, facilita la previsión de tesorería y simplifica las auditorías. Es una decisión de gestión, no solo de cumplimiento."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li><a href="/chatbot.html">Chatbot a medida</a></li>
+      <li><a href="/crea-tu-cancion.html">Canción</a></li>
+      <li><a href="/audio-libro.html">Audio → Libro</a></li>
+      <li><a href="/cenit/">Cénit</a></li>
+      <li><a href="/girobot.html">GiroBot</a></li>
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Más servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/sistemas.html">Automatización a medida</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+        </ul>
+      </li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-cobro-recurrente-y-pago-unico-como-separar-sin-20261023">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-cobro-recurrente-y-pago-unico-como-separar-sin-20261023">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-10-23">
+      <meta itemprop="dateModified" content="2026-10-23">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Gestión y Operaciones</span>
+          <time class="af-date" datetime="2026-10-23" itemprop="datePublished">23 Oct 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Cobro recurrente y pago único: cómo separar sin liar la contabilidad</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">Mezclar suscripciones y pagos únicos en el mismo negocio complica la contabilidad si no se estructura desde el principio. Aquí está el criterio técnico para hacerlo bien.</p>
+        <div class="af-content af-content-open" id="art-cobro-recurrente-y-pago-unico-como-separar-sin-20261023-content">
+          <h3>El problema real no es el modelo de cobro, es la mezcla sin criterio</h3>
+<p>Muchas PYMEs que incorporan servicios digitales acaban con una facturación que mezcla cuotas mensuales, pagos únicos de setup, proyectos cerrados y renovaciones anuales, todo en el mismo extracto bancario y sin una estructura contable que lo soporte. El resultado: conciliaciones manuales, dudas sobre qué es ingreso diferido y qué no, y una tesorería difícil de leer de un vistazo.</p>
+<p>El problema no es que coexistan ambos modelos. Es que se implantan sin definir desde el principio cómo se clasifican, cómo se facturan y cómo se reconocen contablemente. Esto tiene solución, y no requiere un ERP de seis cifras.</p>
+
+<h3>Qué diferencia un pago único de un cobro recurrente, más allá de lo obvio</h3>
+<p>La diferencia no es solo de frecuencia. Es de naturaleza contable:</p>
+<ul>
+  <li><strong>Pago único:</strong> se reconoce como ingreso en el momento en que se entrega el bien o servicio. Si cobras un setup hoy y lo entregas hoy, el ingreso es de hoy. Si cobras hoy y entregas en tres semanas, parte del ingreso es diferido hasta la entrega.</li>
+  <li><strong>Cobro recurrente:</strong> el ingreso se reconoce mes a mes, en proporción al periodo cubierto. Si cobras una cuota anual por adelantado, contablemente solo puedes reconocer cada mensualidad cuando corresponde, no el total el día uno.</li>
+</ul>
+<p>Esta distinción importa porque afecta al resultado contable del ejercicio, a los impuestos y a la imagen real de la tesorería. Ignorarla no es un error administrativo menor: puede distorsionar la cuenta de resultados.</p>
+
+<h3>Cómo estructurar los dos modelos sin que interfieran</h3>
+<p>El criterio práctico es separar desde el diseño del producto, no desde la factura. Tres reglas que suelen funcionar:</p>
+<ol>
+  <li><strong>Cuenta de ingreso diferenciada por tipo.</strong> En el plan contable, los ingresos de cuotas recurrentes y los de proyectos o setups únicos van a cuentas separadas. No porque lo exija la normativa en todos los casos, sino porque te permite leer el negocio con claridad: cuánto viene de base estable y cuánto de trabajo puntual.</li>
+  <li><strong>Factura separada para cada concepto.</strong> Una factura para el setup, otra para la cuota mensual. Aunque el cliente reciba los dos servicios del mismo proveedor, mezclarlos en una sola línea complica la conciliación y puede generar dudas si hay una reclamación o un ajuste posterior.</li>
+  <li><strong>Fecha de devengo explícita.</strong> En la factura recurrente, indica siempre el periodo cubierto (por ejemplo, "servicio correspondiente a julio 2025"). En la de pago único, la fecha de entrega o activación. Esto evita ambigüedad en auditorías y en la declaración del IVA.</li>
+</ol>
+
+<div class="highlight">💡 Si usas Stripe u otra pasarela similar, configura productos separados para cada tipo de cobro desde el principio. Cambiar la estructura de productos en Stripe cuando ya tienes suscriptores activos es más costoso de lo que parece: afecta a webhooks, a reportes y a la conciliación automática.</div>
+
+<h3>El IVA en cobros recurrentes: un detalle que se pasa por alto</h3>
+<p>En España, el IVA de las cuotas recurrentes se devenga en el momento en que se emite la factura o en el momento del cobro, según el régimen. Para autónomos en estimación directa con criterio de caja, el IVA no se ingresa hasta que se cobra. Para sociedades o autónomos en criterio de devengo, el IVA se declara cuando se emite la factura, aunque el cliente no haya pagado aún.</p>
+<p>Esto tiene implicaciones directas: si tienes cuotas mensuales que se cobran con retraso o con impagos, puedes acabar ingresando IVA a Hacienda de facturas que todavía no has cobrado. Conocer tu régimen y diseñar el modelo de cobro en consecuencia no es burocracia: es tesorería.</p>
+
+<h3>Qué pasa cuando el cliente cancela una suscripción a mitad de periodo</h3>
+<p>Este es el punto donde más PYMEs improvisan. Supongamos que un cliente paga una cuota mensual el día 1 y cancela el día 15. ¿Devuelves la mitad? ¿No devuelves nada? ¿Emites una nota de crédito?</p>
+<p>La respuesta correcta depende de lo que diga el contrato, pero el flujo contable tiene que estar definido de antemano:</p>
+<ul>
+  <li>Si hay devolución parcial, se emite una nota de crédito por el importe proporcional. Esa nota reduce el ingreso y el IVA declarado del periodo.</li>
+  <li>Si no hay devolución, el ingreso se mantiene íntegro, pero tienes que poder justificarlo contractualmente si el cliente lo disputa.</li>
+  <li>Si la cancelación afecta a un pago único (por ejemplo, un setup que se interrumpe antes de completarse), la lógica es la misma: nota de crédito proporcional al trabajo no entregado, o cero si el contrato lo excluye expresamente.</li>
+</ul>
+<p>La clave es que esto esté escrito antes de que ocurra, no el día que el cliente llama.</p>
+
+<h3>Automatización del cobro: qué delegar y qué no</h3>
+<p>Las pasarelas de pago modernas (Stripe, GoCardless, Redsys con tokenización) automatizan bien el cobro recurrente: reintentos, notificaciones de fallo, actualización de tarjetas. Lo que no automatizan es la contabilidad ni la relación con el cliente cuando algo falla.</p>
+<p>Un error habitual es asumir que porque Stripe genera un recibo, ya está la factura hecha. No es así: el recibo de Stripe no es una factura legal en España. La factura tiene que emitirla tu sistema de facturación (o tú manualmente), con los datos fiscales correctos, el NIF del cliente y el desglose de IVA. Stripe tiene integración con herramientas de facturación, pero la configuración hay que revisarla con un asesor fiscal.</p>
+
+<div class="prompt-box">
+<strong>Prompt para analizar tu estructura de cobro actual:</strong><br><br>
+"Tengo un negocio de servicios digitales con dos tipos de cobro: pagos únicos por setup/proyecto y cuotas mensuales recurrentes. Mis ingresos mensuales aproximados son [X€], de los cuales [Y%] son recurrentes y [Z%] son puntuales. Uso [herramienta de facturación] y [pasarela de pago]. Identifica los tres puntos de fricción más probables en mi conciliación contable y sugiere cómo estructurar las cuentas de ingreso para separar ambos modelos sin cambiar mi software actual."
+</div>
+
+<h3>Aplicado a un servicio con ambos modelos</h3>
+<p>Imagina una pyme que contrata un chatbot con setup inicial y una cuota mensual de mantenimiento. El pago único cubre la configuración, la integración y las pruebas: se factura una vez, se reconoce como ingreso cuando se entrega el sistema funcionando. La cuota mensual cubre el servicio continuado: se factura cada mes, se reconoce mes a mes.</p>
+<p>Si esa pyme recibe una sola factura con todo mezclado, su contable tiene que separar manualmente qué parte es diferida y qué parte no. Si recibe dos facturas distintas, con conceptos y fechas de devengo claros, la conciliación es directa. El coste de hacer esto bien desde el principio es cero. El coste de corregirlo después, cuando hay doce meses de facturas mezcladas, es significativo.</p>
+
+<h3>Lo que no resuelve la automatización</h3>
+<p>La automatización del cobro elimina fricción operativa. No elimina la necesidad de criterio. Decidir qué modelo de cobro usar para cada servicio, cómo clasificarlo contablemente y qué ocurre en los casos límite (cancelaciones, impagos, cambios de plan) requiere decisiones que no puede tomar ningún software solo.</p>
+<p>Lo que sí puede hacer la automatización es ejecutar esas decisiones de forma consistente, sin errores manuales, una vez que están tomadas. Ese es el orden correcto: primero el criterio, después la herramienta.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Puedo emitir una sola factura que incluya el setup y la cuota mensual?</div>
+              <div class="faq-a"><span>Técnicamente sí, pero no es recomendable. Mezclar ambos conceptos en una factura complica la conciliación contable, dificulta el reconocimiento de ingresos diferidos y genera ambigüedad en caso de cancelación parcial. Lo más limpio es una factura por concepto.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿El recibo que genera Stripe vale como factura en España?</div>
+              <div class="faq-a"><span>No. El recibo de Stripe es un comprobante de pago, no una factura legal. Para cumplir con la normativa española, necesitas emitir una factura con NIF del cliente, desglose de IVA y los datos fiscales requeridos. Stripe permite integrarse con herramientas de facturación, pero la configuración requiere revisión con un asesor fiscal.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cuándo se devenga el IVA en una cuota mensual recurrente?</div>
+              <div class="faq-a"><span>Depende de tu régimen. En criterio de devengo (el más habitual en sociedades), el IVA se declara cuando se emite la factura, aunque no hayas cobrado. En criterio de caja (disponible para autónomos bajo ciertos límites), el IVA se ingresa cuando se cobra. Confundir ambos regímenes es un error frecuente con consecuencias fiscales reales.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué ocurre contablemente si un cliente cancela su suscripción a mitad de mes?</div>
+              <div class="faq-a"><span>Si hay devolución proporcional, se emite una nota de crédito que reduce el ingreso y el IVA del periodo. Si el contrato no contempla devolución, el ingreso se mantiene, pero debe estar justificado contractualmente. Lo importante es tener este flujo definido antes de que ocurra la primera cancelación.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Es necesario separar las cuentas contables de ingresos recurrentes y pagos únicos?</div>
+              <div class="faq-a"><span>La normativa no siempre lo exige explícitamente, pero es una práctica que clarifica la lectura del negocio: separa la base de ingresos estable de los ingresos puntuales, facilita la previsión de tesorería y simplifica las auditorías. Es una decisión de gestión, no solo de cumplimiento.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">facturación</span><span class="atag">cobro recurrente</span><span class="atag">pago único</span><span class="atag">contabilidad PYMEs</span><span class="atag">automatización financiera</span></div>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/#contacto">Cuéntame tu caso →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbot a medida</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>A medida</h5>
+        <ul>
+          <li><a href="/sistemas.html">Automatización con IA</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/utilidades/">Utilidades gratis</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
