@@ -8,7 +8,7 @@
 - [Automatización con IA a medida](https://arquitectodigital.io/sistemas.html): sistemas a medida cuando tu caso no encaja en un servicio estándar. Sprint cerrado desde 2.650€ o consultoría a 100€/h.
 - [Blog automático con IA](https://arquitectodigital.io/autoblog.html): artículos SEO con tu tono y publicación directa en WordPress, de 2 a 16 al mes. Desde 41€/mes.
 - [Diseño web para pymes y autónomos](https://arquitectodigital.io/webs.html): diseño, desarrollo, deploy y dominio, sin lock-in con plataformas. Desde 954€ en pago único.
-- [Crea tu canción](https://arquitectodigital.io/crea-tu-cancion.html): creas tú mismo una canción personalizada con la herramienta de IA y recibes 2 versiones en MP3 por email. 25€.
+- [Crea tu canción](https://arquitectodigital.io/crea-tu-cancion.html): creas tú mismo una canción personalizada con la herramienta de IA y recibes 2 versiones en MP3 por email. 15€.
 - [Audio → Libro](https://arquitectodigital.io/audio-libro.html): convierte tus grabaciones, podcasts o conferencias en un libro digital en PDF y EPUB. Desde 149€, pago único.
 - [GiroBot para Twitch](https://arquitectodigital.io/girobot.html): toolkit 3-en-1 para streamers: chatbot de IA, clips verticales 9:16 y alertas con voz IA. 199€ de alta + desde 19,99€/mes.
 - [Cénit](https://arquitectodigital.io/cenit/): diario personal para Android con Mario, una IA que reflexiona contigo. Gratis; Pro 29,99€/año.

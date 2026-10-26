@@ -22,12 +22,12 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canciones personalizadas: haz una canción con tu historia · Arquitecto Digital</title>
-<meta name="description" content="Crea tú mismo una canción personalizada para regalar: eliges estilo y ocasión (cumpleaños, aniversario…) y la generas con nuestra herramienta de IA. 25€.">
+<meta name="description" content="Crea tú mismo una canción personalizada para regalar: eliges estilo y ocasión (cumpleaños, aniversario…) y la generas con nuestra herramienta de IA. 15€.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/crea-tu-cancion.html">
 
 <meta property="og:title" content="Canción personalizada para regalar · Arquitecto Digital">
-<meta property="og:description" content="Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 25€ (IVA incl.).">
+<meta property="og:description" content="Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ (IVA incl.).">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arquitectodigital.io/crea-tu-cancion.html">
 <meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
@@ -62,6 +62,9 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
   .music-form input:focus { outline: none; border-color: var(--accent); }
   #music-estado { color: var(--text-dim); margin-top: 14px; min-height: 1.2em; }
   .music-pago-nota { color: var(--text-dim); margin-top: 14px; }
+  /* Precio de lanzamiento: antes tachado + precio actual destacado. */
+  .precio-antes { color: var(--text-dim); font-weight: 400; }
+  .precio-ahora { color: var(--orange); font-weight: 700; }
   /* Botones rellenos (el <button> nativo salía con fondo blanco; .service-cta
      del sitio es un enlace de texto). Botón de pago y submit como CTA naranja. */
   button.service-cta, a#btn-pago.service-cta {
@@ -83,7 +86,7 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
   "name": "Crea tu canción",
   "serviceType": "Creación de canción personalizada con IA",
   "url": "https://arquitectodigital.io/crea-tu-cancion.html",
-  "description": "Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 25€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.",
+  "description": "Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.",
   "inLanguage": "es",
   "provider": {
     "@id": "https://arquitectodigital.io/#organization"
@@ -93,11 +96,11 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
       "@type": "Offer",
       "name": "Canción personalizada",
       "priceCurrency": "EUR",
-      "price": "25",
+      "price": "15",
       "priceSpecification": {
         "@type": "PriceSpecification",
         "priceCurrency": "EUR",
-        "price": "25",
+        "price": "15",
         "valueAddedTaxIncluded": true
       },
       "description": "Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Pago único, IVA incluido.",
@@ -118,7 +121,7 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
       "name": "¿Cuánto cuesta una canción personalizada?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "25€ en pago único, con IVA incluido y pago seguro por Stripe."
+        "text": "15€ en pago único, con IVA incluido y pago seguro por Stripe."
       }
     },
     {
@@ -227,7 +230,7 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
       Una canción única, con letra personalizada y voz, para tu ocasión
       especial. Tú eliges el estilo y el tema y creas tu canción con nuestra
       herramienta de IA; recibes 2 versiones en MP3 por email.
-      <strong>25€</strong>, pago único. IVA incluido.
+      <s class="precio-antes">25€</s> <strong class="precio-ahora">15€</strong>, pago único · IVA incluido · precio de lanzamiento.
     </p>
   </div>
 </section>
@@ -252,7 +255,7 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
 
 <section class="section-content" style="max-width: 900px; margin: 0 auto;">
   <span class="section-label">[02] Compra tu canción</span>
-  <h2 class="section-title">25 € · <span class="accent">pago único</span>.</h2>
+  <h2 class="section-title">15 € · <span class="accent">pago único</span> <s class="precio-antes">antes 25 €</s></h2>
   <div class="music-aviso">⏳ <strong>Importante:</strong> tras pagar tienes
     <strong>48 horas</strong> para crear tu canción con tu código. Pasado ese
     plazo, el código caduca.</div>
@@ -270,8 +273,8 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
       <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
     </label>
   </div>
-  <a class="service-cta cta-disabled" href="https://buy.stripe.com/8x26oH6L7aLNdp80AEbEA04" id="btn-pago" rel="nofollow" aria-disabled="true">Comprar mi canción →</a>
-  <p class="music-pago-nota">25 € · pago único · IVA incluido · pago seguro con Stripe.<br>
+  <a class="service-cta cta-disabled" href="https://buy.stripe.com/dRm9ATedzg67etcfvybEA0E" id="btn-pago" rel="nofollow" aria-disabled="true">Comprar mi canción →</a>
+  <p class="music-pago-nota"><s class="precio-antes">25 €</s> <strong class="precio-ahora">15 €</strong> · pago único · IVA incluido · precio de lanzamiento · pago seguro con Stripe.<br>
     Solo para clientes con domicilio fiscal en España. ¿El tuyo está fuera?
     <a href="mailto:daniel@arquitectodigital.io">Escríbenos</a> y lo vemos.</p>
   <p class="consent-note" id="cc-msg" role="status" aria-live="polite" style="text-align:center;">* Marca la primera casilla para poder comprar.</p>
@@ -336,7 +339,7 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
 
     <div>
       <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta una canción personalizada?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">25€ en pago único, con IVA incluido y pago seguro por Stripe.</p>
+      <p style="color: var(--text-dim); line-height: 1.6;">15€ en pago único, con IVA incluido y pago seguro por Stripe.</p>
     </div>
 
     <div>
