@@ -176,7 +176,7 @@
   <li><strong>DKIM (DomainKeys Identified Mail):</strong> firma criptográfica que verifica que el mensaje no fue alterado en tránsito. Sin DKIM, muchos filtros antispam aplican penalización directa.</li>
   <li><strong>DMARC:</strong> política que indica qué hacer cuando SPF o DKIM fallan. Sin DMARC, el dominio queda expuesto a suplantación y los grandes proveedores (Gmail, Outlook) lo saben.</li>
 </ul>
-<p>Es habitual encontrar listas con miles de suscriptores enviando desde un dominio sin DKIM configurado. El resultado es predecible: tasa de entrega baja, reputación de dominio deteriorada y, con el tiempo, bloqueos parciales en determinados proveedores de correo.</p>
+<p>Es habitual encontrar listas con miles de suscriptores enviando desde un dominio sin <a href="/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html">DKIM</a> configurado. El resultado es predecible: tasa de entrega baja, reputación de dominio deteriorada y, con el tiempo, bloqueos parciales en determinados proveedores de correo.</p>
 
 <div class="highlight">💡 Antes de enviar un solo email, verifica tu configuración con herramientas como MXToolbox o mail-tester.com. Un score por debajo de 9/10 en mail-tester es señal de que hay trabajo técnico pendiente.</div>
 
