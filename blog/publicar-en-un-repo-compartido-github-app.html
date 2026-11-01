@@ -4,7 +4,7 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Publicar en un repo que también tocan humanos: GitHub App, sha y por qué el bot nunca hace force-push · Arquitecto Digital</title>
+<title>Publicar en un repo que tocan humanos: GitHub App sin force-push</title>
 <meta name="description" content="Cómo convive un bot que publica por la API de GitHub con cambios hechos a mano en el mismo repo: tokens efímeros, concurrencia optimista y reglas de push.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html">
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html"
       },
       "datePublished": "2026-09-27",
-      "dateModified": "2026-09-27",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -93,6 +93,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Publicar en un repo que también tocan humanos: GitHub App, sha y por qué el bot nunca hace force-push",
+          "item": "https://arquitectodigital.io/blog/publicar-en-un-repo-compartido-github-app.html"
+        }
+      ]
     }
   ]
 }
@@ -141,8 +164,8 @@
     <div class="featured-wrap" id="art-publicar-en-un-repo-compartido-github-app">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-09-27">
-      <meta itemprop="dateModified" content="2026-09-27">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -156,19 +179,19 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Cómo convive un bot que publica por la API de GitHub con cambios hechos a mano en el mismo repo: tokens efímeros, concurrencia optimista y reglas de push.</p>
         <div class="af-content af-content-open" id="art-publicar-en-un-repo-compartido-github-app-content">
-          <h3>El escenario: un bot y una persona escribiendo en el mismo repositorio</h3>
+          <h2>El escenario: un bot y una persona escribiendo en el mismo repositorio</h2>
 <p>El blog de esta web lo publica un bot. Cada pocos días escribe un post y lo sube al repositorio de la web: la página del post, el índice del blog y el sitemap. En ese mismo repositorio trabajo yo a mano: cambios de diseño, páginas nuevas, correcciones. Dos escritores sobre los mismos ficheros, y uno de ellos no avisa antes de escribir.</p>
 
-<h3>Primera lección: un token que caduca en silencio</h3>
+<h2>Primera lección: un token que caduca en silencio</h2>
 <p>El sistema de publicación automática que usaba antes, para otros blogs míos, subía los posts con git push y un token personal de acceso de GitHub. Los tokens de grano fino caducan, y ese caducó a los 30 días. La publicación automática estuvo unos cinco días caída en silencio: el push fallaba, el error quedaba escrito en un log y no saltaba ninguna alerta. Lo descubrió una auditoría, no un aviso.</p>
 <p>Lo sustituí por una GitHub App. La diferencia es de diseño, no de comodidad: la App firma con su clave privada un JWT de vida muy corta (minutos), lo cambia por un token de instalación que dura una hora, y el bot lo cachea y lo renueva antes de que caduque. No hay credenciales de larga duración que puedan morir en silencio. Y la clave privada nunca se escribe en un registro.</p>
 
-<h3>Segunda lección: escribir sin pisar lo que no has visto</h3>
+<h2>Segunda lección: escribir sin pisar lo que no has visto</h2>
 <p>El bot no usa git: escribe por la API de contenidos de GitHub, fichero a fichero. Esa API tiene un mecanismo que resuelve la mitad del problema de la concurrencia: para actualizar un fichero hay que enviar el identificador (el sha) de la versión que leíste. Si alguien lo ha cambiado desde entonces, ese sha ya no es el actual y GitHub rechaza la escritura.</p>
 <p>Eso es concurrencia optimista, y cambia el tipo de fallo. En lugar de "el bot pisó el cambio de otro", el fallo pasa a ser "el bot no pudo publicar y lo dice". El error se clasifica como no reintentable: reintentar a ciegas la misma escritura con el mismo sha no puede salir bien. Y el post queda registrado como fallido, a la vista, y el bot avisa por Telegram en el momento: justo lo que faltaba con el token.</p>
 <p>Para las páginas de post, que son ficheros nuevos, la API funciona al revés: crear un fichero es escribir sin sha. Si el fichero ya existe (por ejemplo, al republicar un post), el bot lee primero su sha y lo actualiza en lugar de crear un duplicado.</p>
 
-<h3>Tercera lección: el orden de las escrituras es parte del diseño</h3>
+<h2>Tercera lección: el orden de las escrituras es parte del diseño</h2>
 <p>Publicar un post son hasta tres escrituras: la página, el índice y el sitemap. La API de contenidos no permite hacerlas en un único commit atómico, así que el orden decide qué pasa si algo falla a mitad:</p>
 <ul>
 <li><strong>Primero la página.</strong> Si falla, no se toca nada más y no queda un teaser apuntando a una página que no existe.</li>
@@ -177,7 +200,7 @@
 </ul>
 <p>Un único commit con varios ficheros (con la API de árboles de git) sería más limpio y lo tengo apuntado como mejora. Mientras tanto, el orden garantiza que un fallo deja el sitio coherente, aunque incompleto.</p>
 
-<h3>El lado humano: las mismas reglas, sin API que las imponga</h3>
+<h2>El lado humano: las mismas reglas, sin API que las imponga</h2>
 <p>Cuando trabajo a mano uso git normal, y ahí nadie me obliga a enviar el sha correcto. Así que me impongo las reglas equivalentes:</p>
 <ul>
 <li><strong>Fetch antes de push, y comprobar.</strong> Antes de subir, traigo el estado remoto y compruebo que el último commit remoto es el que espero. Si el bot ha publicado entretanto, no subo nada y reviso.</li>
@@ -188,7 +211,7 @@
 
 <div class="highlight">💡 La API te protege de pisar lo que no has visto. Con git a mano, esa protección la tienes que poner tú: fetch, comprobar y no forzar.</div>
 
-<h3>Resultado</h3>
+<h2>Resultado</h2>
 <p>El bot publica sin credenciales que caduquen, no puede sobrescribir un cambio que no ha visto, y cuando algo sale mal deja el sitio en un estado coherente y un registro de qué pasó. En el lado humano, un push que no cuadra con lo esperado se para en lugar de forzarse.</p>
 <p>No es un sistema sofisticado. Es tratar el repositorio como lo que es cuando hay un bot dentro: un recurso compartido con más de un escritor. Así funciona el <a href="/autoblog.html">blog automático con IA</a> que ofrezco como servicio.</p>
 
@@ -228,7 +251,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

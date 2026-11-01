@@ -4,7 +4,7 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Un motor, varios clientes: por qué “una URL por post” es opt-in y no un fork · Arquitecto Digital</title>
+<title>Un motor, varios clientes: «una URL por post» es opt-in, no fork</title>
 <meta name="description" content="Cómo añadí un modo nuevo a un publicador compartido sin cambiar nada a los demás sitios: claves opt-in, una foto de producción y una prueba golden byte a byte.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html">
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html"
       },
       "datePublished": "2026-09-27",
-      "dateModified": "2026-09-27",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -93,6 +93,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Un motor, varios clientes: por qué “una URL por post” es opt-in y no un fork",
+          "item": "https://arquitectodigital.io/blog/un-motor-varios-clientes-opt-in-no-fork.html"
+        }
+      ]
     }
   ]
 }
@@ -141,8 +164,8 @@
     <div class="featured-wrap" id="art-un-motor-varios-clientes-opt-in-no-fork">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-09-27">
-      <meta itemprop="dateModified" content="2026-09-27">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -156,11 +179,11 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Cómo añadí un modo nuevo a un publicador compartido sin cambiar nada a los demás sitios: claves opt-in, una foto de producción y una prueba golden byte a byte.</p>
         <div class="af-content af-content-open" id="art-un-motor-varios-clientes-opt-in-no-fork-content">
-          <h3>El punto de partida: un publicador, varios sitios</h3>
+          <h2>El punto de partida: un publicador, varios sitios</h2>
 <p>El blog de esta web lo publica un motor que escribe, revisa y sube los posts solo. Ese motor no es exclusivo de esta web: el mismo código de publicación sirve también a otros sitios míos, hoy en pausa. Hasta hace poco, todos funcionaban igual: el post entero se inyectaba como un bloque dentro de una única página de blog, con un ancla por artículo.</p>
 <p>Para el SEO de esta web eso tenía un techo: veintiocho posts dentro de una sola URL compiten entre sí y ninguno tiene su propia página que posicionar. Quería "una URL por post". Los demás sitios no lo necesitaban, y ninguno debía cambiar por lo que necesitaba este.</p>
 
-<h3>Por qué opt-in y no un fork</h3>
+<h2>Por qué opt-in y no un fork</h2>
 <p>Hay tres formas de meter un comportamiento nuevo en un código compartido, y solo una encaja cuando los demás no deben notar nada:</p>
 <ul>
 <li><strong>Un fork del publicador.</strong> Es rápido el primer día y caro para siempre: cada arreglo futuro hay que llevarlo a dos copias, y acaban divergiendo sin que nadie lo decida.</li>
@@ -169,7 +192,7 @@
 </ul>
 <p>Por eso el modo nuevo es opt-in. La condición era dura: para los sitios que no activan nada, la salida tenía que ser idéntica byte a byte, no "equivalente".</p>
 
-<h3>Cómo quedó el opt-in</h3>
+<h2>Cómo quedó el opt-in</h2>
 <ul>
 <li><strong>Dos claves, las dos o ninguna.</strong> El modo página necesita dónde guardar los posts y qué plantilla usar. Si solo está configurada una de las dos, el publicador ignora el modo nuevo, avisa en el registro y publica como siempre. Prefiero un post publicado a la antigua que uno a medias.</li>
 <li><strong>La plantilla vive en el repositorio del sitio, no en el bot.</strong> La cabecera, el pie y el diseño son del sitio. El bot solo rellena huecos: título, descripción, canonical, datos estructurados y artículo.</li>
@@ -177,18 +200,18 @@
 <li><strong>Un mapa de servicios relacionados.</strong> También en la configuración: según la categoría o el título, cada post enlaza al servicio que le corresponde.</li>
 </ul>
 
-<h3>Cómo demostré que los demás no cambiaban</h3>
+<h2>Cómo demostré que los demás no cambiaban</h2>
 <p>Antes de tocar una línea, hice un commit con el estado exacto que había en producción. Esa foto era la referencia.</p>
 <p>Encima monté una prueba golden: el mismo post de prueba pasa, en cada escenario, por el publicador viejo (sacado de esa foto) y por el nuevo, contra un GitHub simulado que registra cada escritura. Se comparan todas: qué fichero, con qué mensaje, contra qué versión y con qué contenido. Cuatro escenarios, que cubren los tipos de sitio que existen: uno con datos estructurados en el índice, uno antiguo sin ellos, uno multidioma con el blog en una subcarpeta, y esta misma web antes de activar nada. Los cuatro dieron idéntico.</p>
 <p>Sin las claves, el código nuevo se comporta igual que el viejo: eso es lo que prueba el golden. El cambio real llegó al añadir las claves en la configuración cifrada de este cliente y reiniciar el servicio, y la vuelta atrás era restaurar la configuración anterior.</p>
 
-<h3>La segunda vez, con lo aprendido</h3>
+<h2>La segunda vez, con lo aprendido</h2>
 <p>Poco después volví a tocar el mismo publicador: datos estructurados más completos en cada post (autor, editor, imagen y las preguntas frecuentes como FAQPage). El mismo patrón: tres claves opt-in, valores por defecto que reproducen lo de antes, y el golden de los cuatro escenarios otra vez idéntico.</p>
 <p>Esa segunda vez encontré un hueco en mi propia red: el golden no cubría el modo página, porque cuando lo escribí ese modo no existía. Hice una comprobación puntual del modo página sin las claves nuevas, contra el código anterior, antes de dar el cambio por bueno; meterla en el golden como escenario fijo sigue pendiente. La suite del módulo pasó de 445 a 451 tests en verde.</p>
 
 <div class="highlight">💡 Una prueba golden es tan buena como sus escenarios. Cada vez que el sistema gana un modo nuevo, el golden tiene que ganar un escenario.</div>
 
-<h3>Lo que cuesta este enfoque</h3>
+<h2>Lo que cuesta este enfoque</h2>
 <ul>
 <li><strong>Las ramas se acumulan.</strong> Cada opt-in es un "si está configurado, haz esto". Con dos o tres es manejable; con quince, el publicador sería un laberinto. Toca revisarlos y, cuando todos los clientes usan un modo, convertirlo en el comportamiento por defecto.</li>
 <li><strong>La configuración pasa a ser código.</strong> Una clave mal escrita cambia el comportamiento en producción. Por eso las claves inválidas se ignoran con aviso en vez de romper, y por eso añadir una clave sigue un procedimiento con copia de seguridad previa.</li>
@@ -232,7 +255,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

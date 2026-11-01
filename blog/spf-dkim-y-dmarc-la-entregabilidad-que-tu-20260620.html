@@ -4,8 +4,8 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita · Arquitecto Digital</title>
-<meta name="description" content="Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.">
+<title>SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita</title>
+<meta name="description" content="Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Lo que necesitas entender como responsable de una pyme.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html">
 
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html"
       },
       "datePublished": "2026-06-20",
-      "dateModified": "2026-06-20",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -101,6 +101,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SPF, DKIM y DMARC: la entregabilidad que tu newsletter necesita",
+          "item": "https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html"
+        }
+      ]
     }
   ]
 }
@@ -149,8 +172,8 @@
 <div class="featured-wrap" id="art-spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-06-20">
-      <meta itemprop="dateModified" content="2026-06-20">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -164,22 +187,22 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Sin SPF, DKIM y DMARC configurados, tus newsletters acaban en spam antes de que nadie las lea. Aquí tienes lo que necesitas entender como responsable de una pyme.</p>
         <div class="af-content af-content-open" id="art-spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620-content">
-          <h3>El problema real: no es el contenido, es la reputación técnica</h3>
+          <h2>El problema real: no es el contenido, es la reputación técnica</h2>
 <p>Muchas pymes invierten tiempo en redactar una newsletter decente, eligen un buen asunto, cuidan el diseño, y aun así los correos no llegan. La tasa de apertura es ridícula. El equipo culpa al contenido. Cambian el asunto. Vuelven a enviar. Mismo resultado.</p>
 <p>El problema casi nunca está en el texto. Está en la capa técnica que los servidores de correo usan para decidir si tu mensaje es legítimo o basura. Y esa capa tiene tres nombres: <strong>SPF, DKIM y DMARC</strong>.</p>
 <p>No son opcionales. No son tecnicismos para ingenieros. Son el pasaporte que necesita tu email para cruzar la frontera de la bandeja de entrada.</p>
 
-<h3>Qué es SPF y qué problema resuelve</h3>
+<h2>Qué es SPF y qué problema resuelve</h2>
 <p><strong>SPF (Sender Policy Framework)</strong> es un registro DNS que declara qué servidores tienen permiso para enviar correo en nombre de tu dominio. Sin él, cualquier servidor del mundo puede mandar un email que aparezca como si viniera de <em>info@tuempresa.com</em>.</p>
 <p>Cuando el servidor receptor recibe un email tuyo, consulta tu DNS y pregunta: "¿está este servidor en la lista autorizada?". Si no hay lista, o si el servidor no aparece en ella, el mensaje pierde puntos de reputación. Muchos filtros lo mandan directamente a spam.</p>
 <p>Un registro SPF mal configurado o ausente es uno de los errores más comunes que se ven en pymes que usan plataformas de email marketing sin haber tocado el DNS de su dominio.</p>
 
-<h3>Qué es DKIM y por qué no basta con SPF</h3>
+<h2>Qué es DKIM y por qué no basta con SPF</h2>
 <p><strong>DKIM (DomainKeys Identified Mail)</strong> añade una firma criptográfica a cada email que envías. Es la diferencia entre decir "soy yo quien manda esto" y poder <em>demostrarlo</em>.</p>
 <p>SPF verifica el origen del servidor. DKIM verifica que el contenido del mensaje no ha sido alterado en tránsito. Son complementarios, no intercambiables. Un email puede pasar SPF y fallar DKIM si alguien modificó el contenido durante el envío, o si la plataforma de envío no está correctamente configurada con las claves de tu dominio.</p>
 <p>La firma DKIM se publica también en tu DNS como un registro TXT. Cuando la plataforma de envío firma el email con la clave privada y el receptor verifica con la clave pública del DNS, el circuito se cierra. Si algo no cuadra, el email pierde credibilidad ante el filtro.</p>
 
-<h3>Qué es DMARC y cómo une todo lo anterior</h3>
+<h2>Qué es DMARC y cómo une todo lo anterior</h2>
 <p><strong>DMARC (Domain-based Message Authentication, Reporting and Conformance)</strong> es la política que decides publicar para decirle al mundo qué hacer cuando un email de tu dominio falla SPF o DKIM.</p>
 <p>Tienes tres opciones de política:</p>
 <ul>
@@ -191,12 +214,12 @@
 
 <div class="highlight">💡 Un dominio sin DMARC configurado es un dominio que no controla su propia reputación. Cualquier spammer puede enviar emails que parezcan tuyos, y tú no recibirás ninguna alerta.</div>
 
-<h3>Lo que suele salir mal en pymes</h3>
+<h2>Lo que suele salir mal en pymes</h2>
 <p>Hay patrones que se repiten. El más habitual: una pyme contrata una plataforma de email marketing, importa su lista y empieza a enviar sin tocar el DNS. La plataforma envía desde sus propios servidores, pero el dominio del remitente es el tuyo. Sin SPF que autorice esos servidores, sin DKIM firmado con tu dominio, los filtros de Gmail, Outlook y Yahoo lo ven con sospecha.</p>
 <p>Otro patrón frecuente: el SPF existe pero está mal construido. Tiene demasiadas consultas DNS encadenadas (el límite es 10), o incluye rangos de IP demasiado amplios que los filtros modernos penalizan. Un registro SPF técnicamente válido puede seguir siendo un problema si está mal diseñado.</p>
 <p>También es habitual ver dominios con DMARC en política <em>none</em> que llevan meses así, sin que nadie haya revisado los informes. La política <em>none</em> sin revisión periódica es como tener una cámara de seguridad sin mirar las grabaciones.</p>
 
-<h3>Por qué esto importa especialmente si usas automatización</h3>
+<h2>Por qué esto importa especialmente si usas automatización</h2>
 <p>Si tu estrategia de comunicación incluye newsletters automatizadas, la entregabilidad técnica no es un detalle secundario: es la base sobre la que descansa todo lo demás. Puedes tener segmentación sofisticada, A/B testing bien planteado y contenido relevante. Si el email no llega a la bandeja de entrada, nada de eso importa.</p>
 <p>En el servicio de newsletter que gestionamos, la configuración de SPF y DKIM forma parte de las buenas prácticas anti-spam que se aplican desde el inicio, antes de enviar el primer mensaje. No es un añadido posterior: es parte de la arquitectura de entregabilidad.</p>
 
@@ -205,7 +228,7 @@
 "Actúa como especialista en entregabilidad de email. Tengo un dominio [tudominio.com] y uso [nombre de la plataforma] para enviar newsletters. Dame una lista de verificación técnica para comprobar si SPF, DKIM y DMARC están correctamente configurados, qué herramientas gratuitas puedo usar para validarlos, y qué errores comunes debo buscar en cada registro DNS."
 </div>
 
-<h3>Cómo diagnosticar tu estado actual</h3>
+<h2>Cómo diagnosticar tu estado actual</h2>
 <p>Antes de tocar nada, conviene saber dónde estás. Hay herramientas públicas que permiten consultar los registros DNS de tu dominio y ver si SPF, DKIM y DMARC existen y están bien formados. MXToolbox, mail-tester.com o las herramientas de diagnóstico de Google Postmaster son puntos de partida razonables.</p>
 <p>Lo que debes buscar:</p>
 <ul>
@@ -215,7 +238,7 @@
 </ul>
 <p>Si la respuesta a cualquiera de estas preguntas es "no sé" o "no", tienes trabajo pendiente antes de escalar el volumen de envíos.</p>
 
-<h3>El coste de ignorarlo</h3>
+<h2>El coste de ignorarlo</h2>
 <p>Una lista de correo bien construida es un activo de negocio. Cuesta tiempo y dinero conseguir suscriptores de calidad. Perder entregabilidad por no haber configurado tres registros DNS es uno de los errores más evitables que existen, y uno de los más costosos en términos de reputación de dominio a largo plazo.</p>
 <p>Los filtros de spam tienen memoria. Un dominio que acumula quejas o bajas tasas de apertura durante meses tarda tiempo en recuperar su reputación, incluso después de corregir los problemas técnicos.</p>
 <p>Si tu newsletter forma parte de tu estrategia de captación o fidelización, la entregabilidad técnica merece la misma atención que el contenido. Sin esa base, el resto del trabajo se construye sobre arena.</p>
@@ -261,7 +284,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

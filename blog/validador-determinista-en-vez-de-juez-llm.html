@@ -4,7 +4,7 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cambié un juez LLM por un validador determinista: la reja que no deja pasar cifras inventadas · Arquitecto Digital</title>
+<title>Cambié un juez LLM por un validador determinista</title>
 <meta name="description" content="Por qué un modelo no debe juzgar las cifras de otro, cómo funciona una comprobación determinista de números y qué obliga a cambiar en la base de conocimiento.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html">
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html"
       },
       "datePublished": "2026-09-27",
-      "dateModified": "2026-09-27",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -93,6 +93,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cambié un juez LLM por un validador determinista: la reja que no deja pasar cifras inventadas",
+          "item": "https://arquitectodigital.io/blog/validador-determinista-en-vez-de-juez-llm.html"
+        }
+      ]
     }
   ]
 }
@@ -141,8 +164,8 @@
     <div class="featured-wrap" id="art-validador-determinista-en-vez-de-juez-llm">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-09-27">
-      <meta itemprop="dateModified" content="2026-09-27">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -156,14 +179,14 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Por qué un modelo no debe juzgar las cifras de otro, cómo funciona una comprobación determinista de números y qué obliga a cambiar en la base de conocimiento.</p>
         <div class="af-content af-content-open" id="art-validador-determinista-en-vez-de-juez-llm-content">
-          <h3>El problema: un chatbot que da precios</h3>
+          <h2>El problema: un chatbot que da precios</h2>
 <p>El asistente de esta web contesta preguntas sobre mis servicios, y entre las preguntas que recibe están las de dinero: cuánto cuesta, qué incluye, cuánto tarda. Un precio inventado no es un error de redacción: es un compromiso que no he hecho. La última barrera antes de enviar una respuesta es una comprobación de cifras, y la he tenido que rehacer entera.</p>
 
-<h3>Primera versión: un modelo juzgando a otro modelo</h3>
+<h2>Primera versión: un modelo juzgando a otro modelo</h2>
 <p>La primera comprobación era la solución obvia: sacar las afirmaciones con cifras de la respuesta y pedirle a un modelo pequeño que juzgara si cada una estaba respaldada por los fragmentos recuperados. Costaba una llamada extra al modelo por cada respuesta con números.</p>
 <p>El resultado no justificaba la llamada. El juez tumbaba respuestas correctas porque "no le cuadraban". Y cuando rechazaba, señalaba la afirmación, pero no las cifras que sí había en la fuente, así que costaba ver qué había que corregir.</p>
 
-<h3>La decisión: una reja determinista</h3>
+<h2>La decisión: una reja determinista</h2>
 <p>Lo sustituí por algo sin modelo: un normalizador de números que ya usaba en otros pipelines de contenido. La lógica cabe en una línea: se extraen los valores numéricos de los fragmentos recuperados, se extraen los de cada afirmación de la respuesta, y cada precio, porcentaje o cantidad de la respuesta tiene que estar en la fuente.</p>
 <p>La parte con criterio está en qué cuenta como "estar":</p>
 <ul>
@@ -174,14 +197,14 @@
 </ul>
 <p>Cuando la reja rechaza, esa respuesta no se envía: el usuario recibe un mensaje que le pide confirmar el dato con una persona, y el rechazo queda registrado con la cifra que sobraba y las que había en la fuente. El resto del pipeline no se tocó ni una línea; la reja respeta la misma interfaz que el juez al que sustituye.</p>
 
-<h3>Lo que costó: dos fugas que los tests no veían</h3>
+<h2>Lo que costó: dos fugas que los tests no veían</h2>
 <p>Hubo dos agujeros que solo aparecieron al exigir ver la salida real y no el recuento de tests en verde:</p>
 <ul>
 <li><strong>Un test que no probaba nada.</strong> Uno de los casos usaba "3 planes", que el extractor ni siquiera considera una afirmación. El test pasaba sin ejercitar la reja. Lo cambié por "El plan cuesta 3 €".</li>
 <li><strong>Un precio disfrazado de año.</strong> Para no rechazar fechas, los números entre 1900 y 2199 tenían una exención. Así, un "2.100 €" inventado se colaba como si fuera un año, igual que "desde enero de 2026 cuesta 2.100 €". La solución fue que las cifras de dinero nunca reciben la exención de fechas, ni por su valor ni por el contexto.</li>
 </ul>
 
-<h3>El precio real: te obliga a diseñar el corpus</h3>
+<h2>El precio real: te obliga a diseñar el corpus</h2>
 <p>Una reja así no es gratis en diseño. Solo acepta cifras presentes en los fragmentos recuperados para esa consulta concreta, así que la base de conocimiento tiene que estar pensada para ello:</p>
 <ul>
 <li><strong>Trocear por pregunta, no por servicio.</strong> Cada fragmento responde una pregunta real de principio a fin.</li>
@@ -193,7 +216,7 @@
 
 <div class="highlight">💡 El cambio no fue "quitar la IA". Fue poner cada cosa donde rinde: el modelo redacta; una regla determinista decide si una cifra existe.</div>
 
-<h3>Resultado</h3>
+<h2>Resultado</h2>
 <p>Coste por respuesta de la comprobación: de una llamada al modelo a cero. Sin latencia de red, reproducible (la misma respuesta da siempre el mismo veredicto) y con rechazos que dicen qué hay que corregir. Salió con 24 tests nuevos, incluidos los dos casos de las fugas. Lo que queda abierto es llevarla al generador de este blog, donde primero hay que probarla en modo observación para no convertirla en un cerrojo.</p>
 <p>Si quieres un chatbot que no se invente tus precios, esta es la comprobación que tiene el asistente de esta web y que se puede activar en el tuyo: <a href="/chatbot.html">chatbot para empresas</a>. Y los fallos que van más allá de las cifras, en <a href="/blog/chatbots-para-empresas-por-que-fallan.html">chatbots para empresas: por qué fallan y cómo evitarlo</a>.</p>
 
@@ -233,7 +256,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

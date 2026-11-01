@@ -663,7 +663,8 @@ footer {
   gap: 40px;
   margin-bottom: 40px;
 }
-.footer-brand h4 {
+.footer-brand h4,
+.footer-brand .footer-logo {
   font-family: 'Fraunces', serif;
   color: var(--orange);
   font-size: 1.6em;

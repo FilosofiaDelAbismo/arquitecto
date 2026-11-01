@@ -17,9 +17,29 @@
 
 - [Utilidades gratis](https://arquitectodigital.io/utilidades/): herramientas gratuitas que funcionan enteras en el navegador.
 - [Blog](https://arquitectodigital.io/blog.html): artículos sobre automatización con IA para pymes.
-- [Portfolio](https://arquitectodigital.io/portfolio.html): piezas reales de trabajo por rama.
+- [Portfolio y sobre mí](https://arquitectodigital.io/portfolio.html): trabajo real en producción: vídeo, libros, música, chatbot, GiroBot y seis webs por sector.
+- [Información completa](https://arquitectodigital.io/llms-full.txt): planes, precios y preguntas frecuentes de cada servicio en texto plano.
+
+## Autor
+
+- Daniel González Barquero, ingeniero full-stack senior y fundador de Arquitecto Digital, en El Puerto de Santa María (Cádiz, España). Diseña, construye y mantiene sistemas de IA en producción.
+- Sobre mí: https://arquitectodigital.io/portfolio.html#sobre-mi
+- Perfiles: https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/ · https://x.com/arqdigital_io
+
+## Artículos principales
+
+- [RAG explicado: por qué tu chatbot alucina y cómo corregirlo](https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html)
+- [Antes de montar un chatbot RAG: preparar la documentación](https://arquitectodigital.io/blog/antes-de-montar-un-chatbot-rag-preparar-la-20260923.html)
+- [Por qué fallan los chatbots de empresa (y cómo evitarlo)](https://arquitectodigital.io/blog/chatbots-para-empresas-por-que-fallan.html)
+- [POC vs. producción: qué preguntas responde cada una](https://arquitectodigital.io/blog/poc-vs-produccion-que-preguntas-responde-cada-una-20261016.html)
+- [Sprint cerrado o consultoría por hora: cuál te conviene](https://arquitectodigital.io/blog/sprint-cerrado-o-consultoria-por-hora-cual-te-20260916.html)
+- [Portabilidad IA: checklist antes de firmar con un proveedor](https://arquitectodigital.io/blog/portabilidad-ia-checklist-antes-de-firmar-con-un-20260927.html)
+- [Las dos puertas de calidad de un autoblog que publica solo](https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html)
+- [Web propia vs. Wix/Squarespace: el coste real del lock-in](https://arquitectodigital.io/blog/web-propia-vs-wix-squarespace-el-coste-real-20260619.html)
 
 ## Contacto
 
 - Email: daniel@arquitectodigital.io
 - Teléfono / WhatsApp: 743 08 86 55
+
+Última actualización: 2026-11-01

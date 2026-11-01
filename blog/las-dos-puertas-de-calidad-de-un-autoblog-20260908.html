@@ -4,8 +4,8 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Las dos puertas de calidad de un autoblog que publica solo · Arquitecto Digital</title>
-<meta name="description" content="Generar artículos automáticamente es fácil. Publicarlos sin revisarlos es temerario. Cómo funcionan las dos puertas que un post tiene que cruzar antes de salir, y por qué a veces no las cruza.">
+<title>Las dos puertas de calidad de un autoblog que publica solo</title>
+<meta name="description" content="Generar artículos es fácil; publicarlos sin revisar, temerario. Las dos puertas que cruza un post antes de salir y por qué a veces no las cruza.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html">
 
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html"
       },
       "datePublished": "2026-09-08",
-      "dateModified": "2026-09-08",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -93,6 +93,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Las dos puertas de calidad de un autoblog que publica solo",
+          "item": "https://arquitectodigital.io/blog/las-dos-puertas-de-calidad-de-un-autoblog-20260908.html"
+        }
+      ]
     }
   ]
 }
@@ -141,8 +164,8 @@
 <div class="featured-wrap" id="art-las-dos-puertas-de-calidad-de-un-autoblog-20260908">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-09-08">
-      <meta itemprop="dateModified" content="2026-09-08">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -160,19 +183,19 @@
 
 <p>Es la pregunta correcta, y merece una respuesta concreta en vez de un "tenemos control de calidad". Así que voy a contar cómo está montado el mío.</p>
 
-<h3>El punto de partida: de dónde sale el contenido</h3>
+<h2>El punto de partida: de dónde sale el contenido</h2>
 
 <p>El servicio de autoblog genera con IA premium sobre un <a href="/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html">RAG personalizado</a> por cliente: el artículo se ancla en tu propio material de marca, no en lo que el modelo recuerde de internet. Además incluye schema markup, SEO técnico —alt tags, meta— e integración con WordPress, con programación por cliente. El volumen va de 2 a 16 artículos al mes según el plan.</p>
 
 <p>Eso resuelve el tema y el tono. No resuelve la verdad de lo que se afirma. Para eso están las puertas.</p>
 
-<h3>Primera puerta: revisión editorial</h3>
+<h2>Primera puerta: revisión editorial</h2>
 
 <p>Cada borrador pasa por una revisión que puntúa ortografía, coherencia, fidelidad al negocio, tono, valor real del artículo y riesgos. Devuelve una puntuación y una lista de problemas. Si no llega al umbral, el post no se publica: queda retenido esperando decisión humana.</p>
 
 <p>Esta puerta caza lo que suena mal. Es necesaria y es insuficiente, y sé por qué: un artículo puede estar perfectamente escrito y decir una cifra falsa con total aplomo. La revisión editorial le da una nota alta porque, editorialmente, es un buen artículo.</p>
 
-<h3>Segunda puerta: verificación de cifras</h3>
+<h2>Segunda puerta: verificación de cifras</h2>
 
 <p>De ahí salió la segunda puerta, que es la que de verdad protege. Un verificador extrae del borrador toda afirmación cuantitativa —precios, porcentajes, estadísticas, plazos, superlativos, citas a estudios— y contrasta cada una contra el material del cliente. Lo que no está respaldado, se rechaza. Y el rechazo es un veto: da igual la nota editorial.</p>
 
@@ -180,7 +203,7 @@
 
 <div class="highlight">💡 Las dos puertas miden cosas distintas y hay que tener las dos. La editorial pregunta "¿está bien escrito?". La de cifras pregunta "¿es verdad?". Un texto puede aprobar la primera y suspender la segunda sin ninguna contradicción.</div>
 
-<h3>La caja de precios</h3>
+<h2>La caja de precios</h2>
 
 <p>Hay una regla adicional que merece mención aparte porque resuelve un problema concreto: el generador tiene prohibido escribir una cifra de precio. Literalmente. Si el borrador contiene una cantidad con símbolo de moneda, se rechaza la generación entera.</p>
 
@@ -188,23 +211,23 @@
 
 <div class="prompt-box">Si estás evaluando cualquier servicio de blog automático, pregunta esto: "¿qué pasa si el artículo se inventa un precio mío?". Si la respuesta habla de revisar después de publicar, el control no existe. La comprobación tiene que ocurrir antes de tocar la web.</div>
 
-<h3>Qué pasa cuando un post no pasa</h3>
+<h2>Qué pasa cuando un post no pasa</h2>
 
 <p>Se queda retenido, en una cola de revisión. Alguien lo mira, decide, y lo aprueba o lo descarta. No se publica automáticamente "porque tocaba publicar hoy".</p>
 
 <p>Esto tiene un coste real: hay huecos. Un mes puede salir con menos artículos de los previstos porque dos se quedaron retenidos. Prefiero explicar ese hueco que explicar por qué tu blog afirmó un dato falso.</p>
 
-<h3>Los planes</h3>
+<h2>Los planes</h2>
 
 <p>El autoblog es una cuota mensual, según el volumen: desde 41€ el plan Starter, 84€ el Essential, 158€ el Profesional y 296€ el Premium. Lo que cambia entre ellos es el número de artículos al mes; el control de calidad es el mismo en todos.</p>
 
-<h3>Lo que no se promete</h3>
+<h2>Lo que no se promete</h2>
 
 <p>No prometo posiciones en Google. Nadie serio lo hace. Un blog con publicación constante, contenido anclado en tu negocio y SEO técnico correcto es una base sólida, y el resto depende de tu sector, tu competencia y el tiempo.</p>
 
 <p>Lo que sí prometo es lo verificable: que lo que se publica ha cruzado las dos puertas, y que si no las cruza, no se publica.</p>
 
-<h3>El duplicado interno, el problema que crece con el tiempo</h3>
+<h2>El duplicado interno, el problema que crece con el tiempo</h2>
 
 <p>Las dos primeras puertas protegen de errores. La tercera protege de algo distinto: de ti mismo dentro de un año.</p>
 
@@ -212,13 +235,13 @@
 
 <p>Por eso cada borrador se compara con los artículos anteriores del cliente antes de publicarse, y el que se parece demasiado se retiene. Es la puerta menos vistosa y la que más valor acumula con el tiempo.</p>
 
-<h3>La programación por cliente</h3>
+<h2>La programación por cliente</h2>
 
 <p>Cada cliente tiene su propia cadencia: el sistema calcula cuándo toca el siguiente artículo según el volumen del plan y lo publica en ese momento. No hay un día de la semana fijo para todos.</p>
 
 <p>Esto importa por una razón práctica: la constancia pesa más que la frecuencia. Un blog con dos artículos al mes durante dos años funciona mejor que uno con dieciséis artículos un mes y silencio los cinco siguientes. La programación automática es lo que sostiene esa constancia cuando la persona está ocupada, que es siempre.</p>
 
-<h3>Lo que sigue necesitando una persona</h3>
+<h2>Lo que sigue necesitando una persona</h2>
 
 <p>Decidir sobre lo retenido. Un post que no pasa las puertas necesita a alguien que lo lea y decida si se corrige, se aprueba o se descarta. Eso no se automatiza sin renunciar a la razón de ser del control.</p>
 
@@ -260,7 +283,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

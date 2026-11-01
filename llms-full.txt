@@ -1,0 +1,259 @@
+# Arquitecto Digital · información completa
+
+> Versión extendida de https://arquitectodigital.io/llms.txt. Datos copiados de los datos estructurados (JSON-LD) de cada página: descripción, planes con precio y preguntas frecuentes. Precios con IVA incluido salvo que se indique. Última actualización: 2026-11-01.
+
+## Quién
+
+Arquitecto Digital es el estudio de Daniel González Barquero, ingeniero full-stack senior afincado en El Puerto de Santa María (Cádiz, España). Diseña, construye y mantiene sistemas de IA a medida para empresas: chatbots con RAG sobre tu documentación, automatización de procesos y productos digitales.
+
+- Web: https://arquitectodigital.io/
+- Sobre el autor: https://arquitectodigital.io/portfolio.html#sobre-mi
+- Email: daniel@arquitectodigital.io
+- Teléfono / WhatsApp: +34 743 08 86 55
+- Zona: El Puerto de Santa María (Cádiz). Atiende en toda España.
+
+## Chatbot para empresas
+
+URL: https://arquitectodigital.io/chatbot.html
+
+Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup desde 529€; planes mensuales desde 84€/mes. Todos los precios con IVA incluido.
+
+### Planes y precios
+
+- POC · 7 días: 158 €. RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. Deducible del Setup si contratas. Pago único, IVA incluido.
+- Setup Widget Web: desde 529 €. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
+- Setup Telegram: 849 €. Canales web widget + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
+- Recurring Light: 84 €/mes. Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
+- Recurring Medium: 190 €/mes. Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
+- Recurring Pro: 423 €/mes. Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA incluido.
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta un chatbot con IA para mi empresa?**
+El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, que es deducible del Setup si después contratas. El Setup completo va desde 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA incluido.
+
+**¿Cuánto se tarda en tener el chatbot funcionando?**
+En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar.
+
+**¿Tengo permanencia? ¿Puedo cancelar cuando quiera?**
+No hay permanencia en ningún formato. La POC y el Setup son pago único sin permanencia. El plan recurrente es mes a mes y lo cancelas cuando quieras desde la propia consola, sin penalización y sin letra pequeña.
+
+**¿En qué idioma responde el chatbot?**
+En el idioma en el que le escribas. Al estar basado en IA, entiende y responde en múltiples idiomas sin configuración extra.
+
+**¿En qué se diferencia de Tidio o ManyChat?**
+No es un chatbot de plantilla: usa RAG sobre tus documentos, así que responde sobre tus reglas y no sobre material genérico. Es multi-canal (widget web + Telegram), no tiene vendor lock-in y la arquitectura está documentada, de forma que puedes migrar a otro proveedor sin rehacer el knowledge base.
+
+**¿Qué pasa con mis datos y mis documentos?**
+Tus documentos y conversaciones se procesan cumpliendo el RGPD. Puedes exportar el corpus y los logs cuando quieras. No hay vendor lock-in: la arquitectura está documentada y migras a otro proveedor sin rehacer el knowledge base.
+
+**¿Qué soporte tengo si el chatbot deja de funcionar?**
+Los tickets ordinarios van por email, con respuesta en menos de 48h en plan recurring y prioritaria en el plan Pro. Para incidencias críticas (chatbot caído) hay WhatsApp y Telegram. La atención es en horario laboral peninsular.
+
+## Sistemas Personalizados
+
+URL: https://arquitectodigital.io/sistemas.html
+
+Sistemas IA a medida para casos que no encajan en los servicios estándar. Sprint cerrado con presupuesto fijo previo desde 2.650€ en pago único, o consultoría por hora a 100€/h con mínimo de 2h por sesión. IVA incluido. Los sprints medio y complejo y el mantenimiento mensual son a presupuesto según alcance.
+
+### Planes y precios
+
+- Sprint simple: desde 2.650 €. 3-5 días de trabajo dedicado, alcance cerrado por escrito, documentación incluida. Pago único, IVA incluido.
+- Consultoría por hora: 100 €/h. Para auditorías, dudas técnicas o sprints sueltos. Mínimo 2h por sesión, facturación quincenal, tope acordado por bolsa. IVA incluido.
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta un sistema a medida?**
+El sprint cerrado parte de 2.650€ en pago único, con presupuesto fijo acordado antes de empezar. Los sprints medio y complejo van a presupuesto a medida según el alcance. Y hay consultoría por hora a 100€/h con un mínimo de 2h por sesión. Todo con IVA incluido.
+
+**¿Cómo sé lo que voy a pagar antes de empezar?**
+Antes de cualquier presupuesto hay una sesión de 30 a 60 minutos para entender el caso, y de ahí sale un documento de alcance cerrado por escrito. Si después surge una ampliación, se cotiza aparte como sprint nuevo.
+
+**¿Cómo se paga un sistema a medida?**
+El pago de un sistema a medida depende del sprint. El simple es 100% al inicio. El medio es 50% al inicio y 50% al cierre. El complejo es 30% al inicio, 35% a mitad y 35% al cierre. Sin cláusulas de continuidad obligatoria.
+
+**¿Me quedo atado a ti para mantenerlo?**
+No: cada sprint de sistemas a medida de Arquitecto Digital termina con documentación de arquitectura, ejecución y mantenimiento, de forma que tu equipo puede operar el sistema sin depender de mí. Si prefieres, puedes contratar mantenimiento mensual, que va por cotización según el sistema.
+
+**¿De quién es el código de un sistema a medida?**
+El código es tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si se despliega en la mía, se te transfiere acceso completo y/o se migra al cierre. Sin lock-in vendor.
+
+## Autoblog IA SEO
+
+URL: https://arquitectodigital.io/autoblog.html
+
+Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, con 14 días de trial e IVA incluido. El plan Enterprise (32+ posts/mes, API access) es por cotización.
+
+### Planes y precios
+
+- Starter: 41 €/mes. 2 posts/mes, QA con Sonnet + fact-guard, schema markup + meta SEO. Trial 14 días. IVA incluido.
+- Essential: 84 €/mes. 4 posts/mes, QA con Sonnet + fact-guard, schema markup + meta SEO. Trial 14 días. IVA incluido.
+- Profesional: 158 €/mes. 8 posts/mes, soporte prioritario, QA Sonnet + fact-guard. Trial 14 días. IVA incluido.
+- Premium: 296 €/mes. 16 posts/mes, corpus personalizado, soporte prioritario. Trial 14 días. IVA incluido.
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta un autoblog con IA?**
+Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA incluido y con 14 días de trial. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
+
+**¿Cuánto tarda en publicarse el primer artículo?**
+La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
+
+**¿Los artículos se publican sin que yo los vea?**
+No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por un QA con Sonnet y un fact-guard, e incluye schema markup y meta SEO.
+
+**¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?**
+Hay 14 días de prueba en cualquier plan recurring y no hay permanencia mínima después: cancelas cuando quieras desde la consola. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
+
+**¿Escribe sobre mis temas o son artículos genéricos?**
+Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido sobre tu material documentado (notas, decks, artículos previos). El plan Premium incluye corpus personalizado.
+
+## Webs Personalizadas
+
+URL: https://arquitectodigital.io/webs.html
+
+Webs profesionales para empresas, autónomos y particulares: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Desde 954€ en pago único, IVA incluido. El mantenimiento mensual es por cotización según la web.
+
+### Planes y precios
+
+- Essential: desde 954 €. 1 página con 5 secciones, diseño responsive, SEO básico + meta tags, sección de contacto con tus datos. Pago único, IVA incluido.
+- Pro: desde 2.650 €. Home + 4-6 páginas internas, blog integrado o conectado a autoblog, chatbot IA integrable contratándolo aparte, SEO técnico completo + sitemap. Pago único, IVA incluido.
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta una web profesional?**
+Desde 954€ en pago único el plan Essential (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro va desde 2.650€ e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap. IVA incluido. El mantenimiento mensual es opcional y va por cotización según la web.
+
+**¿Cuánto tarda en entregarse una web?**
+La web Essential de Arquitecto Digital se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.
+
+**¿Qué incluye y qué no incluye el precio?**
+Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
+
+**¿La web es mía o me quedo atado a una plataforma?**
+La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin lock-in.
+
+**¿Puedo ver un ejemplo real de vuestro trabajo?**
+Sí: arquitectodigital.io es HTML estático en GitHub Pages, hecho con esta misma propuesta, y puedes verlo en producción.
+
+## Crea tu canción
+
+URL: https://arquitectodigital.io/crea-tu-cancion.html
+
+Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
+
+### Planes y precios
+
+- Canción personalizada: 15 €. Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Pago único, IVA incluido.
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta una canción personalizada?**
+15€ en pago único, con IVA incluido y pago seguro por Stripe.
+
+**¿Cómo funciona Crea tu Canción?**
+Crea tu Canción funciona en 4 pasos. Pagas la canción, eliges estilo (pop, balada, reggaetón, ranchera…) y tema (cumpleaños, aniversario, homenaje, pedir perdón…), la IA escribe la letra y tú la validas o pides otra, y por último se genera la canción y recibes 2 versiones por email.
+
+**¿En qué idioma puede estar la canción?**
+En el que quieras. Eliges el idioma igual que eliges el estilo y el tema.
+
+**¿Qué recibo exactamente con Crea tu Canción?**
+Con Crea tu Canción recibes 2 versiones de la misma canción en MP3 por email. Son 2 tomas de la misma letra y el mismo estilo.
+
+**¿Cuánto tiempo tengo para crear la canción después de pagar?**
+En Crea tu Canción tienes 48 horas: tras pagar recibes un código y tienes ese plazo para crear tu canción con él. Pasado ese plazo, el código caduca.
+
+**¿Puedo comprarla si vivo fuera de España?**
+El servicio es solo para clientes con domicilio fiscal en España. Si el tuyo está fuera, escribe a daniel@arquitectodigital.io y se ve caso por caso.
+
+## Audio → Libro
+
+URL: https://arquitectodigital.io/audio-libro.html
+
+Convierte tus audios, podcasts o conferencias en un libro digital con transcripción profesional y entrega en 48h. Desde 149€ en pago único, IVA incluido. Entrega 100% digital, sin versión impresa.
+
+### Planes y precios
+
+- Ebook: 149 €. Hasta 2h de audio, entrega en PDF + EPUB, portada temática generada con IA. Pago único, IVA incluido.
+- Libro: 299 €. Hasta 6h de audio, entrega en PDF + EPUB + DOCX + MD + TXT, portada temática generada con IA. Pago único, IVA incluido.
+- Libro Premium: 499 €. Hasta 10h de audio, todos los formatos (PDF/EPUB/DOCX/MD/TXT), portada temática generada con IA. Pago único, IVA incluido.
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta convertir mis audios en un libro?**
+Desde 149€ en pago único (hasta 2h de audio, entrega en PDF + EPUB). El plan de 299€ cubre hasta 6h y añade DOCX, MD y TXT. El de 499€ cubre hasta 10h con todos los formatos. Los tres incluyen portada temática generada con IA e IVA.
+
+**¿Cuánto tarda Audio a Libro en entregar el libro?**
+Audio a Libro entrega el libro en 48 horas desde la confirmación del audio. Si tu audio supera la duración del plan que elegiste, se te avisa antes de cobrar y se te propone o subir de plan o recortar.
+
+**¿Vale cualquier grabación? La mía es de móvil.**
+Sí: Audio a Libro acepta cualquier grabación en mp3, wav o m4a, también de móvil. Si la calidad es muy baja (mucho ruido o el micro muy lejos) se te avisa antes de empezar para que decidas si recortar o volver a grabar.
+
+**¿Puedo vender el libro en Amazon?**
+Sí: el libro que entrega Audio a Libro es 100% tuyo y puedes autopublicarlo (Amazon KDP, Lulu), regalarlo o venderlo sin restricciones.
+
+**¿Y si no me gusta cómo ha quedado?**
+Tras la primera entrega tienes 7 días para pedir ajustes de capítulos, títulos o portada. Las revisiones de contenido fuerte (una reescritura amplia) cuentan como sprint nuevo.
+
+**¿Audio a Libro entrega también el libro en papel?**
+No: la entrega de Audio a Libro es 100% digital, sin versión impresa. Recibes el libro en PDF y EPUB, y en más formatos según el plan.
+
+## GiroBot · Bot para Twitch con IA
+
+URL: https://arquitectodigital.io/girobot.html
+
+GiroBot: toolkit 3-en-1 para streamers de Twitch. Chatbot de IA en tu chat, editor de clips donde subes tu vídeo y eliges los momentos para convertirlos en…
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta un bot de IA para Twitch?**
+Hay una cuota de alta única de 199€ por el pack 3-en-1, que se incluye en el primer pago, más un plan mensual: STARTER 19,99€/mes, PRO 39,99€/mes o UNLIMITED 89,99€/mes. Todos los precios llevan IVA incluido.
+
+**¿Tiene permanencia? ¿Puedo cancelar cuando quiera?**
+El plan mensual es cancelable cuando quieras, sin permanencia. La cuota de alta única de 199€ no es reembolsable.
+
+**¿Qué incluye exactamente el pack 3-en-1 de GiroBot?**
+GiroBot incluye tres cosas: un chatbot de IA que responde en tu chat con la personalidad de tu canal, un editor de clips donde subes un vídeo horizontal, eliges los momentos y te los devuelve como verticales 1080×1920 con subtítulos quemados, y alertas con voz IA en overlay para OBS que anuncian subs, resubs, bits, raids y follows.
+
+**¿Cuántos clips puedo hacer al día con GiroBot?**
+Depende del plan de GiroBot: 5 clips/día en STARTER, 20 clips/día en PRO y hasta 200 clips/día en UNLIMITED.
+
+**¿Los clips se generan solos o los elijo yo?**
+En GiroBot los clips los eliges tú. Subes un vídeo horizontal y eliges los momentos que quieres; GiroBot hace el reencuadre y la transcripción con IA y te devuelve los cortos para que los descargues.
+
+**¿Necesito saber programar o montar un servidor para usar GiroBot?**
+No: con GiroBot conectas tu canal con un clic mediante OAuth de Twitch y activas los módulos que quieras. Sin servidores, sin código y sin mantenimiento por tu parte.
+
+**¿Cómo accedo después de contratar?**
+Contratas, conectas tu canal con Twitch y, tras el pago, recibes por email tu código de acceso al portal. Dentro configuras el chatbot, subes tus vídeos y eliges los momentos para tus clips, y activas las alertas.
+
+## Cénit
+
+URL: https://arquitectodigital.io/cenit/
+
+Diario personal para Android con Mario, una IA que reflexiona contigo. Tus entradas viven en tu dispositivo.
+
+### Planes y precios
+
+- Cénit (versión gratuita): 0 €
+- Cénit Pro · licencia de 1 año, pago único: 29,99 €
+
+### Preguntas frecuentes
+
+**¿Cuánto cuesta Cénit?**
+Es gratis para empezar. Cénit Pro cuesta 29,99€ al año, IVA incluido: es un Pro de 1 año, sin suscripción ni renovación automática.
+
+**¿Qué incluye Cénit Pro frente a la versión gratuita?**
+La versión gratuita incluye entradas con hasta 4 fotos, buscador, galería y exportar (copia + PDF). Pro añade notas de voz con transcripción automática, hasta 3 reflexiones al día con Mario (90 al mes) y los 4 modos de Mario: Negocio, Reflexión, Decisión y Autónomo.
+
+**¿Puedo probar Pro antes de pagar?**
+Sí. Al instalar tienes 7 días de Pro gratis desde la app, sin tarjeta.
+
+**¿Dónde se guarda mi diario?**
+En tu dispositivo. No hay cuenta obligatoria ni diario alojado en la nube, y puedes exportar tus datos cuando quieras. A la IA solo se envía el texto que tú decides compartir para reflexionar.
+
+**¿Qué hace Mario?**
+Mario no escribe por ti: te acompaña. Lee tu entrada y te devuelve preguntas y perspectivas para pensar mejor. Puedes elegir entre cuatro modos según lo que necesites ese día: Negocio, Reflexión, Decisión y Autónomo.
+
+**¿En qué idiomas está Cénit?**
+La interfaz está en español, inglés, portugués, ruso y chino. Puedes escribir y hablar con Mario en el idioma que quieras.

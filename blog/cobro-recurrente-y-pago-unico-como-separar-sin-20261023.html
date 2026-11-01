@@ -4,8 +4,8 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cobro recurrente y pago único: cómo separar sin liar la contabilidad · Arquitecto Digital</title>
-<meta name="description" content="Mezclar suscripciones y pagos únicos en el mismo negocio complica la contabilidad si no se estructura desde el principio. Aquí está el criterio técnico para hacerlo bien.">
+<title>Cobro recurrente y pago único sin liar la contabilidad</title>
+<meta name="description" content="Mezclar suscripciones y pagos únicos complica la contabilidad si no se estructura desde el principio. El criterio técnico para hacerlo bien.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html">
 
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html"
       },
       "datePublished": "2026-10-23",
-      "dateModified": "2026-10-23",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -101,6 +101,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cobro recurrente y pago único: cómo separar sin liar la contabilidad",
+          "item": "https://arquitectodigital.io/blog/cobro-recurrente-y-pago-unico-como-separar-sin-20261023.html"
+        }
+      ]
     }
   ]
 }
@@ -149,8 +172,8 @@
     <div class="featured-wrap" id="art-cobro-recurrente-y-pago-unico-como-separar-sin-20261023">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-10-23">
-      <meta itemprop="dateModified" content="2026-10-23">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -164,11 +187,11 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Mezclar suscripciones y pagos únicos en el mismo negocio complica la contabilidad si no se estructura desde el principio. Aquí está el criterio técnico para hacerlo bien.</p>
         <div class="af-content af-content-open" id="art-cobro-recurrente-y-pago-unico-como-separar-sin-20261023-content">
-          <h3>El problema real no es el modelo de cobro, es la mezcla sin criterio</h3>
+          <h2>El problema real no es el modelo de cobro, es la mezcla sin criterio</h2>
 <p>Muchas PYMEs que incorporan servicios digitales acaban con una facturación que mezcla cuotas mensuales, pagos únicos de setup, proyectos cerrados y renovaciones anuales, todo en el mismo extracto bancario y sin una estructura contable que lo soporte. El resultado: conciliaciones manuales, dudas sobre qué es ingreso diferido y qué no, y una tesorería difícil de leer de un vistazo.</p>
 <p>El problema no es que coexistan ambos modelos. Es que se implantan sin definir desde el principio cómo se clasifican, cómo se facturan y cómo se reconocen contablemente. Esto tiene solución, y no requiere un ERP de seis cifras.</p>
 
-<h3>Qué diferencia un pago único de un cobro recurrente, más allá de lo obvio</h3>
+<h2>Qué diferencia un pago único de un cobro recurrente, más allá de lo obvio</h2>
 <p>La diferencia no es solo de frecuencia. Es de naturaleza contable:</p>
 <ul>
   <li><strong>Pago único:</strong> se reconoce como ingreso en el momento en que se entrega el bien o servicio. Si cobras un setup hoy y lo entregas hoy, el ingreso es de hoy. Si cobras hoy y entregas en tres semanas, parte del ingreso es diferido hasta la entrega.</li>
@@ -176,7 +199,7 @@
 </ul>
 <p>Esta distinción importa porque afecta al resultado contable del ejercicio, a los impuestos y a la imagen real de la tesorería. Ignorarla no es un error administrativo menor: puede distorsionar la cuenta de resultados.</p>
 
-<h3>Cómo estructurar los dos modelos sin que interfieran</h3>
+<h2>Cómo estructurar los dos modelos sin que interfieran</h2>
 <p>El criterio práctico es separar desde el diseño del producto, no desde la factura. Tres reglas que suelen funcionar:</p>
 <ol>
   <li><strong>Cuenta de ingreso diferenciada por tipo.</strong> En el plan contable, los ingresos de cuotas recurrentes y los de proyectos o setups únicos van a cuentas separadas. No porque lo exija la normativa en todos los casos, sino porque te permite leer el negocio con claridad: cuánto viene de base estable y cuánto de trabajo puntual.</li>
@@ -186,11 +209,11 @@
 
 <div class="highlight">💡 Si usas Stripe u otra pasarela similar, configura productos separados para cada tipo de cobro desde el principio. Cambiar la estructura de productos en Stripe cuando ya tienes suscriptores activos es más costoso de lo que parece: afecta a webhooks, a reportes y a la conciliación automática.</div>
 
-<h3>El IVA en cobros recurrentes: un detalle que se pasa por alto</h3>
+<h2>El IVA en cobros recurrentes: un detalle que se pasa por alto</h2>
 <p>En España, el IVA de las cuotas recurrentes se devenga en el momento en que se emite la factura o en el momento del cobro, según el régimen. Para autónomos en estimación directa con criterio de caja, el IVA no se ingresa hasta que se cobra. Para sociedades o autónomos en criterio de devengo, el IVA se declara cuando se emite la factura, aunque el cliente no haya pagado aún.</p>
 <p>Esto tiene implicaciones directas: si tienes cuotas mensuales que se cobran con retraso o con impagos, puedes acabar ingresando IVA a Hacienda de facturas que todavía no has cobrado. Conocer tu régimen y diseñar el modelo de cobro en consecuencia no es burocracia: es tesorería.</p>
 
-<h3>Qué pasa cuando el cliente cancela una suscripción a mitad de periodo</h3>
+<h2>Qué pasa cuando el cliente cancela una suscripción a mitad de periodo</h2>
 <p>Este es el punto donde más PYMEs improvisan. Supongamos que un cliente paga una cuota mensual el día 1 y cancela el día 15. ¿Devuelves la mitad? ¿No devuelves nada? ¿Emites una nota de crédito?</p>
 <p>La respuesta correcta depende de lo que diga el contrato, pero el flujo contable tiene que estar definido de antemano:</p>
 <ul>
@@ -200,7 +223,7 @@
 </ul>
 <p>La clave es que esto esté escrito antes de que ocurra, no el día que el cliente llama.</p>
 
-<h3>Automatización del cobro: qué delegar y qué no</h3>
+<h2>Automatización del cobro: qué delegar y qué no</h2>
 <p>Las pasarelas de pago modernas (Stripe, GoCardless, Redsys con tokenización) automatizan bien el cobro recurrente: reintentos, notificaciones de fallo, actualización de tarjetas. Lo que no automatizan es la contabilidad ni la relación con el cliente cuando algo falla.</p>
 <p>Un error habitual es asumir que porque Stripe genera un recibo, ya está la factura hecha. No es así: el recibo de Stripe no es una factura legal en España. La factura tiene que emitirla tu sistema de facturación (o tú manualmente), con los datos fiscales correctos, el NIF del cliente y el desglose de IVA. Stripe tiene integración con herramientas de facturación, pero la configuración hay que revisarla con un asesor fiscal.</p>
 
@@ -209,11 +232,11 @@
 "Tengo un negocio de servicios digitales con dos tipos de cobro: pagos únicos por setup/proyecto y cuotas mensuales recurrentes. Mis ingresos mensuales aproximados son [X€], de los cuales [Y%] son recurrentes y [Z%] son puntuales. Uso [herramienta de facturación] y [pasarela de pago]. Identifica los tres puntos de fricción más probables en mi conciliación contable y sugiere cómo estructurar las cuentas de ingreso para separar ambos modelos sin cambiar mi software actual."
 </div>
 
-<h3>Aplicado a un servicio con ambos modelos</h3>
+<h2>Aplicado a un servicio con ambos modelos</h2>
 <p>Imagina una pyme que contrata un chatbot con setup inicial y una cuota mensual de mantenimiento. El pago único cubre la configuración, la integración y las pruebas: se factura una vez, se reconoce como ingreso cuando se entrega el sistema funcionando. La cuota mensual cubre el servicio continuado: se factura cada mes, se reconoce mes a mes.</p>
 <p>Si esa pyme recibe una sola factura con todo mezclado, su contable tiene que separar manualmente qué parte es diferida y qué parte no. Si recibe dos facturas distintas, con conceptos y fechas de devengo claros, la conciliación es directa. El coste de hacer esto bien desde el principio es cero. El coste de corregirlo después, cuando hay doce meses de facturas mezcladas, es significativo.</p>
 
-<h3>Lo que no resuelve la automatización</h3>
+<h2>Lo que no resuelve la automatización</h2>
 <p>La automatización del cobro elimina fricción operativa. No elimina la necesidad de criterio. Decidir qué modelo de cobro usar para cada servicio, cómo clasificarlo contablemente y qué ocurre en los casos límite (cancelaciones, impagos, cambios de plan) requiere decisiones que no puede tomar ningún software solo.</p>
 <p>Lo que sí puede hacer la automatización es ejecutar esas decisiones de forma consistente, sin errores manuales, una vez que están tomadas. Ese es el orden correcto: primero el criterio, después la herramienta.</p>
           <div class="faq-block">
@@ -258,7 +281,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

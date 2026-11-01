@@ -4,7 +4,7 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Un solo header para 87 páginas estáticas: parciales con marcadores en vez de un generador · Arquitecto Digital</title>
+<title>Un solo header para 87 páginas: parciales con marcadores</title>
 <meta name="description" content="Cómo mantengo una cabecera y un pie únicos en una web estática sin generador de sitios: marcadores HTML, un script idempotente y un modo comprobación.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html">
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html"
       },
       "datePublished": "2026-09-27",
-      "dateModified": "2026-09-27",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -93,6 +93,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Un solo header para 87 páginas estáticas: parciales con marcadores en vez de un generador",
+          "item": "https://arquitectodigital.io/blog/parciales-html-con-marcadores-sin-generador.html"
+        }
+      ]
     }
   ]
 }
@@ -141,8 +164,8 @@
     <div class="featured-wrap" id="art-parciales-html-con-marcadores-sin-generador">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-09-27">
-      <meta itemprop="dateModified" content="2026-09-27">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -156,11 +179,11 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Cómo mantengo una cabecera y un pie únicos en una web estática sin generador de sitios: marcadores HTML, un script idempotente y un modo comprobación.</p>
         <div class="af-content af-content-open" id="art-parciales-html-con-marcadores-sin-generador-content">
-          <h3>El problema: la misma cabecera copiada en decenas de páginas</h3>
+          <h2>El problema: la misma cabecera copiada en decenas de páginas</h2>
 <p>Esta web es HTML estático servido por GitHub Pages: páginas de servicios, legales, utilidades y el blog. Cada página llevaba su propia copia de la cabecera y del pie. Mientras eran pocas no importaba. Cuando pasaron de cincuenta, cada cambio de menú era una operación de riesgo.</p>
 <p>El historial lo deja claro. Un cambio de navegación en julio tocó 21 páginas; el banner de cookies, a finales de julio, 26; el pie legal, en agosto, 14. Cada uno a base de edición en bloque, con su copia de seguridad por fichero, y con el riesgo de que una página con un espacio distinto o un enlace ya cambiado a mano se quedara con la versión vieja sin que nadie lo viera.</p>
 
-<h3>La opción evidente, y por qué no encaja aquí</h3>
+<h2>La opción evidente, y por qué no encaja aquí</h2>
 <p>La respuesta de manual es un generador de sitios estáticos: plantillas, includes y una fase de build. GitHub Pages incluso trae uno integrado. No encaja aquí por tres motivos concretos:</p>
 <ul>
 <li><strong>Lo que hay en el repositorio es lo que se sirve.</strong> Sin build, el HTML que ves en el repo es el que ve Google. No hay un paso intermedio que pueda fallar ni una salida que revisar aparte.</li>
@@ -168,7 +191,7 @@
 <li><strong>Migrar decenas de páginas a layouts</strong> era reescribirlas todas para resolver un problema que solo afecta a dos o tres bloques de cada una.</li>
 </ul>
 
-<h3>Lo que hice: huecos marcados y un script que los rellena</h3>
+<h2>Lo que hice: huecos marcados y un script que los rellena</h2>
 <p>Cada página declara dónde va un bloque compartido con dos comentarios HTML, uno de apertura y otro de cierre, con el nombre del bloque. El bloque canónico vive una sola vez en una carpeta de parciales. Un script recorre las páginas y sustituye lo que hay entre los marcadores por la versión canónica. Lo que hay entre medias es una copia generada, y así lo trata todo el mundo.</p>
 <p>El script está pensado para no poder romper una página:</p>
 <ul>
@@ -179,14 +202,14 @@
 <li><strong>Admite extras.</strong> La portada lleva un pie con un bloque adicional; se declara en el propio marcador y el parcial tiene un hueco para él. Sin plantillas condicionales.</li>
 </ul>
 
-<h3>Lo que ha dado de sí</h3>
+<h2>Lo que ha dado de sí</h2>
 <p>La primera pasada convirtió 57 páginas. Hoy son 87, porque todo lo nuevo nace con los marcadores puestos. Añadir la insignia de la app de Google Play a las 29 utilidades fue crear un parcial y poner su marcador: un cambio revisable en lugar de 29 ediciones sueltas.</p>
 <p>El caso que más me gusta es el del blog. La plantilla con la que el bot crea cada página de post también lleva los marcadores, así que el script la mantiene al día como a cualquier otra página. Si mañana cambio el menú, los posts que publique el bot a partir de ese momento salen con el menú nuevo sin tocar el bot.</p>
 <p>Y un detalle de GitHub Pages que acabó jugando a favor: aunque no uso su generador, Pages pasa Jekyll por encima del repositorio, y Jekyll no publica los ficheros cuyo nombre empieza por guion bajo. La plantilla de posts se llama así a propósito: está en el repositorio, el script la sincroniza, el bot la lee por la API y, si alguien pide su URL, recibe un 404. Lo comprobé en producción, no lo di por supuesto.</p>
 
 <div class="highlight">💡 No hacía falta un generador. Hacía falta que "la misma cabecera" existiera en un solo sitio y que algo avisara cuando una página se desviara.</div>
 
-<h3>Lo que cuesta</h3>
+<h2>Lo que cuesta</h2>
 <ul>
 <li><strong>Bytes repetidos.</strong> Cada página sigue llevando su copia de la cabecera. En páginas de este tamaño no se nota, pero existe.</li>
 <li><strong>Disciplina en lugar de build.</strong> Si cambias un parcial y no ejecutas el script, las páginas se quedan con la versión anterior. No hay integración continua que lo impida; lo que hay es el modo comprobación, que lo detecta antes del commit si lo usas. Es una red que depende de un hábito.</li>
@@ -230,7 +253,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>

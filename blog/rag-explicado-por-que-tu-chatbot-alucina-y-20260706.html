@@ -4,7 +4,7 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAG explicado: por qué tu chatbot alucina y cómo corregirlo · Arquitecto Digital</title>
+<title>RAG explicado: por qué tu chatbot alucina y cómo corregirlo</title>
 <meta name="description" content="Por qué un chatbot genérico se inventa respuestas, qué es RAG, qué piezas necesita para funcionar y cómo comprobar si un proveedor lo usa de verdad.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html">
@@ -42,7 +42,7 @@
         "@id": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html"
       },
       "datePublished": "2026-07-06",
-      "dateModified": "2026-09-27",
+      "dateModified": "2026-11-01",
       "inLanguage": "es",
       "author": {
         "@type": "Person",
@@ -101,6 +101,29 @@
         }
       ],
       "@id": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html#faq"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://arquitectodigital.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://arquitectodigital.io/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RAG explicado: por qué tu chatbot alucina y cómo corregirlo",
+          "item": "https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html"
+        }
+      ]
     }
   ]
 }
@@ -149,8 +172,8 @@
     <div class="featured-wrap" id="art-rag-explicado-por-que-tu-chatbot-alucina-y-20260706">
     <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="datePublished" content="2026-07-06">
-      <meta itemprop="dateModified" content="2026-09-27">
-      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="dateModified" content="2026-11-01">
+      <meta itemprop="author" content="Daniel González Barquero">
       <meta itemprop="publisher" content="Arquitecto Digital">
       <div class="af-top-bar c-arq"></div>
       <div class="af-header">
@@ -164,15 +187,15 @@
       <div class="af-body" itemprop="articleBody">
         <p class="af-excerpt">Por qué un chatbot genérico se inventa respuestas, qué es RAG, qué piezas necesita para funcionar y cómo comprobar si un proveedor lo usa de verdad.</p>
         <div class="af-content af-content-open" id="art-rag-explicado-por-que-tu-chatbot-alucina-y-20260706-content">
-          <h3>Por qué un chatbot "inteligente" te inventa respuestas</h3>
+          <h2>Por qué un chatbot "inteligente" te inventa respuestas</h2>
 <p>Le preguntas a un chatbot por tus condiciones de envío, por el precio de un servicio o por una política interna. Te responde con seguridad, y lo que dice es falso. No es un fallo puntual: es lo que hace un modelo de lenguaje general cuando no tiene tu información. No sabe lo que no se le ha dado, así que rellena el hueco con lo que estadísticamente suena bien. A eso se le llama alucinación: texto coherente, dato inventado.</p>
 <p>Muchos chatbots de los que se venden como "IA para tu negocio" funcionan así, sobre un modelo genérico sin nada que lo ate a tu realidad. Sirven para desviar preguntas triviales. Son un problema en cuanto alguien pregunta algo concreto de tu empresa.</p>
 
-<h3>Qué es RAG y qué resuelve exactamente</h3>
+<h2>Qué es RAG y qué resuelve exactamente</h2>
 <p>RAG son las siglas de Retrieval-Augmented Generation: generación aumentada por recuperación. Cuando llega una pregunta, el sistema no va directo al modelo. Primero busca en tu base de conocimiento (documentos, catálogo, procedimientos) los fragmentos más relevantes, y después le pasa esos fragmentos al modelo junto con la pregunta. El modelo responde a partir de lo que acaba de leer, no de lo que memorizó en su entrenamiento.</p>
 <p>La consecuencia práctica: si mañana cambias una política, actualizas el documento y el chatbot responde con la versión nueva. No hay que reentrenar nada.</p>
 
-<h3>Las piezas de un RAG que funciona</h3>
+<h2>Las piezas de un RAG que funciona</h2>
 <p>Muchos sistemas llaman RAG a una búsqueda por palabras clave sobre un PDF. Uno que funciona tiene estas piezas, y todas tienen que estar bien:</p>
 <ul>
 <li><strong>Indexación semántica.</strong> Los documentos se trocean y cada fragmento se convierte en un vector que representa su significado, no solo sus palabras.</li>
@@ -181,7 +204,7 @@
 <li><strong>Límites de salida.</strong> Algo que impida al modelo fabricar información cuando no ha encontrado nada. La respuesta correcta en ese caso es "no tengo esa información", no una invención plausible.</li>
 </ul>
 
-<h3>Lo que falla en implementaciones reales</h3>
+<h2>Lo que falla en implementaciones reales</h2>
 <p>Los puntos de fallo habituales no son los que salen en las demos:</p>
 <ul>
 <li><strong>Documentos mal estructurados.</strong> Escaneos sin texto limpio, FAQs en hojas de cálculo con celdas combinadas o versiones contradictorias. La recuperación falla antes de que el modelo entre en juego.</li>
@@ -190,14 +213,14 @@
 <li><strong>Sin paso a una persona.</strong> Si el chatbot no tiene a quién derivar, improvisa. Siempre.</li>
 </ul>
 
-<h3>Dos casos de mi propio trabajo</h3>
+<h2>Dos casos de mi propio trabajo</h2>
 <p>El primero fue Legalito, un chatbot legal que construí con RAG sobre legislación oficial: una versión en español, para España y diez países latinoamericanos, y otra en portugués, para Brasil y diez países latinoamericanos. Ya no está en servicio. En un dominio así, una alucinación no es un error de estilo: es un consejo legal inventado. Estaba diseñado para no responder cuando no encontraba base documental suficiente, y eso fue lo que lo hizo utilizable.</p>
 <p>El segundo es el asistente de esta web. Su base de conocimiento está troceada por pregunta real (cada fragmento responde una pregunta de principio a fin), y ninguna cifra de su base de conocimiento está fuera de lo publicado en la web. Antes de enviar una respuesta, una comprobación determinista verifica que cada precio, porcentaje o cantidad aparece en los fragmentos recuperados para esa pregunta. Si sobra uno, esa respuesta no se envía y se le pide al usuario que confirme el dato con una persona. Lo cuento en <a href="/blog/validador-determinista-en-vez-de-juez-llm.html">la reja que no deja pasar cifras inventadas</a>.</p>
 <p>La calidad de las respuestas depende sobre todo de la calidad de los documentos. RAG no arregla un material contradictorio; lo reproduce.</p>
 
 <div class="highlight">💡 Un chatbot sin límites es más peligroso que no tener chatbot. Prefiere el que dice "no lo sé" al que inventa con seguridad.</div>
 
-<h3>Cómo comprobar si un chatbot usa RAG de verdad</h3>
+<h2>Cómo comprobar si un chatbot usa RAG de verdad</h2>
 <ul>
 <li><strong>¿Puede decirte de dónde sale cada respuesta?</strong> Un sistema RAG honesto sabe qué fragmento originó la respuesta.</li>
 <li><strong>¿Qué hace cuando la respuesta no está en los documentos?</strong> Debe decirlo o derivar. Si "siempre encuentra algo útil", mala señal.</li>
@@ -206,10 +229,10 @@
 </ul>
 <p>La prueba más rápida: pregúntale algo que sabes que no está en sus documentos, por ejemplo una política que cambiaste hace dos semanas y que aún no has subido. Si contesta con detalle y seguridad, no tiene límites de salida.</p>
 
-<h3>Lo que cuesta</h3>
+<h2>Lo que cuesta</h2>
 <p>Un chatbot RAG para una pyme tiene un coste de puesta en marcha (preparar e indexar los documentos, integrarlo en tus canales) y otro mensual de operación. En mi servicio los precios están publicados: prueba de concepto de 7 días por 158 €, deducible del setup si continúas; setup desde 529 € (widget web) u 849 € (web y Telegram); y planes mensuales de 84 €, 190 € o 423 € según el volumen de mensajes. Todo con IVA incluido. Puedes exportar tus documentos y los registros cuando quieras. El detalle, en la página del <a href="/chatbot.html">chatbot para empresas</a>.</p>
 
-<h3>Cuándo RAG no es la solución</h3>
+<h2>Cuándo RAG no es la solución</h2>
 <p>Si recibes siempre las mismas diez preguntas y las respuestas no cambian, un flujo sencillo es más fiable y más barato. RAG compensa cuando la información es amplia, cambia a menudo o las preguntas son demasiado variadas para un árbol fijo. Lo desarrollo en <a href="/blog/chatbots-ia-en-pymes-cuando-rag-funciona-y-20260714.html">cuándo RAG funciona y cuándo es ruido</a>, y el resto de fallos que hunden un chatbot, más allá de RAG, en <a href="/blog/chatbots-para-empresas-por-que-fallan.html">chatbots para empresas: por qué fallan y cómo evitarlo</a>.</p>
 
 <p><em>Daniel · Arquitecto Digital. Los sistemas los diseño y dirijo yo; la implementación la hago con asistentes de IA de programación.</em></p>
@@ -252,7 +275,7 @@
   <div class="footer-inner">
     <div class="footer-grid footer-grid--full">
       <div class="footer-brand">
-        <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
         </p>
