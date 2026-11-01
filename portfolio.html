@@ -4,19 +4,19 @@
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio · Arquitecto Digital · Mi historia y prueba de trabajo real</title>
-<meta name="description" content="De cero a una plataforma propia. Mi historia y las piezas reales por rama: vídeo automatizado, libros IA, música, informe e-commerce, chatbot, GiroBot y webs por sector. Prueba de trabajo, no promesas.">
+<title>Portfolio · Daniel González Barquero · Arquitecto Digital</title>
+<meta name="description" content="Daniel González Barquero, ingeniero full-stack senior: sistemas de IA en producción. Vídeo, libros, música, chatbot, GiroBot y seis webs por sector.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arquitectodigital.io/portfolio.html">
 
 <meta property="og:title" content="Portfolio · Arquitecto Digital">
-<meta property="og:description" content="De cero a una plataforma propia. Aquí están las pruebas: vídeo IA, libros, música, chatbot, informes y webs por sector.">
+<meta property="og:description" content="Sistemas de IA en producción, diseñados, construidos y mantenidos por Daniel González Barquero. Vídeo, libros, música, chatbot y webs por sector.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arquitectodigital.io/portfolio.html">
 <meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Portfolio · Arquitecto Digital">
-<meta name="twitter:description" content="Mi historia + piezas reales por rama + webs por sector. Prueba de trabajo.">
+<meta name="twitter:description" content="Sistemas de IA en producción: vídeo, libros, música, chatbot y webs por sector. Prueba de trabajo real.">
 <meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -91,6 +91,15 @@
   .pf-cta:hover{background:var(--orange);color:#1a0d05}
   .pf-legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--text-dim);font-size:.95em}
   .pf-legend b{color:var(--text)}
+  /* Tabla de sistemas [08] */
+  .ms-table-wrap{overflow-x:auto;margin-top:30px}
+  .ms-table{width:100%;border-collapse:collapse;font-size:.96em}
+  .ms-table th,.ms-table td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--border)}
+  .ms-table th{font-family:'JetBrains Mono',monospace;color:var(--orange);font-size:.78em;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+  .ms-table td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
+  .ms-table td{color:var(--text-dim);line-height:1.6}
+  .ms-scale{font-family:'JetBrains Mono',monospace;color:var(--text);font-size:.95em;line-height:1.7;margin-top:30px}
+  .ms-hero-role{display:block;color:var(--text);font-size:1.1em;font-weight:600;margin:6px 0 14px}
 </style>
 <script type="application/ld+json">
 {
@@ -163,32 +172,26 @@
 <section class="ms-hero">
   <div class="section-content">
     <span class="section-label">Portfolio</span>
-    <h1 class="section-title">
-      De cero a una plataforma propia.<br>
-      <span class="accent">Aquí están las pruebas</span>.
-    </h1>
+    <h1 class="section-title">Daniel González <span class="accent">Barquero</span>.</h1>
+    <span class="ms-hero-role">Ingeniero full-stack senior · Fundador de Arquitecto Digital</span>
     <p class="section-intro">
-      No vendo promesas: enseño trabajo real. Mi historia y las piezas que produce
-      el sistema, rama por rama — incluidas seis webs por sector.
+      Diseño, construyo y opero sistemas de IA en producción, de principio a fin:
+      arquitectura, backend, datos, integración con modelos, despliegue y mantenimiento.
+      Solo, desde El Puerto de Santa María.
     </p>
   </div>
 </section>
 
-<!-- [01] MI HISTORIA -->
-<section>
+<!-- [01] SOBRE MÍ -->
+<section id="sobre-mi">
   <div class="section-content" style="padding-top:0;">
-    <span class="section-label">[01] Mi historia</span>
-    <h2 class="section-title">Cómo empezó <span class="accent">todo</span>.</h2>
+    <span class="section-label">[01] Sobre mí</span>
+    <h2 class="section-title">Sobre <span class="accent">mí</span>.</h2>
     <div class="ms-story">
-      <p>Nadie me enseñó. Nadie me abrió la puerta. Aprendí solo, con hambre. Y esta es mi historia.</p>
-      <p>El 9 de febrero de 2026, a las ocho de la tarde, escribí mi primer mensaje a Claude AI pidiendo ayuda con un guión: un vídeo de un minuto sobre el Big Bang.</p>
-      <p>Quería ganar dinero en YouTube, subir vídeos. Pero me estrellé contra un muro: la edición. Cada vídeo era una tarde entera, guion a guion, a mano. Tenía cinco seguidores. Con un vídeo me gané tres más. Empezar desde abajo del todo. Sin manual, sin red, sin profesor. Solo una pantalla y un cursor parpadeando en la oscuridad.</p>
-      <p>Rompí lo que no sabía arreglar. Pero cada error me dijo algo nuevo, y aprendí que equivocarse también es avanzar.</p>
-      <p>Una noche, mientras los demás dormían, di con una palabra que no conocía: <em class="ms-key">pipeline</em>. El orden del caos. Una cadena que produce sola, sin manos. No tenía ni idea de programar, pero me puse a codear con Claude al lado, a base de bugs y prueba y error. Y conseguí que la producción y la publicación de vídeos para YouTube caminaran solas.</p>
-      <p>En marzo monté mi primer servidor y encadené guion, voz, imagen y vídeo. Cuando agoté el límite de mi plan, descubrí que podía delegar hasta la propia construcción.</p>
-      <p>En mayo empecé a construir una plataforma entera, ladrillo a ladrillo. La llamé TaskRunner. Empezó con archivos vacíos y un puñado de pruebas. Hoy son miles de pruebas en verde y una decena de productos vivos.</p>
-      <p>No vine de ningún lugar especial. No tenía carrera, ni red, ni capital. Vine con hambre y con una pantalla. Tres meses y medio, sin equipo y sin inversores. Esto no ha sido suerte: fueron muchas noches con hambre por romper mis propios límites, levantarse cuando todo se detiene, y construir igual con o sin razón. <strong class="ms-key">Mientras los demás duermen, las máquinas trabajan.</strong></p>
-      <p class="ms-closing">Esto no lo compra nadie. Esto se construye. Y aquí están las pruebas.</p>
+      <p>No vendo demos: todo lo que ves aquí funciona en producción, sobre mi propia infraestructura, y lo mantengo yo.</p>
+      <p>Trabajo full-stack de verdad —del servidor al pixel—: arquitecturas multi-tenant, procesos de datos automatizados, pasarelas a varios modelos de IA, RAG sobre documentación propia, facturación, y la vigilancia que hace que todo eso siga en pie sin que nadie mire.</p>
+      <p>Mi forma de trabajar tiene una regla por encima de las demás: <strong class="ms-key">sin humo</strong>. Nada se afirma sin que una máquina lo verifique; por eso mis sistemas llevan validadores anti-alucinación integrados, no buenas intenciones.</p>
+      <p>Si necesitas a alguien que no solo "sepa de IA", sino que te diseñe, construya y deje funcionando un sistema a medida —y te explique con números por qué compensa—, ese es mi trabajo.</p>
     </div>
   </div>
 </section>
@@ -384,14 +387,24 @@
 <section>
   <div class="section-content" style="padding-top:0;">
     <span class="section-label">[08] Cómo está construido</span>
-    <h2 class="section-title">El pipeline <span class="accent">de producción</span>.</h2>
+    <h2 class="section-title">Un sistema <span class="accent">propio</span>.</h2>
     <p class="section-intro">
-      Detrás de cada pieza hay un pipeline propio, automatizado de extremo a extremo:
-      la producción y la publicación caminan solas, sin editar pieza a pieza ni tocar
-      el teclado. Es un sistema construido sobre el contenido real del cliente, que produce a escala, de forma constante y sin intervención. El cómo —las
-      herramientas y el detalle de cada fase— es mi caja de herramientas; lo que te
-      llevas es el resultado.
+      Detrás de los productos hay un sistema propio, TaskRunner, que los sostiene todos
+      y va respaldado por una suite de más de 800 pruebas automatizadas.
     </p>
+    <div class="ms-table-wrap">
+      <table class="ms-table">
+        <thead><tr><th scope="col">Sistema</th><th scope="col">Qué hace</th></tr></thead>
+        <tbody>
+          <tr><td>Validador anti-alucinación</td><td>Verifica el contenido antes de publicarlo; si no pasa, no sale.</td></tr>
+          <tr><td>Chatbots RAG</td><td>Responden con tu documentación citando la fuente. El asistente "Paz" de esta web es la demo en vivo.</td></tr>
+          <tr><td>Facturación fiscal propia</td><td>Stripe + factura española: serie correlativa, PDF y rectificativas. Sistema propio, no un plugin.</td></tr>
+          <tr><td>Flota de vídeo faceless</td><td>Cadena de producción automatizada, de principio a fin: guion → voz → imagen → render → publicación.</td></tr>
+          <tr><td>Cénit · GiroBot · Autoblog</td><td>Productos con identidad propia, en producción.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ms-scale">1 sistema propio · 8 servicios en la web · 6 webs de muestra · +800 pruebas automatizadas · infraestructura propia. Nada redondeado al alza.</p>
     <div style="text-align:center; margin-top:50px;">
       <a href="/#contacto" class="btn-primary">¿Hablamos de tu proyecto? →</a>
     </div>
