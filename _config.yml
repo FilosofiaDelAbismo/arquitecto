@@ -1,0 +1,8 @@
+# Configuración de GitHub Pages (Jekyll).
+# Excluye de la web publicada lo que es interno: los parciales (se cosen en
+# build con tools/sync_partials.py, no se piden por HTTP), el propio script y
+# la nota operativa de cenit/. Siguen en el repo; solo dejan de servirse.
+exclude:
+  - tools/
+  - partials/
+  - cenit/PENDIENTE_DECISION_OPERADOR.md
