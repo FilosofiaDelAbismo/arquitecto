@@ -731,46 +731,80 @@ FIN_ORIGINAL_INLINE_CSS-->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://arquitectodigital.io/#organization",
-  "name": "Arquitecto Digital",
-  "url": "https://arquitectodigital.io/",
-  "email": "daniel@arquitectodigital.io",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "ES"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "ES"
-  },
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://arquitectodigital.io/apple-touch-icon.png"
-  },
-  "image": "https://arquitectodigital.io/assets/og-image.jpg",
-  "description": "Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, autoblog SEO, audio→libro, sistemas a medida.",
-  "founder": {
-    "@type": "Person",
-    "name": "Daniel González Barquero"
-  },
-  "inLanguage": "es",
-  "sameAs": [
-    "https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/",
-    "https://x.com/arqdigital_io",
-    "https://www.tiktok.com/@daniel_arquitectodigital",
-    "https://www.facebook.com/profile.php?id=61575581849782",
-    "https://www.twitch.tv/arquitectodigital"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "email": "daniel@arquitectodigital.io",
-    "telephone": "+34 743 08 86 55",
-    "availableLanguage": [
-      "es"
-    ]
-  }
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "ProfessionalService"
+      ],
+      "@id": "https://arquitectodigital.io/#organization",
+      "name": "Arquitecto Digital",
+      "url": "https://arquitectodigital.io/",
+      "email": "daniel@arquitectodigital.io",
+      "telephone": "+34 743 08 86 55",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "El Puerto de Santa María",
+        "addressRegion": "Cádiz",
+        "addressCountry": "ES"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "ES"
+      },
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://arquitectodigital.io/apple-touch-icon.png"
+      },
+      "image": "https://arquitectodigital.io/assets/og-image.jpg",
+      "description": "Arquitecto Digital especializado en automatización IA para PYMEs. Chatbots personalizados, autoblog SEO, audio→libro, sistemas a medida.",
+      "founder": {
+        "@id": "https://arquitectodigital.io/#daniel"
+      },
+      "inLanguage": "es",
+      "sameAs": [
+        "https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/",
+        "https://x.com/arqdigital_io",
+        "https://www.tiktok.com/@daniel_arquitectodigital",
+        "https://www.facebook.com/profile.php?id=61575581849782",
+        "https://www.twitch.tv/arquitectodigital"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "daniel@arquitectodigital.io",
+        "telephone": "+34 743 08 86 55",
+        "availableLanguage": [
+          "es"
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://arquitectodigital.io/#daniel",
+      "name": "Daniel González Barquero",
+      "jobTitle": "Ingeniero full-stack senior",
+      "telephone": "+34 743 08 86 55",
+      "email": "daniel@arquitectodigital.io",
+      "url": "https://arquitectodigital.io/portfolio.html#sobre-mi",
+      "worksFor": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "El Puerto de Santa María",
+        "addressRegion": "Cádiz",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/",
+        "https://x.com/arqdigital_io",
+        "https://www.tiktok.com/@daniel_arquitectodigital",
+        "https://www.facebook.com/profile.php?id=61575581849782",
+        "https://www.twitch.tv/arquitectodigital"
+      ]
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -845,6 +879,9 @@ FIN_ORIGINAL_INLINE_CSS-->
       <a href="#servicios" class="btn-primary">Ver servicios →</a>
       <a href="#contacto" class="btn-secondary">Conversamos 15 min</a>
     </div>
+    <p class="hero-entity" style="color:var(--text-dim);max-width:700px;margin-top:36px;line-height:1.6;font-size:1em;">
+      Arquitecto Digital es el estudio de Daniel González Barquero, ingeniero full-stack senior afincado en El Puerto de Santa María (Cádiz, España). Diseña, construye y mantiene sistemas de IA a medida para empresas: chatbots con RAG sobre tu documentación, automatización de procesos y productos digitales.
+    </p>
   </div>
 </section>
 
@@ -1340,6 +1377,9 @@ FIN_ORIGINAL_INLINE_CSS-->
         <h4>arquitectodigital<span style="color:var(--text);">.io</span></h4>
         <p>
           Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+        <p>
+          <a href="tel:+34743088655" style="color:inherit;">+34 743 08 86 55</a> · <a href="mailto:daniel@arquitectodigital.io" style="color:inherit;">daniel@arquitectodigital.io</a>
         </p>
       </div>
       <div class="footer-col">
