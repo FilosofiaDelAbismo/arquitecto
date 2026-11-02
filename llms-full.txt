@@ -112,7 +112,7 @@ Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido s
 
 URL: https://arquitectodigital.io/webs.html
 
-Webs profesionales para empresas, autónomos y particulares: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Desde 954€ en pago único, IVA incluido. El mantenimiento mensual es por cotización según la web.
+Webs profesionales para empresas, autónomos y particulares: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Desde 954€ en pago único, IVA incluido. El mantenimiento anual es opcional: 250 €/año, IVA incluido, el mismo para Essential y Pro, se contrata aparte y sin permanencia.
 
 ### Planes y precios
 
@@ -122,7 +122,7 @@ Webs profesionales para empresas, autónomos y particulares: diseño, desarrollo
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta una web profesional?**
-Desde 954€ en pago único el plan Essential (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro va desde 2.650€ e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap. IVA incluido. El mantenimiento mensual es opcional y va por cotización según la web.
+Desde 954€ en pago único el plan Essential (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro va desde 2.650€ e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap. IVA incluido. El mantenimiento anual es opcional: 250 €/año, IVA incluido, el mismo para Essential y Pro, se contrata aparte y sin permanencia (si cancelas, no se renueva).
 
 **¿Cuánto tarda en entregarse una web?**
 La web Essential de Arquitecto Digital se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.

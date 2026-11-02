@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contratar · Arquitecto Digital</title>
+<meta name="description" content="Resumen del servicio, aceptación de condiciones y pago.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="assets/cookies.js"></script>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li><a href="/chatbot.html">Chatbot a medida</a></li>
+      <li><a href="/crea-tu-cancion.html">Canción</a></li>
+      <li><a href="/audio-libro.html">Audio → Libro</a></li>
+      <li><a href="/cenit/">Cénit</a></li>
+      <li><a href="/girobot.html">GiroBot</a></li>
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Más servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/sistemas.html">Automatización a medida</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- /PARTIAL:header -->
+
+<!-- CONTRATAR (2026-11-02, rama lanzamiento-b4-webs: solo webs y mantenimiento).
+     Página puente ANTES del pago: resumen del producto + casilla de
+     aceptación BLOQUEANTE (patrón de crea-tu-cancion.html) + botón al enlace
+     de Stripe del producto. noindex: no va en el sitemap ni en el menú.
+     Uso: /contratar.html?p=<producto>. Los productos y sus enlaces viven SOLO
+     en el bloque CONTRATAR de abajo. -->
+<section class="section-content" style="max-width: 760px; margin: 0 auto; padding-top: 60px; padding-bottom: 80px;">
+  <span class="section-label" id="ct-familia">Contratar</span>
+  <h1 class="section-title" style="font-size:2em;" id="ct-nombre">Contratar</h1>
+  <div id="ct-ficha">
+    <p id="ct-desc" style="color: var(--text-dim); line-height: 1.7; margin-top: 16px;"></p>
+    <ul id="ct-incluye" class="service-features" style="margin-top: 16px;"></ul>
+    <div class="service-price" style="margin-top: 16px;">
+      <span id="ct-precio"></span> <small id="ct-tipo"></small>
+    </div>
+    <p id="ct-nota" style="color: var(--text-dim); line-height: 1.6; margin-top: 12px;"></p>
+
+    <div class="consent-group" style="margin-top: 28px;">
+      <label class="consent-item">
+        <input type="checkbox" id="ct-acepto">
+        <span id="ct-casilla"></span>
+      </label>
+    </div>
+    <a class="service-cta cta-disabled" href="#" id="ct-pagar" rel="nofollow" aria-disabled="true">Ir al pago →</a>
+    <p class="consent-note" id="ct-msg" role="status" aria-live="polite">* Marca la casilla para poder ir al pago.</p>
+    <p style="color: var(--text-dim); font-size: .92em; margin-top: 18px;">
+      Pago seguro con Stripe. Precios con IVA incluido. Solo para clientes con domicilio fiscal en España.
+    </p>
+  </div>
+
+  <div id="ct-sin-enlace" style="display:none; margin-top: 24px; border: 1px solid var(--orange); border-radius: 10px; padding: 20px;">
+    <p style="margin:0 0 12px;">Este servicio todavía no se puede pagar en línea. Escríbenos y lo cerramos contigo:</p>
+    <a class="btn-primary" id="ct-mail" href="mailto:daniel@arquitectodigital.io">Escríbenos por email →</a>
+    <a class="btn-secondary" id="ct-wa" href="https://wa.me/34743088655" target="_blank" rel="noopener" style="margin-left:8px;">WhatsApp</a>
+  </div>
+
+  <div id="ct-desconocido" style="display:none; margin-top: 24px;">
+    <p style="color: var(--text-dim);"><strong>Producto no disponible.</strong> <a href="/#contacto" style="color: var(--orange);">Contacta con nosotros</a> y lo vemos contigo.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  // ═══ CONTRATAR · ÚNICO BLOQUE DE CONFIGURACIÓN ═══════════════════════════
+  // Precios con IVA incluido. link vacío = todavía no hay enlace de Stripe →
+  // la página ofrece «Escríbenos» (email/WhatsApp) en vez del pago.
+  var CONTRATAR = {
+    // {condiciones} y {privacidad} se convierten en enlaces.
+    casilla: "He leído y acepto las {condiciones} de {servicio} y la {privacidad}.",
+    privacidad: "/privacidad.html",
+    email: "daniel@arquitectodigital.io",
+    whatsapp: "34743088655",
+    productos: {
+      mantenimiento: {
+        familia: "Webs Personalizadas", servicio: "Mantenimiento anual web",
+        nombre: "Mantenimiento anual de tu web",
+        desc: "Tu web en marcha todo el año, después del lanzamiento.",
+        incluye: ["Hosting + dominio + SSL", "Pequeñas actualizaciones", "Backup mensual"],
+        precio: "250 €/año", tipo: "· suscripción anual · IVA incl.",
+        nota: "El mismo para Essential y Pro. Se contrata aparte del precio de la web. Sin permanencia: si cancelas, no se renueva.",
+        condiciones: "/webs-condiciones.html",
+        link: "https://buy.stripe.com/bJe6oH3yV0792Ku2IMbEA0D"   // plink_1UQ2jj · price_1UQ2iL
+      },
+      web_essential: {
+        familia: "Webs Personalizadas", servicio: "Webs Personalizadas",
+        nombre: "Web Essential", desc: "Página única para captar leads o presentar producto.",
+        incluye: ["1 página, 5 secciones", "Diseño responsive", "SEO básico + meta tags", "Sección de contacto con tus datos"],
+        precio: "954 €", tipo: "· pago único · IVA incl.",
+        nota: "El mantenimiento anual (250 €/año) se contrata aparte.",
+        condiciones: "/webs-condiciones.html",
+        link: "https://buy.stripe.com/00w4gz7Pb9HJ4SCcjmbEA0k"   // plink_1TeahK · price_1TeaOO
+      },
+      web_pro: {
+        familia: "Webs Personalizadas", servicio: "Webs Personalizadas",
+        nombre: "Web Pro", desc: "Web corporativa con blog integrado.",
+        incluye: ["Home + 4-6 páginas internas", "Blog integrado (o conectado a autoblog)", "SEO técnico completo + sitemap"],
+        precio: "2.650 €", tipo: "· pago único · IVA incl.",
+        nota: "El mantenimiento anual (250 €/año) se contrata aparte.",
+        condiciones: "/webs-condiciones.html",
+        link: "https://buy.stripe.com/cNi6oH1qN079acW836bEA0l"   // plink_1Teahw · price_1TeaPR
+      }
+    }
+  };
+  // ═════════════════════════════════════════════════════════════════════════
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+  var clave = (new URLSearchParams(location.search).get('p') || '').trim();
+  var prod = Object.prototype.hasOwnProperty.call(CONTRATAR.productos, clave) ? CONTRATAR.productos[clave] : null;
+  if (!prod) {
+    document.getElementById('ct-ficha').style.display = 'none';
+    document.getElementById('ct-desconocido').style.display = 'block';
+    document.getElementById('ct-nombre').textContent = 'Producto no disponible';
+    return;
+  }
+  document.title = 'Contratar ' + prod.nombre + ' · Arquitecto Digital';
+  document.getElementById('ct-familia').textContent = prod.familia;
+  document.getElementById('ct-nombre').textContent = prod.nombre;
+  document.getElementById('ct-desc').textContent = prod.desc;
+  document.getElementById('ct-precio').textContent = prod.precio;
+  document.getElementById('ct-tipo').textContent = prod.tipo;
+  document.getElementById('ct-nota').textContent = prod.nota || '';
+  var ul = document.getElementById('ct-incluye');
+  prod.incluye.forEach(function (x) { var li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
+  document.getElementById('ct-casilla').innerHTML = esc(CONTRATAR.casilla)
+    .replace('{servicio}', esc(prod.servicio))
+    .replace('{condiciones}', '<a href="' + esc(prod.condiciones) + '" target="_blank" rel="noopener">Condiciones de contratación</a>')
+    .replace('{privacidad}', '<a href="' + esc(CONTRATAR.privacidad) + '" target="_blank" rel="noopener">Política de privacidad</a>')
+    + '<span class="req-mark" aria-hidden="true">*</span>';
+
+  var acepto = document.getElementById('ct-acepto');
+  var pagar = document.getElementById('ct-pagar');
+  var msg = document.getElementById('ct-msg');
+  if (!prod.link) {
+    // Sin enlace todavía: «Escríbenos» (email / WhatsApp) con el producto ya dicho.
+    var asunto = 'Quiero contratar: ' + prod.nombre;
+    document.getElementById('ct-mail').href = 'mailto:' + CONTRATAR.email + '?subject=' + encodeURIComponent(asunto);
+    document.getElementById('ct-wa').href = 'https://wa.me/' + CONTRATAR.whatsapp + '?text=' + encodeURIComponent(asunto);
+    pagar.style.display = 'none'; msg.style.display = 'none';
+    acepto.closest('.consent-group').style.display = 'none';
+    document.getElementById('ct-sin-enlace').style.display = 'block';
+    return;
+  }
+  function sync() {
+    if (acepto.checked) {
+      pagar.href = prod.link; pagar.classList.remove('cta-disabled'); pagar.removeAttribute('aria-disabled');
+      msg.style.color = ''; msg.textContent = '* Condiciones aceptadas.';
+    } else {
+      pagar.href = '#'; pagar.classList.add('cta-disabled'); pagar.setAttribute('aria-disabled', 'true');
+    }
+  }
+  acepto.addEventListener('change', sync); sync();
+  pagar.addEventListener('click', function (e) {
+    if (!acepto.checked) {
+      e.preventDefault();
+      msg.style.color = '#c0392b'; msg.textContent = 'Debes aceptar las condiciones para continuar con el pago.';
+      acepto.focus();
+    }
+  });
+})();
+</script>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin lock-in vendor.
+        </p>
+        <p>
+          <a href="tel:+34743088655" style="color:inherit;">+34 743 08 86 55</a> · <a href="mailto:daniel@arquitectodigital.io" style="color:inherit;">daniel@arquitectodigital.io</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbot a medida</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>A medida</h5>
+        <ul>
+          <li><a href="/sistemas.html">Automatización con IA</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/utilidades/">Utilidades gratis</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+
+  <!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+
+
+</body>
+</html>
