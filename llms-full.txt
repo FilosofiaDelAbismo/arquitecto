@@ -116,8 +116,8 @@ Webs profesionales para empresas y autónomos: diseño, desarrollo, deploy y dom
 
 ### Planes y precios
 
-- Essential: 954 €. 1 página con 5 secciones, diseño responsive, SEO básico + meta tags, sección de contacto con tus datos. Pago único, IVA incluido.
-- Pro: 2.650 €. Pack: home + 4-6 páginas internas, blog integrado y conectado al autoblog, chatbot IA en tu web, SEO técnico completo + sitemap. El chatbot y el autoblog (4 artículos al mes) están incluidos los 2 primeros meses; después, cada uno sigue solo si se contrata aparte. Pago único, IVA incluido.
+- Essential: 954 €. 1 página con 5 secciones, diseño responsive, SEO básico: títulos y descripciones, sitemap y ficha de empresa local, sección de contacto con tus datos. Pago único, IVA incluido.
+- Pro: 2.650 €. Pack: home + 4-6 páginas internas, blog integrado y conectado al autoblog, chatbot IA en tu web, SEO técnico: sitemap, títulos y descripciones por página, ficha de empresa local y preguntas frecuentes para Google y la IA. El chatbot y el autoblog (4 artículos al mes) están incluidos los 2 primeros meses; después, cada uno sigue solo si se contrata aparte. Pago único, IVA incluido.
 
 ### Preguntas frecuentes
 
