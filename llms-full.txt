@@ -82,19 +82,19 @@ El código es tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si s
 
 URL: https://arquitectodigital.io/autoblog.html
 
-Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, con 14 días de trial e IVA incluido. El plan Enterprise (32+ posts/mes, API access) es por cotización.
+Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, IVA incluido. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, API access) es por cotización.
 
 ### Planes y precios
 
-- Starter: 41 €/mes. 2 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. Trial 14 días. IVA incluido.
-- Essential: 84 €/mes. 4 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. Trial 14 días. IVA incluido.
-- Profesional: 158 €/mes. 8 posts/mes, soporte prioritario, revisión de calidad y verificación de datos. Trial 14 días. IVA incluido.
-- Premium: 296 €/mes. 16 posts/mes, corpus personalizado, soporte prioritario. Trial 14 días. IVA incluido.
+- Starter: 41 €/mes. 2 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA incluido.
+- Essential: 84 €/mes. 4 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA incluido.
+- Profesional: 158 €/mes. 8 posts/mes, soporte prioritario, revisión de calidad y verificación de datos. IVA incluido.
+- Premium: 296 €/mes. 16 posts/mes, corpus personalizado, soporte prioritario. IVA incluido.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un autoblog con IA?**
-Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA incluido y con 14 días de trial. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
+Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA incluido. Antes de contratar puedes pedirme un artículo de prueba gratis. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
 
 **¿Cuánto tarda en publicarse el primer artículo?**
 La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
@@ -103,7 +103,7 @@ La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión 
 No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por una revisión de calidad y verificación de datos, e incluye schema markup y meta SEO.
 
 **¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?**
-Hay 14 días de prueba en cualquier plan recurring y no hay permanencia mínima después: cancelas cuando quieras desde la consola. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
+No hay permanencia mínima: cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io y no se te vuelve a cobrar. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
 
 **¿Escribe sobre mis temas o son artículos genéricos?**
 Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido sobre tu material documentado (notas, decks, artículos previos). El plan Premium incluye corpus personalizado.
