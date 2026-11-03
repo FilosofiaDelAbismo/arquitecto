@@ -100,7 +100,7 @@ Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts,
 La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
 
 **¿Los artículos se publican sin que yo los vea?**
-No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por un QA con Sonnet y un fact-guard, e incluye schema markup y meta SEO.
+No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por una revisión de calidad y verificación de datos, e incluye schema markup y meta SEO.
 
 **¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?**
 Hay 14 días de prueba en cualquier plan recurring y no hay permanencia mínima después: cancelas cuando quieras desde la consola. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
