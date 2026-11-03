@@ -36,7 +36,7 @@ El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158
 En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar.
 
 **¿Tengo permanencia? ¿Puedo cancelar cuando quiera?**
-No hay permanencia en ningún formato. La POC y el Setup son pago único sin permanencia. El plan recurrente es mes a mes y lo cancelas cuando quieras desde la propia consola, sin penalización y sin letra pequeña.
+No hay permanencia en ningún formato. La POC y el Setup son pago único sin permanencia. El plan recurrente es mes a mes y lo cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io, sin penalización y sin letra pequeña.
 
 **¿En qué idioma responde el chatbot?**
 En el idioma en el que le escribas. Al estar basado en IA, entiende y responde en múltiples idiomas sin configuración extra.
