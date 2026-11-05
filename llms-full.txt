@@ -22,7 +22,7 @@ Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram
 
 - POC · 7 días: 158 €. RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. Deducible del Setup si contratas. Pago único, IVA incluido.
 - Setup Widget Web: 529 €, precio fijo. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
-- Setup Telegram: 849 €, precio fijo. Canales web widget + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
+- Setup Widget Web + Telegram: 849 €, precio fijo. Widget web + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
 - Recurring Light: 84 €/mes. Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
 - Recurring Medium: 190 €/mes. Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
 - Recurring Pro: 423 €/mes. Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA incluido.
