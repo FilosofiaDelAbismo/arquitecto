@@ -16,13 +16,13 @@ Arquitecto Digital es el estudio de Daniel González Barquero, ingeniero full-st
 
 URL: https://arquitectodigital.io/chatbot.html
 
-Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup desde 529€; planes mensuales desde 84€/mes. Todos los precios con IVA incluido.
+Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup a precio fijo de 529€ (widget web) u 849€ (widget web + Telegram); planes mensuales desde 84€/mes. Todos los precios con IVA incluido.
 
 ### Planes y precios
 
 - POC · 7 días: 158 €. RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. Deducible del Setup si contratas. Pago único, IVA incluido.
-- Setup Widget Web: desde 529 €. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
-- Setup Telegram: 849 €. Canales web widget + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
+- Setup Widget Web: 529 €, precio fijo. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
+- Setup Telegram: 849 €, precio fijo. Canales web widget + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
 - Recurring Light: 84 €/mes. Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
 - Recurring Medium: 190 €/mes. Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
 - Recurring Pro: 423 €/mes. Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA incluido.
@@ -30,7 +30,7 @@ Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un chatbot con IA para mi empresa?**
-El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, que es deducible del Setup si después contratas. El Setup completo va desde 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA incluido.
+El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, que es deducible del Setup si después contratas. El Setup completo tiene precio fijo: 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA incluido.
 
 **¿Cuánto se tarda en tener el chatbot funcionando?**
 En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar.
