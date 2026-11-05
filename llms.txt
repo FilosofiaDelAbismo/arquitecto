@@ -4,7 +4,7 @@
 
 ## Servicios
 
-- [Chatbot a medida para empresas](https://arquitectodigital.io/chatbot.html): chatbot con RAG sobre tus documentos, en tu web y en Telegram, sin permanencia ni lock-in. POC de 7 días por 158€.
+- [Chatbot a medida para empresas](https://arquitectodigital.io/chatbot.html): chatbot con RAG sobre tus documentos, en tu web y en Telegram, sin permanencia ni lock-in. POC de 7 días por 158€; Setup a precio fijo de 529€ (web) u 849€ (web + Telegram).
 - [Automatización con IA a medida](https://arquitectodigital.io/sistemas.html): sistemas a medida cuando tu caso no encaja en un servicio estándar. Sprint cerrado desde 2.650€ o consultoría a 100€/h.
 - [Blog automático con IA](https://arquitectodigital.io/autoblog.html): artículos SEO con tu tono y publicación directa en WordPress, de 2 a 16 al mes. Desde 41€/mes.
 - [Diseño web para pymes y autónomos](https://arquitectodigital.io/webs.html): diseño, desarrollo, deploy y dominio, sin lock-in con plataformas. Essential 954€ y Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único.
