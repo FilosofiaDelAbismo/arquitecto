@@ -112,17 +112,17 @@ Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido s
 
 URL: https://arquitectodigital.io/webs.html
 
-Webs profesionales para empresas y autónomos: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Web Essential 954€ y Web Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único, IVA incluido. El mantenimiento anual es opcional: 250 €/año, IVA incluido, el mismo para Essential y Pro, se contrata aparte y sin permanencia.
+Webs profesionales para empresas y autónomos: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Web Essential 954€ y Web Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. El mantenimiento anual es opcional: 250 €/año, IVA e IRPF incluidos, el mismo para Essential y Pro, se contrata aparte y sin permanencia.
 
 ### Planes y precios
 
-- Essential: 954 €. 1 página con 5 secciones, diseño responsive, SEO básico: títulos y descripciones, sitemap y ficha de empresa local, sección de contacto con tus datos. Pago único, IVA incluido.
-- Pro: 2.650 €. Pack: home + 4-6 páginas internas, blog integrado y conectado al autoblog, chatbot IA en tu web, SEO técnico: sitemap, títulos y descripciones por página, ficha de empresa local y preguntas frecuentes para Google y la IA. El chatbot y el autoblog (4 artículos al mes) están incluidos los 2 primeros meses; después, cada uno sigue solo si se contrata aparte. Pago único, IVA incluido.
+- Essential: 954 €. 1 página con 5 secciones, diseño responsive, SEO básico: títulos y descripciones, sitemap y ficha de empresa local, sección de contacto con tus datos. Pago único, IVA e IRPF incluidos.
+- Pro: 2.650 €. Pack: home + 4-6 páginas internas, blog integrado y conectado al autoblog, chatbot IA en tu web, SEO técnico: sitemap, títulos y descripciones por página, ficha de empresa local y preguntas frecuentes para Google y la IA. El chatbot y el autoblog (4 artículos al mes) están incluidos los 2 primeros meses; después, cada uno sigue solo si se contrata aparte. Pago único, IVA e IRPF incluidos.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta una web profesional?**
-El plan Essential cuesta 954€ en pago único (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro cuesta 2.650€ en pago único e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap, y además el chatbot en tu web y el autoblog (4 artículos al mes) durante los 2 primeros meses sin coste; después, cada uno sigue solo si lo contratas aparte. IVA incluido. Solo para empresas y autónomos (no para particulares). El mantenimiento anual es opcional: 250 €/año, IVA incluido, el mismo para Essential y Pro, se contrata aparte y sin permanencia (si cancelas, no se renueva); incluye el alojamiento, el certificado SSL, la gestión del dominio (que se registra a tu nombre), pequeñas actualizaciones y una copia de seguridad (backup) mensual.
+El plan Essential cuesta 954€ en pago único (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro cuesta 2.650€ en pago único e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap, y además el chatbot en tu web y el autoblog (4 artículos al mes) durante los 2 primeros meses sin coste; después, cada uno sigue solo si lo contratas aparte. IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. El mantenimiento anual es opcional: 250 €/año, IVA e IRPF incluidos, el mismo para Essential y Pro, se contrata aparte y sin permanencia (si cancelas, no se renueva); incluye el alojamiento, el certificado SSL, la gestión del dominio (que se registra a tu nombre), pequeñas actualizaciones y una copia de seguridad (backup) mensual.
 
 **¿Cuánto tarda en entregarse una web?**
 La web Essential de Arquitecto Digital se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.
