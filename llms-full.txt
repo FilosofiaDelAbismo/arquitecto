@@ -16,21 +16,21 @@ Arquitecto Digital es el estudio de Daniel González Barquero, ingeniero full-st
 
 URL: https://arquitectodigital.io/chatbot.html
 
-Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ deducible del Setup; Setup a precio fijo de 529€ (widget web) u 849€ (widget web + Telegram); planes mensuales desde 84€/mes. Todos los precios con IVA incluido.
+Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ (no deducible del Setup); Setup a precio fijo de 529€ (widget web) u 849€ (widget web + Telegram); planes mensuales desde 84€/mes. Todos los precios con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
 
 ### Planes y precios
 
-- POC · 7 días: 158 €. RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. Deducible del Setup si contratas. Pago único, IVA incluido.
-- Setup Widget Web: 529 €, precio fijo. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
-- Setup Widget Web + Telegram: 849 €, precio fijo. Widget web + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA incluido.
-- Recurring Light: 84 €/mes. Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
-- Recurring Medium: 190 €/mes. Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA incluido.
-- Recurring Pro: 423 €/mes. Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA incluido.
+- POC · 7 días: 158 €. RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. No deducible del Setup. Pago único, IVA e IRPF incluidos.
+- Setup Widget Web: 529 €, precio fijo. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA e IRPF incluidos.
+- Setup Widget Web + Telegram: 849 €, precio fijo. Widget web + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA e IRPF incluidos.
+- Recurring Light: 84 €/mes. Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA e IRPF incluidos.
+- Recurring Medium: 190 €/mes. Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA e IRPF incluidos.
+- Recurring Pro: 423 €/mes. Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA e IRPF incluidos.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un chatbot con IA para mi empresa?**
-El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, que es deducible del Setup si después contratas. El Setup completo tiene precio fijo: 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA incluido.
+El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, no deducible del Setup (si después contratas, el Setup se paga completo). El Setup completo tiene precio fijo: 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
 
 **¿Cuánto se tarda en tener el chatbot funcionando?**
 En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar.
@@ -82,19 +82,19 @@ El código es tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si s
 
 URL: https://arquitectodigital.io/autoblog.html
 
-Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, IVA incluido. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, API access) es por cotización.
+Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, API access) es por cotización.
 
 ### Planes y precios
 
-- Starter: 41 €/mes. 2 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA incluido.
-- Essential: 84 €/mes. 4 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA incluido.
-- Profesional: 158 €/mes. 8 posts/mes, soporte prioritario, revisión de calidad y verificación de datos. IVA incluido.
-- Premium: 296 €/mes. 16 posts/mes, corpus personalizado, soporte prioritario. IVA incluido.
+- Starter: 41 €/mes. 2 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA e IRPF incluidos.
+- Essential: 84 €/mes. 4 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA e IRPF incluidos.
+- Profesional: 158 €/mes. 8 posts/mes, soporte prioritario, revisión de calidad y verificación de datos. IVA e IRPF incluidos.
+- Premium: 296 €/mes. 16 posts/mes, corpus personalizado, soporte prioritario. IVA e IRPF incluidos.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un autoblog con IA?**
-Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA incluido. Antes de contratar puedes pedirme un artículo de prueba gratis. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
+Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedirme un artículo de prueba gratis. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
 
 **¿Cuánto tarda en publicarse el primer artículo?**
 La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
