@@ -1612,3 +1612,16 @@ footer {
 @media (max-width: 768px) {
   .footer-grid.footer-grid--full { grid-template-columns: 1fr; }
 }
+
+/* Móvil: «Hablemos →» no se sale ni se parte (geo-web 2026-11-07).
+   En ≤768px la cabecera lleva logo + ☰ + CTA en una fila de 320-370px. */
+@media (max-width: 768px) {
+  nav { gap: 8px; }
+  .logo { font-size: 1.15em; white-space: nowrap; min-width: 0; }
+  .nav-hamburger { margin-left: auto; flex-shrink: 0; }
+  .nav-cta { white-space: nowrap; flex-shrink: 0; padding: 8px 12px; font-size: 0.85em; }
+}
+@media (max-width: 374px) {
+  .logo { font-size: 1.02em; }
+  .nav-cta { padding: 8px 10px; }
+}

@@ -1,16 +1,17 @@
 # Arquitecto Digital
 
-> Arquitecto Digital (arquitectodigital.io) es la marca de Daniel González Barquero, autónomo en El Puerto de Santa María (Cádiz). Automatización con IA para pymes y autónomos: chatbots con tus documentos, blog automático, sistemas a medida y webs, además de servicios y apps propias. Opera en España. Precios con IVA incluido.
+> Arquitecto Digital (arquitectodigital.io) es la marca de Daniel González Barquero, autónomo en El Puerto de Santa María (Cádiz). Diseño web, chatbots con IA, blogs automáticos con IA, sistemas de IA a medida y cursos de IA para empresas y autónomos, además de servicios y apps propias. No es un estudio de arquitectura ni de obras o reformas. Atiende en El Puerto de Santa María, Cádiz, Jerez de la Frontera y Chiclana de la Frontera, y en remoto en toda España. Precios con IVA incluido.
 
 ## Servicios
 
-- [Chatbot a medida para empresas](https://arquitectodigital.io/chatbot.html): chatbot con RAG sobre tus documentos, en tu web y en Telegram, sin permanencia ni lock-in. POC de 7 días por 158€ (no deducible del Setup); Setup a precio fijo de 529€ (web) u 849€ (web + Telegram). IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
+- [Chatbot a medida para empresas](https://arquitectodigital.io/chatbot.html): chatbot con RAG sobre tus documentos, en tu web y en Telegram, sin permanencia ni lock-in. POC de 7 días por 158€ (no deducible del Setup); Setup a precio fijo de 529€ (web) u 849€ (web + Telegram); cuota desde 84€/mes. IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
 - [Automatización con IA a medida](https://arquitectodigital.io/sistemas.html): sistemas a medida cuando tu caso no encaja en un servicio estándar. Sprint cerrado desde 2.650€ o consultoría a 100€/h.
-- [Blog automático con IA](https://arquitectodigital.io/autoblog.html): artículos SEO con tu tono y publicación directa en WordPress, de 2 a 16 al mes. Desde 41€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
-- [Diseño web para pymes y autónomos](https://arquitectodigital.io/webs.html): diseño, desarrollo, deploy y dominio, sin lock-in con plataformas. Essential 954€ y Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
-- [Crea tu canción](https://arquitectodigital.io/crea-tu-cancion.html): creas tú mismo una canción personalizada con la herramienta de IA y recibes 2 versiones en MP3 por email. 15€.
-- [Audio → Libro](https://arquitectodigital.io/audio-libro.html): convierte tus grabaciones, podcasts o conferencias en un libro digital en PDF y EPUB. Desde 79,99€, pago único.
-- [GiroBot para Twitch](https://arquitectodigital.io/girobot.html): toolkit 3-en-1 para streamers: chatbot de IA, clips verticales 9:16 y alertas con voz IA. 199€ de alta + desde 19,99€/mes.
+- [Blog automático con IA](https://arquitectodigital.io/autoblog.html): artículos SEO con tu tono y publicación directa en WordPress, de 2 a 16 al mes. De 41€ a 296€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
+- [Diseño web para pymes y autónomos](https://arquitectodigital.io/webs.html): diseño, desarrollo, deploy y dominio, sin lock-in con plataformas. Essential 954€ y Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único, IVA e IRPF incluidos. Mantenimiento opcional aparte: 250€/año, incluye dominio, servidor, mantenimiento y RGPD; el SSL va incluido en el precio de la web, no en el mantenimiento. Solo para empresas y autónomos con domicilio fiscal en España.
+- [Crea tu canción](https://arquitectodigital.io/crea-tu-cancion.html): creas tú mismo una canción personalizada con la herramienta de IA y recibes 2 versiones en MP3 por email. 15€. Es una herramienta de autoservicio: la canción no se compone por encargo.
+- [Audio → Libro](https://arquitectodigital.io/audio-libro.html): convierte tus grabaciones, podcasts o conferencias en un libro digital en PDF y EPUB. Para particulares. 79,99€, 149,99€ o 299,99€ según las horas de audio, pago único, IVA incluido. Los tres planes reescriben lo que cuentas: Ebook en estilo neutro, Libro en prosa literaria y Libro Premium en prosa literaria cuidada.
+- [GiroBot para Twitch](https://arquitectodigital.io/girobot.html): toolkit todo en uno para streamers: chatbot de IA, clips verticales 9:16, publicador automático en TikTok y alertas en directo con voz IA (con lector de voz del chat). 199€ de alta + 19,99 / 39,99 / 89,99€/mes, IVA incluido.
+- [Cursos privados de IA a domicilio](https://arquitectodigital.io/#contacto): Junior IA y Senior IA, en El Puerto de Santa María, Jerez y Cádiz. Desde 1.200€, IVA incluido.
 - [Cénit](https://arquitectodigital.io/cenit/): diario personal para Android con Mario, una IA que reflexiona contigo. Gratis; Pro 29,99€/año.
 
 ## Más
@@ -24,7 +25,7 @@
 
 - Daniel González Barquero, ingeniero full-stack senior y fundador de Arquitecto Digital, en El Puerto de Santa María (Cádiz, España). Diseña, construye y mantiene sistemas de IA en producción.
 - Sobre mí: https://arquitectodigital.io/portfolio.html#sobre-mi
-- Perfiles: https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/ · https://x.com/arqdigital_io
+- Perfiles: https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/ · https://www.instagram.com/arquitecto.digital/ · https://www.facebook.com/profile.php?id=61575581849782 · https://x.com/arqdigital_io
 
 ## Artículos principales
 
@@ -41,5 +42,8 @@
 
 - Email: daniel@arquitectodigital.io
 - Teléfono / WhatsApp: 743 08 86 55
+- Horario: lunes a viernes, de 11:00 a 15:00 y de 17:00 a 21:00
+- Zonas: El Puerto de Santa María, Cádiz, Jerez de la Frontera y Chiclana de la Frontera (y en remoto, toda España)
+- Ficha de Google: __ENLACE_FICHA_GOOGLE__
 
-Última actualización: 2026-11-01
+Última actualización: 2026-11-07

@@ -1,16 +1,21 @@
 # Arquitecto Digital · información completa
 
-> Versión extendida de https://arquitectodigital.io/llms.txt. Datos copiados de los datos estructurados (JSON-LD) de cada página: descripción, planes con precio y preguntas frecuentes. Precios con IVA incluido salvo que se indique. Última actualización: 2026-11-01.
+> Versión extendida de https://arquitectodigital.io/llms.txt. Datos copiados de los datos estructurados (JSON-LD) de cada página: descripción, planes con precio y preguntas frecuentes. Precios con IVA incluido salvo que se indique. Última actualización: 2026-11-07.
 
 ## Quién
 
 Arquitecto Digital es el estudio de Daniel González Barquero, ingeniero full-stack senior afincado en El Puerto de Santa María (Cádiz, España). Diseña, construye y mantiene sistemas de IA a medida para empresas: chatbots con RAG sobre tu documentación, automatización de procesos y productos digitales.
 
+Servicios: diseño web, chatbots con IA, blogs automáticos con IA, sistemas de IA a medida y cursos de IA. No es un estudio de arquitectura ni hace obras o reformas: «arquitecto digital» se refiere a software.
+
 - Web: https://arquitectodigital.io/
 - Sobre el autor: https://arquitectodigital.io/portfolio.html#sobre-mi
 - Email: daniel@arquitectodigital.io
 - Teléfono / WhatsApp: +34 743 08 86 55
-- Zona: El Puerto de Santa María (Cádiz). Atiende en toda España.
+- Horario: lunes a viernes, de 11:00 a 15:00 y de 17:00 a 21:00
+- Zonas: El Puerto de Santa María, Cádiz, Jerez de la Frontera y Chiclana de la Frontera. En remoto, toda España.
+- Ficha de Google: __ENLACE_FICHA_GOOGLE__
+- Redes: https://www.instagram.com/arquitecto.digital/ · https://www.facebook.com/profile.php?id=61575581849782 · https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/
 
 ## Chatbot para empresas
 
@@ -128,7 +133,7 @@ El plan Essential cuesta 954€ en pago único (1 página con 5 secciones, respo
 La web Essential de Arquitecto Digital se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.
 
 **¿Qué incluye y qué no incluye el precio?**
-Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
+Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. El mantenimiento anual (250 €/año, aparte) incluye dominio, servidor, mantenimiento y RGPD; el SSL va incluido en el precio de la web, no en el mantenimiento. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
 
 **¿La web es mía o me quedo atado a una plataforma?**
 La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin lock-in.
@@ -136,11 +141,15 @@ La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde e
 **¿Puedo ver un ejemplo real de vuestro trabajo?**
 Sí: arquitectodigital.io es HTML estático en GitHub Pages, hecho con esta misma propuesta, y puedes verlo en producción.
 
+## Cursos privados de IA a domicilio
+
+Cursos privados de inteligencia artificial a domicilio, en dos niveles: Junior IA y Senior IA. En El Puerto de Santa María, Jerez de la Frontera y Cádiz. Desde 1.200 €, IVA incluido. Información y reservas: daniel@arquitectodigital.io o WhatsApp 743 08 86 55.
+
 ## Crea tu canción
 
 URL: https://arquitectodigital.io/crea-tu-cancion.html
 
-Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
+Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Es una herramienta de autoservicio: la creas tú; no se compone por encargo. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
 
 ### Planes y precios
 
@@ -164,19 +173,21 @@ Con Crea tu Canción recibes 2 versiones de la misma canción en MP3 por email. 
 En Crea tu Canción tienes 48 horas: tras pagar recibes un código y tienes ese plazo para crear tu canción con él. Pasado ese plazo, el código caduca.
 
 **¿Puedo comprarla si vivo fuera de España?**
-El servicio es solo para clientes con domicilio fiscal en España. Si el tuyo está fuera, escribe a daniel@arquitectodigital.io y se ve caso por caso.
+No. El servicio es solo para clientes con domicilio fiscal en España.
 
 ## Audio → Libro
 
 URL: https://arquitectodigital.io/audio-libro.html
 
-Convierte tus audios, podcasts o conferencias en un libro digital con transcripción profesional y entrega en 48h. Desde 79,99€ en pago único, IVA incluido. Entrega 100% digital, sin versión impresa.
+Convierte tus audios, podcasts o conferencias en un libro digital con transcripción profesional y entrega en 48h. Desde 79,99€ en pago único, IVA incluido. Entrega 100% digital, sin versión impresa. Solo para particulares.
 
 ### Planes y precios
 
-- Ebook: 79,99 €. Hasta 2h de audio, entrega en PDF + EPUB, portada temática generada con IA. Pago único, IVA incluido.
+- Ebook: 79,99 €. Hasta 2h de audio, entrega en PDF + EPUB, estilo neutro, portada temática generada con IA. Pago único, IVA incluido.
 - Libro: 149,99 €. Hasta 6h de audio, entrega en PDF + EPUB + DOCX + MD + TXT, prosa literaria, portada temática generada con IA. Pago único, IVA incluido.
-- Libro Premium: 299,99 €. Hasta 10h de audio, todos los formatos (PDF/EPUB/DOCX/MD/TXT), portada temática generada con IA. Pago único, IVA incluido.
+- Libro Premium: 299,99 €. Hasta 10h de audio, todos los formatos (PDF/EPUB/DOCX/MD/TXT), prosa literaria cuidada, portada temática generada con IA. Pago único, IVA incluido.
+
+Los tres planes reescriben lo que cuentas en prosa, sin inventar contenido: el Ebook en estilo neutro, el Libro en prosa literaria y el Libro Premium en prosa literaria cuidada.
 
 ### Preguntas frecuentes
 
@@ -202,30 +213,30 @@ No: la entrega de Audio a Libro es 100% digital, sin versión impresa. Recibes e
 
 URL: https://arquitectodigital.io/girobot.html
 
-GiroBot: toolkit 3-en-1 para streamers de Twitch. Chatbot de IA en tu chat, editor de clips donde subes tu vídeo y eliges los momentos para convertirlos en…
+GiroBot: toolkit todo en uno para streamers de Twitch. Chatbot de IA en tu chat, editor de clips donde subes tu vídeo y eliges los momentos para convertirlos en…
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un bot de IA para Twitch?**
-Hay una cuota de alta única de 199€ por el pack 3-en-1, que se incluye en el primer pago, más un plan mensual: STARTER 19,99€/mes, PRO 39,99€/mes o UNLIMITED 89,99€/mes. Todos los precios llevan IVA incluido.
+Hay una cuota de alta única de 199€ por el pack todo en uno, que se incluye en el primer pago, más un plan mensual: STARTER 19,99€/mes, PRO 39,99€/mes o UNLIMITED 89,99€/mes. Todos los precios llevan IVA incluido.
 
 **¿Tiene permanencia? ¿Puedo cancelar cuando quiera?**
 El plan mensual es cancelable cuando quieras, sin permanencia. La cuota de alta única de 199€ no es reembolsable.
 
-**¿Qué incluye exactamente el pack 3-en-1 de GiroBot?**
-GiroBot incluye tres cosas: un chatbot de IA que responde en tu chat con la personalidad de tu canal, un editor de clips donde subes un vídeo horizontal, eliges los momentos y te los devuelve como verticales 1080×1920 con subtítulos quemados, y alertas con voz IA en overlay para OBS que anuncian subs, resubs, bits, raids y follows.
+**¿Qué incluye exactamente el pack todo en uno de GiroBot?**
+GiroBot incluye cuatro módulos: un chatbot de IA que responde en tu chat con la personalidad de tu canal, un editor de clips donde subes un vídeo horizontal, eliges los momentos y te los devuelve como verticales 1080×1920 con subtítulos quemados, que un publicador automático puede subir a tu cuenta de TikTok si lo activas, y alertas con voz IA en overlay para OBS que anuncian subs, resubs, bits, raids y follows.
 
 **¿Cuántos clips puedo hacer al día con GiroBot?**
-Depende del plan de GiroBot: 5 clips/día en STARTER, 20 clips/día en PRO y hasta 200 clips/día en UNLIMITED.
+Depende del plan de GiroBot: 5 clips/día en STARTER, 20 clips/día en PRO y hasta 50 clips/día en UNLIMITED.
 
 **¿Los clips se generan solos o los elijo yo?**
-En GiroBot los clips los eliges tú. Subes un vídeo horizontal y eliges los momentos que quieres; GiroBot hace el reencuadre y la transcripción con IA y te devuelve los cortos para que los descargues.
+En GiroBot los clips los eliges tú. Subes un vídeo horizontal y eliges los momentos que quieres; GiroBot hace el reencuadre y la transcripción con IA y te devuelve los cortos para que los descargues o, si activas el publicador, los sube él a tu TikTok.
 
 **¿Necesito saber programar o montar un servidor para usar GiroBot?**
 No: con GiroBot conectas tu canal con un clic mediante OAuth de Twitch y activas los módulos que quieras. Sin servidores, sin código y sin mantenimiento por tu parte.
 
 **¿Cómo accedo después de contratar?**
-Contratas, conectas tu canal con Twitch y, tras el pago, recibes por email tu código de acceso al portal. Dentro configuras el chatbot, subes tus vídeos y eliges los momentos para tus clips, y activas las alertas.
+Contratas, conectas tu canal con Twitch y, tras el pago, recibes por email tu código de acceso al portal. Dentro configuras el chatbot, subes tus vídeos y eliges los momentos para tus clips, y activas las alertas y, si lo quieres, el publicador de TikTok.
 
 ## Cénit
 
