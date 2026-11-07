@@ -1,0 +1,9 @@
+# Páginas que NO entran en sitemap.xml aunque existan en el repo.
+# Las decide Daniel: cuando una esté publicada (200) e indexable (sin noindex),
+# se borra su línea, se regenera (python3 tools/gen_sitemap.py) y se publica.
+# Una ruta por línea, relativa a la raíz del repo.
+#
+# Reforma SEO: aún no está en main (ramas reforma-seo-*), hoy da 404 y en las
+# ramas lleva <meta name="robots" content="noindex, follow">. Pendiente del texto
+# legal de Datcon.
+reforma-seo.html
