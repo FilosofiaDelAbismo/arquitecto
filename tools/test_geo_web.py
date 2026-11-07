@@ -14,8 +14,11 @@ Comprueba en los ficheros del repo:
   6. og:site_name = «Arquitecto Digital» en todas las páginas que lo llevan.
   7. Decisiones del 07-11: banner de Cénit debajo del H1 y del párrafo principal;
      sin «Cénit · Cénit» en los <title>; newsletter apagada (noindex, fuera del
-     sitemap, sin enlaces en portada ni pie, formulario sin envío); GiroBot sin
-     «alertas con voz» fuera de los posts del blog.
+     sitemap, sin enlaces a la página de alta en ninguna página salvo la
+     redirección newsletter.html, formulario sin envío); GiroBot con sus 4
+     módulos (chatbot, clips 9:16, publicador en TikTok y alertas con voz) en
+     portada, girobot, portfolio y llms, y en girobot.html las alertas en directo
+     y el lector de voz del chat en los 3 planes.
 
 Uso:
   python3 tools/test_geo_web.py            # rama: admite el marcador de la ficha
@@ -226,15 +229,47 @@ if "newsletter-signup" in idx or 'id="newsletter"' in idx:
     falla("portada: sigue enlazando la newsletter o tiene la sección [07]")
 if "newsletter-signup" in leer("partials/footer.html"):
     falla("pie: sigue enlazando la newsletter")
-VOZ = re.compile(r"alertas? con voz|voz ia|lector de voz|overlay (para|en) obs|alertas en directo", re.I)
-for f in ["index.html", "girobot.html", "portfolio.html", "llms.txt", "llms-full.txt"]:
+A_ALTA = re.compile(r'href="[^"]*newsletter-signup\.html')
+con_alta = [f for f in paginas if f not in ("newsletter.html", "newsletter-signup.html")
+            and A_ALTA.search(leer(f))]
+if con_alta:
+    falla(f"siguen enlazando la página de alta de la newsletter: {con_alta}")
+# GiroBot: los 4 módulos en cada sitio donde se describe
+MODULOS = {"chatbot": re.compile(r"chatbot", re.I),
+           "clips 9:16": re.compile(r"9:16|1080×1920", re.I),
+           "publicador en TikTok": re.compile(r"publicador automático[^.]{0,60}TikTok", re.I),
+           "alertas con voz": re.compile(r"alertas (con voz|en directo)", re.I)}
+def bloque_girobot(f: str) -> str:
     t = leer(f)
-    if f == "girobot.html":   # el enlace a un post lleva su título; los posts no se tocan sin OK
-        t = t.replace("GiroBot para Twitch: clips 9:16 y alertas con voz IA</a>", "")
-    if VOZ.search(t):
-        falla(f"{f}: GiroBot sigue mencionando alertas/voz: {VOZ.search(t).group(0)!r}")
-    if "GiroBot" in t and f != "portfolio.html" and "TikTok" not in t:
-        falla(f"{f}: no menciona el publicador de TikTok")
+    if f == "index.html":
+        i = t.find('aria-label="Ver detalles de GiroBot'); return t[i:t.find('class="service-cta"', i)]
+    if f == "portfolio.html":
+        i = t.find('aria-label="Ver GiroBot'); return t[i:t.find("</p>", i)]
+    if f == "llms.txt":
+        return next(l for l in t.splitlines() if l.startswith("- [GiroBot"))
+    if f == "llms-full.txt":
+        i = t.find("## GiroBot"); return t[i:t.find("\n## ", i + 5)]
+    return t
+for f in ["index.html", "portfolio.html", "llms.txt", "llms-full.txt", "girobot.html"]:
+    b = bloque_girobot(f)
+    falta = [m for m, rx in MODULOS.items() if not rx.search(b)]
+    if falta:
+        falla(f"{f}: GiroBot sin {falta}")
+gb = leer("girobot.html")
+planes = re.findall(r'<ul class="gb-feats">(.*?)</ul>', gb, re.S)
+for linea in ["Alertas en directo (subs, bits, raids, follows)", "Lector de voz del chat incluido (activable)",
+              "Publicador automático en TikTok (opcional)"]:
+    if len(planes) != 3 or not all(linea in pl for pl in planes):
+        falla(f"girobot.html: «{linea}» no está en los 3 planes")
+app = [d for bl in re.findall(r'<script type="application/ld\+json">(.*?)</script>', gb, re.S)
+       for d in [json.loads(bl)] if isinstance(d, dict) and d.get("@type") == "SoftwareApplication"]
+if len(app) != 1:
+    falla(f"girobot.html: {len(app)} bloques JSON-LD SoftwareApplication (se espera 1)")
+for d in app:
+    txt = json.dumps(d, ensure_ascii=False)
+    falta = [m for m, rx in MODULOS.items() if not rx.search(txt)]
+    if falta:
+        falla(f"girobot.html JSON-LD SoftwareApplication sin {falta}")
 
 print(f"· portada: title {len(titulo)} car. · description {len(desc)} car. · {len(bloques)} bloques JSON-LD")
 print(f"· pie común en {len(con_pie)} páginas · {len(LEGALES)} legales · marcador de ficha en "

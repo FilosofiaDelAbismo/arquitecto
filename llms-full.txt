@@ -222,7 +222,7 @@ Hay una cuota de alta única de 199€ por el pack 3-en-1, que se incluye en el 
 El plan mensual es cancelable cuando quieras, sin permanencia. La cuota de alta única de 199€ no es reembolsable.
 
 **¿Qué incluye exactamente el pack 3-en-1 de GiroBot?**
-GiroBot incluye tres cosas: un chatbot de IA que responde en tu chat con la personalidad de tu canal, un editor de clips donde subes un vídeo horizontal, eliges los momentos y te los devuelve como verticales 1080×1920 con subtítulos quemados, y un publicador automático que sube esos cortos a tu cuenta de TikTok, si lo activas.
+GiroBot incluye tres cosas: un chatbot de IA que responde en tu chat con la personalidad de tu canal, un editor de clips donde subes un vídeo horizontal, eliges los momentos y te los devuelve como verticales 1080×1920 con subtítulos quemados, que un publicador automático puede subir a tu cuenta de TikTok si lo activas, y alertas con voz IA en overlay para OBS que anuncian subs, resubs, bits, raids y follows.
 
 **¿Cuántos clips puedo hacer al día con GiroBot?**
 Depende del plan de GiroBot: 5 clips/día en STARTER, 20 clips/día en PRO y hasta 200 clips/día en UNLIMITED.
@@ -234,7 +234,7 @@ En GiroBot los clips los eliges tú. Subes un vídeo horizontal y eliges los mom
 No: con GiroBot conectas tu canal con un clic mediante OAuth de Twitch y activas los módulos que quieras. Sin servidores, sin código y sin mantenimiento por tu parte.
 
 **¿Cómo accedo después de contratar?**
-Contratas, conectas tu canal con Twitch y, tras el pago, recibes por email tu código de acceso al portal. Dentro configuras el chatbot, subes tus vídeos y eliges los momentos para tus clips, y activas el publicador de TikTok si lo quieres.
+Contratas, conectas tu canal con Twitch y, tras el pago, recibes por email tu código de acceso al portal. Dentro configuras el chatbot, subes tus vídeos y eliges los momentos para tus clips, y activas las alertas y, si lo quieres, el publicador de TikTok.
 
 ## Cénit
 
