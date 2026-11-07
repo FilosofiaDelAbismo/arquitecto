@@ -19,6 +19,12 @@ Comprueba en los ficheros del repo:
      módulos (chatbot, clips 9:16, publicador en TikTok y alertas con voz) en
      portada, girobot, portfolio y llms, y en girobot.html las alertas en directo
      y el lector de voz del chat en los 3 planes.
+  8. Flecos del 07-11: solo España (ni UE/Europa/LATAM como ámbito ni «fuera de
+     España… caso por caso» fuera de legales y posts); GiroBot «todo en uno» (sin
+     3-en-1 / tres en uno / tres servicios distintos fuera de los posts); ningún
+     «200 clips» (UNLIMITED = hasta 50 clips/día en el plan, la oferta JSON-LD y
+     llms-full); portada con priceRange «€€» y postalCode 11500 (sigue prohibido
+     streetAddress, la calle y el NIF).
 
 Uso:
   python3 tools/test_geo_web.py            # rama: admite el marcador de la ficha
@@ -103,8 +109,8 @@ for b in bloques:
         falla(f"portada: JSON-LD inválido: {e}")
         continue
     items += d.get("@graph", [d]) if isinstance(d, dict) else d
-    if CALLE_NIF.search(b) or re.search(r'"(streetAddress|postalCode|taxID|vatID)"', b):
-        falla("portada: el JSON-LD lleva calle, CP o NIF")
+    if CALLE_NIF.search(b) or re.search(r'"(streetAddress|taxID|vatID)"', b):
+        falla("portada: el JSON-LD lleva calle o NIF")
 
 
 def tipos(it: dict) -> set:
@@ -135,8 +141,10 @@ else:
         falla("portada: url del negocio")
     ad = n.get("address", {})
     if ad != {"@type": "PostalAddress", "addressLocality": "El Puerto de Santa María",
-              "addressRegion": "Cádiz", "addressCountry": "ES"}:
-        falla(f"portada: address debe ser SOLO localidad/provincia/país: {ad}")
+              "postalCode": "11500", "addressRegion": "Cádiz", "addressCountry": "ES"}:
+        falla(f"portada: address debe ser SOLO localidad, CP 11500, provincia y país: {ad}")
+    if n.get("priceRange") != "€€":
+        falla(f"portada: ProfessionalService.priceRange debe ser «€€» ({n.get('priceRange')!r})")
     ciudades = {a.get("name") for a in n.get("areaServed", []) if isinstance(a, dict)}
     if ciudades != CIUDADES:
         falla(f"portada: areaServed {sorted(ciudades)} ≠ {sorted(CIUDADES)}")
@@ -270,6 +278,44 @@ for d in app:
     falta = [m for m, rx in MODULOS.items() if not rx.search(txt)]
     if falta:
         falla(f"girobot.html JSON-LD SoftwareApplication sin {falta}")
+
+# 8. Flecos del 07-11 ───────────────────────────────────────────────────
+# a) Solo España: ni UE/Europa/LATAM como ámbito de servicio ni «fuera de España… caso por caso»,
+#    en ninguna página no legal ni en llms*. Fuera: el texto legal (RGPD, transferencias) y los posts del blog
+#    (artículos con fecha; hablan del RGPD en la UE/LATAM, no del ámbito del servicio).
+AMBITO = re.compile(
+    r"\b(para|en|a|desde España para|clientes de|clientes en)\s+(toda\s+)?(la\s+)?"
+    r"(UE|Uni[oó]n Europea|Europa|LATAM|Latinoam[eé]rica|Am[eé]rica Latina|Hispanoam[eé]rica)\b"
+    r"|\b(trabaj\w+|atiend\w+|ofrec\w+|vend\w+|disponible)\b[^.\n<]{0,40}\b(internacional\w*|fuera de Espa[ñn]a)\b"
+    r"|fuera de Espa[ñn]a[^.\n<]{0,120}(caso por caso|lo vemos)|¿El tuyo está fuera\?", re.I)
+for f in paginas + ["llms.txt", "llms-full.txt"]:
+    if f in legal_set or f.startswith("blog/"):
+        continue
+    for m in AMBITO.finditer(leer(f)):
+        falla(f"{f}: ámbito fuera de España: «{m.group(0)}»")
+# b) GiroBot «todo en uno»: sin 3-en-1 / tres en uno / tres servicios distintos fuera de los posts,
+#    ni «tres herramientas» en lo que describe GiroBot (se ignoran los enlaces a los posts, que llevan su título).
+TRES = re.compile(r"3[- ]en[- ]1|tres[- ]en[- ]uno|tres servicios distintos", re.I)
+for f in paginas + ["llms.txt", "llms-full.txt"]:
+    if f.startswith("blog/") or f in legal_set:
+        continue
+    for m in TRES.finditer(leer(f)):
+        falla(f"{f}: «{m.group(0)}» (GiroBot es «todo en uno»)")
+for f in ["index.html", "portfolio.html", "llms.txt", "llms-full.txt", "girobot.html"]:
+    b = re.sub(r'<a href="/blog/[^"]*"[^>]*>[^<]*</a>', "", bloque_girobot(f))
+    if re.search(r"tres herramientas|incluye tres", b, re.I):
+        falla(f"{f}: GiroBot descrito como «tres herramientas»")
+# c) UNLIMITED = hasta 50 clips/día (ramas/twitch/tiers.py)
+for f in paginas + ["llms.txt", "llms-full.txt"]:
+    if re.search(r"\b200\s*clips", leer(f), re.I):
+        falla(f"{f}: dice «200 clips» (UNLIMITED = 50 clips/día)")
+if len(planes) == 3 and "hasta 50 clips/día" not in planes[2]:
+    falla("girobot.html: el plan UNLIMITED no dice «hasta 50 clips/día»")
+of_unl = [o for d in app for o in d.get("offers", []) if "UNLIMITED" in o.get("name", "")]
+if len(of_unl) != 1 or "hasta 50 clips/día" not in of_unl[0].get("description", ""):
+    falla("girobot.html JSON-LD: la oferta UNLIMITED no dice «hasta 50 clips/día»")
+if "hasta 50 clips/día en UNLIMITED" not in leer("llms-full.txt"):
+    falla("llms-full.txt: falta «hasta 50 clips/día en UNLIMITED»")
 
 print(f"· portada: title {len(titulo)} car. · description {len(desc)} car. · {len(bloques)} bloques JSON-LD")
 print(f"· pie común en {len(con_pie)} páginas · {len(LEGALES)} legales · marcador de ficha en "
