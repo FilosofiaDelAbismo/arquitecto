@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Newsletter · Arquitecto Digital · Lo que aprendo construyendo</title>
 <meta name="description" content="Newsletter de Daniel · Arquitecto Digital. Novedades, casos reales y lo que aprendo construyendo automatizaciones IA para PYMEs. Sin spam, baja en 1 clic.">
-<meta name="robots" content="index, follow">
+<!-- Newsletter apagada (geo-web 2026-11-07, decisión A): noindex, fuera del sitemap y sin enlaces desde portada ni pie.
+     El formulario NO envía nada. La ruta del backend (newsletter-subscribe) sigue viva y no se ha tocado. -->
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://arquitectodigital.io/newsletter-signup.html">
 
 <meta property="og:title" content="Newsletter · Arquitecto Digital · Lo que aprendo construyendo">
@@ -107,17 +109,17 @@
       <form class="newsletter-form" id="newsletter-form" novalidate>
         <h4>Suscríbete</h4>
         <p style="color:var(--text-dim); margin-bottom:25px; font-size:0.95em;">
-          Email + (opcional) nombre. Confirmas con un clic en tu bandeja y listo.
+          <strong>Las altas están cerradas por ahora.</strong> No hay envíos programados.
         </p>
 
         <div class="form-group">
           <label for="nl-email">Email</label>
-          <input type="email" id="nl-email" name="email" placeholder="tu@empresa.com" required autocomplete="email">
+          <input type="email" id="nl-email" name="email" placeholder="tu@empresa.com" required autocomplete="email" disabled>
         </div>
 
         <div class="form-group">
           <label for="nl-name">Nombre <span style="color:var(--text-faint); font-weight:400; text-transform:none; letter-spacing:0;">(opcional)</span></label>
-          <input type="text" id="nl-name" name="name" placeholder="Cómo te llamo en el saludo" autocomplete="given-name">
+          <input type="text" id="nl-name" name="name" placeholder="Cómo te llamo en el saludo" autocomplete="given-name" disabled>
         </div>
 
         <!-- Honeypot anti-bots — no rellenar -->
@@ -128,16 +130,16 @@
 
         <div class="consent-group">
           <label class="consent-item" for="nl-consent-legal">
-            <input type="checkbox" id="nl-consent-legal" name="consent_legal">
+            <input type="checkbox" id="nl-consent-legal" name="consent_legal" disabled>
             <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y la recepción de comunicaciones, promociones, ofertas y comunicaciones comerciales<span class="req-mark">*</span></span>
           </label>
           <label class="consent-item" for="nl-consent-personalizacion">
-            <input type="checkbox" id="nl-consent-personalizacion" name="consent_personalizacion">
+            <input type="checkbox" id="nl-consent-personalizacion" name="consent_personalizacion" disabled>
             <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
           </label>
         </div>
 
-        <button type="submit" class="form-submit">Suscribirme →</button>
+        <button type="submit" class="form-submit" disabled aria-disabled="true">Altas cerradas</button>
 
         <p class="form-disclaimer">
           Al suscribirte aceptas la <a href="privacidad.html">política de privacidad</a>. Doble opt-in (te llega un email para confirmar). Te puedes dar de baja en cualquier momento con un clic; el enlace va en cada envío.
@@ -196,7 +198,6 @@
           <li><a href="/blog.html">Blog</a></li>
           <li><a href="/utilidades/">Utilidades gratis</a></li>
           <li><a href="/portfolio.html">Portfolio</a></li>
-          <li><a href="/newsletter-signup.html">Suscribirse</a></li>
           <li><a href="/redes.html">Redes</a></li>
           <li><a href="/#proceso">Proceso</a></li>
           <li><a href="/#stack">Filosofía</a></li>
@@ -237,8 +238,15 @@
   var form = document.getElementById('newsletter-form');
   if (!form) return;
   var feedback = document.getElementById('nl-feedback');
+  // Altas cerradas (geo-web 2026-11-07): el formulario no envía nada.
+  var ALTAS_ABIERTAS = false;
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    if (!ALTAS_ABIERTAS) {
+      feedback.className = 'form-feedback';
+      feedback.textContent = 'Las altas están cerradas por ahora.';
+      return;
+    }
     feedback.className = 'form-feedback';
     feedback.textContent = '';
     var email = form.elements['email'].value.trim();
