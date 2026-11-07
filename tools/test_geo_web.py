@@ -33,6 +33,12 @@ Comprueba en los ficheros del repo:
      «Profesionales que dictan» ni lead magnet); Cénit sin licencia vitalicia (ni
      «vitalicia», «de por vida» ni «lifetime» fuera de legales, posts incluidos) y
      con «licencia de 1 año» y «sin suscripción ni renovación automática».
+ 10. Cierre del 07-11: Audio a Libro por plan (manda ramas/audio_book/config.py
+     PLAN_REFINEMENT_STYLE): los TRES planes reescriben; Ebook estilo neutro, Libro
+     prosa literaria, Libro Premium prosa literaria cuidada (tarjetas, ofertas JSON-LD,
+     llms.txt, llms-full y el post del 28-08, que ya no dice «no se reescribe» ni «el
+     tratamiento es el mismo»). Mantenimiento web (250 €/año) = dominio, servidor,
+     mantenimiento y RGPD; el SSL en el precio de la web, no en el mantenimiento.
 
 Uso:
   python3 tools/test_geo_web.py            # rama: admite el marcador de la ficha
@@ -327,7 +333,7 @@ if "hasta 50 clips/día en UNLIMITED" not in leer("llms-full.txt"):
 
 # 9. Dudas del 07-11 (respuestas de Daniel) ─────────────────────────────
 # Mismo alcance que la sección 8: páginas no legales y llms*; los posts del blog se excluyen
-# (artículos con fecha; el de Audio a Libro del 28-08 se deja tal cual, ver informe).
+# (artículos con fecha; el de Audio a Libro del 28-08 se vigila en la sección 10).
 no_legal = [f for f in paginas + ["llms.txt", "llms-full.txt"] if f not in legal_set and not f.startswith("blog/")]
 # a) Webs: el certificado SSL va INCLUIDO en el precio de la web (no «en el mantenimiento»).
 SSL_MANT = re.compile(r"SSL\s+(va|van)\s+en\s+el\s+mantenimiento", re.I)
@@ -389,6 +395,69 @@ for need in ["Cénit Pro · licencia de 1 año, pago único", "29,99€", "sin s
 for need in ["Cénit Pro · licencia de 1 año, pago único: 29,99 €", "sin suscripción ni renovación automática"]:
     if need not in lf:
         falla(f"llms-full.txt: falta «{need}»")
+
+# 10. Cierre del 07-11 ───────────────────────────────────────────────────
+# a) Audio a Libro por plan: los 3 reescriben; neutral / literary / literary_plus (config.py).
+ESTILO = {"Ebook": "estilo neutro", "Libro": "prosa literaria", "Libro Premium": "prosa literaria cuidada"}
+tarjetas = dict(re.findall(r'<h3 class="service-title">([^<]+)</h3>(.*?)</ul>', a, re.S))
+ofertas = {o.get("name"): o.get("description", "") for o in srv.get("offers", [])}
+lineas_lf = {m.group(1): m.group(0) for m in re.finditer(r"^- (Ebook|Libro|Libro Premium): .*$", sec_audio, re.M)}
+for plan, estilo in ESTILO.items():
+    for donde, txt in (("audio-libro.html tarjeta", tarjetas.get(plan, "")),
+                       ("audio-libro.html JSON-LD oferta", ofertas.get(plan, "")),
+                       ("llms-full.txt", lineas_lf.get(plan, ""))):
+        low = txt.lower()
+        if estilo not in low:
+            falla(f"{donde} «{plan}»: no dice «{estilo}»")
+        if plan == "Ebook" and "prosa literaria" in low:
+            falla(f"{donde} «Ebook»: dice «prosa literaria» (el Ebook es estilo neutro)")
+        if plan == "Libro" and "cuidada" in low:
+            falla(f"{donde} «Libro»: dice «cuidada» (eso es Libro Premium)")
+        if plan != "Ebook" and "neutro" in low:
+            falla(f"{donde} «{plan}»: dice «neutro» (solo el Ebook)")
+que_es = a[a.find("[01] Qué es"):a.find("</section>", a.find("[01] Qué es"))]
+if "Los tres planes lo reescriben" not in que_es or "neutro en Ebook" not in que_es:
+    falla("audio-libro.html [01] Qué es: no dice que los tres planes reescriben ni el estilo de cada uno")
+if "Los tres planes reescriben lo que cuentas" not in sec_audio:
+    falla("llms-full.txt (Audio → Libro): no dice «Los tres planes reescriben lo que cuentas»")
+if len(l1) != 1 or not all(k in l1[0] for k in ("Los tres planes reescriben", "Ebook en estilo neutro",
+                                                "Libro en prosa literaria", "Libro Premium en prosa literaria cuidada")):
+    falla("llms.txt: la línea de Audio → Libro no dice que los tres planes reescriben ni el estilo de cada uno")
+POST_AL = "blog/audio-a-libro-lo-que-el-servicio-no-20260828.html"
+MISMO_TRATO = re.compile(r"tratamiento del audio es (el mismo|idéntico)|única diferencia entre (el plan )?Libro y "
+                         r"(el plan )?Libro Premium|mejor procesada|no compra mejor tratamiento|"
+                         r"con ambición literaria, no", re.I)
+for f in no_legal + [POST_AL]:
+    for m in MISMO_TRATO.finditer(leer(f)):
+        falla(f"{f}: «{m.group(0)}» (cada plan tiene su estilo de prosa)")
+pa = leer(POST_AL)
+for m in NO_REESCRIBE.finditer(pa):
+    falla(f"{POST_AL}: «{m.group(0)}» (Audio a Libro sí reescribe)")
+faq_pa = re.findall(r"¿El libro se edita o se corrige\?.{0,200}?(Se reescribe en prosa[^<\"]*)", pa, re.S)
+if len(faq_pa) != 2 or not all(all(e in x for e in ESTILO.values()) for x in faq_pa):
+    falla(f"{POST_AL}: la FAQ «¿El libro se edita…?» (visible y JSON-LD) no da el estilo de los tres planes")
+# b) Mantenimiento web (250 €/año) = dominio, servidor, mantenimiento y RGPD. El SSL, en el precio de la web.
+MANT = "dominio, servidor, mantenimiento y RGPD"
+SSL_PRECIO = "el SSL va incluido en el precio de la web, no en el mantenimiento"
+MANT_SSL = re.compile(r"Hosting \+ dominio \+ SSL|hosting,? dominio y SSL|"
+                      r"mantenimiento[^.;\n]{0,80}\b(cubre|incluye)\b[^.;\n]{0,60}\bSSL\b", re.I)
+for f in no_legal:
+    for m in MANT_SSL.finditer(leer(f)):
+        falla(f"{f}: «{m.group(0)}» (el SSL va en el precio de la web, no en el mantenimiento)")
+mw = re.search(r'<h3 class="service-title">Mantenimiento anual</h3>(.*?)</ul>', w, re.S)
+if not mw or "<li>Dominio, servidor, mantenimiento y RGPD</li>" not in mw.group(1) or "SSL" in mw.group(1):
+    falla("webs.html: la tarjeta del mantenimiento no dice «Dominio, servidor, mantenimiento y RGPD» (o lleva SSL)")
+w2 = leer("webs.html")
+if w2.count(f"incluye {MANT}; {SSL_PRECIO}") != 2:
+    falla("webs.html: la FAQ del precio (visible y JSON-LD) no dice qué incluye el mantenimiento y dónde va el SSL")
+cm = re.search(r"mantenimiento: \{(.*?)\}", leer("contratar.html"), re.S)
+if not cm or '"Dominio, servidor, mantenimiento y RGPD"' not in cm.group(1) or "SSL" in cm.group(1):
+    falla("contratar.html: el mantenimiento no incluye «Dominio, servidor, mantenimiento y RGPD» (o lleva SSL)")
+lw = [x for x in leer("llms.txt").splitlines() if "webs.html" in x]
+if len(lw) != 1 or f"incluye {MANT}" not in lw[0] or SSL_PRECIO not in lw[0]:
+    falla("llms.txt: la línea de webs no dice qué incluye el mantenimiento y dónde va el SSL")
+if f"incluye {MANT}; {SSL_PRECIO}" not in lf:
+    falla("llms-full.txt: no dice qué incluye el mantenimiento y dónde va el SSL")
 
 print(f"· portada: title {len(titulo)} car. · description {len(desc)} car. · {len(bloques)} bloques JSON-LD")
 print(f"· pie común en {len(con_pie)} páginas · {len(LEGALES)} legales · marcador de ficha en "

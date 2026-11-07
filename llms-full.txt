@@ -133,7 +133,7 @@ El plan Essential cuesta 954€ en pago único (1 página con 5 secciones, respo
 La web Essential de Arquitecto Digital se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.
 
 **¿Qué incluye y qué no incluye el precio?**
-Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
+Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. El mantenimiento anual (250 €/año, aparte) incluye dominio, servidor, mantenimiento y RGPD; el SSL va incluido en el precio de la web, no en el mantenimiento. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
 
 **¿La web es mía o me quedo atado a una plataforma?**
 La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin lock-in.
@@ -183,9 +183,11 @@ Convierte tus audios, podcasts o conferencias en un libro digital con transcripc
 
 ### Planes y precios
 
-- Ebook: 79,99 €. Hasta 2h de audio, entrega en PDF + EPUB, portada temática generada con IA. Pago único, IVA incluido.
+- Ebook: 79,99 €. Hasta 2h de audio, entrega en PDF + EPUB, estilo neutro, portada temática generada con IA. Pago único, IVA incluido.
 - Libro: 149,99 €. Hasta 6h de audio, entrega en PDF + EPUB + DOCX + MD + TXT, prosa literaria, portada temática generada con IA. Pago único, IVA incluido.
-- Libro Premium: 299,99 €. Hasta 10h de audio, todos los formatos (PDF/EPUB/DOCX/MD/TXT), portada temática generada con IA. Pago único, IVA incluido.
+- Libro Premium: 299,99 €. Hasta 10h de audio, todos los formatos (PDF/EPUB/DOCX/MD/TXT), prosa literaria cuidada, portada temática generada con IA. Pago único, IVA incluido.
+
+Los tres planes reescriben lo que cuentas en prosa, sin inventar contenido: el Ebook en estilo neutro, el Libro en prosa literaria y el Libro Premium en prosa literaria cuidada.
 
 ### Preguntas frecuentes
 
