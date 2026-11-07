@@ -1,16 +1,21 @@
 # Arquitecto Digital · información completa
 
-> Versión extendida de https://arquitectodigital.io/llms.txt. Datos copiados de los datos estructurados (JSON-LD) de cada página: descripción, planes con precio y preguntas frecuentes. Precios con IVA incluido salvo que se indique. Última actualización: 2026-11-01.
+> Versión extendida de https://arquitectodigital.io/llms.txt. Datos copiados de los datos estructurados (JSON-LD) de cada página: descripción, planes con precio y preguntas frecuentes. Precios con IVA incluido salvo que se indique. Última actualización: 2026-11-07.
 
 ## Quién
 
 Arquitecto Digital es el estudio de Daniel González Barquero, ingeniero full-stack senior afincado en El Puerto de Santa María (Cádiz, España). Diseña, construye y mantiene sistemas de IA a medida para empresas: chatbots con RAG sobre tu documentación, automatización de procesos y productos digitales.
 
+Servicios: diseño web, chatbots con IA, blogs automáticos con IA, sistemas de IA a medida y cursos de IA. No es un estudio de arquitectura ni hace obras o reformas: «arquitecto digital» se refiere a software.
+
 - Web: https://arquitectodigital.io/
 - Sobre el autor: https://arquitectodigital.io/portfolio.html#sobre-mi
 - Email: daniel@arquitectodigital.io
 - Teléfono / WhatsApp: +34 743 08 86 55
-- Zona: El Puerto de Santa María (Cádiz). Atiende en toda España.
+- Horario: lunes a viernes, de 11:00 a 15:00 y de 17:00 a 21:00
+- Zonas: El Puerto de Santa María, Cádiz, Jerez de la Frontera y Chiclana de la Frontera. En remoto, toda España.
+- Ficha de Google: __ENLACE_FICHA_GOOGLE__
+- Redes: https://www.instagram.com/arquitecto.digital/ · https://www.facebook.com/profile.php?id=61575581849782 · https://www.linkedin.com/in/daniel-arquitecto-digital-b08696411/
 
 ## Chatbot para empresas
 
@@ -136,11 +141,15 @@ La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde e
 **¿Puedo ver un ejemplo real de vuestro trabajo?**
 Sí: arquitectodigital.io es HTML estático en GitHub Pages, hecho con esta misma propuesta, y puedes verlo en producción.
 
+## Cursos privados de IA a domicilio
+
+Cursos privados de inteligencia artificial a domicilio, en dos niveles: Junior IA y Senior IA. En El Puerto de Santa María, Jerez de la Frontera y Cádiz. Desde 1.200 €, IVA incluido. Información y reservas: daniel@arquitectodigital.io o WhatsApp 743 08 86 55.
+
 ## Crea tu canción
 
 URL: https://arquitectodigital.io/crea-tu-cancion.html
 
-Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
+Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Es una herramienta de autoservicio: la creas tú; no se compone por encargo. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
 
 ### Planes y precios
 
