@@ -12,6 +12,10 @@ Comprueba en los ficheros del repo:
   5. llms.txt / llms-full.txt: servicios, zonas, horario, contacto, ficha;
      sin Reforma SEO ni auditoría gratis; «sin versión impresa» intacta.
   6. og:site_name = «Arquitecto Digital» en todas las páginas que lo llevan.
+  7. Decisiones del 07-11: banner de Cénit debajo del H1 y del párrafo principal;
+     sin «Cénit · Cénit» en los <title>; newsletter apagada (noindex, fuera del
+     sitemap, sin enlaces en portada ni pie, formulario sin envío); GiroBot sin
+     «alertas con voz» fuera de los posts del blog.
 
 Uso:
   python3 tools/test_geo_web.py            # rama: admite el marcador de la ficha
@@ -69,9 +73,12 @@ def ficha_ok(url: str) -> bool:
 idx = leer("index.html")
 m = re.search(r"<title>([^<]*)</title>", idx)
 titulo = m.group(1) if m else ""
-for palabra in ("Arquitecto Digital", "Diseño web", "chatbots", "IA", "El Puerto", "Cádiz"):
-    if palabra not in titulo:
-        falla(f"portada: el <title> no dice «{palabra}»: {titulo!r}")
+TITULO = "Arquitecto Digital · Webs, chatbots e IA en El Puerto de Santa María"
+if titulo != TITULO:
+    falla(f"portada: <title> {titulo!r} ≠ {TITULO!r}")
+m = re.search(r'<meta property="og:title" content="([^"]*)"', idx)
+if not m or m.group(1) != TITULO:
+    falla(f"portada: og:title ≠ <title> ({m.group(1) if m else None!r})")
 if len(titulo) > 70:
     falla(f"portada: <title> de {len(titulo)} caracteres (> 70)")
 m = re.search(r'<meta name="description" content="([^"]*)"', idx)
@@ -195,6 +202,39 @@ for f in paginas:
     for v in re.findall(r'og:site_name"\s+content="([^"]*)"', leer(f)):
         if v != "Arquitecto Digital":
             falla(f"{f}: og:site_name = {v!r}")
+
+# 7. Decisiones del 07-11 ───────────────────────────────────────────────
+h1, sub, ban = idx.find("<h1"), idx.find('class="hero-sub"'), idx.find('class="cenit-banner')
+if not (0 <= h1 < sub < ban):
+    falla("portada: el banner de Cénit no está debajo del H1 y del párrafo principal")
+for f in paginas:
+    t = leer(f)
+    if "<!-- PARTIAL:cenit-badge" in t and not (0 <= t.find("<h1") < t.find("<!-- PARTIAL:cenit-badge")):
+        falla(f"{f}: el banner de Cénit va antes del H1")
+    m = re.search(r"<title>([^<]*)</title>", t)
+    if m and re.search(r"Cénit · (App Cénit · )?Cénit ·|App Cénit · Cénit ·", m.group(1)):
+        falla(f"{f}: <title> con Cénit repetido: {m.group(1)!r}")
+nl = leer("newsletter-signup.html")
+m = re.search(r'<meta name="robots" content="([^"]*)"', nl)
+if not m or "noindex" not in m.group(1):
+    falla("newsletter-signup.html sin noindex")
+if "/newsletter-signup.html<" in sitemap:
+    falla("newsletter-signup.html está en el sitemap")
+if "ALTAS_ABIERTAS = false" not in nl or 'class="form-submit" disabled' not in nl:
+    falla("newsletter-signup.html: el formulario no está apagado")
+if "newsletter-signup" in idx or 'id="newsletter"' in idx:
+    falla("portada: sigue enlazando la newsletter o tiene la sección [07]")
+if "newsletter-signup" in leer("partials/footer.html"):
+    falla("pie: sigue enlazando la newsletter")
+VOZ = re.compile(r"alertas? con voz|voz ia|lector de voz|overlay (para|en) obs|alertas en directo", re.I)
+for f in ["index.html", "girobot.html", "portfolio.html", "llms.txt", "llms-full.txt"]:
+    t = leer(f)
+    if f == "girobot.html":   # el enlace a un post lleva su título; los posts no se tocan sin OK
+        t = t.replace("GiroBot para Twitch: clips 9:16 y alertas con voz IA</a>", "")
+    if VOZ.search(t):
+        falla(f"{f}: GiroBot sigue mencionando alertas/voz: {VOZ.search(t).group(0)!r}")
+    if "GiroBot" in t and f != "portfolio.html" and "TikTok" not in t:
+        falla(f"{f}: no menciona el publicador de TikTok")
 
 print(f"· portada: title {len(titulo)} car. · description {len(desc)} car. · {len(bloques)} bloques JSON-LD")
 print(f"· pie común en {len(con_pie)} páginas · {len(LEGALES)} legales · marcador de ficha en "
