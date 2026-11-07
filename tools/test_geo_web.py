@@ -25,6 +25,14 @@ Comprueba en los ficheros del repo:
      «200 clips» (UNLIMITED = hasta 50 clips/día en el plan, la oferta JSON-LD y
      llms-full); portada con priceRange «€€» y postalCode 11500 (sigue prohibido
      streetAddress, la calle y el NIF).
+  9. Dudas del 07-11 (respuestas de Daniel): el SSL va incluido en el precio de la
+     web (nada de «SSL va en el mantenimiento»; FAQ visible y JSON-LD y llms-full lo
+     incluyen); Audio a Libro sí reescribe en prosa literaria (nada de «no
+     reescribimos» / «se limita a transcribir» donde se describe); Audio a Libro
+     solo para particulares (hero, JSON-LD Service, llms; sin empresas, autónomos,
+     «Profesionales que dictan» ni lead magnet); Cénit sin licencia vitalicia (ni
+     «vitalicia», «de por vida» ni «lifetime» fuera de legales, posts incluidos) y
+     con «licencia de 1 año» y «sin suscripción ni renovación automática».
 
 Uso:
   python3 tools/test_geo_web.py            # rama: admite el marcador de la ficha
@@ -316,6 +324,71 @@ if len(of_unl) != 1 or "hasta 50 clips/día" not in of_unl[0].get("description",
     falla("girobot.html JSON-LD: la oferta UNLIMITED no dice «hasta 50 clips/día»")
 if "hasta 50 clips/día en UNLIMITED" not in leer("llms-full.txt"):
     falla("llms-full.txt: falta «hasta 50 clips/día en UNLIMITED»")
+
+# 9. Dudas del 07-11 (respuestas de Daniel) ─────────────────────────────
+# Mismo alcance que la sección 8: páginas no legales y llms*; los posts del blog se excluyen
+# (artículos con fecha; el de Audio a Libro del 28-08 se deja tal cual, ver informe).
+no_legal = [f for f in paginas + ["llms.txt", "llms-full.txt"] if f not in legal_set and not f.startswith("blog/")]
+# a) Webs: el certificado SSL va INCLUIDO en el precio de la web (no «en el mantenimiento»).
+SSL_MANT = re.compile(r"SSL\s+(va|van)\s+en\s+el\s+mantenimiento", re.I)
+for f in no_legal:
+    for m in SSL_MANT.finditer(leer(f)):
+        falla(f"{f}: «{m.group(0)}» (el SSL va incluido en el precio de la web)")
+w = leer("webs.html")
+faq_precio = re.findall(r"¿Qué incluye y qué no incluye el precio\?.{0,400}?Incluye ([^.]*)\.", w, re.S)
+if len(faq_precio) != 2 or not all("certificado SSL" in x for x in faq_precio):
+    falla("webs.html: la FAQ «¿Qué incluye… el precio?» (visible y JSON-LD) no incluye el certificado SSL")
+if not re.search(r"Incluye: diseño, desarrollo, deploy, conexión de dominio,\s+certificado SSL", w):
+    falla("webs.html: «Qué incluye y qué no» ya no dice certificado SSL")
+if "Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL" not in leer("llms-full.txt"):
+    falla("llms-full.txt: el precio de la web ya no incluye el certificado SSL")
+# b) Audio a Libro SÍ reescribe en prosa literaria: nada que diga lo contrario.
+NO_REESCRIBE = re.compile(r"no (se )?reescrib\w*|se limita a transcribir|convertido a texto y volcado|"
+                          r"sin reescribir (tu|el) contenido", re.I)
+for f in no_legal:
+    t = leer(f)
+    if f not in ("audio-libro.html", "llms.txt", "llms-full.txt", "index.html", "portfolio.html"):
+        continue   # solo donde se describe Audio a Libro (en index «Sin reescribir.» es de sistemas)
+    if f == "index.html":
+        i = t.find("Convierte tus audios, podcasts"); t = t[max(0, i - 800):i + 800]
+    for m in NO_REESCRIBE.finditer(t):
+        falla(f"{f}: «{m.group(0)}» (Audio a Libro sí reescribe en prosa literaria)")
+if "Prosa literaria" not in leer("audio-libro.html") or "prosa literaria" not in leer("llms-full.txt"):
+    falla("audio-libro.html / llms-full.txt: ya no dicen «prosa literaria»")
+# c) Audio a Libro es SOLO para particulares.
+a = leer("audio-libro.html")
+srv = json.loads(re.search(r'<script type="application/ld\+json">\s*(\{\s*"@context"[^<]*?"@type": "Service".*?)</script>',
+                           a, re.S).group(1))
+if "Solo para particulares" not in srv.get("description", ""):
+    falla("audio-libro.html JSON-LD Service: la description no dice «Solo para particulares»")
+hero = a[a.find('class="page-hero"'):a.find("</section>", a.find('class="page-hero"'))]
+if "Solo para particulares" not in hero:
+    falla("audio-libro.html: el hero no dice «Solo para particulares»")
+AUDIO_EMPRESA = re.compile(r"empresas?\b|autónomos?\b|Profesionales que dictan|lead magnet|\bpymes?\b", re.I)
+cuerpo = re.sub(r"<!-- PARTIAL:(header|footer) -->.*?<!-- /PARTIAL:\1 -->", "", a, flags=re.S)
+for m in AUDIO_EMPRESA.finditer(cuerpo):
+    falla(f"audio-libro.html: «{m.group(0)}» (Audio a Libro es solo para particulares)")
+lf = leer("llms-full.txt")
+sec_audio = lf[lf.find("## Audio → Libro"):lf.find("\n## ", lf.find("## Audio → Libro") + 5)]
+if "Solo para particulares" not in sec_audio:
+    falla("llms-full.txt: la sección de Audio → Libro no dice «Solo para particulares»")
+for m in AUDIO_EMPRESA.finditer(sec_audio):
+    falla(f"llms-full.txt (Audio → Libro): «{m.group(0)}» (solo para particulares)")
+l1 = [x for x in leer("llms.txt").splitlines() if "audio-libro.html" in x]
+if len(l1) != 1 or "Para particulares" not in l1[0]:
+    falla("llms.txt: la línea de Audio → Libro no dice «Para particulares»")
+# e) Cénit: NO hay licencia vitalicia. Versión gratis + Cénit Pro, 1 año de uso, 29,99 €, sin renovación automática.
+VITALICIA = re.compile(r"vitalici\w*|de por vida|lifetime", re.I)
+for f in no_legal + [p for p in paginas if p.startswith("blog/")]:
+    for m in VITALICIA.finditer(leer(f)):
+        falla(f"{f}: «{m.group(0)}» (Cénit no tiene licencia vitalicia)")
+c = leer("cenit/index.html")
+for need in ["Cénit Pro · licencia de 1 año, pago único", "29,99€", "sin suscripción ni renovación automática"]:
+    if need not in c:
+        falla(f"cenit/index.html: falta «{need}»")
+for need in ["Cénit Pro · licencia de 1 año, pago único: 29,99 €", "sin suscripción ni renovación automática"]:
+    if need not in lf:
+        falla(f"llms-full.txt: falta «{need}»")
 
 print(f"· portada: title {len(titulo)} car. · description {len(desc)} car. · {len(bloques)} bloques JSON-LD")
 print(f"· pie común en {len(con_pie)} páginas · {len(LEGALES)} legales · marcador de ficha en "
