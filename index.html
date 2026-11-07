@@ -903,7 +903,8 @@
 })();
 </script>
   <!-- Móvil (≤768px): la burbuja del chat no tapa el párrafo principal de la portada.
-       Se oculta solo mientras .hero-sub está a la altura de la burbuja; al bajar
+       Se oculta solo mientras .hero-sub o .hero-entity (el texto del hero; con el banner de Cénit
+       ya debajo, .hero-entity queda a la altura de la burbuja en 390 px) están a su altura; al bajar
        (o con el chat abierto) se ve normal. Escritorio: sin cambios. geo-web 2026-11-07 -->
 <style>
 @media (max-width: 768px) {
@@ -915,7 +916,7 @@
 (function () {
   var d = document.documentElement, mq = window.matchMedia('(max-width: 768px)');
   function f() {
-    var sub = document.querySelector('.hero-sub'), t = document.getElementById('cbai-toggle');
+    var sub = document.querySelector('.hero-entity') || document.querySelector('.hero-sub'), t = document.getElementById('cbai-toggle');
     var abierto = t && t.classList.contains('open');
     var tapa = sub && sub.getBoundingClientRect().bottom > window.innerHeight - 110;
     d.classList.toggle('cbai-sobre-hero', mq.matches && !abierto && !!tapa);
