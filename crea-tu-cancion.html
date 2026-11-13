@@ -243,10 +243,15 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
     <h1>Canciones personalizadas:<br><span class="accent">tu historia, tu canción</span>.</h1>
     <!-- Vídeo demo (12-11-2026): justo debajo del H1 para que se vea en la
          primera pantalla del móvil (tráfico del anuncio de Meta). Fichero local
-         en assets/video, sin terceros. Sin autoplay. -->
+         en assets/video, sin terceros.
+         13-11-2026: arranca solo al abrir, UNA vez y sin bucle. Primero intenta
+         CON sonido; si el navegador lo bloquea, arranca silenciado y enseña el
+         botón «Toca para escuchar la canción» (quita el silencio y vuelve al
+         segundo 0). Con prefers-reduced-motion no arranca solo. -->
     <div style="max-width:420px;margin:8px auto 28px;text-align:center;">
       <h2 style="font-family:'Fraunces',serif;font-size:1.3em;font-weight:600;margin:0 0 12px;">Demostración en 1 minuto</h2>
-      <video
+      <div style="position:relative;display:inline-block;max-width:100%;">
+      <video id="demo-cancion"
         src="assets/video/crea-tu-cancion.mp4"
         poster="assets/video/crea-tu-cancion-poster.jpg"
         width="1080" height="1920"
@@ -256,6 +261,33 @@ src="https://www.facebook.com/tr?id=1722843912288989&ev=PageView&noscript=1"
         Tu navegador no reproduce vídeo.
         <a href="assets/video/crea-tu-cancion.mp4" style="color:var(--orange);">Descarga el vídeo</a> (2,5 MB).
       </video>
+      <button type="button" id="demo-cancion-sonido" hidden
+        style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:16px 22px;font-size:1.15em;font-weight:700;line-height:1.3;color:#fff;background:rgba(0,0,0,.78);border:2px solid #fff;border-radius:14px;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.45);max-width:85%;">🔊 Toca para escuchar la canción</button>
+      </div>
+      <script>
+      (function () {
+        var v = document.getElementById('demo-cancion');
+        var b = document.getElementById('demo-cancion-sonido');
+        if (!v || !b) return;
+        v.loop = false;
+        try { if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch (e) {}
+        function ocultar() { b.hidden = true; }
+        b.addEventListener('click', function () {
+          ocultar(); v.muted = false; v.currentTime = 0;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        });
+        v.addEventListener('volumechange', function () { if (!v.muted && v.volume > 0) ocultar(); });
+        function silenciado() {
+          v.muted = true;
+          var q = v.play();
+          if (q && q.then) q.then(function () { if (v.muted) b.hidden = false; }, function () {});
+          else b.hidden = false;
+        }
+        var p;
+        try { v.muted = false; p = v.play(); } catch (e) { silenciado(); return; }
+        if (p && p.catch) p.catch(silenciado);
+      })();
+      </script>
     </div>
     <p style="color: var(--text-dim); font-size: 1.1em; max-width: 640px; line-height: 1.7; margin-top: 20px;">
       Una canción única, con letra personalizada y voz, para tu ocasión
