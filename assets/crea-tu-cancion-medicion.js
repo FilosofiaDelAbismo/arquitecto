@@ -1,38 +1,30 @@
-/* Medición del anuncio de Crea tu Canción (14-11-2026).
+/* Medición de Crea tu Canción (14-11-2026, sin píxel de Meta).
  *
- * - NO carga el píxel de Meta ni añade cookies: solo usa window.fbq si la
- *   página ya lo ha cargado. Si fbq no existe (bloqueado), no hace nada.
- * - Consentimiento (14-11-2026): ningún evento sale sin «Aceptar» en el aviso
- *   de cookies (window.ADCookies.hasConsent()). Sin consentimiento no se envía
- *   nada ni se encola, y tampoco se marca la compra como enviada.
- * - InitiateCheckout: al pulsar «Comprar mi canción» con la casilla legal
- *   marcada. Una vez por carga de página.
- * - Purchase (value 15, currency EUR): UNA vez por pago, identificado por su
- *   código de Stripe (cs_live_… / cs_test_…). Se dispara:
- *     a) al volver de Stripe con ?session_id=cs_… (solo si el Payment Link
- *        redirige aquí; hoy NO lo hace), o
- *     b) al canjear correctamente un código de pago cs_… en esta página.
- *   Los códigos de regalo (REGALO-…) no son compras y no lo disparan.
- *   Sin duplicados: marca en localStorage["ad_purchase_<cs>"] y además
- *   eventID = <cs>, que Meta usa para deduplicar.
- * - UTM: guarda los utm_* con los que se entra (sessionStorage, primer toque
- *   de la sesión) y los pasa al Payment Link al pulsar pagar, como utm_* y
- *   client_reference_id. Son parámetros de URL que Stripe admite; no cambia
- *   nada de la configuración de Stripe.
+ * - Solo Plausible (autoalojado, sin cookies): usa window.plausible, que define
+ *   el script.js que ya carga la página. Si no está (bloqueado), no pasa nada.
+ * - NO guarda nada en el navegador: ni cookies, ni localStorage, ni
+ *   sessionStorage.
+ * - UTM: al pulsar «Comprar» lee los utm_* de la URL ACTUAL de la página y los
+ *   añade al Payment Link (utm_* y client_reference_id). Si ya no están en la
+ *   URL (la persona ha navegado), se pierden: aceptado.
+ * - Eventos (con los utm_* de la URL como propiedades, si los hay):
+ *     «Cancion Comprar»: al pulsar «Comprar mi canción» con la casilla legal.
+ *     «Cancion Canje»:   al canjear bien un código de pago cs_live_/cs_test_
+ *                        (los REGALO-… no cuentan).
+ *   Antes de salir de la página se espera a que Plausible confirme el envío,
+ *   como mucho WAIT_MS.
  */
 (function (root) {
   'use strict';
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-  var UTM_STORE = 'ad_cancion_utm';
-  var PRICE = 15;
-  var CURRENCY = 'EUR';
+  var WAIT_MS = 400;
+  var EV_COMPRAR = 'Cancion Comprar';
+  var EV_CANJE = 'Cancion Canje';
 
   function isPaidCode(code) {
     return typeof code === 'string' && /^cs_(live|test)_[A-Za-z0-9]+$/.test(code);
   }
-
-  function purchaseKey(code) { return 'ad_purchase_' + code; }
 
   /* utm_* de una query string → objeto, o null si no hay ninguno. */
   function pickUtm(search) {
@@ -68,51 +60,30 @@
     return u.toString();
   }
 
-  function safeGet(storage, key) {
-    try { return storage ? storage.getItem(key) : null; } catch (e) { return null; }
-  }
-  function safeSet(storage, key, val) {
-    try { if (storage) storage.setItem(key, val); } catch (e) { /* modo privado */ }
-  }
-
-  /* ¿Se puede enviar a Meta? Solo con consentimiento vigente y fbq cargado. */
-  function canTrack(w) {
-    if (!w || typeof w.fbq !== 'function') return false;
-    var c = w.ADCookies;
-    try { return !!(c && typeof c.hasConsent === 'function' && c.hasConsent()); }
-    catch (e) { return false; }
-  }
-
-  /* Purchase una sola vez por código de pago. Devuelve true si lo ha enviado. */
-  function trackPurchase(fbq, storage, code) {
-    if (!isPaidCode(code) || typeof fbq !== 'function') return false;
-    if (safeGet(storage, purchaseKey(code))) return false;
-    fbq('track', 'Purchase',
-        { value: PRICE, currency: CURRENCY, content_name: 'Crea tu canción' },
-        { eventID: code });
-    safeSet(storage, purchaseKey(code), new Date().toISOString());
+  /* Envía un evento a Plausible y llama a `done` UNA vez: cuando Plausible
+     confirma, o a los WAIT_MS si no contesta, o al momento si no hay Plausible. */
+  function track(w, name, utm, done) {
+    var called = false;
+    function finish() { if (!called) { called = true; if (done) done(); } }
+    var p = w && w.plausible;
+    if (typeof p !== 'function') { finish(); return false; }
+    var opts = { callback: finish };
+    if (utm) opts.props = utm;
+    try { p(name, opts); } catch (e) { finish(); return false; }
+    if (done) setTimeout(finish, WAIT_MS);
     return true;
   }
 
-  /* UTM de primer toque de la sesión: los de la URL si no había guardados. */
-  function rememberUtm(storage, search) {
-    var prev = safeGet(storage, UTM_STORE);
-    if (prev) { try { return JSON.parse(prev); } catch (e) { /* sigue */ } }
-    var utm = pickUtm(search);
-    if (utm) safeSet(storage, UTM_STORE, JSON.stringify(utm));
-    return utm;
-  }
-
   var api = {
-    isPaidCode: isPaidCode, pickUtm: pickUtm, refId: refId,
-    buildPayUrl: buildPayUrl, trackPurchase: trackPurchase,
-    rememberUtm: rememberUtm, canTrack: canTrack, PRICE: PRICE, CURRENCY: CURRENCY,
-    /* Lo llama el canje de la página tras un ok: true. */
-    onRedeemOk: function (code) {
-      var ls = null;
-      if (!canTrack(root)) return false;
-      try { ls = root.localStorage; } catch (e) { ls = null; }
-      return trackPurchase(root.fbq, ls, code);
+    isPaidCode: isPaidCode, pickUtm: pickUtm, refId: refId, buildPayUrl: buildPayUrl,
+    track: track, EV_COMPRAR: EV_COMPRAR, EV_CANJE: EV_CANJE, WAIT_MS: WAIT_MS,
+    /* Lo llama el canje de la página tras un ok: true. Si el código es de pago,
+       envía «Cancion Canje» y luego llama a `go`; devuelve true. Si no (regalo),
+       devuelve false y la página navega por su cuenta. */
+    onRedeemOk: function (code, go) {
+      if (!isPaidCode(code)) return false;
+      track(root, EV_CANJE, pickUtm(root.location && root.location.search), go);
+      return true;
     }
   };
 
@@ -122,28 +93,22 @@
 
   function init() {
     var doc = root.document;
-    var ls = null, ss = null;
-    try { ls = root.localStorage; } catch (e) { ls = null; }
-    try { ss = root.sessionStorage; } catch (e) { ss = null; }
-
-    var utm = rememberUtm(ss, root.location.search);
-
-    // a) Vuelta de Stripe con ?session_id=cs_…
-    var sid = new URLSearchParams(root.location.search).get('session_id');
-    if (sid && canTrack(root)) trackPurchase(root.fbq, ls, sid);
-
     var pago = doc.getElementById('btn-pago');
     var legal = doc.getElementById('cc-legal');
     if (!pago) return;
     var base = pago.getAttribute('href');
-    var initiated = false;
-    pago.addEventListener('click', function () {
-      if (legal && !legal.checked) return;   // el otro manejador ya lo frena
-      pago.setAttribute('href', buildPayUrl(base, utm));
-      if (!initiated && canTrack(root)) {
-        root.fbq('track', 'InitiateCheckout', { value: PRICE, currency: CURRENCY });
-        initiated = true;
+    pago.addEventListener('click', function (e) {
+      if (e.defaultPrevented || (legal && !legal.checked)) return;  // el otro manejador ya lo frena
+      var utm = pickUtm(root.location.search);
+      var href = buildPayUrl(base, utm);
+      pago.setAttribute('href', href);
+      // Ctrl/Cmd/Mayús-clic o clic central: nueva pestaña; no hace falta esperar.
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) {
+        track(root, EV_COMPRAR, utm, null);
+        return;
       }
+      e.preventDefault();
+      track(root, EV_COMPRAR, utm, function () { root.location.href = href; });
     });
   }
 
