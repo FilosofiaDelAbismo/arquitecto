@@ -1020,68 +1020,67 @@ footer {
   pointer-events: none !important;
 }
 
-/* Banner cookies */
+/* Aviso de cookies compacto (14-11-2026): franja EN EL FLUJO de la página,
+   justo debajo de la cabecera fija; no es fija ni se superpone a nada.
+   Está en partials/header.html con `hidden` y un script en línea la enseña
+   ANTES de pintar si no se pulsó «Entendido» (sin saltos de contenido).
+   `top` = alto de la cabecera fija (--ad-cab, lo pone el script): la franja se
+   ve bajo la cabecera y en el flujo ocupa solo su alto, así que el contenido
+   baja exactamente ese alto y nada queda tapado. z-index por debajo de la
+   cabecera (100) para no tapar su menú. */
 .cookie-banner {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  max-width: 560px;
-  margin: 0 auto;
+  position: relative;
+  top: var(--ad-cab, 0px);
+  z-index: 90;
+  display: flex;
+  flex-wrap: nowrap; /* texto y botón SIEMPRE en una fila: el alto no cambia aunque el texto parta en 2 líneas */
+  align-items: center;
+  justify-content: center;
+  gap: 2px 16px;
+  padding: 6px 16px;
   background: var(--bg-elevated);
-  border: 1px solid var(--orange);
-  border-radius: 8px;
-  padding: 20px 22px;
-  z-index: 9999;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  display: none;
-  font-size: 0.92em;
-  line-height: 1.55;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9em;
+  line-height: 1.4;
 }
-.cookie-banner.is-visible { display: block; }
+.cookie-banner[hidden] { display: none; }
+/* Las 15 páginas legales (main.legal) y contratar.html (section.section-content)
+   empezaban con menos margen que el alto de la cabecera fija (fallo previo: la
+   cabecera tapaba la primera línea de su título). Su contenido baja SIEMPRE el
+   alto de la cabecera (--ad-cab, lo pone el script en línea del parcial, haya
+   aviso o no), así empieza debajo de la cabecera y, si está, del aviso.
+   88px = alto de la cabecera en escritorio, por si no hay JavaScript. */
+.cookie-banner + script + main.legal,
+.cookie-banner + script + section.section-content {
+  margin-top: var(--ad-cab, 88px) !important; /* contratar.html lleva margin en línea */
+}
 .cookie-banner p {
+  margin: 0;
+  min-width: 0; /* el texto cede ancho (y parte en 2 líneas) antes que bajar el botón */
   color: var(--text-dim);
-  margin-bottom: 14px;
-}
-.cookie-banner p strong {
-  color: var(--text);
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
 }
 .cookie-banner a {
   color: var(--orange);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-.cookie-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.cookie-actions button {
-  flex: 1 1 auto;
-  padding: 10px 16px;
+.cookie-banner button {
+  flex: none;
+  min-height: 44px;
+  padding: 0 18px;
   border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.92em;
-  cursor: pointer;
-  border: 1px solid var(--border);
+  border: 1px solid var(--orange);
   background: transparent;
   color: var(--text);
   font-family: 'Space Grotesk', sans-serif;
-  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
-.cookie-actions button.primary {
+.cookie-banner button:hover,
+.cookie-banner button:focus-visible {
   background: var(--orange);
-  border-color: var(--orange);
-  color: var(--bg);
-}
-.cookie-actions button:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-}
-.cookie-actions button.primary:hover {
-  background: var(--orange-bright);
-  border-color: var(--orange-bright);
   color: var(--bg);
 }
 
@@ -1090,7 +1089,7 @@ footer {
   .legal-content { padding: 40px 20px 60px; }
   .newsletter-grid { grid-template-columns: 1fr; gap: 40px; }
   .newsletter-form { padding: 30px 22px; }
-  .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 16px 18px; }
+  .cookie-banner { padding: 6px 12px; gap: 2px 12px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════

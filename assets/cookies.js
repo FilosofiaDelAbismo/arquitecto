@@ -1,9 +1,15 @@
-/* Aviso de cookies para arquitectodigital.io
+/* Aviso de cookies para arquitectodigital.io (compacto, 14-11-2026)
  * - Sin dependencias. Sin trackers de terceros.
  * - El sitio NO instala cookies: no hay nada que consentir, solo que informar.
  *   Por eso el aviso tiene un unico boton [Entendido] y no Aceptar/Rechazar.
+ * - El aviso es una franja EN EL FLUJO de la pagina, justo debajo de la
+ *   cabecera (no es fijo ni tapa nada). Su HTML esta en partials/header.html
+ *   (#aviso-cookies, sale con `hidden`) y un script en linea alli mismo lo
+ *   ensena antes de pintar si no se pulso «Entendido». Este fichero solo hace
+ *   que «Entendido» lo quite y que «Ver el aviso de cookies» lo vuelva a poner.
  * - Guarda el cierre en localStorage["ad_cookie_consent"] = {choice, ts, v}.
- * - CONSENT_VERSION: si sube, el aviso se vuelve a mostrar a todo el mundo.
+ * - CONSENT_VERSION: si sube, el aviso se vuelve a mostrar a todo el mundo
+ *   (y hay que subirla tambien en el script en linea de partials/header.html).
  *   v1 = banner antiguo de dos botones (texto inexacto). v2 = aviso actual.
  * - API publica: window.ADCookies.reset()  -> limpia y vuelve a mostrar.
  *                window.ADCookies.choice() -> "seen" | null.
@@ -40,88 +46,63 @@
     }
   }
 
-  function build() {
-    var wrap = document.createElement('div');
-    wrap.className = 'cookie-banner';
-    wrap.setAttribute('role', 'dialog');
-    wrap.setAttribute('aria-live', 'polite');
-    wrap.setAttribute('aria-label', 'Aviso de cookies');
-    wrap.innerHTML = (
-      '<p><strong>Sin cookies.</strong> Este sitio no instala cookies. La analítica es ' +
-      'Plausible, alojada en nuestro propio servidor, y mide de forma anónima y agregada, ' +
-      'sin cookies ni identificadores personales. Para no repetirte este aviso guardamos una ' +
-      'preferencia en el almacenamiento local de tu navegador (que no es una cookie). En ' +
-      'Portfolio hay vídeos de YouTube en modo sin cookies, que no cargan nada de Google ' +
-      'hasta que pulsas play. Detalles en <a href="cookies.html">la política de cookies</a>.</p>' +
-      '<div class="cookie-actions">' +
-        '<button type="button" data-close="1" class="primary">Entendido</button>' +
-      '</div>'
-    );
-    return wrap;
+  function banner() {
+    return document.getElementById('aviso-cookies');
+  }
+
+  /* Alto de la cabecera fija: la franja se coloca justo debajo (ver styles.css). */
+  function place(b) {
+    var h = b.previousElementSibling;
+    var fixed = h && h.tagName === 'HEADER' && getComputedStyle(h).position === 'fixed';
+    document.documentElement.style.setProperty('--ad-cab', (fixed ? h.getBoundingClientRect().height : 0) + 'px');
   }
 
   function show() {
-    if (document.querySelector('.cookie-banner')) return;
-    var banner = build();
-    document.body.appendChild(banner);
-    requestAnimationFrame(function () { banner.classList.add('is-visible'); });
+    var b = banner();
+    if (!b) return;
+    place(b);
+    b.hidden = false;
+  }
 
-    banner.addEventListener('click', function (ev) {
-      var btn = ev.target.closest('button[data-close]');
-      if (!btn) return;
-      save();
-      banner.classList.remove('is-visible');
-      setTimeout(function () { banner.remove(); }, 200);
-    });
+  function hide() {
+    var b = banner();
+    if (b) b.hidden = true;
   }
 
   function init() {
-    if (read()) return;
-    show();
+    var b = banner();
+    if (!b) return;
+    b.addEventListener('click', function (ev) {
+      if (!ev.target.closest('button[data-close]')) return;
+      save();
+      hide();
+    });
+    /* Si la cabecera cambia de alto (giro del movil, carga de fuentes).
+     * Tambien sin aviso: --ad-cab baja el contenido de las legales y contratar. */
+    var again = function () { place(b); };
+    window.addEventListener('resize', again);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(again);
+    if (read()) hide(); else show();
   }
 
   /* API publica */
   window.ADCookies = {
     reset: function () {
       try { window.localStorage.removeItem(STORAGE_KEY); } catch (e) {}
-      var existing = document.querySelector('.cookie-banner');
-      if (existing) existing.remove();
       show();
+      /* Vuelve a salir arriba, en su sitio: se sube para que se vea. */
+      var b = banner();
+      if (b) {
+        window.scrollTo(0, 0);
+        var btn = b.querySelector('button[data-close]');
+        if (btn) btn.focus({ preventScroll: true });
+      }
     },
     choice: function () {
       var prev = read();
       return prev ? prev.choice : null;
     }
   };
-
-  /* >>> observador «Comprar»
-   * Solo en paginas con el boton #btn-pago (Crea tu Cancion): mientras el boton
-   * esta en pantalla el aviso se oculta para no taparlo, y al alejarse vuelve.
-   * No guarda nada ni cuenta como «Entendido». No cambia texto ni estilo. */
-  (function () {
-    function watchBuy() {
-      var buy = document.getElementById('btn-pago');
-      if (!buy || !('IntersectionObserver' in window)) return;
-      var onScreen = false;
-      function apply() {
-        var b = document.querySelector('.cookie-banner');
-        if (b) b.style.display = onScreen ? 'none' : '';
-      }
-      new IntersectionObserver(function (entries) {
-        onScreen = entries[entries.length - 1].isIntersecting;
-        apply();
-      }).observe(buy);
-      if ('MutationObserver' in window) {
-        new MutationObserver(apply).observe(document.body, { childList: true });
-      }
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', watchBuy);
-    } else {
-      watchBuy();
-    }
-  })();
-  /* <<< observador «Comprar» */
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
