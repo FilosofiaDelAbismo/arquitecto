@@ -2,11 +2,6 @@
 <html lang="es">
 <head>
   <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
-  <!-- Meta Pixel (14-11-2026): ya NO se carga aquí. Solo se declara el ID;
-     assets/cookies.js carga fbevents.js únicamente si la persona ha pulsado
-     «Aceptar» en el aviso de cookies (bloqueo previo). Sin <noscript>: sin JS
-     no hay forma de consentir, así que no hay píxel. -->
-<script>window.AD_META_PIXEL_ID = '1722843912288989';</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canciones personalizadas: haz una canción con tu historia</title>
@@ -33,9 +28,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
-<!-- Medición del anuncio (14-11-2026): InitiateCheckout, Purchase una vez por
-     pago y UTM hasta Stripe. Eventos de Meta SOLO con consentimiento (cookies.js,
-     que va antes: ambos defer, se ejecutan en este orden). -->
+<!-- Medición (14-11-2026): eventos de Plausible «Cancion Comprar» y «Cancion Canje»
+     y UTM de la URL hasta Stripe. Sin cookies y sin guardar nada en el navegador. -->
 <script defer src="assets/crea-tu-cancion-medicion.js"></script>
 <style>
   /* Controles del formulario, alineados con la paleta del sitio. */
@@ -488,7 +482,7 @@
           <li><a href="/aviso-legal.html">Aviso legal</a></li>
           <li><a href="/privacidad.html">Privacidad</a></li>
           <li><a href="/cookies.html">Cookies</a></li>
-          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Configurar cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
           <li><a href="/condiciones.html">Condiciones</a></li>
           <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
           <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
@@ -564,11 +558,11 @@
       var data = await r.json();
       if (data.ok && data.token) {
         var dest = API + "/music/create?token=" + encodeURIComponent(data.token);
-        // Purchase (una vez por pago cs_…); si se envía, 400 ms para que salga.
-        var sent = false;
-        try { sent = !!(window.ADCancionMedicion && window.ADCancionMedicion.onRedeemOk(code)); } catch (e2) {}
-        if (sent) setTimeout(function () { location.href = dest; }, 400);
-        else location.href = dest;
+        var go = function () { location.href = dest; };
+        // «Cancion Canje» en Plausible (solo códigos de pago cs_…); navega al terminar.
+        var handled = false;
+        try { handled = !!(window.ADCancionMedicion && window.ADCancionMedicion.onRedeemOk(code, go)); } catch (e2) {}
+        if (!handled) go();
       } else {
         estado.textContent = data.reason || "No hemos podido validar tu código.";
       }
