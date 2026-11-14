@@ -1,4 +1,4 @@
-// Tests de assets/crea-tu-cancion-medicion.js y del sitio sin píxel de Meta
+// Tests de assets/crea-tu-cancion-medicion.js, del sitio sin píxel de Meta y del aviso de cookies compacto
 //   node --test tools/test_cancion_medicion.test.js
 'use strict';
 const test = require('node:test');
@@ -122,45 +122,143 @@ test('sitio: ningún resto de Meta en HTML/JS/CSS versionados', () => {
   assert.deepStrictEqual(hits, []);
 });
 
-test('aviso de cookies: el anterior («Sin cookies» + «Entendido»), sin Aceptar/Rechazar', () => {
-  const js = fs.readFileSync(path.join(ROOT, 'assets', 'cookies.js'), 'utf8');
-  assert.ok(js.includes('<strong>Sin cookies.</strong> Este sitio no instala cookies.'));
-  assert.ok(js.includes('>Entendido</button>'));
-  assert.ok(!/>Aceptar<|>Rechazar<|fbevents|AD_META/.test(js));
-  assert.strictEqual((js.match(/<button/g) || []).length, 1);
-});
-
-/* cookies.js = el de 7f9ac27^ + UN bloque marcado (observador de «Comprar»). */
-const OBS_RE = /  \/\* >>> observador «Comprar»[\s\S]*?\/\* <<< observador «Comprar» \*\/\n\n/g;
+/* ── Aviso de cookies compacto (14-11-2026) ─────────────────────────────────
+ * Hasta el 14-11-2026 estos tests exigían que el TEXTO y el ESTILO del aviso
+ * fueran los de 7f9ac27^ («Sin cookies. Este sitio no instala cookies…» en una
+ * caja fija). Eso ya NO aplica: el aviso pasa a ser una franja compacta en el
+ * flujo de la página, bajo la cabecera, con el texto nuevo
+ *   «Esta web no usa cookies.» + «Más info» (/cookies.html) + «Entendido».
+ * Lo que SÍ sigue igual que en 7f9ac27^: la clave y el formato de lo guardado
+ * (read/save idénticos), para que quien ya pulsó «Entendido» no lo vuelva a ver.
+ * El observador de «Comprar» se quita: el aviso ya no tapa nada. */
 const gitShow = f => execFileSync('git', ['show', `7f9ac27^:${f}`], { cwd: ROOT, encoding: 'utf8' });
+const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
+const AVISO_TXT = 'Esta web no usa cookies. Más info';
+const pagesWithCookiesJs = () => execFileSync('git', ['ls-files', '*.html'], { cwd: ROOT, encoding: 'utf8' })
+  .split('\n').filter(Boolean).filter(f => !f.startsWith('partials/') && /assets\/cookies\.js/.test(read(f)));
+const avisoBlock = s => s.match(/<div class="cookie-banner" id="aviso-cookies"[\s\S]*?<\/div>\n<script>[\s\S]*?<\/script>/)[0];
 
-test('aviso de cookies: TEXTO y ESTILO idénticos a 7f9ac27^; la única diferencia es el bloque del observador', () => {
-  const js = fs.readFileSync(path.join(ROOT, 'assets', 'cookies.js'), 'utf8');
-  const old = gitShow('assets/cookies.js');
-  // Un solo bloque y, quitándolo, el fichero es byte a byte el de 7f9ac27^.
-  assert.strictEqual((js.match(OBS_RE) || []).length, 1, 'debe haber exactamente un bloque del observador');
-  assert.strictEqual(js.replace(OBS_RE, ''), old, 'fuera del bloque del observador, cookies.js debe ser idéntico al de 7f9ac27^');
-  // TEXTO: la función build() (texto y botón del aviso) es la misma.
-  const build = s => s.match(/function build\(\) \{[\s\S]*?\n  \}\n/)[0];
-  assert.strictEqual(build(js), build(old), 'el texto del aviso cambió');
-  // ESTILO: todas las reglas .cookie-* de styles.css son las de 7f9ac27^.
-  const rules = s => (s.match(/[^{}]*\.cookie-[^{}]*\{[^{}]*\}/g) || []).map(r => r.trim());
-  const css = fs.readFileSync(path.join(ROOT, 'assets', 'styles.css'), 'utf8');
-  assert.ok(rules(css).length >= 10);
-  assert.deepStrictEqual(rules(css), rules(gitShow('assets/styles.css')), 'el estilo del aviso cambió');
+test('aviso de cookies: texto NUEVO «Esta web no usa cookies.» + «Más info» + «Entendido», sin Aceptar/Rechazar', () => {
+  const html = avisoBlock(read('partials/header.html'));
+  assert.ok(html.includes('<p>Esta web no usa cookies. <a href="/cookies.html">Más info</a></p>'));
+  assert.ok(html.includes('<button type="button" data-close="1">Entendido</button>'));
+  assert.strictEqual((html.match(/<button/g) || []).length, 1);
+  assert.ok(/id="aviso-cookies" role="region" aria-label="Aviso de cookies" hidden>/.test(html), 'sale oculto hasta que el script decide');
+  const jsCode = read('assets/cookies.js').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+  assert.ok(!/Aceptar|Rechazar|Sin cookies\.|fbevents|AD_META/.test(html + jsCode));
+  // El texto vive solo en el parcial: cookies.js no lo duplica.
+  assert.ok(!/innerHTML|Esta web no usa cookies/.test(read('assets/cookies.js')));
 });
 
-test('observador de «Comprar»: solo actúa con #btn-pago, solo oculta/muestra, no guarda nada', () => {
-  const blk = fs.readFileSync(path.join(ROOT, 'assets', 'cookies.js'), 'utf8').match(OBS_RE)[0]
-    .replace(/\/\*[\s\S]*?\*\//g, '');
-  assert.ok(blk.includes("document.getElementById('btn-pago')") && /if \(!buy \|\|/.test(blk), 'sin #btn-pago no hace nada');
-  assert.ok(blk.includes('IntersectionObserver'));
-  assert.ok(blk.includes("b.style.display = onScreen ? 'none' : ''"));
-  assert.ok(!/localStorage|sessionStorage|document\.cookie|indexedDB|save\(|STORAGE_KEY|innerHTML|textContent|classList|className|\.remove\(/.test(blk),
-    'el observador no puede guardar, cerrar ni tocar texto/clases del aviso');
-  const withBtn = execFileSync('git', ['ls-files', '*.html'], { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean)
-    .filter(f => fs.readFileSync(path.join(ROOT, f), 'utf8').includes('id="btn-pago"'));
-  assert.deepStrictEqual(withBtn, ['crea-tu-cancion.html']);
+test('aviso de cookies: en las 92 páginas que cargan cookies.js, una sola vez y justo después de la cabecera', () => {
+  const pages = pagesWithCookiesJs();
+  assert.strictEqual(pages.length, 92);
+  const want = avisoBlock(read('partials/header.html'));
+  const bad = pages.filter(f => {
+    const s = read(f);
+    const i = s.indexOf('</header>'), j = s.indexOf(want);
+    const between = i >= 0 && j > i ? s.slice(i + '</header>'.length, j) : null;
+    return (s.match(/id="aviso-cookies"/g) || []).length !== 1 || (s.match(/<header[\s>]/g) || []).length !== 1
+      || between === null || !/^\n(<!--[\s\S]*?-->\n)?$/.test(between);
+  });
+  assert.deepStrictEqual(bad, []);
+  // Y el parcial está sincronizado (lo mismo que comprobará sync_partials --check).
+  execFileSync('python3', [path.join(ROOT, 'tools', 'sync_partials.py'), '--check'], { cwd: ROOT, stdio: 'pipe' });
+});
+
+test('aviso de cookies: misma clave y formato que antes (read/save idénticos a 7f9ac27^)', () => {
+  const js = read('assets/cookies.js');
+  const old = gitShow('assets/cookies.js');
+  const fn = (s, name) => s.match(new RegExp(`  function ${name}\\(\\) \\{[\\s\\S]*?\\n  \\}\\n`))[0];
+  assert.strictEqual(fn(js, 'read'), fn(old, 'read'));
+  assert.strictEqual(fn(js, 'save'), fn(old, 'save'));
+  assert.ok(js.includes("var STORAGE_KEY = 'ad_cookie_consent';") && js.includes('var CONSENT_VERSION = 2;'));
+  const inline = avisoBlock(read('partials/header.html')).match(/<script>([\s\S]*?)<\/script>/)[1];
+  assert.ok(inline.includes("localStorage.getItem('ad_cookie_consent')") && inline.includes('r.v===2'),
+    'el script en línea del parcial usa la misma clave y versión que cookies.js');
+});
+
+/* El script en línea del parcial, ejecutado con un DOM mínimo simulado. */
+function runInline(stored, { throws = false, fixed = true } = {}) {
+  const vm = require('node:vm');
+  const code = avisoBlock(read('partials/header.html')).match(/<script>([\s\S]*?)<\/script>/)[1];
+  const header = { tagName: 'HEADER', getBoundingClientRect: () => ({ height: 69.4 }) };
+  const props = {};
+  const b = { hidden: true, previousElementSibling: header };
+  const documentElement = { style: { setProperty: (k, v) => { props[k] = v; } } };
+  const ls = { getItem: k => { if (throws) throw new Error('bloqueado'); return k === 'ad_cookie_consent' ? stored : null; } };
+  vm.runInNewContext(code, {
+    document: { getElementById: id => (id === 'aviso-cookies' ? b : null), documentElement },
+    localStorage: ls, getComputedStyle: () => ({ position: fixed ? 'fixed' : 'static' }), JSON,
+  });
+  return { hidden: b.hidden, cab: props['--ad-cab'] };
+}
+
+test('script en línea: enseña el aviso salvo si ya se pulsó «Entendido» (v2), y lo pone bajo la cabecera fija', () => {
+  const ok = JSON.stringify({ choice: 'seen', ts: '2026-11-14T10:00:00.000Z', v: 2 });
+  // --ad-cab se pone SIEMPRE (también sin aviso): baja el contenido de las legales y contratar.
+  assert.deepStrictEqual(runInline(ok), { hidden: true, cab: '69.4px' }, 'ya pulsó «Entendido»: no sale, pero --ad-cab sí');
+  assert.deepStrictEqual(runInline(null), { hidden: false, cab: '69.4px' }, 'primera visita: sale');
+  assert.strictEqual(runInline(JSON.stringify({ choice: 'seen', v: 1 })).hidden, false, 'versión antigua: sale');
+  assert.strictEqual(runInline('{roto').hidden, false, 'dato roto: sale');
+  assert.strictEqual(runInline('5').hidden, false, 'dato que no es objeto: sale');
+  assert.strictEqual(runInline(null, { throws: true }).hidden, false, 'localStorage bloqueado: sale');
+  assert.strictEqual(runInline(null, { fixed: false }).cab, '0px', 'cabecera no fija: sin desplazamiento');
+});
+
+test('aviso de cookies: compacto y en el flujo (no fijo), botón de 44 px, sin observador de «Comprar»', () => {
+  const css = read('assets/styles.css');
+  const rule = css.match(/\n\.cookie-banner \{[^}]*\}/)[0];
+  assert.ok(/position: relative;/.test(rule) && !/position: (fixed|absolute|sticky)/.test(rule), 'el aviso no puede ser fijo ni superpuesto');
+  assert.ok(/top: var\(--ad-cab, 0px\);/.test(rule));
+  assert.ok(/\.cookie-banner\[hidden\] \{ display: none; \}/.test(css), '[hidden] tiene que ganar al display:flex');
+  assert.ok(/\.cookie-banner button \{[^}]*min-height: 44px;/.test(css), 'tamaño táctil mínimo');
+  assert.ok(!/\.cookie-banner[^{]*\{[^}]*(animation|transition: (all|transform|height|max-height|margin|top))/.test(css), 'sin animaciones que muevan el contenido');
+  // Alto constante: texto y botón SIEMPRE en una fila; el texto cede ancho, el botón no.
+  assert.ok(/flex-wrap: nowrap;/.test(rule) && !/flex-wrap: wrap/.test(rule), 'texto y botón en una sola fila');
+  assert.ok(!/\.cookie-banner[^{]*\{[^}]*flex-wrap: wrap/.test(css), 'ninguna regla del aviso (tampoco la del móvil) vuelve a wrap');
+  assert.ok(/\.cookie-banner p \{[^}]*min-width: 0;/.test(css), 'el texto puede encoger y partir en 2 líneas');
+  const btn = css.match(/\n\.cookie-banner button \{[^}]*\}/)[0];
+  assert.ok(/flex: none;/.test(btn), 'el botón no encoge ni crece');
+  assert.ok(!/min-width/.test(btn), 'sin min-width en el botón (era lo que bajaba el botón a otra fila en iPhone)');
+  const js = read('assets/cookies.js');
+  assert.ok(!/IntersectionObserver|MutationObserver|btn-pago|style\.display/.test(js), 'el observador de «Comprar» ya no está');
+});
+
+test('legales y contratar: el contenido empieza SIEMPRE bajo la cabecera fija (con y sin aviso)', () => {
+  const css = read('assets/styles.css');
+  const m = css.match(/\n\.cookie-banner \+ script \+ main\.legal,\n\.cookie-banner \+ script \+ section\.section-content \{[^}]*\}/);
+  assert.ok(m, 'regla para main.legal y section.section-content justo tras el aviso, SIN :not([hidden])');
+  assert.ok(/margin-top: var\(--ad-cab, 88px\) !important;/.test(m[0]));
+  // Son exactamente las 15 legales + contratar.html (lo primero tras la cabecera común).
+  const hit = pagesWithCookiesJs().filter(f => {
+    const s = read(f), i = s.indexOf('<!-- /PARTIAL:header -->');
+    const first = s.slice(i + 24).replace(/<!--[\s\S]*?-->/g, '').match(/<([a-z]+)\b[^>]*>/);
+    return first && /^<(main class="legal"|section class="section-content")/.test(first[0]); });
+  assert.strictEqual(hit.length, 16);
+  assert.ok(hit.includes('contratar.html') && hit.includes('cookies.html') && hit.includes('privacidad.html'));
+});
+
+test('las 16 páginas (legales + contratar): ningún texto cambia, solo la cabecera común', () => {
+  const strip = s => s.replace(/<!-- PARTIAL:header -->[\s\S]*?<!-- \/PARTIAL:header -->/, '');
+  const pages = ['audio-libro-condiciones.html', 'autoblog-condiciones.html', 'aviso-legal.html', 'cenit-condiciones.html',
+    'cenit-pioneros-bases.html', 'cenit-privacidad.html', 'cenit-uso.html', 'chatbot-condiciones.html', 'condiciones.html',
+    'cookies.html', 'crea-tu-cancion-condiciones.html', 'girobot-condiciones.html', 'privacidad.html',
+    'sistemas-condiciones.html', 'webs-condiciones.html', 'contratar.html'];
+  for (const f of pages) {
+    const main = execFileSync('git', ['show', `main:${f}`], { cwd: ROOT, encoding: 'utf8' });
+    assert.strictEqual(strip(read(f)), strip(main), `${f} cambió fuera de la cabecera`);
+  }
+});
+
+test('cookies.html y privacidad.html: llevan el aviso y, fuera de la cabecera común, son idénticas a main', () => {
+  const want = avisoBlock(read('partials/header.html'));
+  for (const f of ['cookies.html', 'privacidad.html']) assert.ok(read(f).includes(want), `${f} sin el aviso`);
+  const strip = s => s.replace(/<!-- PARTIAL:header -->[\s\S]*?<!-- \/PARTIAL:header -->/, '');
+  for (const f of ['cookies.html', 'privacidad.html']) {
+    const main = execFileSync('git', ['show', `main:${f}`], { cwd: ROOT, encoding: 'utf8' });
+    assert.strictEqual(strip(read(f)), strip(main), `${f} cambió fuera de la cabecera`);
+  }
 });
 
 test('pie: «Ver el aviso de cookies» en todas las páginas, ninguna con «Configurar cookies»', () => {

@@ -153,6 +153,15 @@
     <a href="/#contacto" class="nav-cta">Hablemos →</a>
   </nav>
 </header>
+<!-- Aviso de cookies (14-11-2026): franja en el flujo, bajo la cabecera.
+     Sale oculta; el script de abajo pone --ad-cab (alto de la cabecera fija) y
+     la enseña antes de pintar si no se pulsó «Entendido» (misma clave y versión que assets/cookies.js, que lleva el botón
+     y «Ver el aviso de cookies» del pie). -->
+<div class="cookie-banner" id="aviso-cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Esta web no usa cookies. <a href="/cookies.html">Más info</a></p>
+  <button type="button" data-close="1">Entendido</button>
+</div>
+<script>(function(){var b=document.getElementById('aviso-cookies');var h=b.previousElementSibling;document.documentElement.style.setProperty('--ad-cab',(h&&h.tagName==='HEADER'&&getComputedStyle(h).position==='fixed'?h.getBoundingClientRect().height:0)+'px');try{var r=JSON.parse(localStorage.getItem('ad_cookie_consent'));if(r&&typeof r==='object'&&r.v===2)return;}catch(e){}b.hidden=false;})();</script>
 <!-- /PARTIAL:header -->
 <section class="page-hero">
   <div class="hero-inner">
