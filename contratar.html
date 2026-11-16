@@ -89,6 +89,12 @@
     <a class="btn-secondary" id="ct-wa" href="https://wa.me/34743088655" target="_blank" rel="noopener" style="margin-left:8px;">WhatsApp</a>
   </div>
 
+  <!-- 2026-11-16: producto sin condiciones publicadas → NO se puede pagar (ni enlace de pago en la página). -->
+  <div id="ct-sin-condiciones" style="display:none; margin-top: 24px; border: 1px solid var(--orange); border-radius: 10px; padding: 20px;">
+    <p style="margin:0 0 12px;"><strong>Este servicio todavía no se puede contratar en línea:</strong> estamos terminando sus condiciones del servicio. Escríbenos y te avisamos en cuanto esté.</p>
+    <a class="btn-primary" id="ct-mail2" href="mailto:daniel@arquitectodigital.io">Escríbenos por email →</a>
+    <a class="btn-secondary" id="ct-wa2" href="https://wa.me/34743088655" target="_blank" rel="noopener" style="margin-left:8px;">WhatsApp</a>
+  </div>
   <div id="ct-desconocido" style="display:none; margin-top: 24px;">
     <p style="color: var(--text-dim);"><strong>Producto no disponible.</strong> <a href="/#contacto" style="color: var(--orange);">Contacta con nosotros</a> y lo vemos contigo.</p>
   </div>
@@ -134,16 +140,68 @@
         condiciones: "/webs-condiciones.html",
         link: "https://buy.stripe.com/cNi6oH1qN079acW836bEA0l"   // plink_1Teahw · price_1TeaPR
       },
-      // 2026-11-03: Autoblog Essential con casilla (el informe de auditoría enlaza aquí).
+      // ═══ GENERADO desde reforma_seo.yaml (productos) · NO editar a mano: scripts/generar_contratar_reforma.py ═══
+      reforma: {
+        familia: "Reforma SEO",
+        servicio: "Reforma SEO",
+        nombre: "Reforma SEO",
+        desc: "Arreglamos los fallos técnicos, de SEO y de visibilidad en IA de tu informe.",
+        incluye: ["Los fallos de tu informe", "Hasta 20 páginas"],
+        precio: "490 €",
+        tipo: "· pago único · IVA e IRPF incluidos",
+        nota: "Servicio para empresas y profesionales con domicilio fiscal en España. Necesitas NIF/CIF; la factura lleva retención de IRPF del 7 %, ya incluida en el precio.",
+        condiciones: "",
+        link: ""   // sin condiciones: NO se puede pagar
+      },
+      reforma_chatbot: {
+        familia: "Reforma SEO",
+        servicio: "Reforma SEO",
+        nombre: "Reforma SEO + instalación del chatbot",
+        desc: "Paso 1 del plan Completa: la Reforma SEO y el chatbot instalado en tu web.",
+        incluye: ["Todo lo de la Reforma SEO", "Instalación del chatbot en tu web"],
+        precio: "849 €",
+        tipo: "· pago único · IVA e IRPF incluidos",
+        nota: "Servicio para empresas y profesionales con domicilio fiscal en España. Necesitas NIF/CIF; la factura lleva retención de IRPF del 7 %, ya incluida en el precio. Plan Completa = 3 pagos: 1) este, 2) Autoblog Essential, 3) Chatbot Light.",
+        condiciones: "",
+        link: ""   // sin condiciones: NO se puede pagar
+      },
       autoblog_essential: {
-        familia: "Autoblog SEO", servicio: "Autoblog SEO",
-        nombre: "Autoblog Essential", desc: "4 artículos al mes en tu blog para aparecer en más búsquedas de Google y de la IA.",
-        incluye: ["4 posts/mes", "Revisión de calidad y verificación de datos", "Schema markup + meta SEO"],
-        precio: "84 €/mes", tipo: "· suscripción mensual · IVA e IRPF incluidos",
+        familia: "Autoblog SEO",
+        servicio: "Autoblog SEO",
+        nombre: "Autoblog Essential",
+        desc: "4 artículos al mes en tu blog para aparecer en más búsquedas de Google y de la IA.",
+        incluye: ["4 posts/mes", "Revisión de calidad y verificación de datos", "Cada artículo, preparado para Google y la IA"],
+        precio: "84 €/mes",
+        tipo: "· suscripción mensual · IVA e IRPF incluidos",
         nota: "Cancelable cuando quieras.",
         condiciones: "/autoblog-condiciones.html",
-        link: "https://buy.stripe.com/7sYbJ14CZ079fxgabebEA0h"   // plink_1TeaeG · price_1TeaL9 (autoblog essential 84 €/mes)
+        link: "https://buy.stripe.com/7sYbJ14CZ079fxgabebEA0h"   // plink_1TeaeGEY067OZC59mi2k33g9
+      },
+      chatbot_setup: {
+        familia: "Chatbot a medida",
+        servicio: "Chatbot",
+        nombre: "Instalación del chatbot",
+        desc: "Instalamos el chatbot en tu web, entrenado con la información de tu negocio.",
+        incluye: ["Chatbot en tu web", "Entrenado con la información de tu negocio"],
+        precio: "529 €",
+        tipo: "· pago único · IVA e IRPF incluidos",
+        nota: "La cuota mensual del chatbot (Chatbot Light, 84 €/mes) se paga aparte.",
+        condiciones: "/chatbot-condiciones.html",
+        link: "https://buy.stripe.com/aFa8wPc5r5rt1Gq836bEA0r"   // plink_1Tgn4WEY067OZC59qR9uK5AU
+      },
+      chatbot_light: {
+        familia: "Chatbot a medida",
+        servicio: "Chatbot",
+        nombre: "Chatbot · Mantenimiento Light",
+        desc: "Plan mensual del chatbot.",
+        incluye: ["Hasta 1.000 mensajes al mes"],
+        precio: "84 €/mes",
+        tipo: "· suscripción mensual · IVA e IRPF incluidos",
+        nota: "Cancelable cuando quieras.",
+        condiciones: "/chatbot-condiciones.html",
+        link: "https://buy.stripe.com/bJe4gzc5r7zBbh0836bEA0q"   // plink_1Tgn3SEY067OZC59zF3MRWjv
       }
+      // ═══ FIN GENERADO ═══
     }
   };
   // ═════════════════════════════════════════════════════════════════════════
@@ -166,15 +224,25 @@
   document.getElementById('ct-nota').textContent = prod.nota || '';
   var ul = document.getElementById('ct-incluye');
   prod.incluye.forEach(function (x) { var li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
+  var acepto = document.getElementById('ct-acepto');
+  var pagar = document.getElementById('ct-pagar');
+  var msg = document.getElementById('ct-msg');
+  if (!prod.condiciones) {
+    // 2026-11-16: sin condiciones publicadas no se puede pagar: ni casilla, ni botón, ni enlace de pago.
+    var asunto0 = 'Quiero contratar: ' + prod.nombre;
+    document.getElementById('ct-mail2').href = 'mailto:' + CONTRATAR.email + '?subject=' + encodeURIComponent(asunto0);
+    document.getElementById('ct-wa2').href = 'https://wa.me/' + CONTRATAR.whatsapp + '?text=' + encodeURIComponent(asunto0);
+    pagar.style.display = 'none'; pagar.removeAttribute('href'); msg.style.display = 'none';
+    acepto.closest('.consent-group').style.display = 'none';
+    document.getElementById('ct-sin-condiciones').style.display = 'block';
+    return;
+  }
   document.getElementById('ct-casilla').innerHTML = esc(CONTRATAR.casilla)
     .replace('{servicio}', esc(prod.servicio))
     .replace('{condiciones}', '<a href="' + esc(prod.condiciones) + '" target="_blank" rel="noopener">Condiciones de contratación</a>')
     .replace('{privacidad}', '<a href="' + esc(CONTRATAR.privacidad) + '" target="_blank" rel="noopener">Política de privacidad</a>')
     + '<span class="req-mark" aria-hidden="true">*</span>';
 
-  var acepto = document.getElementById('ct-acepto');
-  var pagar = document.getElementById('ct-pagar');
-  var msg = document.getElementById('ct-msg');
   if (!prod.link) {
     // Sin enlace todavía: «Escríbenos» (email / WhatsApp) con el producto ya dicho.
     var asunto = 'Quiero contratar: ' + prod.nombre;
