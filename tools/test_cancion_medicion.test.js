@@ -308,15 +308,15 @@ test('página: vídeo debajo, sin autoplay, con póster, y segundo botón que ba
   assert.ok(html.indexOf('id="btn-pago-abajo"') > iVid);
 });
 
-test('página: «Hablemos» fuera de arriba (solo esta página), pasos sin «Pagas», sin 48 h ni «el idioma que quieras»', () => {
+test('página: «Hablemos» fuera de arriba (solo esta página), pasos sin «Pagas», sin «vale hasta que» ni «el idioma que quieras»', () => {
   const html = read('crea-tu-cancion.html');
   assert.ok(html.includes('header .nav-cta { display: none; }'));
   assert.ok(html.indexOf('>Hablemos →</a></p>') > html.indexOf('id="faq"'), 'enlace discreto al final');
   for (const t of ['1 ·</strong> Eliges la ocasión y el estilo', '2 ·</strong> Cuentas su historia', '3 ·</strong> Revisas la letra', '4 ·</strong> Te llega por email en unos 10 minutos'])
     assert.ok(html.includes(t), t);
   assert.ok(!/Pagas la canción/.test(html));
-  assert.ok(!/48 horas|48 h\b|caduca|idioma que quieras|En el que quieras/.test(html));
-  assert.ok(!/48 horas|idioma que quieras|En el que quieras/.test(read('llms-full.txt').split('## Crea tu canción')[1].split('## Audio')[0]));
+  assert.ok(!/vale hasta que|idioma que quieras|En el que quieras/.test(html));
+  assert.ok(!/vale hasta que|idioma que quieras|En el que quieras/.test(read('llms-full.txt').split('## Crea tu canción')[1].split('## Audio')[0]));
 });
 
 test('FAQ: 6 preguntas, JSON-LD idéntico al texto visible y a llms-full.txt', () => {
@@ -329,6 +329,42 @@ test('FAQ: 6 preguntas, JSON-LD idéntico al texto visible y a llms-full.txt', (
   assert.deepStrictEqual(vis, qa);
   const llms = read('llms-full.txt');
   for (const [q, a] of qa) assert.ok(llms.includes(`**${q}**\n${a}`), q);
+  // La FAQ «¿Cómo me llega?» lleva el plazo del código (el mismo texto en los 3 sitios por lo anterior).
+  assert.ok(qa.find(([q]) => q === '¿Cómo me llega?')[1].includes('tienes 48 horas para crear tu canción con él'));
+});
+
+test('plazo del código: página, FAQ, JSON-LD y llms-full coinciden con las condiciones §3 (48 h tras pagar)', () => {
+  // Las condiciones mandan: de ahí sale el número de horas (las condiciones NO se tocan).
+  const cond = read('crea-tu-cancion-condiciones.html');
+  const LEGAL = 'Tras pagar, el Usuario dispone de 48 horas para crear su canción con el código asignado. Transcurrido dicho plazo, el código caduca.';
+  assert.ok(cond.includes(LEGAL), 'el texto legal de §3 sigue igual');
+  const horas = cond.match(/dispone de (\d+) horas para crear su canción con el código/)[1];
+  const FRASE = `Tras pagar, tienes ${horas} horas para crear tu canción con tu código.`;
+  const FAQ = `Nada más pagar te llega tu código: tienes ${horas} horas para crear tu canción con él.`;
+  const html = read('crea-tu-cancion.html');
+  const lds = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+  const service = lds.find(x => x['@type'] === 'Service' && /crea-tu-cancion\.html#service$/.test(x['@id'] || ''));
+  const faq = lds.find(x => x['@type'] === 'FAQPage').mainEntity.find(q => q.name === '¿Cómo me llega?').acceptedAnswer.text;
+  const pagado = html.slice(html.indexOf('id="ya-he-pagado"'), html.indexOf('<form id="music-form"'));
+  const visFaq = html.match(/<h3 class="faq-q">¿Cómo me llega\?<\/h3>\s*<p class="faq-a">([^<]*)<\/p>/)[1];
+  const llms = read('llms-full.txt').split('## Crea tu canción')[1].split('## Audio')[0];
+  const sitios = {
+    'bloque «Ya he pagado»': [pagado.replace(/\s+/g, ' '), FRASE],
+    'JSON-LD Service': [service.description, FRASE],
+    'llms-full (descripción)': [llms, FRASE],
+    'FAQ visible': [visFaq, FAQ],
+    'FAQ JSON-LD': [faq, FAQ],
+    'FAQ llms-full': [llms, FAQ],
+  };
+  for (const [donde, [texto, frase]] of Object.entries(sitios)) assert.ok(texto.includes(frase), `${donde}: falta «${frase}»`);
+  // Ningún otro número de horas para el código ni promesas contrarias a las condiciones.
+  for (const t of [html, llms]) {
+    for (const m of t.matchAll(/(\d+) horas para crear tu canción/g)) assert.strictEqual(m[1], horas, m[0]);
+    assert.ok(!/vale hasta que|no caduca|sin caducidad|sin plazo/i.test(t));
+  }
+  // El post del blog sigue diciendo lo mismo que las condiciones.
+  const blog = read('blog/crea-tu-cancion-el-proceso-real-paso-a-20260824.html');
+  assert.ok(blog.includes(`dispones de ${horas} horas para crear tu canción con él. Pasado ese plazo, el código caduca.`));
 });
 
 test('medición: el script engancha «Cancion CTA» a [data-cta] y «Cancion Video» al play de #demo-cancion', () => {
