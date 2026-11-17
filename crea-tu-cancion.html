@@ -28,38 +28,70 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
 <link rel="stylesheet" href="assets/styles.css">
 <script defer src="assets/cookies.js"></script>
-<!-- Medición (14-11-2026): eventos de Plausible «Cancion Comprar» y «Cancion Canje»
-     y UTM de la URL hasta Stripe. Sin cookies y sin guardar nada en el navegador. -->
+<!-- Medición (14-11-2026, ampliada 17-11-2026): eventos de Plausible «Cancion CTA»,
+     «Cancion Video», «Cancion Comprar» y «Cancion Canje», con los utm_* de la URL,
+     y UTM hasta Stripe. Sin cookies y sin guardar nada en el navegador. -->
 <script defer src="assets/crea-tu-cancion-medicion.js"></script>
 <style>
-  /* Controles del formulario, alineados con la paleta del sitio. */
-  .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    margin-top: 18px; }
+  /* 17-11-2026 · Primera pantalla pensada para el navegador interno de
+     Facebook/Instagram en Android (412×~760 útiles, con la franja de cookies):
+     titular del anuncio, precio, botón de compra y casilla legal sin scroll. */
+  /* «Hablemos →» (contacto B2B) fuera de la zona superior SOLO en esta página;
+     el parcial de la cabecera no se toca. Queda un enlace discreto al final. */
+  header .nav-cta { display: none; }
+  .cancion-hero { padding: calc(var(--ad-cab, 70px) + 18px) 20px 22px;
+    border-bottom: 1px solid var(--border); text-align: left; }
+  .cancion-hero-inner { max-width: 560px; margin: 0 auto; }
+  .cancion-hero h1 { font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.75em, 6.2vw, 2.7em); line-height: 1.12; letter-spacing: -0.8px;
+    margin: 0 0 10px; }
+  .cancion-hero h1 .accent { color: var(--orange); font-style: italic; }
+  .cancion-sub { color: var(--text-dim); font-size: 1em; line-height: 1.45; margin: 0 0 10px; }
+  .cancion-precio { font-size: 1.1em; color: var(--text); margin: 0 0 14px; }
+  .precio-ahora { color: var(--orange); font-weight: 700; }
+  #bloque-pago { scroll-margin-top: calc(var(--ad-cab, 70px) + 12px); }
+  .cta-cancion { display: block; width: 100%; max-width: 420px; margin: 0 auto;
+    background: var(--orange); color: var(--bg); border: 0; border-radius: 10px;
+    padding: 15px 18px; font-family: 'Space Grotesk', sans-serif; font-size: 1.15em;
+    font-weight: 700; text-decoration: none; text-align: center; cursor: pointer;
+    box-shadow: 0 4px 18px rgba(255,107,53,.25); }
+  .cta-cancion:hover, .cta-cancion:focus-visible { background: var(--orange-bright); color: var(--bg); }
+  .consent-compacta { max-width: 420px; margin: 10px auto 0; font-size: 0.8rem; line-height: 1.4; }
+  .consent-compacta input[type="checkbox"] { width: 22px; height: 22px; margin-top: 0; }
+  .pago-nota { max-width: 420px; margin: 6px auto 0; font-size: 0.78rem; line-height: 1.4;
+    color: var(--text-dim); }
+  .cancion-hero .cta-cancion, .cancion-hero .consent-compacta, .cancion-hero .pago-nota { margin-left: 0; }
+  #cc-msg { max-width: 420px; margin: 4px 0 0; min-height: 1em; font-size: 0.82rem; color: #ff8a80; }
+  #cc-msg:empty { display: none; }
+  .ver-video { display: inline-block; margin-top: 10px; padding: 8px 6px; color: var(--orange);
+    text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+  .cancion-demo { text-align: center; padding: 34px 20px 40px; border-bottom: 1px solid var(--border); }
+  .cancion-demo h2 { font-family: 'Fraunces', serif; font-size: 1.3em; font-weight: 600; margin: 0 0 14px; }
+  .cancion-demo video { display: block; margin: 0 auto 20px; width: auto; max-width: min(300px, 100%);
+    height: auto; max-height: 62vh; border-radius: 18px; border: 1px solid var(--border); background: #000; }
+  .pasos { list-style: none; display: grid; gap: 12px; margin: 22px 0 0; padding: 0; }
+  .pasos li { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; color: var(--text-dim); }
+  .pasos li strong { color: var(--orange); }
+  .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
   .music-grid div { background: var(--bg-card); border: 1px solid var(--border);
     border-radius: 8px; padding: 12px 14px; color: var(--text-dim); }
-  .music-aviso { background: var(--bg-card); border: 1px solid var(--orange-dim);
-    border-left: 3px solid var(--orange); border-radius: 8px; padding: 14px 16px;
-    color: var(--text-dim); margin: 18px 0; }
   .music-form label { display: block; color: var(--text); font-weight: 600;
     margin-top: 14px; margin-bottom: 6px; }
   .music-form input { width: 100%; box-sizing: border-box; padding: 12px 14px;
     background: var(--bg-elevated); border: 1px solid var(--border);
     border-radius: 8px; color: var(--text); font-size: 1em; }
-  .music-form input:focus { outline: none; border-color: var(--accent); }
+  .music-form input:focus { outline: none; border-color: var(--orange); }
   #music-estado { color: var(--text-dim); margin-top: 14px; min-height: 1.2em; }
-  .music-pago-nota { color: var(--text-dim); margin-top: 14px; }
-  /* Mismo naranja que los enlaces legales (.consent-item a en styles.css). */
-  .music-pago-nota a { color: var(--orange); }
-  /* Precio destacado (14-11-2026: sin precio tachado; solo el precio real). */
-  .precio-ahora { color: var(--orange); font-weight: 700; }
-  /* Botones rellenos (el <button> nativo salía con fondo blanco; .service-cta
-     del sitio es un enlace de texto). Botón de pago y submit como CTA naranja. */
-  button.service-cta, a#btn-pago.service-cta {
-    background: var(--orange); color: var(--bg); border: 0;
-    padding: 12px 22px; border-radius: 8px; cursor: pointer; font-size: 1em;
-    display: inline-block; }
-  button.service-cta:hover, a#btn-pago.service-cta:hover {
-    background: var(--orange-bright); color: var(--bg); }
+  #ya-he-pagado { scroll-margin-top: calc(var(--ad-cab, 70px) + 12px); }
+  button.service-cta { background: var(--orange); color: var(--bg); border: 0;
+    padding: 12px 22px; border-radius: 8px; cursor: pointer; font-size: 1em; display: inline-block; }
+  button.service-cta:hover { background: var(--orange-bright); color: var(--bg); }
+  .faq-q { font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em; }
+  .faq-a { color: var(--text-dim); line-height: 1.6; }
+  .b2b-discreto { text-align: center; color: var(--text-faint); font-size: 0.9em; padding: 0 20px 40px; }
+  .b2b-discreto a { color: var(--text-dim); }
+  @media (min-width: 769px) { .cancion-hero { padding-top: calc(var(--ad-cab, 88px) + 34px); } }
 </style>
 <script type="application/ld+json">
 {
@@ -73,7 +105,7 @@
   "name": "Crea tu canción",
   "serviceType": "Creación de canción personalizada con IA",
   "url": "https://arquitectodigital.io/crea-tu-cancion.html",
-  "description": "Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.",
+  "description": "Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar recibes un código que vale hasta que crees tu canción con él. Solo para clientes con domicilio fiscal en España.",
   "inLanguage": "es",
   "provider": {
     "@id": "https://arquitectodigital.io/#organization"
@@ -105,50 +137,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Cuánto cuesta una canción personalizada?",
+      "name": "¿Qué recibo exactamente?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "15€ en pago único, con IVA incluido y pago seguro por Stripe."
+        "text": "2 versiones de la misma canción en MP3, por email. Son 2 tomas de la misma letra y el mismo estilo."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Cómo funciona Crea tu Canción?",
+      "name": "¿Cuánto dura la canción?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Crea tu Canción funciona en 4 pasos. Pagas la canción, eliges estilo (pop, balada, reggaetón, ranchera…) y tema (cumpleaños, aniversario, homenaje, pedir perdón…), la IA escribe la letra y tú la validas o pides otra, y por último se genera la canción y recibes 2 versiones por email."
+        "text": "La letra se escribe para una canción de unos 2 minutos. La duración final la marca la música que genera la IA a partir de la letra, así que puede variar un poco."
       }
     },
     {
       "@type": "Question",
-      "name": "¿En qué idioma puede estar la canción?",
+      "name": "¿Qué estilos hay?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En el que quieras. Eliges el idioma igual que eliges el estilo y el tema."
+        "text": "20 estilos: pop, balada romántica, pop-rock, rock, acústico/indie, reggaetón, trap/urbano, rap/hip-hop, bachata, salsa, cumbia, ranchera/mariachi, bolero, flamenco/rumba, dance/electrónica, infantil, country/folk, góspel/coral, jazz/soul y lo-fi/chill. Si no está el tuyo, lo describes con tus palabras. Todas se cantan en español."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Qué recibo exactamente con Crea tu Canción?",
+      "name": "¿Puedo revisar la letra antes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Con Crea tu Canción recibes 2 versiones de la misma canción en MP3 por email. Son 2 tomas de la misma letra y el mismo estilo."
+        "text": "Sí. Antes de crear la canción ves la letra completa: puedes cambiarla a mano o pedir otra versión una vez. La canción se hace con la letra que tú dejes."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Cuánto tiempo tengo para crear la canción después de pagar?",
+      "name": "¿La persona se entera antes de tiempo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En Crea tu Canción tienes 48 horas: tras pagar recibes un código y tienes ese plazo para crear tu canción con él. Pasado ese plazo, el código caduca."
+        "text": "No. Todo llega a tu email, el de la compra, y nosotros no escribimos a nadie más. Tú decides cuándo y cómo se la regalas."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Puedo comprarla si vivo fuera de España?",
+      "name": "¿Cómo me llega?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. El servicio es solo para clientes con domicilio fiscal en España."
+        "text": "Por email. Nada más pagar te llega tu código para crearla. Cuando la creas, te llega otro email con las 2 versiones en MP3 adjuntas, de media en unos 10 minutos desde que empiezas."
       }
     }
   ]
@@ -231,77 +263,89 @@
 <script>(function(){var b=document.getElementById('aviso-cookies');var h=b.previousElementSibling;document.documentElement.style.setProperty('--ad-cab',(h&&h.tagName==='HEADER'&&getComputedStyle(h).position==='fixed'?h.getBoundingClientRect().height:0)+'px');try{var r=JSON.parse(localStorage.getItem('ad_cookie_consent'));if(r&&typeof r==='object'&&r.v===2)return;}catch(e){}b.hidden=false;})();</script>
 <!-- /PARTIAL:header -->
 
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">[Servicio] Crea tu canción</span>
-    <h1>Canciones personalizadas:<br><span class="accent">tu historia, tu canción</span>.</h1>
-    <!-- Vídeo demo (12-11-2026): justo debajo del H1 para que se vea en la
-         primera pantalla del móvil (tráfico del anuncio de Meta). Fichero local
-         en assets/video, sin terceros.
-         13-11-2026: arranca solo al abrir, UNA vez y sin bucle. Primero intenta
-         CON sonido; si el navegador lo bloquea, arranca silenciado y enseña el
-         botón «Toca para escuchar la canción» (quita el silencio y vuelve al
-         segundo 0). Con prefers-reduced-motion no arranca solo. -->
-    <div style="max-width:420px;margin:8px auto 28px;text-align:center;">
-      <h2 style="font-family:'Fraunces',serif;font-size:1.3em;font-weight:600;margin:0 0 12px;">Demostración en 40 segundos</h2>
-      <div style="position:relative;display:inline-block;max-width:100%;">
+<!-- PRIMERA PANTALLA (17-11-2026): promesa del anuncio, precio, botón de pago
+     y la única casilla legal imprescindible antes de pagar, todo sin scroll en
+     412×760 (navegador de Facebook/Instagram en Android) con la franja de cookies. -->
+<section class="cancion-hero" id="inicio">
+  <div class="cancion-hero-inner">
+    <h1>Regala una canción con <span class="accent">SU nombre</span></h1>
+    <p class="cancion-sub">Tú cuentas su historia; la IA escribe la letra y la canta. Te llegan 2 versiones en MP3 por email en unos 10 minutos.</p>
+    <p class="cancion-precio"><strong class="precio-ahora">15 €</strong> · pago único · IVA incluido</p>
+    <div id="bloque-pago">
+      <a class="cta-cancion" href="https://buy.stripe.com/dRm9ATedzg67etcfvybEA0E" id="btn-pago" rel="nofollow" data-cta="arriba">Crear mi canción · 15 €</a>
+      <label class="consent-item consent-compacta">
+        <input type="checkbox" name="consent_legal" id="cc-legal">
+        <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones Generales de Contratación</a> y las <a href="/crea-tu-cancion-condiciones.html" target="_blank" rel="noopener">Condiciones Específicas</a><span class="req-mark" aria-hidden="true">*</span></span>
+      </label>
+      <p class="consent-note" id="cc-msg" role="status" aria-live="polite"></p>
+      <p class="pago-nota">Pago seguro con Stripe. Solo para clientes con domicilio fiscal en España.</p>
+    </div>
+    <a class="ver-video" href="#demo">▶ Ver cómo funciona (40 s)</a>
+  </div>
+</section>
+<script>
+(function () {
+  var legal = document.getElementById('cc-legal');
+  var pago = document.getElementById('btn-pago');
+  var msg = document.getElementById('cc-msg');
+  if (!legal || !pago) return;
+  // El botón va SIEMPRE en naranja; la casilla se comprueba al pulsar.
+  legal.addEventListener('change', function () { if (legal.checked && msg) msg.textContent = ''; });
+  pago.addEventListener('click', function (e) {
+    if (!legal.checked) {
+      e.preventDefault();
+      if (msg) msg.textContent = 'Marca la casilla de las condiciones para continuar con el pago.';
+      legal.focus();
+    }
+  });
+})();
+</script>
+
+<!-- Vídeo demo: debajo de la primera pantalla, en tamaño contenido, sin
+     reproducción automática (se reproduce al pulsar, dentro de la página). -->
+<section class="cancion-demo" id="demo">
+  <div>
+    <h2>Demostración en 40 segundos</h2>
+    <div>
       <video id="demo-cancion"
         src="assets/video/crea-tu-cancion.mp4?v=20261114"
         poster="assets/video/crea-tu-cancion-poster.jpg"
         width="1080" height="1920"
-        controls playsinline preload="metadata"
-        aria-label="Demostración en 40 segundos"
-        style="width:auto;max-width:100%;height:auto;max-height:70vh;display:block;margin:0 auto;border-radius:18px;border:1px solid var(--border);background:#000;">
+        controls playsinline preload="none"
+        aria-label="Demostración en 40 segundos">
         Tu navegador no reproduce vídeo.
         <a href="assets/video/crea-tu-cancion.mp4?v=20261114" style="color:var(--orange);">Descarga el vídeo</a> (2,2 MB).
       </video>
-      <button type="button" id="demo-cancion-sonido" hidden
-        style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:16px 22px;font-size:1.15em;font-weight:700;line-height:1.3;color:#fff;background:rgba(0,0,0,.78);border:2px solid #fff;border-radius:14px;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.45);max-width:85%;">🔊 Toca para escuchar la canción</button>
-      </div>
-      <script>
-      (function () {
-        var v = document.getElementById('demo-cancion');
-        var b = document.getElementById('demo-cancion-sonido');
-        if (!v || !b) return;
-        v.loop = false;
-        try { if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch (e) {}
-        function ocultar() { b.hidden = true; }
-        b.addEventListener('click', function () {
-          ocultar(); v.muted = false; v.currentTime = 0;
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
-        });
-        v.addEventListener('volumechange', function () { if (!v.muted && v.volume > 0) ocultar(); });
-        function silenciado() {
-          v.muted = true;
-          var q = v.play();
-          if (q && q.then) q.then(function () { if (v.muted) b.hidden = false; }, function () {});
-          else b.hidden = false;
-        }
-        var p;
-        try { v.muted = false; p = v.play(); } catch (e) { silenciado(); return; }
-        if (p && p.catch) p.catch(silenciado);
-      })();
-      </script>
     </div>
-    <p style="color: var(--text-dim); font-size: 1.1em; max-width: 640px; line-height: 1.7; margin-top: 20px;">
-      Una canción única, con letra personalizada y voz, para tu ocasión
-      especial. Tú eliges el estilo y el tema y creas tu canción con nuestra
-      herramienta de IA; recibes 2 versiones en MP3 por email en unos 10 minutos.
-      <strong class="precio-ahora">15 €</strong> · pago único · IVA incluido.
-    </p>
+    <a class="cta-cancion" href="#bloque-pago" id="btn-pago-abajo" data-cta="abajo">Crear mi canción · 15 €</a>
   </div>
 </section>
+<script>
+(function () {
+  // Enlaces internos de esta página (vídeo y botón de abajo): scroll suave.
+  function irA(id, ev) {
+    var t = document.getElementById(id);
+    if (!t) return;
+    if (ev) ev.preventDefault();
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+  document.querySelectorAll('a[href="#demo"], a[href="#bloque-pago"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { irA(a.getAttribute('href').slice(1), e); });
+  });
+})();
+</script>
 
 <section class="section-content" style="max-width: 900px; margin: 0 auto;">
-  <span class="section-label">[01] Cómo funciona</span>
-  <h2 class="section-title">Crear una canción personalizada en <span class="accent">4 pasos</span>.</h2>
-  <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.75; margin-top: 20px;">
-    1. Pagas la canción (pago único). &nbsp;2. Eliges <strong>estilo</strong>
-    (pop, balada, reggaetón, ranchera…) y <strong>tema</strong> (cumpleaños,
-    aniversario, homenaje, pedir perdón…). &nbsp;3. La herramienta escribe la
-    letra con IA y tú la <strong>validas</strong> (o pides otra). &nbsp;4. La
-    herramienta genera la canción y recibes <strong>2 versiones de la misma canción (2 tomas de la misma letra y estilo)</strong> por email, en unos 10 minutos.
-  </p>
+  <span class="section-label">Cómo funciona</span>
+  <h2 class="section-title">Tu canción en <span class="accent">4 pasos</span>.</h2>
+  <ol class="pasos">
+    <li><strong>1 ·</strong> Eliges la ocasión y el estilo (pop, balada, reggaetón, ranchera…).</li>
+    <li><strong>2 ·</strong> Cuentas su historia: su nombre, una anécdota, lo que quieras decirle.</li>
+    <li><strong>3 ·</strong> Revisas la letra: la cambias a mano o pides otra.</li>
+    <li><strong>4 ·</strong> Te llega por email en unos 10 minutos: 2 versiones en MP3.</li>
+  </ol>
   <div class="music-grid">
     <div>🎂 Cumpleaños</div><div>💍 Aniversarios y bodas</div>
     <div>❤️ Declaraciones de amor</div><div>🤝 Amistad</div>
@@ -310,59 +354,12 @@
   </div>
 </section>
 
-<section class="section-content" style="max-width: 900px; margin: 0 auto;">
-  <span class="section-label">[02] Compra tu canción</span>
-  <h2 class="section-title">15 € · <span class="accent">pago único</span></h2>
-  <div class="music-aviso">⏳ <strong>Importante:</strong> tras pagar tienes
-    <strong>48 horas</strong> para crear tu canción con tu código. Pasado ese
-    plazo, el código caduca.</div>
-  <div class="consent-group" style="max-width:820px;margin:8px auto 16px;">
-    <label class="consent-item">
-      <input type="checkbox" name="consent_legal" id="cc-legal">
-      <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones Generales de Contratación</a> y las <a href="/crea-tu-cancion-condiciones.html" target="_blank" rel="noopener">Condiciones Específicas</a><span class="req-mark" aria-hidden="true">*</span></span>
-    </label>
-    <label class="consent-item">
-      <input type="checkbox" name="consent_comercial" id="cc-com">
-      <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
-    </label>
-    <label class="consent-item">
-      <input type="checkbox" name="consent_personalizacion" id="cc-pers">
-      <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
-    </label>
-  </div>
-  <a class="service-cta cta-disabled" href="https://buy.stripe.com/dRm9ATedzg67etcfvybEA0E" id="btn-pago" rel="nofollow" aria-disabled="true">Comprar mi canción →</a>
-  <p class="music-pago-nota"><strong class="precio-ahora">15 €</strong> · pago único · IVA incluido · pago seguro con Stripe.<br>
-    Solo para clientes con domicilio fiscal en España.</p>
-  <p class="consent-note" id="cc-msg" role="status" aria-live="polite" style="text-align:center;">* Marca la primera casilla para poder comprar.</p>
-</section>
-<script>
-(function () {
-  var legal = document.getElementById('cc-legal');
-  var pago = document.getElementById('btn-pago');
-  var msg = document.getElementById('cc-msg');
-  if (!legal || !pago) return;
-  function sync() {
-    if (legal.checked) { pago.classList.remove('cta-disabled'); pago.removeAttribute('aria-disabled');
-      if (msg) { msg.style.color = ''; msg.textContent = '* Condiciones aceptadas.'; } }
-    else { pago.classList.add('cta-disabled'); pago.setAttribute('aria-disabled', 'true'); }
-  }
-  legal.addEventListener('change', sync); sync();
-  pago.addEventListener('click', function (e) {
-    if (!legal.checked) {
-      e.preventDefault();
-      if (msg) { msg.style.color = '#c0392b'; msg.textContent = 'Debes aceptar las condiciones para continuar con la compra.'; }
-      legal.focus();
-    }
-  });
-})();
-</script>
-
-<section class="section-content" style="max-width: 900px; margin: 0 auto;">
-  <span class="section-label">[03] Ya he pagado</span>
+<section class="section-content" id="ya-he-pagado" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">Ya he pagado</span>
   <h2 class="section-title">Crea tu canción <span class="accent">ahora</span>.</h2>
   <p style="color: var(--text-dim); font-size: 1.1em; line-height: 1.7; margin-top: 16px;">
-    Pega el <strong>código</strong> que aparece tras el pago (o que te llegó
-    por email) y el <strong>email</strong> con el que compraste:
+    Pega el <strong>código</strong> que te llegó por email al pagar y el
+    <strong>email</strong> con el que compraste. Tu código vale hasta que crees tu canción con él.
   </p>
   <form id="music-form" class="music-form">
     <label for="music-codigo">Código de compra</label>
@@ -373,6 +370,42 @@
     <button type="submit" class="service-cta">Acceder a la creación →</button>
   </form>
   <p id="music-estado"></p>
+</section>
+
+<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
+     este mismo texto, como exige Google. -->
+<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
+  <span class="section-label">Preguntas frecuentes</span>
+  <h2 class="section-title">Preguntas frecuentes sobre tu canción</h2>
+
+  <div style="margin-top: 40px; display: grid; gap: 28px;">
+
+    <div>
+      <h3 class="faq-q">¿Qué recibo exactamente?</h3>
+      <p class="faq-a">2 versiones de la misma canción en MP3, por email. Son 2 tomas de la misma letra y el mismo estilo.</p>
+    </div>
+    <div>
+      <h3 class="faq-q">¿Cuánto dura la canción?</h3>
+      <p class="faq-a">La letra se escribe para una canción de unos 2 minutos. La duración final la marca la música que genera la IA a partir de la letra, así que puede variar un poco.</p>
+    </div>
+    <div>
+      <h3 class="faq-q">¿Qué estilos hay?</h3>
+      <p class="faq-a">20 estilos: pop, balada romántica, pop-rock, rock, acústico/indie, reggaetón, trap/urbano, rap/hip-hop, bachata, salsa, cumbia, ranchera/mariachi, bolero, flamenco/rumba, dance/electrónica, infantil, country/folk, góspel/coral, jazz/soul y lo-fi/chill. Si no está el tuyo, lo describes con tus palabras. Todas se cantan en español.</p>
+    </div>
+    <div>
+      <h3 class="faq-q">¿Puedo revisar la letra antes?</h3>
+      <p class="faq-a">Sí. Antes de crear la canción ves la letra completa: puedes cambiarla a mano o pedir otra versión una vez. La canción se hace con la letra que tú dejes.</p>
+    </div>
+    <div>
+      <h3 class="faq-q">¿La persona se entera antes de tiempo?</h3>
+      <p class="faq-a">No. Todo llega a tu email, el de la compra, y nosotros no escribimos a nadie más. Tú decides cuándo y cómo se la regalas.</p>
+    </div>
+    <div>
+      <h3 class="faq-q">¿Cómo me llega?</h3>
+      <p class="faq-a">Por email. Nada más pagar te llega tu código para crearla. Cuando la creas, te llega otro email con las 2 versiones en MP3 adjuntas, de media en unos 10 minutos desde que empiezas.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- RELACIONADOS · enlazado cruzado entre servicios -->
@@ -393,46 +426,8 @@
   </ul>
 </section>
 
-<!-- FAQ · texto visible. El JSON-LD FAQPage del <head> usa EXACTAMENTE
-     este mismo texto, como exige Google. -->
-<section class="section-content" id="faq" style="max-width: 900px; margin: 0 auto;">
-  <span class="section-label">[04] Preguntas frecuentes</span>
-  <h2 class="section-title">Preguntas frecuentes sobre tu canción</h2>
-
-  <div style="margin-top: 40px; display: grid; gap: 28px;">
-
-    <div>
-      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto cuesta una canción personalizada?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">15€ en pago único, con IVA incluido y pago seguro por Stripe.</p>
-    </div>
-
-    <div>
-      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cómo funciona Crea tu Canción?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">Crea tu Canción funciona en 4 pasos. Pagas la canción, eliges estilo (pop, balada, reggaetón, ranchera…) y tema (cumpleaños, aniversario, homenaje, pedir perdón…), la IA escribe la letra y tú la validas o pides otra, y por último se genera la canción y recibes 2 versiones por email.</p>
-    </div>
-
-    <div>
-      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿En qué idioma puede estar la canción?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">En el que quieras. Eliges el idioma igual que eliges el estilo y el tema.</p>
-    </div>
-
-    <div>
-      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Qué recibo exactamente con Crea tu Canción?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">Con Crea tu Canción recibes 2 versiones de la misma canción en MP3 por email. Son 2 tomas de la misma letra y el mismo estilo.</p>
-    </div>
-
-    <div>
-      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Cuánto tiempo tengo para crear la canción después de pagar?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">En Crea tu Canción tienes 48 horas: tras pagar recibes un código y tienes ese plazo para crear tu canción con él. Pasado ese plazo, el código caduca.</p>
-    </div>
-
-    <div>
-      <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Puedo comprarla si vivo fuera de España?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">No. El servicio es solo para clientes con domicilio fiscal en España.</p>
-    </div>
-
-  </div>
-</section>
+<!-- Contacto B2B: fuera de la zona superior, enlace discreto al final. -->
+<p class="b2b-discreto">¿Buscas algo para tu empresa? <a href="/#contacto">Hablemos →</a></p>
 
 <!-- PARTIAL:footer -->
 <footer>
@@ -548,11 +543,19 @@
 (function () {
   var API = "https://api.arquitectodigital.io";
   var qs = new URLSearchParams(location.search);
-  // Prerrellenado desde la URL: ?codigo= (QR de regalo) o ?session_id= (vuelta de Stripe).
+  // Prerrellenado desde la URL: ?codigo= (QR de regalo y email del código) o ?session_id= (vuelta de Stripe).
   var presetCode = qs.get("codigo") || qs.get("session_id");
   if (presetCode) document.getElementById("music-codigo").value = presetCode;
   var presetEmail = qs.get("email");
   if (presetEmail) document.getElementById("music-email").value = presetEmail;
+  // Quien vuelve de pagar (o llega desde el email del código) va directo al
+  // formulario, no a la primera pantalla de compra.
+  if (presetCode) {
+    var sec = document.getElementById("ya-he-pagado");
+    var foco = document.getElementById(presetEmail ? "music-codigo" : "music-email");
+    var bajar = function () { if (sec) sec.scrollIntoView({block: "start"}); try { foco.focus({preventScroll: true}); } catch (e) {} };
+    if (document.readyState === "complete") bajar(); else window.addEventListener("load", bajar);
+  }
 
   document.getElementById("music-form").addEventListener("submit", async function (e) {
     e.preventDefault();

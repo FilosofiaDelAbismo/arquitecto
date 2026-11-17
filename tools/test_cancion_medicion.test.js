@@ -31,6 +31,16 @@ test('solo los códigos de pago cs_ cuentan como canje de compra', () => {
 test('nombres de los eventos de Plausible', () => {
   assert.strictEqual(M.EV_COMPRAR, 'Cancion Comprar');
   assert.strictEqual(M.EV_CANJE, 'Cancion Canje');
+  assert.strictEqual(M.EV_CTA, 'Cancion CTA');
+  assert.strictEqual(M.EV_VIDEO, 'Cancion Video');
+});
+
+test('«Cancion CTA»: props = utm_* + posicion (arriba|abajo), sin tocar el objeto de UTM', () => {
+  const utm = { utm_source: 'meta', utm_content: 'video_a' };
+  assert.deepStrictEqual(M.ctaProps(utm, 'abajo'), { utm_source: 'meta', utm_content: 'video_a', posicion: 'abajo' });
+  assert.deepStrictEqual(utm, { utm_source: 'meta', utm_content: 'video_a' });
+  assert.deepStrictEqual(M.ctaProps(null, 'arriba'), { posicion: 'arriba' });
+  assert.deepStrictEqual(M.ctaProps(null, 'otra'), { posicion: 'arriba' });
 });
 
 test('track: llama a plausible con el nombre y los UTM como props, y `done` una sola vez', () => {
@@ -150,9 +160,9 @@ test('aviso de cookies: texto NUEVO «Esta web no usa cookies.» + «Más info»
   assert.ok(!/innerHTML|Esta web no usa cookies/.test(read('assets/cookies.js')));
 });
 
-test('aviso de cookies: en las 92 páginas que cargan cookies.js, una sola vez y justo después de la cabecera', () => {
+test('aviso de cookies: en las 93 páginas que cargan cookies.js, una sola vez y justo después de la cabecera', () => {
   const pages = pagesWithCookiesJs();
-  assert.strictEqual(pages.length, 92);
+  assert.strictEqual(pages.length, 93);  // 92 + el post del blog del 15-11-2026
   const want = avisoBlock(read('partials/header.html'));
   const bad = pages.filter(f => {
     const s = read(f);
@@ -265,6 +275,64 @@ test('pie: «Ver el aviso de cookies» en todas las páginas, ninguna con «Conf
   const files = execFileSync('git', ['ls-files', '*.html'], { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean);
   const link = 'return false;">Ver el aviso de cookies</a></li>';
   const withLink = files.filter(f => fs.readFileSync(path.join(ROOT, f), 'utf8').includes(link));
-  assert.strictEqual(withLink.length, 93);
+  assert.strictEqual(withLink.length, 94);  // 93 + el post del blog del 15-11-2026
   assert.deepStrictEqual(files.filter(f => fs.readFileSync(path.join(ROOT, f), 'utf8').includes('Configurar cookies')), []);
+});
+
+/* ── Arreglo de conversión (17-11-2026) ─────────────────────────────────── */
+test('página: primera pantalla con la promesa del anuncio, precio, botón y enlace al vídeo', () => {
+  const html = read('crea-tu-cancion.html');
+  const hero = html.slice(html.indexOf('<section class="cancion-hero"'), html.indexOf('<section class="cancion-demo"'));
+  assert.ok(hero.includes('<h1>Regala una canción con <span class="accent">SU nombre</span></h1>'));
+  assert.ok(hero.includes('Tú cuentas su historia; la IA escribe la letra y la canta. Te llegan 2 versiones en MP3 por email en unos 10 minutos.'));
+  assert.ok(hero.includes('<strong class="precio-ahora">15 €</strong> · pago único · IVA incluido'));
+  assert.ok(/id="btn-pago"[^>]*data-cta="arriba">Crear mi canción · 15 €</.test(hero));
+  assert.ok(hero.includes('href="https://buy.stripe.com/dRm9ATedzg67etcfvybEA0E"'));
+  assert.ok(hero.includes('>▶ Ver cómo funciona (40 s)</a>'));
+  // Antes de pagar, SOLO la casilla legal; las comerciales siguen en la página de creación (backend).
+  assert.deepStrictEqual([...html.matchAll(/type="checkbox"[^>]*id="([^"]+)"/g)].map(m => m[1]), ['cc-legal']);
+  // El texto legal de la casilla, idéntico al de main.
+  const casilla = s => s.match(/<span>Acepto la totalidad de condiciones[\s\S]*?<\/span><\/span>/)[0];
+  assert.strictEqual(casilla(html), casilla(execFileSync('git', ['show', 'main:crea-tu-cancion.html'], { cwd: ROOT, encoding: 'utf8' })));
+  assert.ok(!/cta-disabled|aria-disabled/.test(hero), 'el botón no sale apagado');
+});
+
+test('página: vídeo debajo, sin autoplay, con póster, y segundo botón que baja al bloque de pago', () => {
+  const html = read('crea-tu-cancion.html');
+  const iHero = html.indexOf('class="cancion-hero"'), iVid = html.indexOf('<video id="demo-cancion"');
+  assert.ok(iHero > 0 && iVid > iHero);
+  const v = html.slice(iVid, html.indexOf('</video>', iVid));
+  assert.ok(/poster="assets\/video\/crea-tu-cancion-poster\.jpg"/.test(v) && /playsinline/.test(v) && /preload="none"/.test(v));
+  assert.ok(!/autoplay/.test(v) && !/\.play\(\)/.test(html), 'nada reproduce el vídeo solo');
+  assert.ok(/<a class="cta-cancion" href="#bloque-pago" id="btn-pago-abajo" data-cta="abajo">Crear mi canción · 15 €<\/a>/.test(html));
+  assert.ok(html.indexOf('id="btn-pago-abajo"') > iVid);
+});
+
+test('página: «Hablemos» fuera de arriba (solo esta página), pasos sin «Pagas», sin 48 h ni «el idioma que quieras»', () => {
+  const html = read('crea-tu-cancion.html');
+  assert.ok(html.includes('header .nav-cta { display: none; }'));
+  assert.ok(html.indexOf('>Hablemos →</a></p>') > html.indexOf('id="faq"'), 'enlace discreto al final');
+  for (const t of ['1 ·</strong> Eliges la ocasión y el estilo', '2 ·</strong> Cuentas su historia', '3 ·</strong> Revisas la letra', '4 ·</strong> Te llega por email en unos 10 minutos'])
+    assert.ok(html.includes(t), t);
+  assert.ok(!/Pagas la canción/.test(html));
+  assert.ok(!/48 horas|48 h\b|caduca|idioma que quieras|En el que quieras/.test(html));
+  assert.ok(!/48 horas|idioma que quieras|En el que quieras/.test(read('llms-full.txt').split('## Crea tu canción')[1].split('## Audio')[0]));
+});
+
+test('FAQ: 6 preguntas, JSON-LD idéntico al texto visible y a llms-full.txt', () => {
+  const html = read('crea-tu-cancion.html');
+  const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1])).find(x => x['@type'] === 'FAQPage');
+  const qa = ld.mainEntity.map(q => [q.name, q.acceptedAnswer.text]);
+  assert.strictEqual(qa.length, 6);
+  const dec = s => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  const vis = [...html.matchAll(/<h3 class="faq-q">([^<]*)<\/h3>\s*<p class="faq-a">([^<]*)<\/p>/g)].map(m => [dec(m[1]), dec(m[2])]);
+  assert.deepStrictEqual(vis, qa);
+  const llms = read('llms-full.txt');
+  for (const [q, a] of qa) assert.ok(llms.includes(`**${q}**\n${a}`), q);
+});
+
+test('medición: el script engancha «Cancion CTA» a [data-cta] y «Cancion Video» al play de #demo-cancion', () => {
+  const src = read('assets/crea-tu-cancion-medicion.js');
+  assert.ok(/querySelectorAll\('\[data-cta\]'\)/.test(src) && /EV_CTA, ctaProps\(/.test(src));
+  assert.ok(/getElementById\('demo-cancion'\)/.test(src) && /addEventListener\('play'/.test(src) && /EV_VIDEO, pickUtm/.test(src));
 });
