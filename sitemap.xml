@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://arquitectodigital.io/autoblog.html</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://arquitectodigital.io/blog.html</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://arquitectodigital.io/blog/alcance-cerrado-en-pipelines-ia-por-que-importa-20261008.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://arquitectodigital.io/blog/geo-y-radar-ia-que-chatgpt-y-perplexity-20260615.html</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://arquitectodigital.io/blog/girobot-para-twitch-clips-9-16-y-alertas-20260627.html</loc>
@@ -115,6 +115,10 @@
   <url>
     <loc>https://arquitectodigital.io/blog/rag-explicado-por-que-tu-chatbot-alucina-y-20260706.html</loc>
     <lastmod>2026-11-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arquitectodigital.io/blog/senales-de-que-tu-negocio-ya-necesita-ia-20261115.html</loc>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://arquitectodigital.io/blog/spf-dkim-y-dmarc-la-entregabilidad-que-tu-20260620.html</loc>
@@ -255,9 +259,5 @@
   <url>
     <loc>https://arquitectodigital.io/webs.html</loc>
     <lastmod>2026-11-14</lastmod>
-  </url>
-  <url>
-    <loc>https://arquitectodigital.io/blog/senales-de-que-tu-negocio-ya-necesita-ia-20261115.html</loc>
-    <lastmod>2026-11-15</lastmod>
   </url>
 </urlset>
