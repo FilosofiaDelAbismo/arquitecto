@@ -87,7 +87,7 @@ El código es tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si s
 
 URL: https://arquitectodigital.io/autoblog.html
 
-Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación directa en WordPress. De 2 a 16 artículos al mes desde 41€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, API access) es por cotización.
+Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación en tu web (WordPress, GitHub Pages u otros sistemas). De 2 a 16 artículos al mes desde 41€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, API access) es por cotización.
 
 ### Planes y precios
 
@@ -102,13 +102,13 @@ Blog que se publica solo: generación con IA premium, RAG personalizado por clie
 Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedirme un artículo de prueba gratis. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
 
 **¿Cuánto tarda en publicarse el primer artículo?**
-La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con WordPress 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
+La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con tu web 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
 
 **¿Los artículos se publican sin que yo los vea?**
 No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por una revisión de calidad y verificación de datos, e incluye schema markup y meta SEO.
 
 **¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?**
-No hay permanencia mínima: cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io y no se te vuelve a cobrar. El corpus y los posts son tuyos, y WordPress queda en tu hosting, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
+No hay permanencia mínima: cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io y no se te vuelve a cobrar. El corpus y los posts son tuyos, y el blog queda en tu web y en tu alojamiento, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
 
 **¿Escribe sobre mis temas o son artículos genéricos?**
 Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido sobre tu material documentado (notas, decks, artículos previos). El plan Premium incluye corpus personalizado.

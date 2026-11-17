@@ -342,10 +342,13 @@ for f in no_legal:
         falla(f"{f}: «{m.group(0)}» (el SSL va incluido en el precio de la web)")
 w = leer("webs.html")
 faq_precio = re.findall(r"¿Qué incluye y qué no incluye el precio\?.{0,400}?Incluye ([^.]*)\.", w, re.S)
-if len(faq_precio) != 2 or not all("certificado SSL" in x for x in faq_precio):
-    falla("webs.html: la FAQ «¿Qué incluye… el precio?» (visible y JSON-LD) no incluye el certificado SSL")
-if not re.search(r"Incluye: diseño, desarrollo, deploy, conexión de dominio,\s+certificado SSL", w):
-    falla("webs.html: «Qué incluye y qué no» ya no dice certificado SSL")
+# 2026-11-17 (jerga web): en webs.html el SSL se dice en llano, «conexión segura (el candado del navegador)»;
+# llms-full.txt (lo leen las IA, no el cliente) sigue diciendo «certificado SSL».
+SSL_LLANO = "conexión segura (el candado del navegador)"
+if len(faq_precio) != 2 or not all(SSL_LLANO in x for x in faq_precio):
+    falla("webs.html: la FAQ «¿Qué incluye… el precio?» (visible y JSON-LD) no incluye la conexión segura (SSL)")
+if not re.search(r"Incluye: diseño, desarrollo, publicación, conexión de dominio,\s+conexión segura \(el candado del navegador\)", w):
+    falla("webs.html: «Qué incluye y qué no» ya no dice la conexión segura (SSL)")
 if "Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL" not in leer("llms-full.txt"):
     falla("llms-full.txt: el precio de la web ya no incluye el certificado SSL")
 # b) Audio a Libro SÍ reescribe en prosa literaria: nada que diga lo contrario.
@@ -448,7 +451,8 @@ mw = re.search(r'<h3 class="service-title">Mantenimiento anual</h3>(.*?)</ul>', 
 if not mw or "<li>Dominio, servidor, mantenimiento y RGPD</li>" not in mw.group(1) or "SSL" in mw.group(1):
     falla("webs.html: la tarjeta del mantenimiento no dice «Dominio, servidor, mantenimiento y RGPD» (o lleva SSL)")
 w2 = leer("webs.html")
-if w2.count(f"incluye {MANT}; {SSL_PRECIO}") != 2:
+SSL_PRECIO_WEB = "la conexión segura va incluida en el precio de la web, no en el mantenimiento"   # webs.html, en llano
+if w2.count(f"incluye {MANT}; {SSL_PRECIO_WEB}") != 2:
     falla("webs.html: la FAQ del precio (visible y JSON-LD) no dice qué incluye el mantenimiento y dónde va el SSL")
 cm = re.search(r"mantenimiento: \{(.*?)\}", leer("contratar.html"), re.S)
 if not cm or '"Dominio, servidor, mantenimiento y RGPD"' not in cm.group(1) or "SSL" in cm.group(1):
