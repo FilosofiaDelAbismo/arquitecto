@@ -8,7 +8,11 @@
  *   añade al Payment Link (utm_* y client_reference_id). Si ya no están en la
  *   URL (la persona ha navegado), se pierden: aceptado.
  * - Eventos (con los utm_* de la URL como propiedades, si los hay):
- *     «Cancion Comprar»: al pulsar «Comprar mi canción» con la casilla legal.
+ *     «Cancion CTA»:     al pulsar «Crear mi canción · 15 €», arriba o abajo
+ *                        (propiedad `posicion`: 'arriba' | 'abajo'), con o sin
+ *                        la casilla marcada (mide la intención).
+ *     «Cancion Video»:   al darle al play del vídeo demo (una vez por visita).
+ *     «Cancion Comprar»: al pulsar el botón de pago con la casilla legal (va a Stripe).
  *     «Cancion Canje»:   al canjear bien un código de pago cs_live_/cs_test_
  *                        (los REGALO-… no cuentan).
  *   Antes de salir de la página se espera a que Plausible confirme el envío,
@@ -21,6 +25,8 @@
   var WAIT_MS = 400;
   var EV_COMPRAR = 'Cancion Comprar';
   var EV_CANJE = 'Cancion Canje';
+  var EV_CTA = 'Cancion CTA';
+  var EV_VIDEO = 'Cancion Video';
 
   function isPaidCode(code) {
     return typeof code === 'string' && /^cs_(live|test)_[A-Za-z0-9]+$/.test(code);
@@ -45,6 +51,14 @@
       return (utm[k] || '').replace(/[^A-Za-z0-9_-]+/g, '-').slice(0, 38);
     });
     return ('u_' + parts.join('__')).slice(0, 200);
+  }
+
+  /* Propiedades de «Cancion CTA»: los utm_* (si hay) + posicion. */
+  function ctaProps(utm, posicion) {
+    var out = {};
+    if (utm) Object.keys(utm).forEach(function (k) { out[k] = utm[k]; });
+    out.posicion = posicion === 'abajo' ? 'abajo' : 'arriba';
+    return out;
   }
 
   /* URL del Payment Link con los UTM añadidos (sin tocar los que ya traiga). */
@@ -76,7 +90,8 @@
 
   var api = {
     isPaidCode: isPaidCode, pickUtm: pickUtm, refId: refId, buildPayUrl: buildPayUrl,
-    track: track, EV_COMPRAR: EV_COMPRAR, EV_CANJE: EV_CANJE, WAIT_MS: WAIT_MS,
+    track: track, ctaProps: ctaProps, EV_COMPRAR: EV_COMPRAR, EV_CANJE: EV_CANJE,
+    EV_CTA: EV_CTA, EV_VIDEO: EV_VIDEO, WAIT_MS: WAIT_MS,
     /* Lo llama el canje de la página tras un ok: true. Si el código es de pago,
        envía «Cancion Canje» y luego llama a `go`; devuelve true. Si no (regalo),
        devuelve false y la página navega por su cuenta. */
@@ -93,6 +108,22 @@
 
   function init() {
     var doc = root.document;
+    // «Cancion CTA»: cada botón «Crear mi canción · 15 €» lleva data-cta="arriba|abajo".
+    Array.prototype.forEach.call(doc.querySelectorAll('[data-cta]'), function (el) {
+      el.addEventListener('click', function () {
+        track(root, EV_CTA, ctaProps(pickUtm(root.location.search), el.getAttribute('data-cta')), null);
+      });
+    });
+    // «Cancion Video»: primer play del vídeo demo.
+    var video = doc.getElementById('demo-cancion');
+    if (video) {
+      var visto = false;
+      video.addEventListener('play', function () {
+        if (visto) return;
+        visto = true;
+        track(root, EV_VIDEO, pickUtm(root.location.search), null);
+      });
+    }
     var pago = doc.getElementById('btn-pago');
     var legal = doc.getElementById('cc-legal');
     if (!pago) return;

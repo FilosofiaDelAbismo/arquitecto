@@ -319,10 +319,13 @@ def device_run(p, dev_name: str, base: str, capturas: Path | None, todas: list[s
             vis = max(0.0, min(v["bottom"], vh) - v["top"])
             print(f"     vídeo: de {v['top']:.0f} a {v['bottom']:.0f} px; en la primera pantalla se ven {vis:.0f} px ({100 * vis / v['height']:.0f} %)")
             VIDEO.append((dev_name, round(v["top"]), round(v["bottom"]), vh, round(100 * vis / v["height"])))
-            if dev_name != DESKTOP:
-                check(vis / v["height"] >= 0.5, f"vídeo visible en la primera pantalla con el aviso puesto (≥ 50 %: {100 * vis / v['height']:.0f} %)")
+            # 17-11-2026: el vídeo va DEBAJO de la primera pantalla (antes, ≥ 50 % visible arriba).
+            b = rect(pg, "#btn-pago")
+            check(b["bottom"] <= vh and v["top"] >= b["bottom"], f"botón de compra en la primera pantalla y el vídeo debajo (botón acaba en {b['bottom']:.0f}, vídeo empieza en {v['top']:.0f}, pantalla {vh})")
+            pg.evaluate("() => document.getElementById('demo-cancion').scrollIntoView({block: 'center'})"); pg.wait_for_timeout(150)
             who = covered_by(pg, "#demo-cancion")
             check(who is None, f"el vídeo no está tapado (elementFromPoint){'' if who is None else ': lo tapa ' + who}")
+            pg.evaluate("() => window.scrollTo(0, 0)"); pg.wait_for_timeout(150)
         ov = overlap_banner(pg)
         check(ov == [], f"nada visible debajo de la franja ({ov})")
         pg.wait_for_timeout(500)
@@ -430,8 +433,9 @@ def device_run(p, dev_name: str, base: str, capturas: Path | None, todas: list[s
     print("     enlace:", net.stripe[0] if net.stripe else None)
     check(q.get("utm_source") == ["meta"] and q.get("utm_campaign") == ["cancion_nov"], "el enlace lleva utm_source y utm_campaign")
     check(q.get("client_reference_id") == ["u_meta____cancion_nov____"], f"y client_reference_id ({q.get('client_reference_id')})")
-    check(net.pl == [("Cancion Comprar", {"utm_source": "meta", "utm_campaign": "cancion_nov"})],
-          f"Plausible: «Cancion Comprar» con props UTM ({net.pl})")
+    check(net.pl == [("Cancion CTA", {"utm_source": "meta", "utm_campaign": "cancion_nov", "posicion": "arriba"}),
+                     ("Cancion Comprar", {"utm_source": "meta", "utm_campaign": "cancion_nov"})],
+          f"Plausible: «Cancion CTA» (arriba) y «Cancion Comprar», con props UTM ({net.pl})")
     pg.goto(page_url); pg.wait_for_timeout(300)
     st1 = storage(pg)
     blob = json.dumps([st0, st1])
@@ -443,7 +447,7 @@ def device_run(p, dev_name: str, base: str, capturas: Path | None, todas: list[s
     pg.check("#cc-legal"); pg.click("#btn-pago")
     pg.wait_for_url("**/buy.stripe.com/**", timeout=5000)
     check(net.stripe == [STRIPE], f"tras navegar sin UTM: el enlace va limpio ({net.stripe})")
-    check(net.pl == [("Cancion Comprar", None)], f"y el evento sale sin props ({net.pl})")
+    check(net.pl == [("Cancion CTA", {"posicion": "arriba"}), ("Cancion Comprar", None)], f"y los eventos salen sin UTM ({net.pl})")
     check(net.meta == [], "ninguna petición a Meta")
     ctx.close()
 
@@ -453,7 +457,8 @@ def device_run(p, dev_name: str, base: str, capturas: Path | None, todas: list[s
     pg = ctx.new_page()
     pg.goto(page_url); pg.click(f"{AVISO} button[data-close]")
     pg.click("#btn-pago", force=True); pg.wait_for_timeout(700)
-    check(net.stripe == [] and net.pl == [], f"no va a Stripe ni manda evento ({net.stripe}, {net.pl})")
+    check(net.stripe == [] and net.pl == [("Cancion CTA", {"posicion": "arriba"})],
+          f"no va a Stripe ni manda «Cancion Comprar» (solo «Cancion CTA», la intención) ({net.stripe}, {net.pl})")
     ctx.close()
 
     # ── 4) Canje ─────────────────────────────────────────────────────────
@@ -514,7 +519,7 @@ def device_run(p, dev_name: str, base: str, capturas: Path | None, todas: list[s
                 except Exception:
                     pg.wait_for_load_state("load")
         check(malas == [], f"window.fbq no existe en ninguna ({malas})")
-        check(len(altos) == len(con_aviso) == 92 and sin_aviso == [], f"el aviso sale en las {len(con_aviso)} páginas con cookies.js ({sin_aviso})")
+        check(len(altos) == len(con_aviso) == 93 and sin_aviso == [], f"el aviso sale en las {len(con_aviso)} páginas con cookies.js ({sin_aviso})")
         if altos:
             print(f"     alto del aviso en las {len(altos)} páginas: {min(altos):.1f}–{max(altos):.1f} px")
             ALTOS_TODAS.append((dev_name, len(altos), round(min(altos), 1), round(max(altos), 1)))

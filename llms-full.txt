@@ -149,7 +149,7 @@ Cursos privados de inteligencia artificial a domicilio, en dos niveles: Junior I
 
 URL: https://arquitectodigital.io/crea-tu-cancion.html
 
-Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Es una herramienta de autoservicio: la creas tú; no se compone por encargo. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar dispones de 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
+Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Es una herramienta de autoservicio: la creas tú; no se compone por encargo. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar recibes un código que vale hasta que crees tu canción con él. Solo para clientes con domicilio fiscal en España.
 
 ### Planes y precios
 
@@ -157,23 +157,23 @@ Crea tu propia canción personalizada con nuestra herramienta de IA: eliges esti
 
 ### Preguntas frecuentes
 
-**¿Cuánto cuesta una canción personalizada?**
-15€ en pago único, con IVA incluido y pago seguro por Stripe.
+**¿Qué recibo exactamente?**
+2 versiones de la misma canción en MP3, por email. Son 2 tomas de la misma letra y el mismo estilo.
 
-**¿Cómo funciona Crea tu Canción?**
-Crea tu Canción funciona en 4 pasos. Pagas la canción, eliges estilo (pop, balada, reggaetón, ranchera…) y tema (cumpleaños, aniversario, homenaje, pedir perdón…), la IA escribe la letra y tú la validas o pides otra, y por último se genera la canción y recibes 2 versiones por email.
+**¿Cuánto dura la canción?**
+La letra se escribe para una canción de unos 2 minutos. La duración final la marca la música que genera la IA a partir de la letra, así que puede variar un poco.
 
-**¿En qué idioma puede estar la canción?**
-En el que quieras. Eliges el idioma igual que eliges el estilo y el tema.
+**¿Qué estilos hay?**
+20 estilos: pop, balada romántica, pop-rock, rock, acústico/indie, reggaetón, trap/urbano, rap/hip-hop, bachata, salsa, cumbia, ranchera/mariachi, bolero, flamenco/rumba, dance/electrónica, infantil, country/folk, góspel/coral, jazz/soul y lo-fi/chill. Si no está el tuyo, lo describes con tus palabras. Todas se cantan en español.
 
-**¿Qué recibo exactamente con Crea tu Canción?**
-Con Crea tu Canción recibes 2 versiones de la misma canción en MP3 por email. Son 2 tomas de la misma letra y el mismo estilo.
+**¿Puedo revisar la letra antes?**
+Sí. Antes de crear la canción ves la letra completa: puedes cambiarla a mano o pedir otra versión una vez. La canción se hace con la letra que tú dejes.
 
-**¿Cuánto tiempo tengo para crear la canción después de pagar?**
-En Crea tu Canción tienes 48 horas: tras pagar recibes un código y tienes ese plazo para crear tu canción con él. Pasado ese plazo, el código caduca.
+**¿La persona se entera antes de tiempo?**
+No. Todo llega a tu email, el de la compra, y nosotros no escribimos a nadie más. Tú decides cuándo y cómo se la regalas.
 
-**¿Puedo comprarla si vivo fuera de España?**
-No. El servicio es solo para clientes con domicilio fiscal en España.
+**¿Cómo me llega?**
+Por email. Nada más pagar te llega tu código para crearla. Cuando la creas, te llega otro email con las 2 versiones en MP3 adjuntas, de media en unos 10 minutos desde que empiezas.
 
 ## Audio → Libro
 
