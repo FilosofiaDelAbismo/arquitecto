@@ -149,7 +149,7 @@ Cursos privados de inteligencia artificial a domicilio, en dos niveles: Junior I
 
 URL: https://arquitectodigital.io/crea-tu-cancion.html
 
-Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Es una herramienta de autoservicio: la creas tú; no se compone por encargo. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar recibes un código que vale hasta que crees tu canción con él. Solo para clientes con domicilio fiscal en España.
+Crea tu propia canción personalizada con nuestra herramienta de IA: eliges estilo y ocasión y recibes 2 versiones en MP3 por email. Es una herramienta de autoservicio: la creas tú; no se compone por encargo. 15€ en pago único, IVA incluido, con pago seguro por Stripe. Tras pagar, tienes 48 horas para crear tu canción con tu código. Solo para clientes con domicilio fiscal en España.
 
 ### Planes y precios
 
@@ -173,7 +173,7 @@ Sí. Antes de crear la canción ves la letra completa: puedes cambiarla a mano o
 No. Todo llega a tu email, el de la compra, y nosotros no escribimos a nadie más. Tú decides cuándo y cómo se la regalas.
 
 **¿Cómo me llega?**
-Por email. Nada más pagar te llega tu código para crearla. Cuando la creas, te llega otro email con las 2 versiones en MP3 adjuntas, de media en unos 10 minutos desde que empiezas.
+Por email. Nada más pagar te llega tu código: tienes 48 horas para crear tu canción con él. Cuando la creas, te llega otro email con las 2 versiones en MP3 adjuntas, de media en unos 10 minutos desde que empiezas.
 
 ## Audio → Libro
 
