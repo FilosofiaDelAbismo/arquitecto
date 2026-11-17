@@ -342,15 +342,15 @@ for f in no_legal:
         falla(f"{f}: «{m.group(0)}» (el SSL va incluido en el precio de la web)")
 w = leer("webs.html")
 faq_precio = re.findall(r"¿Qué incluye y qué no incluye el precio\?.{0,400}?Incluye ([^.]*)\.", w, re.S)
-# 2026-11-17 (jerga web): en webs.html el SSL se dice en llano, «conexión segura (el candado del navegador)»;
-# llms-full.txt (lo leen las IA, no el cliente) sigue diciendo «certificado SSL».
+# 2026-11-17 (jerga web): en webs.html el SSL se dice en llano, «conexión segura (el candado del navegador)».
+# 2026-11-17 (cierre web): llms-full.txt copia la FAQ de webs.html, así que también lo dice en llano.
 SSL_LLANO = "conexión segura (el candado del navegador)"
 if len(faq_precio) != 2 or not all(SSL_LLANO in x for x in faq_precio):
     falla("webs.html: la FAQ «¿Qué incluye… el precio?» (visible y JSON-LD) no incluye la conexión segura (SSL)")
 if not re.search(r"Incluye: diseño, desarrollo, publicación, conexión de dominio,\s+conexión segura \(el candado del navegador\)", w):
     falla("webs.html: «Qué incluye y qué no» ya no dice la conexión segura (SSL)")
-if "Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL" not in leer("llms-full.txt"):
-    falla("llms-full.txt: el precio de la web ya no incluye el certificado SSL")
+if f"Incluye diseño, desarrollo, publicación, configuración del alojamiento y del dominio, {SSL_LLANO}" not in leer("llms-full.txt"):
+    falla("llms-full.txt: el precio de la web ya no incluye la conexión segura (SSL)")
 # b) Audio a Libro SÍ reescribe en prosa literaria: nada que diga lo contrario.
 NO_REESCRIBE = re.compile(r"no (se )?reescrib\w*|se limita a transcribir|convertido a texto y volcado|"
                           r"sin reescribir (tu|el) contenido", re.I)
@@ -441,9 +441,11 @@ if len(faq_pa) != 2 or not all(all(e in x for e in ESTILO.values()) for x in faq
     falla(f"{POST_AL}: la FAQ «¿El libro se edita…?» (visible y JSON-LD) no da el estilo de los tres planes")
 # b) Mantenimiento web (250 €/año) = dominio, servidor, mantenimiento y RGPD. El SSL, en el precio de la web.
 MANT = "dominio, servidor, mantenimiento y RGPD"
-SSL_PRECIO = "el SSL va incluido en el precio de la web, no en el mantenimiento"
+SSL_PRECIO = "la conexión segura va incluida en el precio de la web, no en el mantenimiento"   # 2026-11-17 (cierre web): en llano también en llms
 MANT_SSL = re.compile(r"Hosting \+ dominio \+ SSL|hosting,? dominio y SSL|"
-                      r"mantenimiento[^.;\n]{0,80}\b(cubre|incluye)\b[^.;\n]{0,60}\bSSL\b", re.I)
+                      r"mantenimiento[^.;\n]{0,80}\b(cubre|incluye)\b[^.;\n]{0,60}\bSSL\b|"
+                      # 2026-11-17 (cierre web): la FAQ «¿Cuánto cuesta…?» decía que el mantenimiento incluye la conexión segura
+                      r"mantenimiento anual es opcional[^.]{0,200}\bincluye\b[^.]{0,80}(conexión segura|certificado SSL)", re.I)
 for f in no_legal:
     for m in MANT_SSL.finditer(leer(f)):
         falla(f"{f}: «{m.group(0)}» (el SSL va en el precio de la web, no en el mantenimiento)")

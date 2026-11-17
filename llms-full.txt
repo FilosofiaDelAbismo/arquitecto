@@ -21,13 +21,13 @@ Servicios: diseño web, chatbots con IA, blogs automáticos con IA, sistemas de 
 
 URL: https://arquitectodigital.io/chatbot.html
 
-Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram), con una comprobación determinista que bloquea cualquier cifra que no esté en tus documentos, y sin vendor lock-in. POC de 7 días por 158€ (no deducible del Setup); Setup a precio fijo de 529€ (widget web) u 849€ (widget web + Telegram); planes mensuales desde 84€/mes. Todos los precios con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
+Chatbot entrenado con la información de tu negocio (tus documentos), en varios canales (web y Telegram), con una comprobación automática, sin IA, que bloquea cualquier cifra que no esté en tus documentos, y sin ataduras: todo queda a tu nombre y te lo puedes llevar. POC de 7 días por 158€ (no deducible del Setup); Setup a precio fijo de 529€ (web) u 849€ (web + Telegram); planes mensuales desde 84€/mes. Todos los precios con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
 
 ### Planes y precios
 
-- POC · 7 días: 158 €. RAG sobre tus documentos principales, web widget + Telegram, 7 días de operación real. No deducible del Setup. Pago único, IVA e IRPF incluidos.
-- Setup Widget Web: 529 €, precio fijo. Web widget integrado en tu sitio, RAG personalizado sobre tus documentos, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA e IRPF incluidos.
-- Setup Widget Web + Telegram: 849 €, precio fijo. Widget web + bot de Telegram, RAG personalizado, memoria conversacional y soporte post-launch durante las primeras semanas. Pago único, IVA e IRPF incluidos.
+- POC · 7 días: 158 €. Entrenado con tus documentos principales, ventana de chat en tu web + Telegram, 7 días de operación real. No deducible del Setup. Pago único, IVA e IRPF incluidos.
+- Setup Widget Web: 529 €, precio fijo. Ventana de chat integrada en tu web, entrenado con la información de tu negocio, recuerda la conversación y soporte después de la puesta en marcha durante las primeras semanas. Pago único, IVA e IRPF incluidos.
+- Setup Widget Web + Telegram: 849 €, precio fijo. Canales: ventana de chat en tu web + bot de Telegram, entrenado con la información de tu negocio, recuerda la conversación y soporte después de la puesta en marcha durante las primeras semanas. Pago único, IVA e IRPF incluidos.
 - Recurring Light: 84 €/mes. Hasta 1.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA e IRPF incluidos.
 - Recurring Medium: 190 €/mes. Hasta 5.000 mensajes/mes, canal web, soporte por email. Cancelable cuando quieras. IVA e IRPF incluidos.
 - Recurring Pro: 423 €/mes. Hasta 20.000 mensajes/mes, canal web, soporte prioritario con respuesta en menos de 24h. Cancelable cuando quieras. IVA e IRPF incluidos.
@@ -35,10 +35,10 @@ Chatbot con RAG sobre tus propios documentos, multi-canal (widget web + Telegram
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un chatbot con IA para mi empresa?**
-El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, no deducible del Setup (si después contratas, el Setup se paga completo). El Setup completo tiene precio fijo: 529€ (widget web) o 849€ (widget web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
+El chatbot de Arquitecto Digital tiene tres formatos. Una POC de 7 días por 158€ en pago único, no deducible del Setup (si después contratas, el Setup se paga completo). El Setup completo tiene precio fijo: 529€ (web) o 849€ (web + Telegram), también en pago único. Y los planes mensuales van desde 84€/mes (hasta 1.000 mensajes), 190€/mes (hasta 5.000) o 423€/mes (hasta 20.000). Todos los precios llevan IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España.
 
 **¿Cuánto se tarda en tener el chatbot funcionando?**
-En la POC, tú pasas los documentos principales y la ingesta inicial se hace en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen del corpus y la complejidad de la integración. Se te avisa de la fecha y hora del go-live antes de empezar.
+En la POC, tú pasas los documentos principales y se carga tu material en 24-48h, sin que tengas que subir nada a ningún panel. El Setup completo tarda de 3 a 7 días según el volumen de tu material y la complejidad de la integración. Se te avisa de la fecha y hora de la puesta en marcha antes de empezar.
 
 **¿Tengo permanencia? ¿Puedo cancelar cuando quiera?**
 No hay permanencia en ningún formato. La POC y el Setup son pago único sin permanencia. El plan recurrente es mes a mes y lo cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io, sin penalización y sin letra pequeña.
@@ -47,13 +47,13 @@ No hay permanencia en ningún formato. La POC y el Setup son pago único sin per
 En el idioma en el que le escribas. Al estar basado en IA, entiende y responde en múltiples idiomas sin configuración extra.
 
 **¿En qué se diferencia de Tidio o ManyChat?**
-No es un chatbot de plantilla: usa RAG sobre tus documentos, así que responde sobre tus reglas y no sobre material genérico. Es multi-canal (widget web + Telegram), no tiene vendor lock-in y la arquitectura está documentada, de forma que puedes migrar a otro proveedor sin rehacer el knowledge base.
+No es un chatbot de plantilla: está entrenado con la información de tu negocio (tus documentos), así que responde sobre tus reglas y no sobre material genérico. Funciona en varios canales (web, Telegram…), no tiene ataduras (todo queda a tu nombre y te lo puedes llevar) y está documentado, de forma que puedes cambiarte a otro proveedor sin volver a preparar la información de tu negocio.
 
 **¿Qué pasa con mis datos y mis documentos?**
-Tus documentos y conversaciones se procesan cumpliendo el RGPD. Puedes exportar el corpus y los logs cuando quieras. No hay vendor lock-in: la arquitectura está documentada y migras a otro proveedor sin rehacer el knowledge base.
+Tus documentos y conversaciones se procesan cumpliendo el RGPD. Puedes llevarte tu material y el historial de conversaciones cuando quieras. Sin ataduras: todo queda a tu nombre y te lo puedes llevar; está documentado y puedes cambiarte a otro proveedor sin volver a preparar la información de tu negocio.
 
 **¿Qué soporte tengo si el chatbot deja de funcionar?**
-Los tickets ordinarios van por email, con respuesta en menos de 48h en plan recurring y prioritaria en el plan Pro. Para incidencias críticas (chatbot caído) hay WhatsApp y Telegram. La atención es en horario laboral peninsular.
+Las consultas ordinarias van por email, con respuesta en menos de 48h en los planes Recurring y prioritaria en el plan Pro. Para incidencias críticas (chatbot caído) hay WhatsApp y Telegram. La atención es en horario laboral peninsular.
 
 ## Sistemas Personalizados
 
@@ -87,59 +87,59 @@ El código es tuyo. Si se desarrolla sobre tu infraestructura, queda allí. Si s
 
 URL: https://arquitectodigital.io/autoblog.html
 
-Blog que se publica solo: generación con IA premium, RAG personalizado por cliente, schema markup y publicación en tu web (WordPress, GitHub Pages u otros sistemas). De 2 a 16 artículos al mes desde 41€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, API access) es por cotización.
+Blog que se publica solo: artículos escritos con IA de primer nivel, entrenada con la información de tu negocio, cada uno preparado para Google y la IA, y publicación en tu web (WordPress, GitHub Pages u otros sistemas). De 2 a 16 artículos al mes desde 41€/mes, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedir un artículo de prueba gratis. El plan Enterprise (32+ posts/mes, conexión directa con tus sistemas) es por cotización.
 
 ### Planes y precios
 
-- Starter: 41 €/mes. 2 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA e IRPF incluidos.
-- Essential: 84 €/mes. 4 posts/mes, revisión de calidad y verificación de datos, schema markup + meta SEO. IVA e IRPF incluidos.
+- Starter: 41 €/mes. 2 posts/mes, revisión de calidad y verificación de datos, cada artículo, preparado para Google y la IA. IVA e IRPF incluidos.
+- Essential: 84 €/mes. 4 posts/mes, revisión de calidad y verificación de datos, cada artículo, preparado para Google y la IA. IVA e IRPF incluidos.
 - Profesional: 158 €/mes. 8 posts/mes, soporte prioritario, revisión de calidad y verificación de datos. IVA e IRPF incluidos.
-- Premium: 296 €/mes. 16 posts/mes, corpus personalizado, soporte prioritario. IVA e IRPF incluidos.
+- Premium: 296 €/mes. 16 posts/mes, tu material a medida, soporte prioritario. IVA e IRPF incluidos.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un autoblog con IA?**
-Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedirme un artículo de prueba gratis. Para volúmenes de 32 o más posts al mes con acceso por API hay un plan Enterprise por cotización.
+Desde 41€/mes por 2 posts al mes. Los demás planes son 84€/mes por 4 posts, 158€/mes por 8 posts y 296€/mes por 16 posts. Todos con IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. Antes de contratar puedes pedirme un artículo de prueba gratis. Para volúmenes de 32 o más posts al mes con conexión directa con tus sistemas hay un plan Enterprise por cotización.
 
 **¿Cuánto tarda en publicarse el primer artículo?**
-La ingesta del corpus y el ajuste de tono llevan de 2 a 4 días, y la conexión con tu web 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
+Cargar tu material y ajustar el tono lleva de 2 a 4 días, y la conexión con tu web 1 día. El primer post queda programado en la semana 1. Se te avisa de cada publicación antes de hacerla pública, y puedes pedir ajustes.
 
 **¿Los artículos se publican sin que yo los vea?**
-No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por una revisión de calidad y verificación de datos, e incluye schema markup y meta SEO.
+No: el autoblog de Arquitecto Digital te avisa de cada publicación antes de hacerla pública y puedes pedir ajuste. Además cada post pasa por una revisión de calidad y verificación de datos, y cada artículo va preparado para Google y la IA.
 
 **¿Hay permanencia? ¿Y si cancelo, pierdo los artículos?**
-No hay permanencia mínima: cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io y no se te vuelve a cobrar. El corpus y los posts son tuyos, y el blog queda en tu web y en tu alojamiento, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
+No hay permanencia mínima: cancelas cuando quieras escribiéndome a daniel@arquitectodigital.io y no se te vuelve a cobrar. Tu material y los posts son tuyos, y el blog queda en tu web y en tu alojamiento, no en el mío. Si cancelas, todo lo publicado permanece en tu sitio.
 
 **¿Escribe sobre mis temas o son artículos genéricos?**
-Sobre tus temas y con tu tono. Usa un RAG personalizado por cliente construido sobre tu material documentado (notas, decks, artículos previos). El plan Premium incluye corpus personalizado.
+Sobre tus temas y con tu tono. Está entrenado con la información de tu negocio: tu material documentado (notas, presentaciones, artículos previos). El plan Premium incluye tu material a medida.
 
 ## Webs Personalizadas
 
 URL: https://arquitectodigital.io/webs.html
 
-Webs profesionales para empresas y autónomos: diseño, desarrollo, deploy y dominio. Sin lock-in, el código es tuyo, editable y migrable. Web Essential 954€ y Web Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. El mantenimiento anual es opcional: 250 €/año, IVA e IRPF incluidos, el mismo para Essential y Pro, se contrata aparte y sin permanencia.
+Webs profesionales para empresas y autónomos: diseño, desarrollo, publicación y dominio. Sin ataduras: todo queda a tu nombre y te lo puedes llevar; el código es tuyo y se puede editar. Web Essential 954€ y Web Pro 2.650€ (con chatbot y autoblog 2 meses incluidos), en pago único, IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. El mantenimiento anual es opcional: 250 €/año, IVA e IRPF incluidos, el mismo para Essential y Pro, se contrata aparte y sin permanencia.
 
 ### Planes y precios
 
-- Essential: 954 €. 1 página con 5 secciones, diseño responsive, SEO básico: títulos y descripciones, sitemap y ficha de empresa local, sección de contacto con tus datos. Pago único, IVA e IRPF incluidos.
-- Pro: 2.650 €. Pack: home + 4-6 páginas internas, blog integrado y conectado al autoblog, chatbot IA en tu web, SEO técnico: sitemap, títulos y descripciones por página, ficha de empresa local y preguntas frecuentes para Google y la IA. El chatbot y el autoblog (4 artículos al mes) están incluidos los 2 primeros meses; después, cada uno sigue solo si se contrata aparte. Pago único, IVA e IRPF incluidos.
+- Essential: 954 €. 1 página, 5 secciones, se ve bien en el móvil, preparada para Google: títulos y descripciones, mapa de la web y ficha de empresa local, sección de contacto con tus datos (email, teléfono, dirección). Pago único, IVA e IRPF incluidos.
+- Pro: 2.650 €. Pack: web corporativa con blog, chatbot y autoblog. Home + 4-6 páginas internas, blog integrado, conectado al autoblog (4 artículos al mes), chatbot IA en tu web, preparada para Google y la IA: mapa de la web, títulos y descripciones en cada página, ficha de empresa local y preguntas frecuentes. El chatbot y el autoblog (4 artículos al mes) están incluidos los 2 primeros meses; después, cada uno sigue solo si se contrata aparte. Pago único, IVA e IRPF incluidos.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta una web profesional?**
-El plan Essential cuesta 954€ en pago único (1 página con 5 secciones, responsive, SEO básico y sección de contacto con tus datos). El plan Pro cuesta 2.650€ en pago único e incluye home más 4-6 páginas internas, blog integrado, SEO técnico completo y sitemap, y además el chatbot en tu web y el autoblog (4 artículos al mes) durante los 2 primeros meses sin coste; después, cada uno sigue solo si lo contratas aparte. IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. El mantenimiento anual es opcional: 250 €/año, IVA e IRPF incluidos, el mismo para Essential y Pro, se contrata aparte y sin permanencia (si cancelas, no se renueva); incluye el alojamiento, el certificado SSL, la gestión del dominio (que se registra a tu nombre), pequeñas actualizaciones y una copia de seguridad (backup) mensual.
+El plan Essential cuesta 954€ en pago único (1 página con 5 secciones, se ve bien en el móvil, preparada para Google y sección de contacto con tus datos). El plan Pro cuesta 2.650€ en pago único e incluye home más 4-6 páginas internas, blog integrado, la web preparada para Google y la IA (mapa de la web, títulos y descripciones en cada página, ficha de empresa local y preguntas frecuentes), y además el chatbot en tu web y el autoblog (4 artículos al mes) durante los 2 primeros meses sin coste; después, cada uno sigue solo si lo contratas aparte. IVA e IRPF incluidos. Solo para empresas y autónomos con domicilio fiscal en España. El mantenimiento anual es opcional: 250 €/año, IVA e IRPF incluidos, el mismo para Essential y Pro, se contrata aparte y sin permanencia (si cancelas, no se renueva); incluye el alojamiento, la gestión del dominio (que se registra a tu nombre), pequeñas actualizaciones y una copia de seguridad (backup) mensual.
 
 **¿Cuánto tarda en entregarse una web?**
 La web Essential de Arquitecto Digital se entrega de 1 a 7 días. En los demás casos el plazo se acuerda en la propuesta según el alcance del proyecto. Durante el desarrollo hay revisiones intermedias para que veas avances y ajustes, sin sorpresas al final.
 
 **¿Qué incluye y qué no incluye el precio?**
-Incluye diseño, desarrollo, deploy, conexión de dominio, certificado SSL y SEO técnico. El mantenimiento anual (250 €/año, aparte) incluye dominio, servidor, mantenimiento y RGPD; el SSL va incluido en el precio de la web, no en el mantenimiento. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
+Incluye diseño, desarrollo, publicación, configuración del alojamiento y del dominio, conexión segura (el candado del navegador) y web preparada para Google. El mantenimiento anual (250 €/año, aparte) incluye dominio, servidor, mantenimiento y RGPD; la conexión segura va incluida en el precio de la web, no en el mantenimiento. Sin mantenimiento, puedes alojar la web donde quieras. No incluye redacción de contenido completo (se te ayuda con la estructura), fotos profesionales ni gestión de redes sociales.
 
 **¿La web es mía o me quedo atado a una plataforma?**
-La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin lock-in.
+La web es tuya. El código fuente es tuyo y el dominio queda a tu nombre desde el día uno. Si quieres cambiar de proveedor, te llevas todo. Sin ataduras.
 
 **¿Puedo ver un ejemplo real de vuestro trabajo?**
-Sí: arquitectodigital.io es HTML estático en GitHub Pages, hecho con esta misma propuesta, y puedes verlo en producción.
+Sí: arquitectodigital.io está hecha con páginas ligeras que cargan rápido desde cualquier sitio, en GitHub Pages, con esta misma propuesta, y puedes verla funcionando.
 
 ## Cursos privados de IA a domicilio
 
