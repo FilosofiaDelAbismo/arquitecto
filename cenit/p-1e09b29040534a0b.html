@@ -115,17 +115,6 @@
       <label for="pres-name">Tu nombre (para el saludo, opcional)</label>
       <input type="text" id="pres-name" name="name" placeholder="Cómo te llamo" autocomplete="given-name">
 
-      <!-- Las DOS casillas de Datcon, opcionales y sin premarcar. Mismos textos
-           que la cajita de Pioneros 100 y que el resto de formularios del sitio. -->
-      <label class="optin" for="pres-consent-comercial">
-        <input type="checkbox" id="pres-consent-comercial" name="consent_comercial">
-        <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
-      </label>
-      <label class="optin" for="pres-consent-personalizacion" style="border-top:0;padding-top:0;margin-top:10px;">
-        <input type="checkbox" id="pres-consent-personalizacion" name="consent_personalizacion">
-        <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
-      </label>
-
       <input class="hp" type="text" id="pres-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit">Reservar mi plaza</button>
       <!-- El mensaje de estado va PEGADO al botón, no al final del bloque:
@@ -206,9 +195,7 @@
     fetch(SUBSCRIBE_URL, {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        codigo: codigo, email: email, name: name, website: honey,
-        consent_comercial: !!document.getElementById("pres-consent-comercial").checked,
-        consent_personalizacion: !!document.getElementById("pres-consent-personalizacion").checked
+        codigo: codigo, email: email, name: name, website: honey
       })
     }).then(function (resp) {
       return resp.json().then(function (data) { return { status: resp.status, data: data }; });
