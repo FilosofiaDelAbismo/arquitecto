@@ -38,7 +38,10 @@ Comprueba en los ficheros del repo:
      prosa literaria, Libro Premium prosa literaria cuidada (tarjetas, ofertas JSON-LD,
      llms.txt, llms-full y el post del 28-08, que ya no dice «no se reescribe» ni «el
      tratamiento es el mismo»). Mantenimiento web (250 €/año) = dominio, servidor,
-     mantenimiento y RGPD; el SSL en el precio de la web, no en el mantenimiento.
+     mantenimiento y RGPD.
+ 11. Arreglos de la auditoría (18-11, decisión D3 de Daniel): NINGUNA mención al SSL,
+     al certificado ni a la conexión segura/candado en ningún fichero publicado de la
+     web (páginas, legales, llms). Sin «cursos de IA» (D13).
 
 Uso:
   python3 tools/test_geo_web.py            # rama: admite el marcador de la ficha
@@ -146,9 +149,11 @@ else:
             falla(f"portada: ProfessionalService sin «{campo}»")
     if n.get("name") != "Arquitecto Digital":
         falla("portada: ProfessionalService.name ≠ Arquitecto Digital")
-    for k in ("diseño web", "chatbots con ia", "blogs automáticos con ia", "sistemas de ia a medida", "cursos de ia"):
+    for k in ("diseño web", "chatbots con ia", "blogs automáticos con ia", "sistemas de ia a medida"):
         if k not in n.get("description", "").lower():
             falla(f"portada: description del negocio sin «{k}»")
+    if "curso" in n.get("description", "").lower():   # 2026-11-18 (D13): sin cursos de IA
+        falla("portada: la description del negocio ofrece cursos")
     if n.get("telephone") != "+34 743 08 86 55" or n.get("email") != "daniel@arquitectodigital.io":
         falla("portada: teléfono o email del negocio no coinciden con la ficha")
     if n.get("url") != "https://arquitectodigital.io/":
@@ -212,11 +217,13 @@ for f in paginas + ["llms.txt", "llms-full.txt", "robots.txt"]:
 for fn in ("llms.txt", "llms-full.txt"):
     t = leer(fn)
     for k in ("Chatbot", "Sprint", "41", "954", "2.650", "250", "529", "849", "158", "84",
-              "79,99", "149,99", "299,99", "15", "29,99", "GiroBot", "1.200", "Junior IA", "Senior IA",
+              "79,99", "149,99", "299,99", "15", "29,99", "GiroBot",
               "daniel@arquitectodigital.io", "743 08 86 55", "11:00 a 15:00", "17:00 a 21:00",
               "Jerez de la Frontera", "Chiclana de la Frontera", "Ficha de Google"):
         if k not in t:
             falla(f"{fn}: falta «{k}»")
+    if re.search(r"\bcursos?\b|Junior IA|Senior IA", t, re.I):   # 2026-11-18 (D13): sin cursos de IA
+        falla(f"{fn}: ofrece cursos de IA")
     if re.search(r"reforma\s*seo|auditor[ií]a[^.\n]{0,40}grat|grat[^.\n]{0,40}auditor", t, re.I):
         falla(f"{fn}: menciona Reforma SEO o auditoría gratis")
 if "la entrega de Audio a Libro es 100% digital, sin versión impresa" not in leer("llms-full.txt"):
@@ -341,16 +348,23 @@ for f in no_legal:
     for m in SSL_MANT.finditer(leer(f)):
         falla(f"{f}: «{m.group(0)}» (el SSL va incluido en el precio de la web)")
 w = leer("webs.html")
-faq_precio = re.findall(r"¿Qué incluye y qué no incluye el precio\?.{0,400}?Incluye ([^.]*)\.", w, re.S)
-# 2026-11-17 (jerga web): en webs.html el SSL se dice en llano, «conexión segura (el candado del navegador)».
-# 2026-11-17 (cierre web): llms-full.txt copia la FAQ de webs.html, así que también lo dice en llano.
-SSL_LLANO = "conexión segura (el candado del navegador)"
-if len(faq_precio) != 2 or not all(SSL_LLANO in x for x in faq_precio):
-    falla("webs.html: la FAQ «¿Qué incluye… el precio?» (visible y JSON-LD) no incluye la conexión segura (SSL)")
-if not re.search(r"Incluye: diseño, desarrollo, publicación, conexión de dominio,\s+conexión segura \(el candado del navegador\)", w):
-    falla("webs.html: «Qué incluye y qué no» ya no dice la conexión segura (SSL)")
-if f"Incluye diseño, desarrollo, publicación, configuración del alojamiento y del dominio, {SSL_LLANO}" not in leer("llms-full.txt"):
-    falla("llms-full.txt: el precio de la web ya no incluye la conexión segura (SSL)")
+# 2026-11-18 (arreglos auditoría, D3 de Daniel): el SSL NO se nombra en ningún sitio de la web (ni en el precio ni en
+# el mantenimiento): páginas, legales (también webs-condiciones.html), blog, muestras y llms. Sustituye a las
+# comprobaciones del 17-11 («la conexión segura va en el precio de la web»).
+SSL_CUALQUIERA = re.compile(r"\bSSL\b|certificado\s+(SSL|de\s+seguridad|digital)|conexi[oó]n\s+segura|"
+                            r"candado", re.I)
+publicados = subprocess.run(["git", "ls-files", "*.html", "*.txt"], cwd=ROOT, capture_output=True, text=True,
+                            check=True).stdout.split()
+publicados = [f for f in publicados if not f.startswith("tools/")]
+if "webs-condiciones.html" not in publicados or "llms-full.txt" not in publicados:
+    falla("SSL: la lista de ficheros publicados no trae webs-condiciones.html o llms-full.txt")
+for f in publicados:
+    for m in SSL_CUALQUIERA.finditer(leer(f)):
+        falla(f"{f}: «{m.group(0)}» (D3: ninguna mención al SSL en la web)")
+for viejo in ("la conexión segura va incluida en el precio de la web, no en el mantenimiento",
+              "alojamiento (hosting) y certificado SSL", "Incluye: diseño, desarrollo, publicación, conexión de dominio, conexión segura"):
+    if not SSL_CUALQUIERA.search(viejo):
+        falla(f"SSL: el patrón no detecta el texto de antes «{viejo}»")
 # b) Audio a Libro SÍ reescribe en prosa literaria: nada que diga lo contrario.
 NO_REESCRIBE = re.compile(r"no (se )?reescrib\w*|se limita a transcribir|convertido a texto y volcado|"
                           r"sin reescribir (tu|el) contenido", re.I)
@@ -453,17 +467,18 @@ mw = re.search(r'<h3 class="service-title">Mantenimiento anual</h3>(.*?)</ul>', 
 if not mw or "<li>Dominio, servidor, mantenimiento y RGPD</li>" not in mw.group(1) or "SSL" in mw.group(1):
     falla("webs.html: la tarjeta del mantenimiento no dice «Dominio, servidor, mantenimiento y RGPD» (o lleva SSL)")
 w2 = leer("webs.html")
-SSL_PRECIO_WEB = "la conexión segura va incluida en el precio de la web, no en el mantenimiento"   # webs.html, en llano
-if w2.count(f"incluye {MANT}; {SSL_PRECIO_WEB}") != 2:
-    falla("webs.html: la FAQ del precio (visible y JSON-LD) no dice qué incluye el mantenimiento y dónde va el SSL")
+# 2026-11-18 (D3): las dos FAQ del precio (visible y JSON-LD) dicen lo mismo que contratar.html, sin SSL.
+if w2.count(f"incluye {MANT}.") != 2 or w2.count(f"incluye {MANT}, pequeñas actualizaciones") != 2:
+    falla("webs.html: las FAQ del precio (visible y JSON-LD) no dicen que el mantenimiento incluye «dominio, servidor, "
+          "mantenimiento y RGPD» como contratar.html")
 cm = re.search(r"mantenimiento: \{(.*?)\}", leer("contratar.html"), re.S)
 if not cm or '"Dominio, servidor, mantenimiento y RGPD"' not in cm.group(1) or "SSL" in cm.group(1):
     falla("contratar.html: el mantenimiento no incluye «Dominio, servidor, mantenimiento y RGPD» (o lleva SSL)")
 lw = [x for x in leer("llms.txt").splitlines() if "webs.html" in x]
-if len(lw) != 1 or f"incluye {MANT}" not in lw[0] or SSL_PRECIO not in lw[0]:
-    falla("llms.txt: la línea de webs no dice qué incluye el mantenimiento y dónde va el SSL")
-if f"incluye {MANT}; {SSL_PRECIO}" not in lf:
-    falla("llms-full.txt: no dice qué incluye el mantenimiento y dónde va el SSL")
+if len(lw) != 1 or f"incluye {MANT}" not in lw[0] or SSL_CUALQUIERA.search(lw[0]):
+    falla("llms.txt: la línea de webs no dice qué incluye el mantenimiento (o nombra el SSL)")
+if f"incluye {MANT}." not in lf:
+    falla("llms-full.txt: no dice qué incluye el mantenimiento")
 
 print(f"· portada: title {len(titulo)} car. · description {len(desc)} car. · {len(bloques)} bloques JSON-LD")
 print(f"· pie común en {len(con_pie)} páginas · {len(LEGALES)} legales · marcador de ficha en "
