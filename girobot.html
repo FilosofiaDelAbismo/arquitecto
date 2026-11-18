@@ -164,7 +164,7 @@
       "name": "¿Tiene permanencia? ¿Puedo cancelar cuando quiera?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El plan mensual es cancelable cuando quieras, sin permanencia. La cuota de alta única de 199€ no es reembolsable."
+        "text": "El plan mensual es cancelable cuando quieras, sin permanencia."
       }
     },
     {
@@ -403,20 +403,11 @@
   </div>
   <p class="gb-alta">+ cuota de alta única: <strong>199€</strong> el pack todo en uno.
     Se incluye en el primer pago. Precios con IVA incluido. Si contratas como empresa o autónomo, la factura lleva la retención de IRPF del 7 %, ya incluida en el precio.<br>
-    El plan mensual es cancelable cuando quieras, sin permanencia.
-    La cuota de alta única de 199€ no es reembolsable.</p>
+    El plan mensual es cancelable cuando quieras, sin permanencia.</p>
   <div id="gb-consent" class="consent-group" style="max-width:820px;margin:8px auto 0;">
     <label class="consent-item">
       <input type="checkbox" name="consent_legal" id="gb-legal">
       <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones Generales de Contratación</a> y las <a href="/girobot-condiciones.html" target="_blank" rel="noopener">Condiciones Específicas</a><span class="req-mark" aria-hidden="true">*</span></span>
-    </label>
-    <label class="consent-item">
-      <input type="checkbox" name="consent_comercial" id="gb-com">
-      <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
-    </label>
-    <label class="consent-item">
-      <input type="checkbox" name="consent_personalizacion" id="gb-pers">
-      <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
     </label>
     <p class="consent-note" id="gb-msg" role="status" aria-live="polite">* Marca la primera casilla para poder contratar.</p>
   </div>
@@ -443,8 +434,6 @@
 <script>
 (function () {
   var legal = document.getElementById('gb-legal');
-  var com = document.getElementById('gb-com');
-  var pers = document.getElementById('gb-pers');
   var msg = document.getElementById('gb-msg');
   var box = document.getElementById('gb-consent');
   if (!legal) return;
@@ -461,8 +450,6 @@
       // registro acreditable: se pasa el consentimiento al backend (fase backend lo persiste)
       var u = new URL(a.getAttribute('href'));
       u.searchParams.set('c_legal', '1');
-      u.searchParams.set('c_com', (com && com.checked) ? '1' : '0');
-      u.searchParams.set('c_pers', (pers && pers.checked) ? '1' : '0');
       window.location.href = u.toString();
     });
   });
@@ -504,7 +491,7 @@
 
     <div>
       <h3 style="font-family: 'Fraunces', serif; color: var(--orange); margin-bottom: 8px; font-size: 1.15em;">¿Tiene permanencia? ¿Puedo cancelar cuando quiera?</h3>
-      <p style="color: var(--text-dim); line-height: 1.6;">El plan mensual es cancelable cuando quieras, sin permanencia. La cuota de alta única de 199€ no es reembolsable.</p>
+      <p style="color: var(--text-dim); line-height: 1.6;">El plan mensual es cancelable cuando quieras, sin permanencia.</p>
     </div>
 
     <div>
@@ -542,7 +529,7 @@
       <div class="footer-brand">
         <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
-          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin ataduras: todo queda a tu nombre y te lo puedes llevar.
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin permanencia: te das de baja cuando quieras.
         </p>
         <p>
           <a href="tel:+34743088655" style="color:inherit;">+34 743 08 86 55</a> · <a href="mailto:daniel@arquitectodigital.io" style="color:inherit;">daniel@arquitectodigital.io</a>

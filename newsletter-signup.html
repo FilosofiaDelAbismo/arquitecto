@@ -142,10 +142,6 @@
             <input type="checkbox" id="nl-consent-legal" name="consent_legal" disabled>
             <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a>, <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y la recepción de comunicaciones, promociones, ofertas y comunicaciones comerciales<span class="req-mark">*</span></span>
           </label>
-          <label class="consent-item" for="nl-consent-personalizacion">
-            <input type="checkbox" id="nl-consent-personalizacion" name="consent_personalizacion" disabled>
-            <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
-          </label>
         </div>
 
         <button type="submit" class="form-submit" disabled aria-disabled="true">Altas cerradas</button>
@@ -169,7 +165,7 @@
       <div class="footer-brand">
         <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
-          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin ataduras: todo queda a tu nombre y te lo puedes llevar.
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin permanencia: te das de baja cuando quieras.
         </p>
         <p>
           <a href="tel:+34743088655" style="color:inherit;">+34 743 08 86 55</a> · <a href="mailto:daniel@arquitectodigital.io" style="color:inherit;">daniel@arquitectodigital.io</a>
@@ -262,7 +258,6 @@
     var honey = form.elements['website'].value.trim();
     var name = form.elements['name'] ? form.elements['name'].value.trim() : '';
     var consentLegal = form.elements['consent_legal'] && form.elements['consent_legal'].checked;
-    var consentPersonalizacion = form.elements['consent_personalizacion'] && form.elements['consent_personalizacion'].checked;
 
     if (honey) {
       // Bot detectado. Fingimos OK para no darle pista.
@@ -291,8 +286,7 @@
         name: name,
         client_id: 'ncli_43abf681d355476e9fe5f18aa7673b10',
         website: honey,
-        consent_comercial: true,
-        consent_personalizacion: consentPersonalizacion
+        consent_comercial: true
       })
     }).then(function (resp) {
       if (resp.status === 202) {

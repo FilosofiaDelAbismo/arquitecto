@@ -229,7 +229,7 @@
       <span class="accent">tu contenido</span>.
     </h1>
     <p class="hero-sub">
-      Construyo sistemas IA de agencia a precio asequible. Sin ataduras: todo queda a tu nombre y te lo puedes llevar.
+      Construyo sistemas IA de agencia a precio asequible. Sin permanencia: te das de baja cuando quieras.
       Chatbots, autoblogs, audio→libro, sistemas a medida — lo que automatiza tu negocio sin sustituir tu criterio.
     </p>
     <div class="hero-cta-group">
@@ -384,7 +384,7 @@
         <span class="service-icon">🌐</span>
         <h3 class="service-title">Webs Personalizadas</h3>
         <p class="service-desc">
-          Webs profesionales para empresa. Diseño + desarrollo + publicación + dominio. Tu web se construye con tu contenido y tus datos. Sin ataduras: todo queda a tu nombre y te lo puedes llevar; el código es tuyo y se puede editar.
+          Webs profesionales para empresa. Diseño + desarrollo + publicación + dominio. Tu web se construye con tu contenido y tus datos. Sin permanencia: te das de baja cuando quieras; el código es tuyo y se puede editar.
         </p>
         <ul class="service-features">
           <li>Essential: 1 página, 5 secciones, se ve bien en el móvil y preparada para Google</li>
@@ -515,7 +515,7 @@
         <span class="process-num">04</span>
         <h3 class="process-title">Entrega + transferencia</h3>
         <p class="process-desc">
-          El sistema queda funcionando en tu infraestructura o la mía, como prefieras. Documentación incluida. Sin ataduras: todo queda a tu nombre y te lo puedes llevar.
+          El sistema queda funcionando en tu infraestructura o la mía, como prefieras. Documentación incluida. Sin permanencia: te das de baja cuando quieras.
         </p>
       </div>
     </div>
@@ -535,7 +535,7 @@
     </p>
 
     <div class="stack-grid">
-      <div class="stack-item"><strong>Sin ataduras</strong>Todo queda a tu nombre y te lo puedes llevar. Documentado. Sin dependencias secretas.</div>
+      <div class="stack-item"><strong>Sin permanencia</strong>Te das de baja cuando quieras. Documentado. Sin dependencias secretas.</div>
       <div class="stack-item"><strong>Todo a la vista</strong>Cada decisión técnica está documentada. Tú entiendes lo que tienes.</div>
       <div class="stack-item"><strong>Sin sorpresas</strong>Precio cerrado al inicio. Revisiones durante. Sin "esto cuesta más".</div>
       <div class="stack-item"><strong>Calidad sobre velocidad</strong>Pruebas antes de entregar. Lo que entrego no se cae los domingos.</div>
@@ -598,7 +598,7 @@
       <div class="contact-info">
         <h3>Cuéntame qué necesitas.</h3>
         <p>
-          Respondo en menos de 48 horas laborables. Si tu caso encaja, te propongo llamada. Si no encaja, te lo digo directamente y te ahorro tiempo. No vendo lo que no puedo entregar.
+          Respondo a la mayor brevedad posible. Si tu caso encaja, te propongo llamada. Si no encaja, te lo digo directamente y te ahorro tiempo. No vendo lo que no puedo entregar.
         </p>
 
         <ul class="contact-methods">
@@ -676,14 +676,6 @@
             <input type="checkbox" name="consent_legal" id="cf-consent-legal">
             <span>Acepto la totalidad de condiciones del <a href="/aviso-legal.html" target="_blank" rel="noopener">Aviso Legal</a> y <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a><span class="req-mark" aria-hidden="true">*</span></span>
           </label>
-          <label class="consent-item">
-            <input type="checkbox" name="consent_comercial" id="cf-consent-comercial">
-            <span>Acepto recibir promociones, ofertas y comunicaciones comerciales</span>
-          </label>
-          <label class="consent-item">
-            <input type="checkbox" name="consent_personalizacion" id="cf-consent-personalizacion">
-            <span>Acepto que estas comunicaciones sean personalizadas en función de mi perfil, comportamiento y mis preferencias personales</span>
-          </label>
         </div>
         <p class="consent-note">* Campos obligatorios.</p>
         <button type="submit" class="form-submit">Enviar →</button>
@@ -700,7 +692,7 @@
       <div class="footer-brand">
         <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
         <p>
-          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin ataduras: todo queda a tu nombre y te lo puedes llevar.
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin permanencia: te das de baja cuando quieras.
         </p>
         <p>
           <a href="tel:+34743088655" style="color:inherit;">+34 743 08 86 55</a> · <a href="mailto:daniel@arquitectodigital.io" style="color:inherit;">daniel@arquitectodigital.io</a>
@@ -822,9 +814,7 @@
         servicio: contactForm.servicio.value,
         mensaje: (contactForm.mensaje.value || '').trim(),
         website: contactForm.website.value,  // honeypot (debe ir vacío)
-        consent_legal: !!contactForm.consent_legal.checked,
-        consent_comercial: !!contactForm.consent_comercial.checked,
-        consent_personalizacion: !!contactForm.consent_personalizacion.checked
+        consent_legal: !!contactForm.consent_legal.checked
       };
       if (!payload.consent_legal) {
         statusEl.style.color = '#c0392b';
