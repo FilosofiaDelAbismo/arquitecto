@@ -65,11 +65,12 @@ CIUDADES = {"El Puerto de Santa María", "Cádiz", "Jerez de la Frontera", "Chic
 LEGALES = ["aviso-legal", "privacidad", "cookies", "condiciones", "audio-libro-condiciones",
            "autoblog-condiciones", "chatbot-condiciones", "crea-tu-cancion-condiciones",
            "girobot-condiciones", "sistemas-condiciones", "webs-condiciones", "cenit-condiciones",
-           "cenit-uso", "cenit-privacidad", "cenit-pioneros-bases", "privacidad-pinterest",
-           "cenit/legal/privacidad", "cenit/legal/terminos"]
+           "cenit-uso", "cenit-privacidad", "cenit-pioneros-bases", "privacidad-pinterest"]
+# 19/11/2026: cenit/legal/privacidad y cenit/legal/terminos son redirecciones a
+# cenit-privacidad.html y cenit-condiciones.html (sin pie ni dirección postal).
 # Páginas no legales que llevan un aviso de privacidad con la dirección postal
 # (noindex, nofollow, fuera del sitemap). Se informan, no se tocan.
-CON_AVISO_PRIVACIDAD = {"cenit/p-1e09b29040534a0b.html"}
+CON_AVISO_PRIVACIDAD: set[str] = set()   # 19/11/2026: la página de Cénit presencial ya no existe
 CALLE_NIF = re.compile(r"C/\s*Chile|Calle\s+Chile|45326983", re.I)
 
 fallos: list[str] = []

@@ -59,17 +59,17 @@ Las consultas van por email, con prioridad en el plan Pro y sin un plazo de resp
 
 URL: https://arquitectodigital.io/sistemas.html
 
-Sistemas IA a medida para casos que no encajan en los servicios estándar. Sprint cerrado con presupuesto fijo previo desde 2.650€ en pago único, o consultoría por hora a 100€/h con mínimo de 2h por sesión. Precios con IVA incluido. Si contratas como empresa o autónomo, la factura lleva la retención de IRPF del 7 %, ya incluida en el precio. Los sprints medio y complejo y el mantenimiento mensual son a presupuesto según alcance.
+Sistemas IA a medida para casos que no encajan en los servicios estándar. Sprint cerrado con presupuesto fijo previo desde 2.650€ en pago único, o consultoría por hora a 100€/h. Precios con IVA incluido. Si contratas como empresa o autónomo, la factura lleva la retención de IRPF del 7 %, ya incluida en el precio. Los sprints medio y complejo y el mantenimiento mensual son a presupuesto según alcance.
 
 ### Planes y precios
 
 - Sprint simple: desde 2.650 €. 3-5 días de trabajo dedicado, alcance cerrado por escrito, documentación incluida. Pago único, IVA incluido.
-- Consultoría por hora: 100 €/h. Para auditorías, dudas técnicas o sprints sueltos. Mínimo 2h por sesión, facturación quincenal, tope acordado por bolsa. IVA incluido.
+- Consultoría por hora: 100 €/h. Para auditorías, dudas técnicas o sprints sueltos. Facturación quincenal, tope acordado por bolsa. IVA incluido.
 
 ### Preguntas frecuentes
 
 **¿Cuánto cuesta un sistema a medida?**
-El sprint cerrado parte de 2.650€ en pago único, con presupuesto fijo acordado antes de empezar. Los sprints medio y complejo van a presupuesto a medida según el alcance. Y hay consultoría por hora a 100€/h con un mínimo de 2h por sesión. Todo con IVA incluido.
+El sprint cerrado parte de 2.650€ en pago único, con presupuesto fijo acordado antes de empezar. Los sprints medio y complejo van a presupuesto a medida según el alcance. Y hay consultoría por hora a 100€/h. Todo con IVA incluido.
 
 **¿Cómo sé lo que voy a pagar antes de empezar?**
 Antes de cualquier presupuesto hay una sesión de 30 a 60 minutos para entender el caso, y de ahí sale un documento de alcance cerrado por escrito. Si después surge una ampliación, se cotiza aparte como sprint nuevo.
