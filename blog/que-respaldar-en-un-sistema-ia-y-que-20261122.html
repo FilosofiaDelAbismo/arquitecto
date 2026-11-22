@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script defer data-domain="arquitectodigital.io" src="https://analytics.arquitectodigital.io/js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qué respaldar en un sistema IA y qué es reconstruible · Arquitecto Digital</title>
+<meta name="description" content="No todo merece el mismo nivel de protección. Saber distinguir qué es estado crítico y qué es reconstruible evita tanto el pánico como la negligencia.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://arquitectodigital.io/blog/que-respaldar-en-un-sistema-ia-y-que-20261122.html">
+
+<meta property="og:title" content="Qué respaldar en un sistema IA y qué es reconstruible">
+<meta property="og:description" content="No todo merece el mismo nivel de protección. Saber distinguir qué es estado crítico y qué es reconstruible evita tanto el pánico como la negligencia.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://arquitectodigital.io/blog/que-respaldar-en-un-sistema-ia-y-que-20261122.html">
+<meta property="og:site_name" content="Arquitecto Digital">
+<meta property="og:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<meta property="article:published_time" content="2026-11-22">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arquitectodigital.io/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Fraunces:wght@400;500;600;700;900&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script defer src="/assets/cookies.js"></script>
+<script defer src="/assets/blog.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Qué respaldar en un sistema IA y qué es reconstruible",
+      "description": "No todo merece el mismo nivel de protección. Saber distinguir qué es estado crítico y qué es reconstruible evita tanto el pánico como la negligencia.",
+      "url": "https://arquitectodigital.io/blog/que-respaldar-en-un-sistema-ia-y-que-20261122.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arquitectodigital.io/blog/que-respaldar-en-un-sistema-ia-y-que-20261122.html"
+      },
+      "datePublished": "2026-11-22",
+      "dateModified": "2026-11-22",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Daniel",
+        "url": "https://arquitectodigital.io/"
+      },
+      "publisher": {
+        "@id": "https://arquitectodigital.io/#organization"
+      },
+      "articleSection": "Infraestructura IA",
+      "image": "https://arquitectodigital.io/assets/og-image.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Necesito respaldar los embeddings de mi sistema RAG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No es lo más urgente. Los embeddings se pueden regenerar si conservas la fuente documental. Lo irrecuperable es el trabajo editorial: qué fragmentos incluir, cómo estructurarlos y por qué. Eso sí necesita documentación y respaldo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre respaldar credenciales y gestionarlas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Respaldar es hacer una copia. Gestionar implica rotación programada, almacenamiento en un gestor de secretos separado del código y alertas ante caducidad o fallo. Las credenciales necesitan gestión, no solo copia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si un componente de mi sistema es crítico o prescindible?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hazte dos preguntas: ¿qué consecuencias externas tiene su pérdida (clientes, facturación, auditoría)? y ¿cuánto tiempo y esfuerzo requiere reconstruirlo? Si la pérdida tiene consecuencias externas y la reconstrucción es costosa, es crítico e irrecuperable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿\"Está en la nube\" equivale a \"está respaldado\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Un servicio SaaS puede cerrar, cambiar condiciones de exportación o perder datos. Si tu corpus o configuración está solo en la plataforma de un tercero sin copia propia exportable, no tienes respaldo real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia debo verificar que mis respaldos funcionan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un respaldo que nunca se ha restaurado en un entorno de prueba es una hipótesis. La frecuencia depende de cuánto cambia el sistema, pero la verificación debe hacerse de forma periódica y documentada. El fallo silencioso de un proceso de backup es un riesgo real."
+          }
+        }
+      ],
+      "@id": "https://arquitectodigital.io/blog/que-respaldar-en-un-sistema-ia-y-que-20261122.html#faq"
+    }
+  ]
+}
+</script>
+<style>
+  .post-page { max-width: 860px; margin: 0 auto; padding: 150px 20px 80px; }
+  .post-back { font-family: 'JetBrains Mono', monospace; font-size: .85em; margin-bottom: 24px; }
+  .post-back a, .post-related a { color: var(--orange); }
+  .post-related { margin-top: 36px; padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text-dim); }
+  .post-cta { text-align: center; margin-top: 50px; }
+</style>
+</head>
+<body>
+
+<!-- PARTIAL:header -->
+<header>
+  <nav>
+    <a href="/" class="logo" style="text-decoration:none">arquitecto<span>digital</span><span style="color:var(--orange);">.io</span></a>
+    <ul class="nav-links">
+      <li><a href="/chatbot.html">Chatbot a medida</a></li>
+      <li><a href="/crea-tu-cancion.html">Canción</a></li>
+      <li><a href="/audio-libro.html">Audio → Libro</a></li>
+      <li><a href="/cenit/">Cénit</a></li>
+      <li><a href="/girobot.html">GiroBot</a></li>
+      <li class="nav-dropdown">
+        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">Más servicios</a>
+        <ul class="nav-dropdown-menu" role="menu">
+          <li><a href="/sistemas.html">Automatización a medida</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+          <li><a href="/webs.html">Webs Personalizadas</a></li>
+        </ul>
+      </li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <a href="/#contacto" class="nav-cta">Hablemos →</a>
+  </nav>
+</header>
+<!-- Aviso de cookies (14-11-2026): franja en el flujo, bajo la cabecera.
+     Sale oculta; el script de abajo pone --ad-cab (alto de la cabecera fija) y
+     la enseña antes de pintar si no se pulsó «Entendido» (misma clave y versión que assets/cookies.js, que lleva el botón
+     y «Ver el aviso de cookies» del pie). -->
+<div class="cookie-banner" id="aviso-cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Esta web no usa cookies. <a href="/cookies.html">Más info</a></p>
+  <button type="button" data-close="1">Entendido</button>
+</div>
+<script>(function(){var b=document.getElementById('aviso-cookies');var h=b.previousElementSibling;document.documentElement.style.setProperty('--ad-cab',(h&&h.tagName==='HEADER'&&getComputedStyle(h).position==='fixed'?h.getBoundingClientRect().height:0)+'px');try{var r=JSON.parse(localStorage.getItem('ad_cookie_consent'));if(r&&typeof r==='object'&&r.v===2)return;}catch(e){}b.hidden=false;})();</script>
+<!-- /PARTIAL:header -->
+
+<main class="post-page">
+  <p class="post-back"><a href="/blog.html#art-que-respaldar-en-un-sistema-ia-y-que-20261122">← Volver al blog</a></p>
+    <div class="featured-wrap" id="art-que-respaldar-en-un-sistema-ia-y-que-20261122">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content="2026-11-22">
+      <meta itemprop="dateModified" content="2026-11-22">
+      <meta itemprop="author" content="Arquitecto Digital">
+      <meta itemprop="publisher" content="Arquitecto Digital">
+      <div class="af-top-bar c-arq"></div>
+      <div class="af-header">
+        <div class="af-meta">
+          <span class="af-cat c-arq">Infraestructura IA</span>
+          <time class="af-date" datetime="2026-11-22" itemprop="datePublished">22 Nov 2026</time>
+          <span class="af-read">· 6 min lectura</span>
+        </div>
+        <h1 class="af-title" itemprop="headline">Qué respaldar en un sistema IA y qué es reconstruible</h1>
+      </div>
+      <div class="af-body" itemprop="articleBody">
+        <p class="af-excerpt">No todo merece el mismo nivel de protección. Saber distinguir qué es estado crítico y qué es reconstruible evita tanto el pánico como la negligencia.</p>
+        <div class="af-content af-content-open" id="art-que-respaldar-en-un-sistema-ia-y-que-20261122-content">
+          <h3>El error más común: tratar todo igual</h3>
+<p>Cuando una PYME empieza a depender de un sistema de automatización con IA, llega inevitablemente el momento de preguntarse: ¿qué pasa si esto falla? La respuesta más habitual es una de dos: o se ignora la pregunta hasta que hay un problema, o se intenta respaldar absolutamente todo sin criterio.</p>
+<p>Ambas posturas son errores. La primera es negligencia. La segunda es ruido que consume tiempo y recursos sin reducir el riesgo real.</p>
+<p>La pregunta correcta no es <strong>"¿tengo copia de seguridad?"</strong> sino <strong>"¿de qué necesito copia y por qué?"</strong>. La respuesta depende de una clasificación que pocas veces se hace explícita: qué es estado, qué son credenciales y qué es corpus. Y dentro de cada categoría, qué es verdaderamente irrecuperable y qué se puede reconstruir.</p>
+
+<h3>Estado: lo que no se puede recalcular</h3>
+<p>El estado es el conjunto de datos que describen la situación actual de tu sistema en un momento dado. Conversaciones activas, configuraciones de usuario, registros de auditoría, colas de tareas pendientes, historial de interacciones.</p>
+<p>El criterio para decidir si algo de estado merece respaldo es simple: <strong>¿puedo reconstruirlo a partir de otra fuente, o se pierde para siempre si desaparece?</strong></p>
+<p>Imagina una pyme que usa un asistente conversacional para atender consultas de clientes. Si el sistema pierde el historial de una conversación en curso, ese cliente tendrá que repetir su problema desde cero. Si pierde el registro de qué preguntas han generado respuestas rechazadas por el verificador de cifras, pierde también la capacidad de auditar el comportamiento del sistema. Eso no se reconstruye.</p>
+<p>En cambio, si el sistema pierde las métricas de uso de la semana pasada porque nadie las había exportado, duele, pero no paraliza el negocio ni borra información de clientes.</p>
+<p>Criterio práctico: <strong>respalda el estado que tiene consecuencias externas</strong> (afecta a clientes, a facturación o a auditoría) y acepta perder el estado interno que solo sirve para optimización interna.</p>
+
+<h3>Credenciales: el riesgo más subestimado</h3>
+<p>Las credenciales no son solo contraseñas. Son tokens de API, claves privadas de integraciones, certificados, claves de cifrado de bases de datos y cualquier secreto que permita a tu sistema actuar en nombre tuyo o acceder a datos de terceros.</p>
+<p>Aquí el problema no es solo la pérdida: es la exposición. Una credencial respaldada en el lugar equivocado es peor que no tenerla respaldada. Y una credencial sin fecha de caducidad controlada es una bomba de tiempo.</p>
+<p>Un patrón de fallo habitual: sistemas que usan tokens personales de larga duración en lugar de credenciales de aplicación con rotación automática. Si ese token caduca o se revoca, la automatización falla en silencio. El error queda en un log que nadie revisa.</p>
+
+<div class="highlight">💡 Las credenciales no se respaldan como los datos: se gestionan. Eso significa rotación programada, almacenamiento en un gestor de secretos separado del código, y alertas cuando una credencial está próxima a caducar o ha fallado. Si tu sistema de automatización usa un token personal de GitHub, un API key pegado en una variable de entorno sin fecha de revisión o una contraseña compartida por email, tienes deuda técnica de seguridad, no solo de respaldo.</div>
+
+<h3>Corpus: la distinción que más se confunde</h3>
+<p>El corpus es la base de conocimiento sobre la que opera tu sistema de IA. En un sistema RAG (recuperación aumentada por generación), es el conjunto de documentos, fragmentos y embeddings que el modelo consulta para responder.</p>
+<p>Aquí la confusión más frecuente es pensar que los embeddings son lo crítico. No lo son. <strong>Lo crítico es la fuente</strong>: los documentos originales, las preguntas y respuestas curadas, las políticas internas, los manuales de producto. Los embeddings son una representación matemática de esa fuente que se puede regenerar si tienes la fuente.</p>
+<p>Lo que sí es irrecuperable es el trabajo editorial: decidir qué fragmentos incluir, cómo estructurarlos, qué preguntas reales responde cada uno. Ese criterio no está en ningún archivo automático. Está en decisiones humanas que, si no se documentan, desaparecen.</p>
+<p>Supongamos que una empresa de servicios profesionales construye una base de conocimiento para su asistente interno con 200 fragmentos, cada uno diseñado para responder una pregunta específica de sus procesos. Si pierden los embeddings, los regeneran en horas. Si pierden los documentos fuente, los recuperan de sus sistemas de gestión documental. Pero si pierden el criterio de por qué cada fragmento tiene ese alcance y no otro, eso no se recupera sin rehacer el trabajo editorial desde cero.</p>
+
+<div class="prompt-box">
+<strong>Prompt de diagnóstico para tu equipo:</strong><br><br>
+"Lista los componentes del sistema [nombre del sistema]. Para cada uno, responde tres preguntas: (1) ¿Qué pasaría si desaparece mañana sin aviso? (2) ¿Cuánto tiempo tardaríamos en reconstruirlo y a partir de qué fuente? (3) ¿Hay algún trabajo humano o editorial dentro de ese componente que no esté documentado en ningún otro sitio? Clasifica cada componente como: crítico-irrecuperable / crítico-reconstruible / prescindible."
+</div>
+
+<h3>La matriz de decisión</h3>
+<p>Una forma práctica de ordenar el criterio:</p>
+<ul>
+  <li><strong>Crítico e irrecuperable:</strong> respalda con frecuencia, verifica que el respaldo funciona, define RTO (tiempo de recuperación objetivo). Ejemplos: registros de auditoría, configuraciones de producción, trabajo editorial del corpus, credenciales activas.</li>
+  <li><strong>Crítico pero reconstruible:</strong> documenta el proceso de reconstrucción. El respaldo es secundario si el proceso es rápido y fiable. Ejemplos: embeddings (si tienes la fuente), código de workflows (si está en control de versiones), configuraciones de modelos.</li>
+  <li><strong>No crítico:</strong> no inviertas tiempo en respaldarlo de forma sistemática. Ejemplos: logs de depuración antiguos, métricas de uso sin valor de auditoría, versiones intermedias de prompts descartados.</li>
+</ul>
+
+<h3>Lo que suele fallar en la práctica</h3>
+<p>Tres patrones de fallo que aparecen con regularidad en sistemas de automatización IA en PYMEs:</p>
+<ol>
+  <li><strong>Respaldar el output, no la fuente.</strong> Guardar copias de las respuestas generadas pero no los documentos que las hicieron posibles. Cuando el sistema cambia de modelo o de arquitectura, el output anterior no sirve de nada.</li>
+  <li><strong>Confundir "está en la nube" con "está respaldado".</strong> Un servicio SaaS puede cerrar, cambiar condiciones o perder datos. Si tu corpus está solo en la plataforma de un tercero sin exportación propia, no está respaldado.</li>
+  <li><strong>No verificar que el respaldo funciona.</strong> Un respaldo que nunca se ha restaurado en un entorno de prueba es una hipótesis, no una garantía. El fallo silencioso de un proceso de backup es más común de lo que parece.</li>
+</ol>
+
+<h3>El principio que ordena todo</h3>
+<p>Respalda en proporción al coste de reconstrucción, no al tamaño del archivo. Un documento de texto con el criterio editorial de tu base de conocimiento pesa kilobytes y vale semanas de trabajo. Un volcado de embeddings pesa gigabytes y se regenera en horas.</p>
+<p>Aplicar ese principio requiere entender tu sistema, no solo tenerlo. Y eso, en automatización IA para PYMEs, sigue siendo la diferencia entre un sistema que aguanta y uno que falla en el peor momento.</p>
+          <div class="faq-block">
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Necesito respaldar los embeddings de mi sistema RAG?</div>
+              <div class="faq-a"><span>No es lo más urgente. Los embeddings se pueden regenerar si conservas la fuente documental. Lo irrecuperable es el trabajo editorial: qué fragmentos incluir, cómo estructurarlos y por qué. Eso sí necesita documentación y respaldo.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia hay entre respaldar credenciales y gestionarlas?</div>
+              <div class="faq-a"><span>Respaldar es hacer una copia. Gestionar implica rotación programada, almacenamiento en un gestor de secretos separado del código y alertas ante caducidad o fallo. Las credenciales necesitan gestión, no solo copia.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si un componente de mi sistema es crítico o prescindible?</div>
+              <div class="faq-a"><span>Hazte dos preguntas: ¿qué consecuencias externas tiene su pérdida (clientes, facturación, auditoría)? y ¿cuánto tiempo y esfuerzo requiere reconstruirlo? Si la pérdida tiene consecuencias externas y la reconstrucción es costosa, es crítico e irrecuperable.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿&quot;Está en la nube&quot; equivale a &quot;está respaldado&quot;?</div>
+              <div class="faq-a"><span>No. Un servicio SaaS puede cerrar, cambiar condiciones de exportación o perder datos. Si tu corpus o configuración está solo en la plataforma de un tercero sin copia propia exportable, no tienes respaldo real.</span></div>
+            </div>
+            <div>
+              <div class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia debo verificar que mis respaldos funcionan?</div>
+              <div class="faq-a"><span>Un respaldo que nunca se ha restaurado en un entorno de prueba es una hipótesis. La frecuencia depende de cuánto cambia el sistema, pero la verificación debe hacerse de forma periódica y documentada. El fallo silencioso de un proceso de backup es un riesgo real.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="af-tags"><span class="atag">infraestructura IA</span><span class="atag">backup sistemas IA</span><span class="atag">RAG corpus</span><span class="atag">credenciales automatización</span><span class="atag">resiliencia PYME</span></div>
+      </div>
+      <div class="af-footer">
+        <span class="af-nl-cta">Automatiza sin sustituir tu criterio. <a href="https://arquitectodigital.io/#contacto" target="_blank">Hablemos →</a></span>
+        <div class="af-legal">Arquitecto Digital · Automatización IA para PYMEs</div>
+      </div>
+    </article>
+    </div>
+  <p class="post-related">Servicio relacionado: <a href="/sistemas.html">Automatización con IA para empresas →</a></p>
+  <div class="post-cta">
+    <a href="/#contacto" class="btn-primary">Hablemos de tu proyecto →</a>
+  </div>
+</main>
+
+<!-- PARTIAL:footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid footer-grid--full">
+      <div class="footer-brand">
+        <p class="footer-logo">arquitectodigital<span style="color:var(--text);">.io</span></p>
+        <p>
+          Daniel · Arquitecto Digital. Automatización IA profesional para PYMEs. Cada sistema se construye sobre tu propio contenido. Sin permanencia: te das de baja cuando quieras.
+        </p>
+        <p>
+          <a href="tel:+34743088655" style="color:inherit;">+34 743 08 86 55</a> · <a href="mailto:daniel@arquitectodigital.io" style="color:inherit;">daniel@arquitectodigital.io</a>
+        </p>
+        <p>
+          El Puerto de Santa María (Cádiz) · <a href="https://share.google/gVo3k0dbCbwYj7Q3Q" target="_blank" rel="noopener" style="color:inherit;">Ver Arquitecto Digital en Google</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="/chatbot.html">Chatbot a medida</a></li>
+          <li><a href="/crea-tu-cancion.html">Crea tu canción</a></li>
+          <li><a href="/audio-libro.html">Audio→Libro</a></li>
+          <li><a href="/girobot.html">GiroBot Twitch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>A medida</h5>
+        <ul>
+          <li><a href="/sistemas.html">Automatización con IA</a></li>
+          <li><a href="/webs.html">Webs</a></li>
+          <li><a href="/autoblog.html">Autoblog SEO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Mis proyectos</h5>
+        <ul>
+          <li><a href="/cenit/">Cénit · Diario Personal con IA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/utilidades/">Utilidades gratis</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#stack">Filosofía</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="#" onclick="if(window.ADCookies){ADCookies.reset();}return false;">Ver el aviso de cookies</a></li>
+          <li><a href="/condiciones.html">Condiciones</a></li>
+          <li><a href="/chatbot-condiciones.html">Condiciones · Chatbot</a></li>
+          <li><a href="/autoblog-condiciones.html">Condiciones · Autoblog</a></li>
+          <li><a href="/audio-libro-condiciones.html">Condiciones · Audio→Libro</a></li>
+          <li><a href="/crea-tu-cancion-condiciones.html">Condiciones · Crea tu canción</a></li>
+          <li><a href="/girobot-condiciones.html">Condiciones · GiroBot</a></li>
+          <li><a href="/sistemas-condiciones.html">Condiciones · Sistemas IA</a></li>
+          <li><a href="/webs-condiciones.html">Condiciones · Webs</a></li>
+          <li><a href="/cenit-condiciones.html">Condiciones · Cénit</a></li>
+          <li><a href="/cenit-uso.html">Condiciones de uso · App Cénit</a></li>
+          <li><a href="/cenit-privacidad.html">Privacidad · App Cénit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Daniel · Arquitecto Digital · Automatización IA profesional · España
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:footer -->
+
+<!-- chatbot_ai widget -->
+<script>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://api.arquitectodigital.io/widget.js';
+    s.async = true;
+    s.dataset.clientId = 'ccli_88b8e39ea9f04658b2278f8f83266ee4';
+    s.dataset.persona = 'Paz';
+    s.dataset.lang = 'es';
+    document.head.appendChild(s);
+  })();
+</script>
+
+<!-- D-TR-182: mobile hamburger + dropdown toggle -->
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = document.body.classList.toggle('nav-mobile-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  dropdowns.forEach(function (dd) {
+    var link = dd.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        e.preventDefault();
+        dd.classList.toggle('is-open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('header')) {
+      document.body.classList.remove('nav-mobile-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dropdowns.forEach(function (dd) { dd.classList.remove('is-open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
